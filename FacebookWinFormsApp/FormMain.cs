@@ -13,14 +13,44 @@ namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
+        AppSettings m_AppSettings;
+
         public FormMain()
         {
             InitializeComponent();
+            m_AppSettings = AppSettings.LoadFromFile();
+            this.rememberMe_CheckBox.Checked = m_AppSettings.RememberUser;
+           
             FacebookWrapper.FacebookService.s_CollectionLimit = 25;
         }
 
         FacebookWrapper.LoginResult m_LoginResult;
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            m_AppSettings.RememberUser = this.rememberMe_CheckBox.Checked;
+            if (m_AppSettings.RememberUser)
+            {
+                m_AppSettings.LastAccessToken = m_LoginResult.AccessToken;
+            }
+            else
+            {
+                m_AppSettings.LastAccessToken = null;
+            }
+            m_AppSettings.SaveToFile();
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            if (m_AppSettings.RememberUser && !string.IsNullOrEmpty(m_AppSettings.LastAccessToken))
+            {
+                m_LoginResult = FacebookService.Connect(m_AppSettings.LastAccessToken);
+            }
+
+
+        }
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             Clipboard.SetText("design.patterns");
@@ -39,7 +69,6 @@ namespace BasicFacebookFeatures
                 "public_profile"
                 /// add any relevant permissions
                 );
-
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
                 buttonLogin.Text = $"Logged in as {m_LoginResult.LoggedInUser.Name}";
@@ -47,8 +76,23 @@ namespace BasicFacebookFeatures
                 pictureBoxProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
                 buttonLogin.Enabled = false;
                 buttonLogout.Enabled = true;
+                friendsButton.Enabled = true;
+                groupsButton.Enabled = true;
+                videosButton.Enabled = true;
+                likedButton.Enabled = true;
+               photosButton.Enabled = true;
+                postsButton.Enabled = true;
+                postsPicture.Enabled = true;
+                photosPicture.Enabled = true;
+                friendsPicture.Enabled = true;  
+                videosPicture.Enabled = true;
+                groupsPicture.Enabled = true;
+                        
+
             }
         }
+
+
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
@@ -71,31 +115,9 @@ namespace BasicFacebookFeatures
 
         }
 
-        private void saveMe_CheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
   
         
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {

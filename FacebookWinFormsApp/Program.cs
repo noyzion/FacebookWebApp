@@ -12,6 +12,8 @@ namespace BasicFacebookFeatures
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+
+       
         static void Main()
         {
             Clipboard.SetText("design.patterns20cc");
