@@ -33,7 +33,7 @@ namespace BasicFacebookFeatures
         public static AppSettings LoadFromFile() 
         {
             AppSettings settings = new AppSettings();
-            if (File.Exists(@"D:\appSettings.xml"))
+            if (File.Exists(@"C:\Users\noyzi\OneDrive\Documents\appSettings.xml"))
             {
                 using (Stream stream = new FileStream(@"C:\Users\noyzi\OneDrive\Documents\appSettings.xml", FileMode.Open))
                 {

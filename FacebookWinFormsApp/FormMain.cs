@@ -47,6 +47,7 @@ namespace BasicFacebookFeatures
             if (m_AppSettings.RememberUser && !string.IsNullOrEmpty(m_AppSettings.LastAccessToken))
             {
                 m_LoginResult = FacebookService.Connect(m_AppSettings.LastAccessToken);
+                populateUIFromFacebookData();
             }
 
 
@@ -71,29 +72,37 @@ namespace BasicFacebookFeatures
                 );
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
-                buttonLogin.Text = $"Logged in as {m_LoginResult.LoggedInUser.Name}";
-                buttonLogin.BackColor = Color.LightGreen;
-                pictureBoxProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
-                buttonLogin.Enabled = false;
-                buttonLogout.Enabled = true;
-                friendsButton.Enabled = true;
-                groupsButton.Enabled = true;
-                videosButton.Enabled = true;
-                likedButton.Enabled = true;
-               photosButton.Enabled = true;
-                postsButton.Enabled = true;
-                postsPicture.Enabled = true;
-                photosPicture.Enabled = true;
-                friendsPicture.Enabled = true;  
-                videosPicture.Enabled = true;
-                groupsPicture.Enabled = true;
+               populateUIFromFacebookData();
                         
 
             }
         }
 
 
+        private void populateUIFromFacebookData()
+        {
+            buttonLogin.Text = $"Logged in as {m_LoginResult.LoggedInUser.Name}";
+            buttonLogin.BackColor = Color.LightGreen;
+            pictureBoxProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
+            buttonsAfterLogin();
+        }
 
+        private void buttonsAfterLogin()
+        {
+            buttonLogin.Enabled = false;
+            buttonLogout.Enabled = true;
+            friendsButton.Enabled = true;
+            groupsButton.Enabled = true;
+            videosButton.Enabled = true;
+            likedButton.Enabled = true;
+            photosButton.Enabled = true;
+            postsButton.Enabled = true;
+            postsPicture.Enabled = true;
+            photosPicture.Enabled = true;
+            friendsPicture.Enabled = true;
+            videosPicture.Enabled = true;
+            groupsPicture.Enabled = true;
+        }
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             FacebookService.LogoutWithUI();
