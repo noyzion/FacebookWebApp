@@ -112,6 +112,7 @@ namespace BasicFacebookFeatures
             eventsButton.Enabled = true;
             addPictureButton.Enabled = true;
             statusTextBox.Enabled = true;
+            videoButton.Enabled = true;
         }
         private void buttonLogout_Click(object sender, EventArgs e)
         {
@@ -542,6 +543,32 @@ namespace BasicFacebookFeatures
         private void statusTextBox_TextChanged(object sender, EventArgs e)
         {
             addPostButton.Enabled = !string.IsNullOrWhiteSpace(statusTextBox.Text);
+        }
+
+        private void videoButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    // Filter to accept only video file formats
+                    openFileDialog.Filter = "Video Files|*.mp4;*.avi;*.mov;*.wmv;*.flv";
+                    openFileDialog.Title = "Select a Video File to Upload";
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string selectedFilePath = openFileDialog.FileName;
+
+                        // Upload the video
+                        Post postedVideo = m_LoginResult.LoggedInUser.PostPhoto(selectedFilePath, "Uploaded via MyApp");
+                        MessageBox.Show($"Video posted successfully! ID: {postedVideo?.Id}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
         }
     }
 }

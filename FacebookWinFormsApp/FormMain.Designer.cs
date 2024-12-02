@@ -34,7 +34,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab1 = new System.Windows.Forms.TabPage();
             this.addPictureButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.statusTextBox = new System.Windows.Forms.TextBox();
             this.addPostButton = new System.Windows.Forms.Button();
@@ -58,6 +57,7 @@
             this.serviceController1 = new System.ServiceProcess.ServiceController();
             this.birthdayLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
+            this.videoButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).BeginInit();
@@ -119,10 +119,10 @@
             // tab1
             // 
             this.tab1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tab1.Controls.Add(this.videoButton);
             this.tab1.Controls.Add(this.emailLabel);
             this.tab1.Controls.Add(this.birthdayLabel);
             this.tab1.Controls.Add(this.addPictureButton);
-            this.tab1.Controls.Add(this.label3);
             this.tab1.Controls.Add(this.label2);
             this.tab1.Controls.Add(this.statusTextBox);
             this.tab1.Controls.Add(this.addPostButton);
@@ -156,7 +156,7 @@
             // 
             this.addPictureButton.BackColor = System.Drawing.Color.White;
             this.addPictureButton.Enabled = false;
-            this.addPictureButton.Location = new System.Drawing.Point(544, 65);
+            this.addPictureButton.Location = new System.Drawing.Point(682, 62);
             this.addPictureButton.Name = "addPictureButton";
             this.addPictureButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.addPictureButton.Size = new System.Drawing.Size(136, 31);
@@ -164,15 +164,6 @@
             this.addPictureButton.Text = "Add picture";
             this.addPictureButton.UseVisualStyleBackColor = false;
             this.addPictureButton.Click += new System.EventHandler(this.addPictureButton_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(426, 65);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 24);
-            this.label3.TabIndex = 78;
-            this.label3.Text = "Add picture:";
             // 
             // label2
             // 
@@ -440,6 +431,19 @@
             this.emailLabel.Size = new System.Drawing.Size(0, 24);
             this.emailLabel.TabIndex = 81;
             // 
+            // videoButton
+            // 
+            this.videoButton.BackColor = System.Drawing.Color.White;
+            this.videoButton.Enabled = false;
+            this.videoButton.Location = new System.Drawing.Point(830, 63);
+            this.videoButton.Name = "videoButton";
+            this.videoButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.videoButton.Size = new System.Drawing.Size(136, 31);
+            this.videoButton.TabIndex = 83;
+            this.videoButton.Text = "Add video";
+            this.videoButton.UseVisualStyleBackColor = false;
+            this.videoButton.Click += new System.EventHandler(this.videoButton_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -494,9 +498,9 @@
         private System.Windows.Forms.TextBox statusTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addPictureButton;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label birthdayLabel;
+        private System.Windows.Forms.Button videoButton;
     }
 }
 
