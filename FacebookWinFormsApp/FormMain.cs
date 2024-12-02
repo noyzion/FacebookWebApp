@@ -73,10 +73,8 @@ namespace BasicFacebookFeatures
                 "user_videos",
                 "user_posts",
                 "user_friends",
-                "user_events"
-
-                //"publish_to_groups"
-                //"groups_access_member_info"
+                "user_events",
+                "user_birthday"
                 );
 
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
@@ -92,6 +90,8 @@ namespace BasicFacebookFeatures
             buttonLogin.Text = $"Logged in as {m_LoginResult.LoggedInUser.Name}";
             buttonLogin.BackColor = Color.LightGreen;
             pictureBoxProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
+            birthdayLabel.Text =$"Birthday:  {m_LoginResult.LoggedInUser.Birthday}";
+            emailLabel.Text = $"Email: {m_LoginResult.LoggedInUser?.Email}";
             buttonsAfterLogin();
         }
 
@@ -110,6 +110,8 @@ namespace BasicFacebookFeatures
             groupsPicture.Enabled = true;
             eventsPictureBox.Enabled = true;
             eventsButton.Enabled = true;
+            addPictureButton.Enabled = true;
+            statusTextBox.Enabled = true;
         }
         private void buttonLogout_Click(object sender, EventArgs e)
         {
@@ -131,8 +133,6 @@ namespace BasicFacebookFeatures
         {
             fetchFriends();
         }
-
-
 
         private void postsButton_Click(object sender, EventArgs e)
         {
@@ -379,9 +379,10 @@ namespace BasicFacebookFeatures
             {
                 Label nameLabel = new Label { Text = $"Album Name: {album.Name}", RightToLeft = RightToLeft.Yes, AutoSize = true };
                 Label countLabel = new Label { Text = $"Photos: {album.Photos.Count}", RightToLeft = RightToLeft.Yes, AutoSize = true };
-                
+
                 DataPanel.Controls.Add(nameLabel);
                 DataPanel.Controls.Add(countLabel);
+
                 PictureBox albumPicture = new PictureBox
                 {
                     SizeMode = PictureBoxSizeMode.StretchImage,
@@ -398,12 +399,65 @@ namespace BasicFacebookFeatures
                 }
 
                 DataPanel.Controls.Add(albumPicture);
+
+                Button openAlbumButton = new Button
+                {
+                    Text = "Open Album",
+                    AutoSize = true
+                };
+
+                DataPanel.Controls.Add(openAlbumButton);
+
+                openAlbumButton.Click += (sender, e) => OpenAlbumPhotos(album);
             }
         }
+
+        private void OpenAlbumPhotos(Album album)
+        {
+            Form albumForm = new Form
+            {
+                Text = album.Name,
+                Width = 450,
+                Height = 600
+            };
+
+            albumForm.StartPosition = FormStartPosition.CenterScreen;
+
+            FlowLayoutPanel photoPanel = new FlowLayoutPanel
+            {
+                AutoScroll = true,
+                Dock = DockStyle.Fill
+            };
+
+            foreach (Photo photo in album.Photos)
+            {
+                PictureBox photoPicture = new PictureBox
+                {
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Size = new Size(200, 200)
+                };
+
+                if (!string.IsNullOrEmpty(photo.PictureNormalURL))
+                {
+                    photoPicture.ImageLocation = photo.PictureNormalURL;
+                }
+                else
+                {
+                    photoPicture.Image = pictureBoxProfile.ErrorImage;
+                }
+                photoPanel.Controls.Add(photoPicture);
+            }
+            albumForm.Controls.Add(photoPanel);
+
+            albumForm.ShowDialog();
+        }
+
+
         private void displayPostDetails(Post post)
         {
             if (post != null)
             {
+
                 Label messageLabel = new Label { Text = $"Message:  {post.Message}", AutoSize = true };
              //   Label likesLabel = new Label { Text = $"Likes: {post.LikedBy.Count}", AutoSize = true };
             //    Label commentsLabel = new Label { Text = $"Comments: {post.Comments.Count}", AutoSize = true };
@@ -441,9 +495,53 @@ namespace BasicFacebookFeatures
             fetchEvents();
         }
 
-        private void pictureBox_Click(object sender, EventArgs e)
+        private void addPostButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Status postedStatus = m_LoginResult.LoggedInUser.PostStatus(statusTextBox.Text);
+                MessageBox.Show($"Status posted! ID: {postedStatus.Id}");
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+
+            }
+            finally
+            {
+                statusTextBox.Clear();
+
+            }
+        }
+
+        private void addPictureButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                    openFileDialog.Title = "Select a Picture to Upload";
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string selectedFilePath = openFileDialog.FileName;
+
+                        Post postedPhoto = m_LoginResult.LoggedInUser.PostPhoto(selectedFilePath, "Uploaded via MyApp");
+                        MessageBox.Show($"Photo posted successfully! ID: {postedPhoto?.Id}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void statusTextBox_TextChanged(object sender, EventArgs e)
+        {
+            addPostButton.Enabled = !string.IsNullOrWhiteSpace(statusTextBox.Text);
         }
     }
 }
