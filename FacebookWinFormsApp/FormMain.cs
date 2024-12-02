@@ -82,7 +82,7 @@ namespace BasicFacebookFeatures
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
                 populateUIFromFacebookData();
-                }
+            }
         }
 
 
@@ -101,7 +101,7 @@ namespace BasicFacebookFeatures
             buttonLogout.Enabled = true;
             friendsButton.Enabled = true;
             groupsButton.Enabled = true;
-            likedButton.Enabled = true;
+            pagesButton.Enabled = true;
             albumsButton.Enabled = true;
             postsButton.Enabled = true;
             postsPicture.Enabled = true;
@@ -122,14 +122,6 @@ namespace BasicFacebookFeatures
             buttonLogout.Enabled = false;
         }
 
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void groupsButton_Click(object sender, EventArgs e)
         {
             fetchGroups();
@@ -152,7 +144,7 @@ namespace BasicFacebookFeatures
             fetchAlbums();
         }
 
-        private void likedButton_Click(object sender, EventArgs e)
+        private void pagesButton_Click(object sender, EventArgs e)
         {
             fetchLiked();
         }
@@ -180,11 +172,6 @@ namespace BasicFacebookFeatures
         private void photosPicture_Click(object sender, EventArgs e)
         {
             fetchAlbums();
-
-        }
-
-        private void rememberMe_CheckBox_CheckedChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -233,24 +220,30 @@ namespace BasicFacebookFeatures
             DataListBox.DataSource = null;
             if (DataListBox.Items != null)
                 DataListBox.Items.Clear();
-            DataListBox.DisplayMember = "Name";
+            DataListBox.DisplayMember = "UpdateTime";
             foreach (Post post in m_LoginResult.LoggedInUser.Posts)
             {
                 if (post.Message != null)
-                    DataListBox.Items.Add(post.Message);
-            }
+                {
+                    DataListBox.Items.Add(post);
+                }
+                else if (post.PictureURL != null)
+                {
+                    DataListBox.Items.Add(post);
+                }
 
+            }
         }
 
         private void fetchLiked()
         {
             DataListBox.DataSource = null;
-            if(DataListBox.Items != null)
-            DataListBox.Items.Clear();
+            if (DataListBox.Items != null)
+                DataListBox.Items.Clear();
             DataListBox.DisplayMember = "Name";
             foreach (Page page in m_LoginResult.LoggedInUser.LikedPages)
             {
-                DataListBox.Items.Add(page.Name);
+                DataListBox.Items.Add(page);
             }
         }
 
@@ -274,25 +267,167 @@ namespace BasicFacebookFeatures
         {
             if (DataListBox.SelectedItems.Count == 1)
             {
-                Type type = DataListBox.SelectedItem.GetType();
 
-                if(typeof(Album) == type)
+                DataPanel.Controls.Clear();
+                if (DataListBox.SelectedItem is Post)
                 {
-                    Album album =DataListBox.SelectedItem as Album;
-                    foreach (Control control in DataPanel.Controls)
-                    {
-                        if(control is PictureBox)
-                        {
-                            PictureBox pictureBox = (PictureBox)control;
-                            if (album.PictureAlbumURL != null)
-                                pictureBox.LoadAsync(album.PictureAlbumURL);
-                            else
-                                pictureBoxProfile.Image = pictureBoxProfile.ErrorImage;
-                        }
-                       
-                    }
+                    displayPostDetails(DataListBox.SelectedItem as Post);
+                }
+                else if (DataListBox.SelectedItem is Album)
+                {
+                    displayAlbumDetails(DataListBox.SelectedItem as Album);
+                }
+                else if (DataListBox.SelectedItem is Group)
+                {
+                    displayGroupDetails(DataListBox.SelectedItem as Group);
+                }
+                else if (DataListBox.SelectedItem is Page)
+                {
+                    displayPageDetails(DataListBox.SelectedItem as Page);
+                }
+                else if (DataListBox.SelectedItem is Event)
+                {
+                    displayEventDetails(DataListBox.SelectedItem as Event);
+                }
+            }
+        }
+
+        private void displayGroupDetails(Group group)
+        {
+            if (group != null)
+            {
+                Label nameLabel = new Label { Text = $"Group Name: {group.Name}", AutoSize = true };
+                Label membersLabel = new Label { Text = $"Members: {group.Members.Count}", AutoSize = true };
+                Label privacyLabel = new Label { Text = $"Privacy: {group.Privacy}", AutoSize = true };
+
+                DataPanel.Controls.Add(nameLabel);
+                DataPanel.Controls.Add(membersLabel);
+                DataPanel.Controls.Add(privacyLabel);
+
+                PictureBox groupPicture = new PictureBox
+                {
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Size = new Size(150, 150)
+                };
+
+                if (!string.IsNullOrEmpty(group.PictureNormalURL))
+                {
+                    groupPicture.ImageLocation = group.PictureNormalURL;
+                }
+                else
+                {
+                    groupPicture.Image = pictureBoxProfile.ErrorImage; 
                 }
 
+                DataPanel.Controls.Add(groupPicture);
+            }
+        }
+
+
+
+        private void displayPageDetails(Page page)
+        {
+            if (page != null)
+            {
+                Label nameLabel = new Label { Text = $"Page Name: {page.Name}", AutoSize = true };
+                Label categoryLabel = new Label { Text = $"Category: {page.Category}", AutoSize = true };
+                Label likesLabel = new Label { Text = $"Likes: {page.LikesCount}", AutoSize = true };
+
+                DataPanel.Controls.Add(nameLabel);
+                DataPanel.Controls.Add(categoryLabel);
+                DataPanel.Controls.Add(likesLabel);
+
+                PictureBox pagePicture = new PictureBox
+                {
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Size = new Size(150, 150)
+                };
+
+                if (!string.IsNullOrEmpty(page.PictureURL))
+                {
+                    pagePicture.ImageLocation = page.PictureURL;
+                }
+                else
+                {
+                    pagePicture.Image = pictureBoxProfile.ErrorImage;
+                }
+                    DataPanel.Controls.Add(pagePicture);
+            }
+        }
+
+        private void displayEventDetails(Event fbEvent)
+        {
+            if (fbEvent != null)
+            {
+                Label nameLabel = new Label { Text = $"Event Name: {fbEvent.Name}", AutoSize = true };
+                Label descriptionLabel = new Label { Text = $"Description: {fbEvent.Description}", AutoSize = true };
+                Label startTimeLabel = new Label { Text = $"Start Time: {fbEvent.StartTime}", AutoSize = true };
+                Label endTimeLabel = new Label { Text = $"End Time: {fbEvent.EndTime}", AutoSize = true };
+                Label locationLabel = new Label { Text = $"Location: {fbEvent.Location}", AutoSize = true };
+
+                DataPanel.Controls.Add(nameLabel);
+                DataPanel.Controls.Add(descriptionLabel);
+                DataPanel.Controls.Add(startTimeLabel);
+                DataPanel.Controls.Add(endTimeLabel);
+                DataPanel.Controls.Add(locationLabel);
+            }
+        }
+
+        private void displayAlbumDetails(Album album)
+        {
+            if (album != null)
+            {
+                Label nameLabel = new Label { Text = $"Album Name: {album.Name}", RightToLeft = RightToLeft.Yes, AutoSize = true };
+                Label countLabel = new Label { Text = $"Photos: {album.Photos.Count}", RightToLeft = RightToLeft.Yes, AutoSize = true };
+                
+                DataPanel.Controls.Add(nameLabel);
+                DataPanel.Controls.Add(countLabel);
+                PictureBox albumPicture = new PictureBox
+                {
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Size = new Size(150, 150)
+                };
+
+                if (!string.IsNullOrEmpty(album.PictureAlbumURL))
+                {
+                    albumPicture.ImageLocation = album.PictureAlbumURL;
+                }
+                else
+                {
+                    albumPicture.Image = pictureBoxProfile.ErrorImage;
+                }
+
+                DataPanel.Controls.Add(albumPicture);
+            }
+        }
+        private void displayPostDetails(Post post)
+        {
+            if (post != null)
+            {
+                Label messageLabel = new Label { Text = $"Message:  {post.Message}", AutoSize = true };
+             //   Label likesLabel = new Label { Text = $"Likes: {post.LikedBy.Count}", AutoSize = true };
+            //    Label commentsLabel = new Label { Text = $"Comments: {post.Comments.Count}", AutoSize = true };
+
+                DataPanel.Controls.Add(messageLabel);
+            //    DataPanel.Controls.Add(likesLabel);
+           //     DataPanel.Controls.Add(commentsLabel);
+
+               // foreach (Comment comment in post.Comments)
+           //     {
+             //       DataPanel.Controls.Add(new Label { Text = $"Comment: {comment.Message}", AutoSize = true });
+               // }
+                PictureBox thisPostPicture = new PictureBox
+                {
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Size = new Size(150, 150)
+                };
+
+                if (!string.IsNullOrEmpty(post.PictureURL))
+                {
+                    thisPostPicture.ImageLocation = post.PictureURL;
+                }
+              
+                DataPanel.Controls.Add(thisPostPicture);
             }
         }
 
@@ -311,6 +446,4 @@ namespace BasicFacebookFeatures
 
         }
     }
-
 }
-

@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="EButtonsNames.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
