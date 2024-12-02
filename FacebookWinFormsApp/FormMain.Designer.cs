@@ -33,28 +33,35 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.photosButton = new System.Windows.Forms.Button();
+            this.DataPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.amotionsListBox = new System.Windows.Forms.ListBox();
+            this.likesListBox = new System.Windows.Forms.ListBox();
+            this.commentsListBox = new System.Windows.Forms.ListBox();
+            this.DataListBox = new System.Windows.Forms.ListBox();
+            this.albumsButton = new System.Windows.Forms.Button();
             this.postsButton = new System.Windows.Forms.Button();
-            this.videosButton = new System.Windows.Forms.Button();
             this.friendsButton = new System.Windows.Forms.Button();
             this.likedButton = new System.Windows.Forms.Button();
             this.groupsButton = new System.Windows.Forms.Button();
             this.rememberMe_CheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
+            this.eventsButton = new System.Windows.Forms.Button();
+            this.eventsPictureBox = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.photosPicture = new System.Windows.Forms.PictureBox();
             this.postsPicture = new System.Windows.Forms.PictureBox();
-            this.videosPicture = new System.Windows.Forms.PictureBox();
             this.friendsPicture = new System.Windows.Forms.PictureBox();
             this.likedPicture = new System.Windows.Forms.PictureBox();
             this.groupsPicture = new System.Windows.Forms.PictureBox();
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.DataPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photosPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.videosPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.likedPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsPicture)).BeginInit();
@@ -111,16 +118,17 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Controls.Add(this.photosButton);
+            this.tabPage1.Controls.Add(this.eventsButton);
+            this.tabPage1.Controls.Add(this.eventsPictureBox);
+            this.tabPage1.Controls.Add(this.DataPanel);
+            this.tabPage1.Controls.Add(this.DataListBox);
+            this.tabPage1.Controls.Add(this.albumsButton);
             this.tabPage1.Controls.Add(this.postsButton);
-            this.tabPage1.Controls.Add(this.videosButton);
             this.tabPage1.Controls.Add(this.friendsButton);
             this.tabPage1.Controls.Add(this.likedButton);
             this.tabPage1.Controls.Add(this.groupsButton);
             this.tabPage1.Controls.Add(this.photosPicture);
             this.tabPage1.Controls.Add(this.postsPicture);
-            this.tabPage1.Controls.Add(this.videosPicture);
             this.tabPage1.Controls.Add(this.friendsPicture);
             this.tabPage1.Controls.Add(this.likedPicture);
             this.tabPage1.Controls.Add(this.groupsPicture);
@@ -135,30 +143,80 @@
             this.tabPage1.Size = new System.Drawing.Size(1235, 662);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // panel1
+            // DataPanel
             // 
-            this.panel1.Location = new System.Drawing.Point(199, 146);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 318);
-            this.panel1.TabIndex = 70;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.DataPanel.ColumnCount = 2;
+            this.DataPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.DataPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.DataPanel.Controls.Add(this.amotionsListBox, 1, 1);
+            this.DataPanel.Controls.Add(this.likesListBox, 0, 1);
+            this.DataPanel.Controls.Add(this.pictureBox, 1, 0);
+            this.DataPanel.Controls.Add(this.commentsListBox, 0, 0);
+            this.DataPanel.Location = new System.Drawing.Point(715, 153);
+            this.DataPanel.Name = "DataPanel";
+            this.DataPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.DataPanel.RowCount = 2;
+            this.DataPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.DataPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.DataPanel.Size = new System.Drawing.Size(500, 350);
+            this.DataPanel.TabIndex = 72;
             // 
-            // photosButton
+            // amotionsListBox
             // 
-            this.photosButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.photosButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.photosButton.Enabled = false;
-            this.photosButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.photosButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.photosButton.Location = new System.Drawing.Point(73, 427);
-            this.photosButton.Name = "photosButton";
-            this.photosButton.Size = new System.Drawing.Size(91, 35);
-            this.photosButton.TabIndex = 69;
-            this.photosButton.Text = "Photos";
-            this.photosButton.UseVisualStyleBackColor = false;
-            this.photosButton.Click += new System.EventHandler(this.photosButton_Click);
+            this.amotionsListBox.FormattingEnabled = true;
+            this.amotionsListBox.ItemHeight = 22;
+            this.amotionsListBox.Location = new System.Drawing.Point(3, 178);
+            this.amotionsListBox.Name = "amotionsListBox";
+            this.amotionsListBox.Size = new System.Drawing.Size(244, 136);
+            this.amotionsListBox.TabIndex = 3;
+            // 
+            // likesListBox
+            // 
+            this.likesListBox.FormattingEnabled = true;
+            this.likesListBox.ItemHeight = 22;
+            this.likesListBox.Location = new System.Drawing.Point(253, 178);
+            this.likesListBox.Name = "likesListBox";
+            this.likesListBox.Size = new System.Drawing.Size(244, 136);
+            this.likesListBox.TabIndex = 2;
+            // 
+            // commentsListBox
+            // 
+            this.commentsListBox.FormattingEnabled = true;
+            this.commentsListBox.ItemHeight = 22;
+            this.commentsListBox.Location = new System.Drawing.Point(253, 3);
+            this.commentsListBox.Name = "commentsListBox";
+            this.commentsListBox.Size = new System.Drawing.Size(244, 136);
+            this.commentsListBox.TabIndex = 1;
+            // 
+            // DataListBox
+            // 
+            this.DataListBox.AccessibleName = "DataListBox";
+            this.DataListBox.FormattingEnabled = true;
+            this.DataListBox.HorizontalScrollbar = true;
+            this.DataListBox.ItemHeight = 22;
+            this.DataListBox.Location = new System.Drawing.Point(203, 159);
+            this.DataListBox.Name = "DataListBox";
+            this.DataListBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.DataListBox.ScrollAlwaysVisible = true;
+            this.DataListBox.Size = new System.Drawing.Size(482, 312);
+            this.DataListBox.TabIndex = 70;
+            this.DataListBox.SelectedIndexChanged += new System.EventHandler(this.DataListBox_SelectedIndexChanged);
+            // 
+            // albumsButton
+            // 
+            this.albumsButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.albumsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.albumsButton.Enabled = false;
+            this.albumsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.albumsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.albumsButton.Location = new System.Drawing.Point(73, 324);
+            this.albumsButton.Name = "albumsButton";
+            this.albumsButton.Size = new System.Drawing.Size(91, 35);
+            this.albumsButton.TabIndex = 69;
+            this.albumsButton.Text = "Albums";
+            this.albumsButton.UseVisualStyleBackColor = false;
+            this.albumsButton.Click += new System.EventHandler(this.photosButton_Click);
             // 
             // postsButton
             // 
@@ -167,28 +225,13 @@
             this.postsButton.Enabled = false;
             this.postsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.postsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.postsButton.Location = new System.Drawing.Point(73, 371);
+            this.postsButton.Location = new System.Drawing.Point(73, 378);
             this.postsButton.Name = "postsButton";
             this.postsButton.Size = new System.Drawing.Size(91, 35);
             this.postsButton.TabIndex = 68;
             this.postsButton.Text = "Posts";
             this.postsButton.UseVisualStyleBackColor = false;
             this.postsButton.Click += new System.EventHandler(this.postsButton_Click);
-            // 
-            // videosButton
-            // 
-            this.videosButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.videosButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.videosButton.Enabled = false;
-            this.videosButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.videosButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.videosButton.Location = new System.Drawing.Point(73, 317);
-            this.videosButton.Name = "videosButton";
-            this.videosButton.Size = new System.Drawing.Size(91, 35);
-            this.videosButton.TabIndex = 67;
-            this.videosButton.Text = "Videos";
-            this.videosButton.UseVisualStyleBackColor = false;
-            this.videosButton.Click += new System.EventHandler(this.videosButton_Click);
             // 
             // friendsButton
             // 
@@ -197,7 +240,7 @@
             this.friendsButton.Enabled = false;
             this.friendsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.friendsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.friendsButton.Location = new System.Drawing.Point(73, 261);
+            this.friendsButton.Location = new System.Drawing.Point(73, 268);
             this.friendsButton.Name = "friendsButton";
             this.friendsButton.Size = new System.Drawing.Size(91, 35);
             this.friendsButton.TabIndex = 66;
@@ -212,7 +255,7 @@
             this.likedButton.Enabled = false;
             this.likedButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.likedButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.likedButton.Location = new System.Drawing.Point(73, 208);
+            this.likedButton.Location = new System.Drawing.Point(73, 215);
             this.likedButton.Name = "likedButton";
             this.likedButton.Size = new System.Drawing.Size(91, 35);
             this.likedButton.TabIndex = 65;
@@ -227,7 +270,7 @@
             this.groupsButton.Enabled = false;
             this.groupsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.groupsButton.Location = new System.Drawing.Point(73, 152);
+            this.groupsButton.Location = new System.Drawing.Point(73, 159);
             this.groupsButton.Name = "groupsButton";
             this.groupsButton.Size = new System.Drawing.Size(91, 35);
             this.groupsButton.TabIndex = 64;
@@ -244,7 +287,6 @@
             this.rememberMe_CheckBox.TabIndex = 56;
             this.rememberMe_CheckBox.Text = "Remember Me";
             this.rememberMe_CheckBox.UseVisualStyleBackColor = true;
-            this.rememberMe_CheckBox.CheckedChanged += new System.EventHandler(this.rememberMe_CheckBox_CheckedChanged);
             // 
             // tabPage2
             // 
@@ -256,11 +298,48 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // eventsButton
+            // 
+            this.eventsButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.eventsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.eventsButton.Enabled = false;
+            this.eventsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.eventsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.eventsButton.Location = new System.Drawing.Point(73, 434);
+            this.eventsButton.Name = "eventsButton";
+            this.eventsButton.Size = new System.Drawing.Size(91, 35);
+            this.eventsButton.TabIndex = 74;
+            this.eventsButton.Text = "Events";
+            this.eventsButton.UseVisualStyleBackColor = false;
+            this.eventsButton.Click += new System.EventHandler(this.eventsButton_Click);
+            // 
+            // eventsPictureBox
+            // 
+            this.eventsPictureBox.Image = global::BasicFacebookFeatures.Properties.Resources.events_icon;
+            this.eventsPictureBox.InitialImage = global::BasicFacebookFeatures.Properties.Resources.events_icon;
+            this.eventsPictureBox.Location = new System.Drawing.Point(18, 425);
+            this.eventsPictureBox.Name = "eventsPictureBox";
+            this.eventsPictureBox.Size = new System.Drawing.Size(49, 48);
+            this.eventsPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.eventsPictureBox.TabIndex = 73;
+            this.eventsPictureBox.TabStop = false;
+            this.eventsPictureBox.Click += new System.EventHandler(this.eventsPictureBox_Click);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(5, 3);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(242, 154);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
+            // 
             // photosPicture
             // 
             this.photosPicture.Image = global::BasicFacebookFeatures.Properties.Resources.photos_icon__2_;
             this.photosPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.photos_icon__2_;
-            this.photosPicture.Location = new System.Drawing.Point(18, 416);
+            this.photosPicture.Location = new System.Drawing.Point(18, 315);
             this.photosPicture.Name = "photosPicture";
             this.photosPicture.Size = new System.Drawing.Size(49, 48);
             this.photosPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -272,7 +351,7 @@
             // 
             this.postsPicture.Image = global::BasicFacebookFeatures.Properties.Resources.posts_icon;
             this.postsPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.posts_icon;
-            this.postsPicture.Location = new System.Drawing.Point(18, 362);
+            this.postsPicture.Location = new System.Drawing.Point(18, 369);
             this.postsPicture.Name = "postsPicture";
             this.postsPicture.Size = new System.Drawing.Size(49, 48);
             this.postsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -280,23 +359,11 @@
             this.postsPicture.TabStop = false;
             this.postsPicture.Click += new System.EventHandler(this.postsPicture_Click);
             // 
-            // videosPicture
-            // 
-            this.videosPicture.Image = global::BasicFacebookFeatures.Properties.Resources.videos_icon;
-            this.videosPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.videos_icon;
-            this.videosPicture.Location = new System.Drawing.Point(18, 308);
-            this.videosPicture.Name = "videosPicture";
-            this.videosPicture.Size = new System.Drawing.Size(49, 48);
-            this.videosPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.videosPicture.TabIndex = 61;
-            this.videosPicture.TabStop = false;
-            this.videosPicture.Click += new System.EventHandler(this.videosPicture_Click);
-            // 
             // friendsPicture
             // 
             this.friendsPicture.Image = global::BasicFacebookFeatures.Properties.Resources.new_friends_icon;
             this.friendsPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.new_friends_icon;
-            this.friendsPicture.Location = new System.Drawing.Point(18, 254);
+            this.friendsPicture.Location = new System.Drawing.Point(18, 261);
             this.friendsPicture.Name = "friendsPicture";
             this.friendsPicture.Size = new System.Drawing.Size(49, 48);
             this.friendsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -308,7 +375,7 @@
             // 
             this.likedPicture.Image = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
             this.likedPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
-            this.likedPicture.Location = new System.Drawing.Point(18, 200);
+            this.likedPicture.Location = new System.Drawing.Point(18, 207);
             this.likedPicture.Name = "likedPicture";
             this.likedPicture.Size = new System.Drawing.Size(49, 48);
             this.likedPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -320,7 +387,7 @@
             // 
             this.groupsPicture.Image = global::BasicFacebookFeatures.Properties.Resources.groups_icon;
             this.groupsPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.groups_icon;
-            this.groupsPicture.Location = new System.Drawing.Point(18, 146);
+            this.groupsPicture.Location = new System.Drawing.Point(18, 153);
             this.groupsPicture.Name = "groupsPicture";
             this.groupsPicture.Size = new System.Drawing.Size(49, 48);
             this.groupsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -348,13 +415,14 @@
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.FormMain_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.DataPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photosPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.videosPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.likedPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsPicture)).EndInit();
@@ -377,16 +445,21 @@
         private System.Windows.Forms.PictureBox likedPicture;
         private System.Windows.Forms.PictureBox photosPicture;
         private System.Windows.Forms.PictureBox postsPicture;
-        private System.Windows.Forms.PictureBox videosPicture;
         private System.Windows.Forms.PictureBox friendsPicture;
         private System.Windows.Forms.Button groupsButton;
         private System.ServiceProcess.ServiceController serviceController1;
-        private System.Windows.Forms.Button videosButton;
         private System.Windows.Forms.Button friendsButton;
         private System.Windows.Forms.Button likedButton;
-        private System.Windows.Forms.Button photosButton;
+        private System.Windows.Forms.Button albumsButton;
         private System.Windows.Forms.Button postsButton;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox DataListBox;
+        private System.Windows.Forms.TableLayoutPanel DataPanel;
+        private System.Windows.Forms.ListBox amotionsListBox;
+        private System.Windows.Forms.ListBox likesListBox;
+        private System.Windows.Forms.ListBox commentsListBox;
+        private System.Windows.Forms.Button eventsButton;
+        private System.Windows.Forms.PictureBox eventsPictureBox;
+        private System.Windows.Forms.PictureBox pictureBox;
     }
 }
 
