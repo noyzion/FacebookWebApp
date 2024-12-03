@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
+using Microsoft.Win32;
 
 namespace BasicFacebookFeatures
 {
@@ -90,7 +91,8 @@ namespace BasicFacebookFeatures
             buttonLogin.Text = $"Logged in as {m_LoginResult.LoggedInUser.Name}";
             buttonLogin.BackColor = Color.LightGreen;
             pictureBoxProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
-            birthdayLabel.Text =$"Birthday:  {m_LoginResult.LoggedInUser.Birthday}";
+
+            birthdayLabel.Text = $"Birthday:  {m_LoginResult.LoggedInUser.Birthday}";
             emailLabel.Text = $"Email: {m_LoginResult.LoggedInUser?.Email}";
             buttonsAfterLogin();
         }
@@ -317,7 +319,7 @@ namespace BasicFacebookFeatures
                 }
                 else
                 {
-                    groupPicture.Image = pictureBoxProfile.ErrorImage; 
+                    groupPicture.Image = pictureBoxProfile.ErrorImage;
                 }
 
                 DataPanel.Controls.Add(groupPicture);
@@ -352,7 +354,7 @@ namespace BasicFacebookFeatures
                 {
                     pagePicture.Image = pictureBoxProfile.ErrorImage;
                 }
-                    DataPanel.Controls.Add(pagePicture);
+                DataPanel.Controls.Add(pagePicture);
             }
         }
 
@@ -460,17 +462,17 @@ namespace BasicFacebookFeatures
             {
 
                 Label messageLabel = new Label { Text = $"Message:  {post.Message}", AutoSize = true };
-             //   Label likesLabel = new Label { Text = $"Likes: {post.LikedBy.Count}", AutoSize = true };
-            //    Label commentsLabel = new Label { Text = $"Comments: {post.Comments.Count}", AutoSize = true };
+                //   Label likesLabel = new Label { Text = $"Likes: {post.LikedBy.Count}", AutoSize = true };
+                //    Label commentsLabel = new Label { Text = $"Comments: {post.Comments.Count}", AutoSize = true };
 
                 DataPanel.Controls.Add(messageLabel);
-            //    DataPanel.Controls.Add(likesLabel);
-           //     DataPanel.Controls.Add(commentsLabel);
+                //    DataPanel.Controls.Add(likesLabel);
+                //     DataPanel.Controls.Add(commentsLabel);
 
-               // foreach (Comment comment in post.Comments)
-           //     {
-             //       DataPanel.Controls.Add(new Label { Text = $"Comment: {comment.Message}", AutoSize = true });
-               // }
+                // foreach (Comment comment in post.Comments)
+                //     {
+                //       DataPanel.Controls.Add(new Label { Text = $"Comment: {comment.Message}", AutoSize = true });
+                // }
                 PictureBox thisPostPicture = new PictureBox
                 {
                     SizeMode = PictureBoxSizeMode.StretchImage,
@@ -481,7 +483,7 @@ namespace BasicFacebookFeatures
                 {
                     thisPostPicture.ImageLocation = post.PictureURL;
                 }
-              
+
                 DataPanel.Controls.Add(thisPostPicture);
             }
         }
@@ -570,5 +572,76 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
+
+        private void pictureBoxProfile_Click(object sender, EventArgs e)
+        {
+            using (OpenProfilePicture optionsForm = new OpenProfilePicture())
+            {
+                if (optionsForm.ShowDialog() == DialogResult.OK)
+                {
+                    switch (optionsForm.SelectedOption)
+                    {
+                        case ProfileOption.ShowProfile:
+                            ShowProfile();
+                            break;
+
+                        case ProfileOption.ChangeProfile:
+                            addPictureButton_Click(sender,e);
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void ShowProfile()
+        {
+            try
+            {
+                string profilePictureUrl = m_LoginResult.LoggedInUser.PictureLargeURL;
+
+                PictureBox profilePictureBox = new PictureBox
+                {
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Size = new Size(600, 600),
+                    Location = new Point(0, 0), 
+                    BorderStyle = BorderStyle.FixedSingle
+                };
+
+                profilePictureBox.Load(profilePictureUrl);
+
+                Form profileForm = new Form
+                {
+                    Text = "Profile Picture",
+                    Size = new Size(600, 600),
+                };
+
+                profileForm.Controls.Add(profilePictureBox);
+                profileForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load the profile picture: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ChangeProfile()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp",
+                Title = "Select a Profile Picture"
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxProfile.ImageLocation = openFileDialog.FileName;
+            }
+        }
+
+        private void tab1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
