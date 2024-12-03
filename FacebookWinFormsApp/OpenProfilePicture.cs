@@ -149,14 +149,9 @@ namespace BasicFacebookFeatures
             PictureBox pictureBox = sender as PictureBox;
             if (pictureBox != null)
             {
-                // Add a border to the PictureBox
                 pictureBox.BorderStyle = BorderStyle.FixedSingle;
-
-                // Optional: Adjust the size slightly to give a "zoom" effect
                 pictureBox.Width += 5;
                 pictureBox.Height += 5;
-
-                // Optional: Slightly reduce opacity (simulate hover highlight)
                 pictureBox.BackColor = System.Drawing.Color.LightGray;
             }
         }
@@ -166,14 +161,9 @@ namespace BasicFacebookFeatures
             PictureBox pictureBox = sender as PictureBox;
             if (pictureBox != null)
             {
-                // Remove the border
                 pictureBox.BorderStyle = BorderStyle.None;
-
-                // Reset the size
                 pictureBox.Width -= 5;
                 pictureBox.Height -= 5;
-
-                // Reset the background color
                 pictureBox.BackColor = System.Drawing.Color.Transparent;
             }
         }

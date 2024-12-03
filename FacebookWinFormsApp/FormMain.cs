@@ -292,9 +292,38 @@ namespace BasicFacebookFeatures
                 {
                     displayEventDetails(DataListBox.SelectedItem as Event);
                 }
+                else if (DataListBox.SelectedItem is User)
+                {
+                    displayFriendsDetails(DataListBox.SelectedItem as User);
+                }
             }
         }
 
+        private void displayFriendsDetails(User user)
+        {
+            if(user != null)
+            {
+                Label nameLabel = new Label { Text = $"Name: {user.Name}", AutoSize = true };
+                DataPanel.Controls.Add(nameLabel);
+                PictureBox userPictureBox = new PictureBox()
+                {
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Size = new Size(150, 150)
+                   
+                };
+                if (!string.IsNullOrEmpty(user.PictureNormalURL))
+                {
+                    userPictureBox.ImageLocation = user.PictureNormalURL;
+                }
+                else
+                {
+                    userPictureBox.Image = pictureBoxProfile.ErrorImage;
+                }
+                DataPanel.Controls.Add(userPictureBox);
+                
+
+            }
+        }
         private void displayGroupDetails(Group group)
         {
             if (group != null)
