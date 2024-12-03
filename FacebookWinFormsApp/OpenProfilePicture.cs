@@ -67,6 +67,8 @@ namespace BasicFacebookFeatures
             this.showProfilePictureBox.TabIndex = 3;
             this.showProfilePictureBox.TabStop = false;
             this.showProfilePictureBox.Click += new System.EventHandler(this.showProfilePictureBox_Click);
+            this.showProfilePictureBox.MouseEnter += new System.EventHandler(this.showProfilePictureBox_MouseEnter);
+            this.showProfilePictureBox.MouseLeave += new System.EventHandler(this.showProfilePictureBox_MouseLeave);
             // 
             // changePorfilePictureBox
             // 
@@ -79,6 +81,8 @@ namespace BasicFacebookFeatures
             this.changePorfilePictureBox.TabIndex = 2;
             this.changePorfilePictureBox.TabStop = false;
             this.changePorfilePictureBox.Click += new System.EventHandler(this.changePorfilePictureBox_Click);
+            this.changePorfilePictureBox.MouseEnter += new System.EventHandler(this.changePorfilePictureBox_MouseEnter);
+            this.changePorfilePictureBox.MouseLeave += new System.EventHandler(this.changePorfilePictureBox_MouseLeave);
             // 
             // OpenProfilePicture
             // 
@@ -128,6 +132,60 @@ namespace BasicFacebookFeatures
             SelectedOption = ProfileOption.ChangeProfile;
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void changePorfilePictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox_MouseEnter(sender, e);
+        }
+
+        private void changePorfilePictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            PictureBox_MouseLeave(sender, e);
+        }
+
+        private void PictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = sender as PictureBox;
+            if (pictureBox != null)
+            {
+                // Add a border to the PictureBox
+                pictureBox.BorderStyle = BorderStyle.FixedSingle;
+
+                // Optional: Adjust the size slightly to give a "zoom" effect
+                pictureBox.Width += 5;
+                pictureBox.Height += 5;
+
+                // Optional: Slightly reduce opacity (simulate hover highlight)
+                pictureBox.BackColor = System.Drawing.Color.LightGray;
+            }
+        }
+
+        private void PictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = sender as PictureBox;
+            if (pictureBox != null)
+            {
+                // Remove the border
+                pictureBox.BorderStyle = BorderStyle.None;
+
+                // Reset the size
+                pictureBox.Width -= 5;
+                pictureBox.Height -= 5;
+
+                // Reset the background color
+                pictureBox.BackColor = System.Drawing.Color.Transparent;
+            }
+        }
+
+        private void showProfilePictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox_MouseEnter(sender , e);
+        }
+
+        private void showProfilePictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            PictureBox_MouseLeave(sender , e);
         }
     }
 }

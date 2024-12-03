@@ -149,7 +149,6 @@
             this.tab1.Size = new System.Drawing.Size(1235, 662);
             this.tab1.TabIndex = 0;
             this.tab1.Text = "tabPage1";
-            this.tab1.Click += new System.EventHandler(this.tab1_Click);
             // 
             // pictureBoxProfile
             // 
@@ -193,6 +192,7 @@
             this.videoButton.TabIndex = 89;
             this.videoButton.Text = "Add video";
             this.videoButton.UseVisualStyleBackColor = false;
+            this.videoButton.Click += new System.EventHandler(this.videoButton_Click);
             // 
             // addPostButton
             // 
@@ -205,6 +205,7 @@
             this.addPostButton.TabIndex = 85;
             this.addPostButton.Text = "Post";
             this.addPostButton.UseVisualStyleBackColor = false;
+            this.addPostButton.Click += new System.EventHandler(this.addPostButton_Click);
             // 
             // addPictureButton
             // 
@@ -226,6 +227,7 @@
             this.statusTextBox.Name = "statusTextBox";
             this.statusTextBox.Size = new System.Drawing.Size(579, 28);
             this.statusTextBox.TabIndex = 86;
+            this.statusTextBox.TextChanged += new System.EventHandler(this.statusTextBox_TextChanged);
             // 
             // emailLabel
             // 
