@@ -90,7 +90,7 @@ namespace BasicFacebookFeatures
             buttonLogin.Text = $"Logged in as {m_LoginResult.LoggedInUser.Name}";
             buttonLogin.BackColor = Color.LightGreen;
             pictureBoxProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
-            birthdayLabel.Text =$"Birthday:  {m_LoginResult.LoggedInUser.Birthday}";
+            birthdayLabel.Text = $"Birthday:  {m_LoginResult.LoggedInUser.Birthday}";
             emailLabel.Text = $"Email: {m_LoginResult.LoggedInUser?.Email}";
             buttonsAfterLogin();
         }
@@ -317,7 +317,7 @@ namespace BasicFacebookFeatures
                 }
                 else
                 {
-                    groupPicture.Image = pictureBoxProfile.ErrorImage; 
+                    groupPicture.Image = pictureBoxProfile.ErrorImage;
                 }
 
                 DataPanel.Controls.Add(groupPicture);
@@ -352,7 +352,7 @@ namespace BasicFacebookFeatures
                 {
                     pagePicture.Image = pictureBoxProfile.ErrorImage;
                 }
-                    DataPanel.Controls.Add(pagePicture);
+                DataPanel.Controls.Add(pagePicture);
             }
         }
 
@@ -460,17 +460,17 @@ namespace BasicFacebookFeatures
             {
 
                 Label messageLabel = new Label { Text = $"Message:  {post.Message}", AutoSize = true };
-             //   Label likesLabel = new Label { Text = $"Likes: {post.LikedBy.Count}", AutoSize = true };
-            //    Label commentsLabel = new Label { Text = $"Comments: {post.Comments.Count}", AutoSize = true };
+                //   Label likesLabel = new Label { Text = $"Likes: {post.LikedBy.Count}", AutoSize = true };
+                //    Label commentsLabel = new Label { Text = $"Comments: {post.Comments.Count}", AutoSize = true };
 
                 DataPanel.Controls.Add(messageLabel);
-            //    DataPanel.Controls.Add(likesLabel);
-           //     DataPanel.Controls.Add(commentsLabel);
+                //    DataPanel.Controls.Add(likesLabel);
+                //     DataPanel.Controls.Add(commentsLabel);
 
-               // foreach (Comment comment in post.Comments)
-           //     {
-             //       DataPanel.Controls.Add(new Label { Text = $"Comment: {comment.Message}", AutoSize = true });
-               // }
+                // foreach (Comment comment in post.Comments)
+                //     {
+                //       DataPanel.Controls.Add(new Label { Text = $"Comment: {comment.Message}", AutoSize = true });
+                // }
                 PictureBox thisPostPicture = new PictureBox
                 {
                     SizeMode = PictureBoxSizeMode.StretchImage,
@@ -481,7 +481,7 @@ namespace BasicFacebookFeatures
                 {
                     thisPostPicture.ImageLocation = post.PictureURL;
                 }
-              
+
                 DataPanel.Controls.Add(thisPostPicture);
             }
         }

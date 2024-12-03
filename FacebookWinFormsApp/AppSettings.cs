@@ -1,4 +1,5 @@
 ﻿using BasicFacebookFeatures.Properties;
+using Facebook;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,7 @@ namespace BasicFacebookFeatures
         public bool RememberUser { get; set; }
         public string LastAccessToken { get; set; }
 
+        
         public AppSettings()
         { 
             RememberUser = false;
@@ -41,7 +43,7 @@ namespace BasicFacebookFeatures
                     settings = deserilaizer.Deserialize(stream) as AppSettings;
                 }
             }
-
+            
             return settings;
         }
     }

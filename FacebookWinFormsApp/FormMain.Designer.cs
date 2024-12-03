@@ -33,10 +33,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab1 = new System.Windows.Forms.TabPage();
-            this.addPictureButton = new System.Windows.Forms.Button();
+            this.statusPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.videoButton = new System.Windows.Forms.Button();
             this.statusTextBox = new System.Windows.Forms.TextBox();
             this.addPostButton = new System.Windows.Forms.Button();
+            this.addPictureButton = new System.Windows.Forms.Button();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.birthdayLabel = new System.Windows.Forms.Label();
             this.eventsButton = new System.Windows.Forms.Button();
             this.eventsPictureBox = new System.Windows.Forms.PictureBox();
             this.DataPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -55,11 +59,9 @@
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
-            this.birthdayLabel = new System.Windows.Forms.Label();
-            this.emailLabel = new System.Windows.Forms.Label();
-            this.videoButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
+            this.statusPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photosPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsPicture)).BeginInit();
@@ -73,7 +75,7 @@
             // 
             this.buttonLogin.BackColor = System.Drawing.Color.Navy;
             this.buttonLogin.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonLogin.Location = new System.Drawing.Point(18, 17);
+            this.buttonLogin.Location = new System.Drawing.Point(18, 22);
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(268, 32);
@@ -87,7 +89,7 @@
             this.buttonLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonLogout.Enabled = false;
             this.buttonLogout.ForeColor = System.Drawing.Color.White;
-            this.buttonLogout.Location = new System.Drawing.Point(18, 57);
+            this.buttonLogout.Location = new System.Drawing.Point(18, 65);
             this.buttonLogout.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(268, 32);
@@ -119,13 +121,9 @@
             // tab1
             // 
             this.tab1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tab1.Controls.Add(this.videoButton);
+            this.tab1.Controls.Add(this.statusPanel);
             this.tab1.Controls.Add(this.emailLabel);
             this.tab1.Controls.Add(this.birthdayLabel);
-            this.tab1.Controls.Add(this.addPictureButton);
-            this.tab1.Controls.Add(this.label2);
-            this.tab1.Controls.Add(this.statusTextBox);
-            this.tab1.Controls.Add(this.addPostButton);
             this.tab1.Controls.Add(this.eventsButton);
             this.tab1.Controls.Add(this.eventsPictureBox);
             this.tab1.Controls.Add(this.DataPanel);
@@ -152,11 +150,70 @@
             this.tab1.TabIndex = 0;
             this.tab1.Text = "tabPage1";
             // 
+            // statusPanel
+            // 
+            this.statusPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.statusPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.statusPanel.Controls.Add(this.label2);
+            this.statusPanel.Controls.Add(this.videoButton);
+            this.statusPanel.Controls.Add(this.statusTextBox);
+            this.statusPanel.Controls.Add(this.addPostButton);
+            this.statusPanel.Controls.Add(this.addPictureButton);
+            this.statusPanel.ForeColor = System.Drawing.Color.Black;
+            this.statusPanel.Location = new System.Drawing.Point(430, 11);
+            this.statusPanel.Name = "statusPanel";
+            this.statusPanel.Size = new System.Drawing.Size(761, 94);
+            this.statusPanel.TabIndex = 84;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 24);
+            this.label2.TabIndex = 77;
+            this.label2.Text = "Add status:";
+            // 
+            // videoButton
+            // 
+            this.videoButton.BackColor = System.Drawing.Color.White;
+            this.videoButton.Enabled = false;
+            this.videoButton.Location = new System.Drawing.Point(387, 48);
+            this.videoButton.Name = "videoButton";
+            this.videoButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.videoButton.Size = new System.Drawing.Size(136, 31);
+            this.videoButton.TabIndex = 83;
+            this.videoButton.Text = "Add video";
+            this.videoButton.UseVisualStyleBackColor = false;
+            this.videoButton.Click += new System.EventHandler(this.videoButton_Click);
+            // 
+            // statusTextBox
+            // 
+            this.statusTextBox.Enabled = false;
+            this.statusTextBox.Location = new System.Drawing.Point(110, 11);
+            this.statusTextBox.Name = "statusTextBox";
+            this.statusTextBox.Size = new System.Drawing.Size(564, 28);
+            this.statusTextBox.TabIndex = 76;
+            this.statusTextBox.TextChanged += new System.EventHandler(this.statusTextBox_TextChanged);
+            // 
+            // addPostButton
+            // 
+            this.addPostButton.BackColor = System.Drawing.Color.White;
+            this.addPostButton.Enabled = false;
+            this.addPostButton.Location = new System.Drawing.Point(685, 11);
+            this.addPostButton.Name = "addPostButton";
+            this.addPostButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.addPostButton.Size = new System.Drawing.Size(70, 31);
+            this.addPostButton.TabIndex = 75;
+            this.addPostButton.Text = "Post";
+            this.addPostButton.UseVisualStyleBackColor = false;
+            this.addPostButton.Click += new System.EventHandler(this.addPostButton_Click);
+            // 
             // addPictureButton
             // 
             this.addPictureButton.BackColor = System.Drawing.Color.White;
             this.addPictureButton.Enabled = false;
-            this.addPictureButton.Location = new System.Drawing.Point(682, 62);
+            this.addPictureButton.Location = new System.Drawing.Point(239, 48);
             this.addPictureButton.Name = "addPictureButton";
             this.addPictureButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.addPictureButton.Size = new System.Drawing.Size(136, 31);
@@ -165,36 +222,21 @@
             this.addPictureButton.UseVisualStyleBackColor = false;
             this.addPictureButton.Click += new System.EventHandler(this.addPictureButton_Click);
             // 
-            // label2
+            // emailLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(425, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 24);
-            this.label2.TabIndex = 77;
-            this.label2.Text = "Add status:";
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Location = new System.Drawing.Point(279, 132);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(0, 24);
+            this.emailLabel.TabIndex = 81;
             // 
-            // statusTextBox
+            // birthdayLabel
             // 
-            this.statusTextBox.Enabled = false;
-            this.statusTextBox.Location = new System.Drawing.Point(536, 19);
-            this.statusTextBox.Name = "statusTextBox";
-            this.statusTextBox.Size = new System.Drawing.Size(579, 28);
-            this.statusTextBox.TabIndex = 76;
-            this.statusTextBox.TextChanged += new System.EventHandler(this.statusTextBox_TextChanged);
-            // 
-            // addPostButton
-            // 
-            this.addPostButton.BackColor = System.Drawing.Color.White;
-            this.addPostButton.Enabled = false;
-            this.addPostButton.Location = new System.Drawing.Point(1121, 18);
-            this.addPostButton.Name = "addPostButton";
-            this.addPostButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addPostButton.Size = new System.Drawing.Size(70, 31);
-            this.addPostButton.TabIndex = 75;
-            this.addPostButton.Text = "Post";
-            this.addPostButton.UseVisualStyleBackColor = false;
-            this.addPostButton.Click += new System.EventHandler(this.addPostButton_Click);
+            this.birthdayLabel.AutoSize = true;
+            this.birthdayLabel.Location = new System.Drawing.Point(278, 103);
+            this.birthdayLabel.Name = "birthdayLabel";
+            this.birthdayLabel.Size = new System.Drawing.Size(0, 24);
+            this.birthdayLabel.TabIndex = 80;
             // 
             // eventsButton
             // 
@@ -389,7 +431,7 @@
             // rememberMe_CheckBox
             // 
             this.rememberMe_CheckBox.AutoSize = true;
-            this.rememberMe_CheckBox.Location = new System.Drawing.Point(23, 102);
+            this.rememberMe_CheckBox.Location = new System.Drawing.Point(23, 116);
             this.rememberMe_CheckBox.Name = "rememberMe_CheckBox";
             this.rememberMe_CheckBox.Size = new System.Drawing.Size(159, 28);
             this.rememberMe_CheckBox.TabIndex = 56;
@@ -398,9 +440,9 @@
             // 
             // pictureBoxProfile
             // 
-            this.pictureBoxProfile.Location = new System.Drawing.Point(293, 11);
+            this.pictureBoxProfile.Location = new System.Drawing.Point(303, 11);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.Size = new System.Drawing.Size(84, 78);
+            this.pictureBoxProfile.Size = new System.Drawing.Size(94, 94);
             this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxProfile.TabIndex = 55;
             this.pictureBoxProfile.TabStop = false;
@@ -414,35 +456,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // birthdayLabel
-            // 
-            this.birthdayLabel.AutoSize = true;
-            this.birthdayLabel.Location = new System.Drawing.Point(278, 103);
-            this.birthdayLabel.Name = "birthdayLabel";
-            this.birthdayLabel.Size = new System.Drawing.Size(0, 24);
-            this.birthdayLabel.TabIndex = 80;
-            // 
-            // emailLabel
-            // 
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(279, 132);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(0, 24);
-            this.emailLabel.TabIndex = 81;
-            // 
-            // videoButton
-            // 
-            this.videoButton.BackColor = System.Drawing.Color.White;
-            this.videoButton.Enabled = false;
-            this.videoButton.Location = new System.Drawing.Point(830, 63);
-            this.videoButton.Name = "videoButton";
-            this.videoButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.videoButton.Size = new System.Drawing.Size(136, 31);
-            this.videoButton.TabIndex = 83;
-            this.videoButton.Text = "Add video";
-            this.videoButton.UseVisualStyleBackColor = false;
-            this.videoButton.Click += new System.EventHandler(this.videoButton_Click);
             // 
             // FormMain
             // 
@@ -458,6 +471,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
+            this.statusPanel.ResumeLayout(false);
+            this.statusPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photosPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsPicture)).EndInit();
@@ -501,6 +516,7 @@
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label birthdayLabel;
         private System.Windows.Forms.Button videoButton;
+        private System.Windows.Forms.Panel statusPanel;
     }
 }
 
