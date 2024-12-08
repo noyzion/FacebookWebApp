@@ -101,37 +101,49 @@ namespace BasicFacebookFeatures
         {
             foreach (var kvp in m_AppSettings.Tab2Manager.m_WishlistValues)
             {
-                if (Enum.GetName(typeof(EWishlistCategories), i) == kvp.Key)
+                if (category.ToString() == kvp.Key)
                 {
+
+                    foreach (var item in kvp.Value)
                     {
-                        foreach (var item in kvp.Value)
+                        switch (category)
                         {
-                            switch (category)
-                            {
-                                case EWishlistCategories.food:
-                                    checkedListBoxFood.Items.Add(item);
-                                    break;
+                            case EWishlistCategories.food:
+                                checkedListBoxFood.Items.Add(item);
+                                checkItem(checkedListBoxFood, item);
+                                break;
+                            case EWishlistCategories.shopping:
+                                checkedListBoxShopping.Items.Add(item);
+                                checkItem(checkedListBoxShopping, item);
+                                break;
+                            case EWishlistCategories.activities:
+                                checkedListBoxActivities.Items.Add(item);
+                                checkItem(checkedListBoxActivities, item);
+                                break;
 
-                                case EWishlistCategories.shopping:
-                                    checkedListBoxShopping.Items.Add(item);
-                                    break;
+                            case EWishlistCategories.pets:
+                                checkedListBoxPets.Items.Add(item);
+                                checkItem(checkedListBoxPets, item);
+                                break;
 
-                                case EWishlistCategories.activities:
-                                    checkedListBoxActivities.Items.Add(item);
-                                    break;
-
-                                case EWishlistCategories.pets:
-                                    checkedListBoxPets.Items.Add(item);
-                                    break;
-
-                            }
                         }
                     }
+
                 }
             }
         }
 
-
+        private void checkItem(CheckedListBox checkedListBox, ListObject item)
+        {
+            if (item.m_Checked)
+            {
+                int index = checkedListBox.Items.IndexOf(item);
+                if (index >= 0)
+                {
+                    checkedListBoxFood.SetItemChecked(index, true);
+                }
+            }
+        }
         private void buttonsAfterLogin()
         {
             buttonLogin.Enabled = false;
@@ -831,6 +843,46 @@ namespace BasicFacebookFeatures
             buttonAddPhoto.Enabled = isComboBoxChanged && isTextBoxChanged;
             buttonAdd.Enabled = isTextBoxChanged && isComboBoxChanged;
         }
+
+        private void checkedListBoxFood_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            checkedListBox_ItemCheck(sender, e, checkedListBoxFood);
+        }
+
+        private void checkedListBoxShopping_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            checkedListBox_ItemCheck(sender, e, checkedListBoxShopping);
+        }
+        private void checkedListBoxActivities_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            checkedListBox_ItemCheck(sender, e, checkedListBoxActivities);
+        }
+        private void checkedListBoxPets_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            checkedListBox_ItemCheck(sender, e,checkedListBoxPets);
+        }
+        private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e, CheckedListBox list)
+        {
+            string itemName = list.Text;
+
+            FindListObjectByName(itemName);
+
+            
+        }
+
+        private void FindListObjectByName(string itemName)
+        {
+            foreach (var kvp in m_Tab2Manager.m_WishlistValues)
+            {
+                foreach (var listObject in kvp.Value)
+                {
+                    if (listObject.m_Text == itemName)
+                    {
+                        listObject.m_Checked = true;                    }
+                }
+            }
+        }
+
     }
 }
 

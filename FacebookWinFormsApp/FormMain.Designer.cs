@@ -607,6 +607,7 @@
             this.checkedListBoxShopping.Name = "checkedListBoxShopping";
             this.checkedListBoxShopping.Size = new System.Drawing.Size(225, 349);
             this.checkedListBoxShopping.TabIndex = 17;
+            this.checkedListBoxShopping.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxShopping_ItemCheck);
             // 
             // checkedListBoxPets
             // 
@@ -616,6 +617,7 @@
             this.checkedListBoxPets.Name = "checkedListBoxPets";
             this.checkedListBoxPets.Size = new System.Drawing.Size(225, 349);
             this.checkedListBoxPets.TabIndex = 18;
+            this.checkedListBoxPets.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPets_ItemCheck);
             // 
             // checkedListBoxActivities
             // 
@@ -625,6 +627,7 @@
             this.checkedListBoxActivities.Name = "checkedListBoxActivities";
             this.checkedListBoxActivities.Size = new System.Drawing.Size(225, 349);
             this.checkedListBoxActivities.TabIndex = 19;
+            this.checkedListBoxActivities.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxActivities_ItemCheck);
             // 
             // checkedListBoxFood
             // 
@@ -634,6 +637,7 @@
             this.checkedListBoxFood.Name = "checkedListBoxFood";
             this.checkedListBoxFood.Size = new System.Drawing.Size(225, 349);
             this.checkedListBoxFood.TabIndex = 20;
+            this.checkedListBoxFood.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxFood_ItemCheck);
             // 
             // buttonAddPhoto
             // 
