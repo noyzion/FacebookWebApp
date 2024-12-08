@@ -15,6 +15,7 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         AppSettings m_AppSettings;
+        private Tab2Manager m_Tab2Manager;
 
         public FormMain()
         {
@@ -22,7 +23,9 @@ namespace BasicFacebookFeatures
             m_AppSettings = AppSettings.LoadFromFile();
             this.rememberMe_CheckBox.Checked = m_AppSettings.RememberUser;
 
-            FacebookWrapper.FacebookService.s_CollectionLimit = 25;
+            FacebookWrapper.FacebookService.s_CollectionLimit = 70; // If the limit is bigger, it works but very slow
+            m_Tab2Manager = new Tab2Manager(m_LoginResult);
+
         }
 
         FacebookWrapper.LoginResult m_LoginResult;
@@ -66,17 +69,7 @@ namespace BasicFacebookFeatures
         private void login()
         {
             m_LoginResult = FacebookService.Login(
-               "914564353962957",
-                "email",
-                "public_profile",
-                "user_photos",
-                "user_likes",
-                "user_videos",
-                "user_posts",
-                "user_friends",
-                "user_events",
-                "user_birthday"
-                );
+              m_AppSettings.s_AppID, m_AppSettings.s_Permissions);
 
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
@@ -115,6 +108,7 @@ namespace BasicFacebookFeatures
             addPictureButton.Enabled = true;
             statusTextBox.Enabled = true;
             videoButton.Enabled = true;
+            settingsButton.Enabled = true;
         }
         private void buttonLogout_Click(object sender, EventArgs e)
         {
@@ -301,7 +295,7 @@ namespace BasicFacebookFeatures
 
         private void displayFriendsDetails(User user)
         {
-            if(user != null)
+            if (user != null)
             {
                 Label nameLabel = new Label { Text = $"Name: {user.Name}", AutoSize = true };
                 DataPanel.Controls.Add(nameLabel);
@@ -309,7 +303,7 @@ namespace BasicFacebookFeatures
                 {
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     Size = new Size(150, 150)
-                   
+
                 };
                 if (!string.IsNullOrEmpty(user.PictureNormalURL))
                 {
@@ -320,7 +314,7 @@ namespace BasicFacebookFeatures
                     userPictureBox.Image = pictureBoxProfile.ErrorImage;
                 }
                 DataPanel.Controls.Add(userPictureBox);
-                
+
 
             }
         }
@@ -549,6 +543,13 @@ namespace BasicFacebookFeatures
 
         private void addPictureButton_Click(object sender, EventArgs e)
         {
+            Post postedPhoto = m_LoginResult.LoggedInUser.PostPhoto(addPhoto(), "Uploaded via MyApp");
+            MessageBox.Show($"Photo posted successfully! ID: {postedPhoto?.Id}");
+        }
+
+        private string addPhoto()
+        {
+            string selectedFilePath = null;
             try
             {
                 using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -558,19 +559,18 @@ namespace BasicFacebookFeatures
 
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        string selectedFilePath = openFileDialog.FileName;
-
-                        Post postedPhoto = m_LoginResult.LoggedInUser.PostPhoto(selectedFilePath, "Uploaded via MyApp");
-                        MessageBox.Show($"Photo posted successfully! ID: {postedPhoto?.Id}");
+                        selectedFilePath = openFileDialog.FileName;
                     }
                 }
+                return selectedFilePath;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return null;
             }
         }
-
         private void statusTextBox_TextChanged(object sender, EventArgs e)
         {
             addPostButton.Enabled = !string.IsNullOrWhiteSpace(statusTextBox.Text);
@@ -615,7 +615,7 @@ namespace BasicFacebookFeatures
                             break;
 
                         case ProfileOption.ChangeProfile:
-                            addPictureButton_Click(sender,e);
+                            Post postedPhoto = m_LoginResult.LoggedInUser.PostPhoto(addPhoto(), "Uploaded via MyApp");
                             break;
                     }
                 }
@@ -632,7 +632,7 @@ namespace BasicFacebookFeatures
                 {
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     Size = new Size(600, 600),
-                    Location = new Point(0, 0), 
+                    Location = new Point(0, 0),
                     BorderStyle = BorderStyle.FixedSingle
                 };
 
@@ -667,10 +667,82 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void tab1_Click(object sender, EventArgs e)
+        private void tab1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        FormAppSettings m_FormAppSettings = null;
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            if (m_FormAppSettings == null)
+            {
+                m_FormAppSettings = new FormAppSettings(m_AppSettings);
+            }
+
+            if (m_FormAppSettings.ShowDialog() == DialogResult.OK)
+            {
+                m_AppSettings.SaveToFile();
+
+                DialogResult reLoginDialog = MessageBox.Show(
+                    "Permissions have been updated. You need to log in again to apply the changes. Proceed?",
+                    "Re-login Required",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (reLoginDialog == DialogResult.Yes)
+                {
+                    login();
+                }
+            }
+        }
+
+
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAddPhoto_Click(object sender, EventArgs e)
+        {
+            m_Tab2Manager.m_PhotoUrl = addPhoto();
+        }
+
+        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+
+            m_Tab2Manager.m_Text = textBoxName.Text;
+
+            if (comboBoxCategory.Text == "food")
+            {
+                checkedListBoxFood.Items.Add(m_Tab2Manager);
+            }
+            else if (comboBoxCategory.Text == "shopping")
+            {
+                checkedListBoxShopping.Items.Add(m_Tab2Manager);
+            }
+            else if (comboBoxCategory.Text == "activities")
+            {
+                checkedListBoxActivities.Items.Add(m_Tab2Manager);
+            }
+             else if (comboBoxCategory.Text == "pets")
+            {
+                checkedListBoxPets.Items.Add(m_Tab2Manager);
+            }
+        }
+
+        private void pictureBoxActivities_Click(object sender, EventArgs e)
         {
 
         }
     }
+
 }
 

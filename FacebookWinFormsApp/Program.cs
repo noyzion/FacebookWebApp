@@ -21,8 +21,6 @@ namespace BasicFacebookFeatures
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
-
-            LoginResult result = FacebookWrapper.FacebookService.Login("914564353962957", "user_photos", "user_gender");
         }
     }
 }

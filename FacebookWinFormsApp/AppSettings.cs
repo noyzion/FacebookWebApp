@@ -12,6 +12,9 @@ namespace BasicFacebookFeatures
 {
     public class AppSettings
     {
+        public string s_AppID {  get; set; }
+        public string[] s_Permissions { get; set; }
+
         public bool RememberUser { get; set; }
         public string LastAccessToken { get; set; }
 
@@ -19,6 +22,8 @@ namespace BasicFacebookFeatures
         { 
             RememberUser = false;
             LastAccessToken = null;
+            s_Permissions = null;
+            s_AppID = null;
         }
 
         public void SaveToFile()
