@@ -1,81 +1,102 @@
-﻿
-
-using FacebookWrapper;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System;
-using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace BasicFacebookFeatures
 {
-    internal class Tab2Manager
-    {
-        public string m_Text { get; set; }
-        public string m_PhotoUrl { get; set; }
-       
-        private LoginResult m_LoginResult;
+        public class ListObject
+        {
+            public string m_Text { get; set; }
+            public string m_PhotoUrl { get; set; }
 
-        public Tab2Manager(LoginResult loginResult)
-        {
-            m_LoginResult = loginResult;
-        }
-        public void ShareWishlist(CheckedListBox foodListBox, CheckedListBox activitiesListBox, CheckedListBox petsListBox, CheckedListBox shoppingListBox)
-        {
-            try
+            public ListObject() { }
+
+            public ListObject(string text, string photoUrl)
             {
-                StringBuilder wishlist = new StringBuilder("My Wishlist:\n");
-
-                wishlist.Append("Food:\n" + getCheckedItemsAsString(foodListBox));
-                wishlist.Append("\nActivities:\n" + getCheckedItemsAsString(activitiesListBox));
-                wishlist.Append("\nPets:\n" + getCheckedItemsAsString(petsListBox));
-                wishlist.Append("\nShopping:\n" + getCheckedItemsAsString(shoppingListBox));
-
-                var postedStatus = m_LoginResult.LoggedInUser.PostStatus(wishlist.ToString());
-                MessageBox.Show($"Wishlist shared successfully! Post ID: {postedStatus.Id}");
+                m_Text = text;
+                m_PhotoUrl = photoUrl;
             }
-            catch (Exception ex)
+
+            public ListObject(string text)
             {
-                MessageBox.Show($"Error sharing wishlist: {ex.Message}");
+                m_Text = text;
+                m_PhotoUrl = null;
             }
         }
 
-        private string getCheckedItemsAsString(CheckedListBox checkedListBox)
+        public class KeyValuePairWrapper
         {
-            List<string> checkedItems = new List<string>();
-            foreach (var item in checkedListBox.CheckedItems)
+            public string Key { get; set; }
+            public List<ListObject> Value { get; set; }
+
+            public KeyValuePairWrapper() { }
+
+            public KeyValuePairWrapper(string key, List<ListObject> value)
             {
-                checkedItems.Add(item.ToString());
+                Key = key;
+                Value = value;
             }
-            return string.Join(", ", checkedItems);
         }
 
-        
-
-        /*
-        public void FetchRecommendations(string category, ListBox recommendationListBox)
+        public class Tab2Manager
         {
-            try
+            public List<KeyValuePairWrapper> m_WishlistValues { get; set; }
+
+            public Tab2Manager()
             {
-                recommendationListBox.Items.Clear();
+                m_WishlistValues = new List<KeyValuePairWrapper>();
+            }
 
-                var recommendations = m_LoginResult.LoggedInUser.Groups
-                    .Where(group => group.Name.Contains(category, StringComparison.OrdinalIgnoreCase));
+            public void AddToWishlist(string category, ListObject item)
+            {
+                var existingCategory = m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
 
-                foreach (var group in recommendations)
+                if (existingCategory == null)
                 {
-                    recommendationListBox.Items.Add(group.Name);
+                    m_WishlistValues.Add(new KeyValuePairWrapper(category, new List<ListObject> { item }));
                 }
-
-                if (recommendationListBox.Items.Count == 0)
+                else
                 {
-                    MessageBox.Show($"No recommendations found for category '{category}'.");
+                    existingCategory.Value.Add(item);
                 }
             }
-            catch (Exception ex)
+
+
+
+            public void ShareWishlist(CheckedListBox foodListBox, CheckedListBox activitiesListBox, CheckedListBox petsListBox, CheckedListBox shoppingListBox)
             {
-                MessageBox.Show($"Error fetching recommendations: {ex.Message}");
+                try
+                {
+                    StringBuilder wishlist = new StringBuilder("My Wishlist:\n");
+
+                    wishlist.Append("Food:\n" + getCheckedItemsAsString(foodListBox));
+                    wishlist.Append("\nActivities:\n" + getCheckedItemsAsString(activitiesListBox));
+                    wishlist.Append("\nPets:\n" + getCheckedItemsAsString(petsListBox));
+                    wishlist.Append("\nShopping:\n" + getCheckedItemsAsString(shoppingListBox));
+
+                    MessageBox.Show(wishlist.ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error sharing wishlist: {ex.Message}");
+                }
+            }
+
+            private string getCheckedItemsAsString(CheckedListBox checkedListBox)
+            {
+                List<string> checkedItems = new List<string>();
+                foreach (var item in checkedListBox.CheckedItems)
+                {
+                    checkedItems.Add(item.ToString());
+                }
+                return string.Join(", ", checkedItems);
             }
         }
-        */
     }
-}
+
+
+

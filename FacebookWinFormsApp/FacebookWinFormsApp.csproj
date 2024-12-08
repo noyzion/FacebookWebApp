@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="EWishlistCategories.cs" />
     <Compile Include="FormAppSettings.cs">
       <SubType>Form</SubType>
     </Compile>

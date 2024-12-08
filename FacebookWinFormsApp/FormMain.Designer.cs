@@ -550,6 +550,7 @@
             // 
             // buttonAdd
             // 
+            this.buttonAdd.Enabled = false;
             this.buttonAdd.Location = new System.Drawing.Point(876, 80);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(88, 35);
@@ -651,12 +652,13 @@
             this.comboBoxCategory.Items.AddRange(new object[] {
             "food",
             "pets",
-            "shopping",
-            "activities"});
+            "activities",
+            "shopping"});
             this.comboBoxCategory.Location = new System.Drawing.Point(587, 83);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(121, 30);
             this.comboBoxCategory.TabIndex = 2;
+            this.comboBoxCategory.TextChanged += new System.EventHandler(this.comboBoxCategory_TextChanged);
             // 
             // textBoxName
             // 
@@ -664,6 +666,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(245, 28);
             this.textBoxName.TabIndex = 1;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // label3
             // 

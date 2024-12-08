@@ -24,7 +24,8 @@ namespace BasicFacebookFeatures
             this.rememberMe_CheckBox.Checked = m_AppSettings.RememberUser;
 
             FacebookWrapper.FacebookService.s_CollectionLimit = 70; // If the limit is bigger, it works but very slow
-            m_Tab2Manager = new Tab2Manager(m_LoginResult);
+            m_Tab2Manager = m_AppSettings.Tab2Manager;
+
 
         }
 
@@ -37,6 +38,7 @@ namespace BasicFacebookFeatures
             if (m_AppSettings.RememberUser)
             {
                 m_AppSettings.LastAccessToken = m_LoginResult.AccessToken;
+                m_AppSettings.Tab2Manager = m_Tab2Manager;
             }
             else
             {
@@ -87,8 +89,48 @@ namespace BasicFacebookFeatures
 
             birthdayLabel.Text = $"Birthday:  {m_LoginResult.LoggedInUser.Birthday}";
             emailLabel.Text = $"Email: {m_LoginResult.LoggedInUser?.Email}";
+            for (int i = 0; i < Enum.GetValues(typeof(EWishlistCategories)).Length; i++)
+            {
+                EWishlistCategories category = (EWishlistCategories)i;
+                populateCheckBoxListOfWishlist(i, (EWishlistCategories)i);
+            }
             buttonsAfterLogin();
         }
+
+        private void populateCheckBoxListOfWishlist(int i, EWishlistCategories category)
+        {
+            foreach (var kvp in m_AppSettings.Tab2Manager.m_WishlistValues)
+            {
+                if (Enum.GetName(typeof(EWishlistCategories), i) == kvp.Key)
+                {
+                    {
+                        foreach (var item in kvp.Value)
+                        {
+                            switch (category)
+                            {
+                                case EWishlistCategories.food:
+                                    checkedListBoxFood.Items.Add(item);
+                                    break;
+
+                                case EWishlistCategories.shopping:
+                                    checkedListBoxShopping.Items.Add(item);
+                                    break;
+
+                                case EWishlistCategories.activities:
+                                    checkedListBoxActivities.Items.Add(item);
+                                    break;
+
+                                case EWishlistCategories.pets:
+                                    checkedListBoxPets.Items.Add(item);
+                                    break;
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 
         private void buttonsAfterLogin()
         {
@@ -707,9 +749,8 @@ namespace BasicFacebookFeatures
 
         private void buttonAddPhoto_Click(object sender, EventArgs e)
         {
-            m_Tab2Manager.m_PhotoUrl = addPhoto();
+            m_Tab2Manager.AddToWishlist(comboBoxCategory.Text, new ListObject(textBoxName.Text, addPhoto()));
         }
-
         private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -717,32 +758,81 @@ namespace BasicFacebookFeatures
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            int categoryIndex = comboBoxCategory.SelectedIndex;
+            string category = comboBoxCategory.Text;
+            string itemName = textBoxName.Text;
 
-            m_Tab2Manager.m_Text = textBoxName.Text;
+            if (m_Tab2Manager.m_WishlistValues == null)
+            {
+                m_Tab2Manager.m_WishlistValues = new List<KeyValuePairWrapper>();
+            }
 
-            if (comboBoxCategory.Text == "food")
+            var existingCategory = m_Tab2Manager.m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
+
+            if (!string.IsNullOrEmpty(category) && existingCategory != null)
             {
-                checkedListBoxFood.Items.Add(m_Tab2Manager);
+                bool itemExists = existingCategory.Value.Any(item => item.m_Text == itemName);
+                if (!itemExists)
+                {
+                    existingCategory.Value.Add(new ListObject(itemName));
+                }
             }
-            else if (comboBoxCategory.Text == "shopping")
+            else
             {
-                checkedListBoxShopping.Items.Add(m_Tab2Manager);
+                m_Tab2Manager.AddToWishlist(category, new ListObject(itemName));
             }
-            else if (comboBoxCategory.Text == "activities")
+
+            switch (categoryIndex)
             {
-                checkedListBoxActivities.Items.Add(m_Tab2Manager);
+                case (int)EWishlistCategories.food:
+                    checkedListBoxFood.Items.Add(itemName);
+                    break;
+
+                case (int)EWishlistCategories.shopping:
+                    checkedListBoxShopping.Items.Add(itemName);
+                    break;
+
+                case (int)EWishlistCategories.activities:
+                    checkedListBoxActivities.Items.Add(itemName);
+                    break;
+
+                case (int)EWishlistCategories.pets:
+                    checkedListBoxPets.Items.Add(itemName);
+                    break;
             }
-             else if (comboBoxCategory.Text == "pets")
-            {
-                checkedListBoxPets.Items.Add(m_Tab2Manager);
-            }
+
+            textBoxName.Clear();
         }
+
+
 
         private void pictureBoxActivities_Click(object sender, EventArgs e)
         {
 
         }
-    }
 
+        private bool isTextBoxChanged = false;
+        private bool isComboBoxChanged = false;
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+            isTextBoxChanged = !string.IsNullOrWhiteSpace(textBoxName.Text);
+            UpdateAddButtonState();
+        }
+
+        private void comboBoxCategory_TextChanged(object sender, EventArgs e)
+        {
+            isComboBoxChanged = !string.IsNullOrWhiteSpace(comboBoxCategory.Text);
+            UpdateAddButtonState();
+        }
+
+        private void UpdateAddButtonState()
+        {
+            buttonAddPhoto.Enabled = isComboBoxChanged && isTextBoxChanged;
+            buttonAdd.Enabled = isTextBoxChanged && isComboBoxChanged;
+        }
+    }
 }
+
+
 

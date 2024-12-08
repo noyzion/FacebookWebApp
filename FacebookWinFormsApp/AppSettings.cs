@@ -18,12 +18,15 @@ namespace BasicFacebookFeatures
         public bool RememberUser { get; set; }
         public string LastAccessToken { get; set; }
 
+       public Tab2Manager Tab2Manager { get; set; }
+
         public AppSettings()
         { 
             RememberUser = false;
             LastAccessToken = null;
             s_Permissions = null;
             s_AppID = null;
+            Tab2Manager = null;
         }
 
         public void SaveToFile()
