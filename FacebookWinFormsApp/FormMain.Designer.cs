@@ -513,7 +513,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // pictureBoxPets
             // 
@@ -608,6 +607,7 @@
             this.checkedListBoxShopping.Size = new System.Drawing.Size(225, 349);
             this.checkedListBoxShopping.TabIndex = 17;
             this.checkedListBoxShopping.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxShopping_ItemCheck);
+            this.checkedListBoxShopping.SelectedValueChanged += new System.EventHandler(this.checkedListBoxShopping_SelectedIndexChanged);
             // 
             // checkedListBoxPets
             // 
@@ -618,6 +618,7 @@
             this.checkedListBoxPets.Size = new System.Drawing.Size(225, 349);
             this.checkedListBoxPets.TabIndex = 18;
             this.checkedListBoxPets.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPets_ItemCheck);
+            this.checkedListBoxPets.SelectedValueChanged += new System.EventHandler(this.checkedListBoxPets_SelectedIndexChanged);
             // 
             // checkedListBoxActivities
             // 
@@ -628,6 +629,7 @@
             this.checkedListBoxActivities.Size = new System.Drawing.Size(225, 349);
             this.checkedListBoxActivities.TabIndex = 19;
             this.checkedListBoxActivities.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxActivities_ItemCheck);
+            this.checkedListBoxActivities.SelectedValueChanged += new System.EventHandler(this.checkedListBoxActivities_SelectedIndexChanged);
             // 
             // checkedListBoxFood
             // 
@@ -637,10 +639,11 @@
             this.checkedListBoxFood.Name = "checkedListBoxFood";
             this.checkedListBoxFood.Size = new System.Drawing.Size(225, 349);
             this.checkedListBoxFood.TabIndex = 20;
-            this.checkedListBoxFood.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxFood_ItemCheck);
+            this.checkedListBoxFood.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxFood_SelectedIndexChanged);
             // 
             // buttonAddPhoto
             // 
+            this.buttonAddPhoto.Enabled = false;
             this.buttonAddPhoto.Location = new System.Drawing.Point(722, 80);
             this.buttonAddPhoto.Name = "buttonAddPhoto";
             this.buttonAddPhoto.Size = new System.Drawing.Size(145, 35);

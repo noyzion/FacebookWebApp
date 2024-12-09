@@ -859,32 +859,35 @@ namespace BasicFacebookFeatures
         }
         private void checkedListBoxPets_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            checkedListBox_ItemCheck(sender, e,checkedListBoxPets);
+            checkedListBox_ItemCheck(sender, e, checkedListBoxPets);
         }
         private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e, CheckedListBox list)
         {
             string itemName = list.Text;
 
-            FindListObjectByName(itemName);
+            m_Tab2Manager.FindListObjectByName(itemName);
 
-            
+
         }
 
-        private void FindListObjectByName(string itemName)
+        private void checkedListBoxFood_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (var kvp in m_Tab2Manager.m_WishlistValues)
-            {
-                foreach (var listObject in kvp.Value)
-                {
-                    if (listObject.m_Text == itemName)
-                    {
-                        listObject.m_Checked = true;                    }
-                }
-            }
+            m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxFood, pictureBoxFood);
+        }
+        private void checkedListBoxShopping_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxShopping, pictureBoxShopping);
+        }
+        private void checkedListBoxPets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxPets, pictureBoxPets);
+        }
+        private void checkedListBoxActivities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxActivities, pictureBoxActivities);
         }
 
     }
+
 }
-
-
 

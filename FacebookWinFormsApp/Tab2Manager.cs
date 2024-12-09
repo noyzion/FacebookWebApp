@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -96,6 +97,42 @@ namespace BasicFacebookFeatures
                 checkedItems.Add(item.ToString());
             }
             return string.Join(", ", checkedItems);
+        }
+
+        public void loadImageForPictureBoxInList(CheckedListBox list, PictureBox pictureBox)
+        {
+            string selectedItemName = list.Text;
+
+            ListObject listObject = FindListObjectByName(selectedItemName);
+
+            if (listObject != null && listObject.m_PhotoUrl != null)
+            {
+                try
+                {
+                    pictureBox.Image = Image.FromFile(listObject.m_PhotoUrl);
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading image: {ex.Message}");
+                }
+            }
+        }
+        public ListObject FindListObjectByName(string itemName)
+        {
+            foreach (var kvp in m_WishlistValues)
+            {
+                foreach (var listObject in kvp.Value)
+                {
+                    if (listObject.m_Text == itemName)
+                    {
+                        listObject.m_Checked = true;
+                        return listObject;
+                    }
+                }
+            }
+            return null;
         }
     }
 }
