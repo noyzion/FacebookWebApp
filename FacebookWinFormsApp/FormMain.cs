@@ -927,6 +927,11 @@ namespace BasicFacebookFeatures
             }
             MessageBox.Show("Item deleted successfully.");
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

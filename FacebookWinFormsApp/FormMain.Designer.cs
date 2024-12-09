@@ -41,8 +41,6 @@
             this.addPostButton = new System.Windows.Forms.Button();
             this.addPictureButton = new System.Windows.Forms.Button();
             this.statusTextBox = new System.Windows.Forms.TextBox();
-            this.emailLabel = new System.Windows.Forms.Label();
-            this.birthdayLabel = new System.Windows.Forms.Label();
             this.eventsButton = new System.Windows.Forms.Button();
             this.eventsPictureBox = new System.Windows.Forms.PictureBox();
             this.DataPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -81,6 +79,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.buttonDeleteItem = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.buttonAddWorkout = new System.Windows.Forms.Button();
+            this.birthdayLabel = new System.Windows.Forms.Label();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.panelWorkouts = new System.Windows.Forms.Panel();
+            this.buttonCompete = new System.Windows.Forms.Button();
+            this.panelStatisticsWorkouts = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
@@ -96,16 +102,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShopping)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActivities)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLogin
             // 
             this.buttonLogin.BackColor = System.Drawing.Color.Navy;
             this.buttonLogin.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.buttonLogin.Location = new System.Drawing.Point(12, 55);
+            this.buttonLogin.Location = new System.Drawing.Point(7, 55);
             this.buttonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(250, 32);
+            this.buttonLogin.Size = new System.Drawing.Size(230, 32);
             this.buttonLogin.TabIndex = 36;
             this.buttonLogin.Text = "Login with Facebook";
             this.buttonLogin.UseVisualStyleBackColor = false;
@@ -116,10 +123,10 @@
             this.buttonLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonLogout.Enabled = false;
             this.buttonLogout.ForeColor = System.Drawing.Color.White;
-            this.buttonLogout.Location = new System.Drawing.Point(12, 94);
+            this.buttonLogout.Location = new System.Drawing.Point(7, 94);
             this.buttonLogout.Margin = new System.Windows.Forms.Padding(4);
             this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(250, 32);
+            this.buttonLogout.Size = new System.Drawing.Size(230, 32);
             this.buttonLogout.TabIndex = 52;
             this.buttonLogout.Text = "Logout";
             this.buttonLogout.UseVisualStyleBackColor = false;
@@ -128,7 +135,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(314, 17);
+            this.label1.Location = new System.Drawing.Point(307, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 24);
@@ -149,6 +156,7 @@
             // tab1
             // 
             this.tab1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tab1.Controls.Add(this.label10);
             this.tab1.Controls.Add(this.settingsButton);
             this.tab1.Controls.Add(this.pictureBoxProfile);
             this.tab1.Controls.Add(this.statusPanel);
@@ -172,6 +180,7 @@
             this.tab1.Controls.Add(this.label1);
             this.tab1.Controls.Add(this.buttonLogout);
             this.tab1.Controls.Add(this.buttonLogin);
+            this.tab1.Controls.Add(this.panel1);
             this.tab1.Location = new System.Drawing.Point(4, 31);
             this.tab1.Name = "tab1";
             this.tab1.Padding = new System.Windows.Forms.Padding(3);
@@ -188,7 +197,7 @@
             this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.settingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsButton.Location = new System.Drawing.Point(18, 15);
+            this.settingsButton.Location = new System.Drawing.Point(13, 15);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(79, 30);
             this.settingsButton.TabIndex = 85;
@@ -198,7 +207,7 @@
             // 
             // pictureBoxProfile
             // 
-            this.pictureBoxProfile.Location = new System.Drawing.Point(270, 28);
+            this.pictureBoxProfile.Location = new System.Drawing.Point(245, 28);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.Size = new System.Drawing.Size(132, 130);
             this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -274,22 +283,6 @@
             this.statusTextBox.Size = new System.Drawing.Size(579, 28);
             this.statusTextBox.TabIndex = 86;
             this.statusTextBox.TextChanged += new System.EventHandler(this.statusTextBox_TextChanged);
-            // 
-            // emailLabel
-            // 
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(438, 32);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(0, 24);
-            this.emailLabel.TabIndex = 81;
-            // 
-            // birthdayLabel
-            // 
-            this.birthdayLabel.AutoSize = true;
-            this.birthdayLabel.Location = new System.Drawing.Point(438, 75);
-            this.birthdayLabel.Name = "birthdayLabel";
-            this.birthdayLabel.Size = new System.Drawing.Size(0, 24);
-            this.birthdayLabel.TabIndex = 80;
             // 
             // eventsButton
             // 
@@ -484,7 +477,7 @@
             // rememberMe_CheckBox
             // 
             this.rememberMe_CheckBox.AutoSize = true;
-            this.rememberMe_CheckBox.Location = new System.Drawing.Point(17, 133);
+            this.rememberMe_CheckBox.Location = new System.Drawing.Point(12, 133);
             this.rememberMe_CheckBox.Name = "rememberMe_CheckBox";
             this.rememberMe_CheckBox.Size = new System.Drawing.Size(159, 28);
             this.rememberMe_CheckBox.TabIndex = 56;
@@ -757,6 +750,87 @@
             this.buttonDeleteItem.UseVisualStyleBackColor = false;
             this.buttonDeleteItem.Click += new System.EventHandler(this.buttonDeleteItem_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panelStatisticsWorkouts);
+            this.panel1.Controls.Add(this.buttonCompete);
+            this.panel1.Controls.Add(this.panelWorkouts);
+            this.panel1.Controls.Add(this.buttonAddWorkout);
+            this.panel1.Location = new System.Drawing.Point(618, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(609, 145);
+            this.panel1.TabIndex = 86;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(625, 3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(130, 27);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "My Workouts";
+            // 
+            // buttonAddWorkout
+            // 
+            this.buttonAddWorkout.BackColor = System.Drawing.Color.LightYellow;
+            this.buttonAddWorkout.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonAddWorkout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAddWorkout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddWorkout.Location = new System.Drawing.Point(11, 29);
+            this.buttonAddWorkout.Name = "buttonAddWorkout";
+            this.buttonAddWorkout.Size = new System.Drawing.Size(152, 35);
+            this.buttonAddWorkout.TabIndex = 87;
+            this.buttonAddWorkout.Text = "Add Workout";
+            this.buttonAddWorkout.UseVisualStyleBackColor = false;
+            // 
+            // birthdayLabel
+            // 
+            this.birthdayLabel.AutoSize = true;
+            this.birthdayLabel.Location = new System.Drawing.Point(391, 107);
+            this.birthdayLabel.Name = "birthdayLabel";
+            this.birthdayLabel.Size = new System.Drawing.Size(0, 24);
+            this.birthdayLabel.TabIndex = 80;
+            // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Location = new System.Drawing.Point(391, 64);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(0, 24);
+            this.emailLabel.TabIndex = 81;
+            // 
+            // panelWorkouts
+            // 
+            this.panelWorkouts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelWorkouts.Location = new System.Drawing.Point(169, 3);
+            this.panelWorkouts.Name = "panelWorkouts";
+            this.panelWorkouts.Size = new System.Drawing.Size(204, 137);
+            this.panelWorkouts.TabIndex = 88;
+            // 
+            // buttonCompete
+            // 
+            this.buttonCompete.BackColor = System.Drawing.Color.SandyBrown;
+            this.buttonCompete.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonCompete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCompete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCompete.Location = new System.Drawing.Point(35, 78);
+            this.buttonCompete.Name = "buttonCompete";
+            this.buttonCompete.Size = new System.Drawing.Size(101, 36);
+            this.buttonCompete.TabIndex = 89;
+            this.buttonCompete.Text = "compete!";
+            this.buttonCompete.UseVisualStyleBackColor = false;
+            this.buttonCompete.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panelStatisticsWorkouts
+            // 
+            this.panelStatisticsWorkouts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelStatisticsWorkouts.Location = new System.Drawing.Point(379, 3);
+            this.panelStatisticsWorkouts.Name = "panelStatisticsWorkouts";
+            this.panelStatisticsWorkouts.Size = new System.Drawing.Size(221, 137);
+            this.panelStatisticsWorkouts.TabIndex = 89;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -786,6 +860,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShopping)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActivities)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -813,8 +888,6 @@
         private System.Windows.Forms.TableLayoutPanel DataPanel;
         private System.Windows.Forms.Button eventsButton;
         private System.Windows.Forms.PictureBox eventsPictureBox;
-        private System.Windows.Forms.Label emailLabel;
-        private System.Windows.Forms.Label birthdayLabel;
         private System.Windows.Forms.Panel statusPanel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button videoButton;
@@ -845,6 +918,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button buttonDeleteItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button buttonAddWorkout;
+        private System.Windows.Forms.Label emailLabel;
+        private System.Windows.Forms.Label birthdayLabel;
+        private System.Windows.Forms.Button buttonCompete;
+        private System.Windows.Forms.Panel panelWorkouts;
+        private System.Windows.Forms.Panel panelStatisticsWorkouts;
     }
 }
 
