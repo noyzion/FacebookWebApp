@@ -929,11 +929,6 @@ namespace BasicFacebookFeatures
             MessageBox.Show("Item deleted successfully.");
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private List<Workout> workouts = new List<Workout>();
 
         private void InitializeWorkoutTable()
@@ -958,6 +953,12 @@ namespace BasicFacebookFeatures
         {
             AddWorkoutForm addWorkoutForm = new AddWorkoutForm(workoutTable);
             addWorkoutForm.ShowDialog();
+        }
+
+        private void buttonStatistics_Click(object sender, EventArgs e)
+        {
+            StatisicsForm statisicsForm  = new StatisicsForm(workoutTable);
+            statisicsForm.ShowDialog();
         }
     }
 }

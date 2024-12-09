@@ -32,7 +32,7 @@
             this.buttonLogout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tab1 = new System.Windows.Forms.TabPage();
+            this.feedTab = new System.Windows.Forms.TabPage();
             this.settingsButton = new System.Windows.Forms.Button();
             this.statusPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.pagesButton = new System.Windows.Forms.Button();
             this.groupsButton = new System.Windows.Forms.Button();
             this.rememberMe_CheckBox = new System.Windows.Forms.CheckBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.wishlistTab = new System.Windows.Forms.TabPage();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -87,9 +87,9 @@
             this.pictureBoxActivities = new System.Windows.Forms.PictureBox();
             this.pictureBoxFood = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
-            this.tab1.SuspendLayout();
+            this.feedTab.SuspendLayout();
             this.statusPanel.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.wishlistTab.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).BeginInit();
@@ -142,8 +142,8 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tab1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.feedTab);
+            this.tabControl1.Controls.Add(this.wishlistTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -152,41 +152,41 @@
             this.tabControl1.TabIndex = 54;
             this.tabControl1.Tag = "";
             // 
-            // tab1
+            // feedTab
             // 
-            this.tab1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tab1.Controls.Add(this.label10);
-            this.tab1.Controls.Add(this.settingsButton);
-            this.tab1.Controls.Add(this.pictureBoxProfile);
-            this.tab1.Controls.Add(this.statusPanel);
-            this.tab1.Controls.Add(this.emailLabel);
-            this.tab1.Controls.Add(this.birthdayLabel);
-            this.tab1.Controls.Add(this.eventsButton);
-            this.tab1.Controls.Add(this.eventsPictureBox);
-            this.tab1.Controls.Add(this.DataPanel);
-            this.tab1.Controls.Add(this.DataListBox);
-            this.tab1.Controls.Add(this.albumsButton);
-            this.tab1.Controls.Add(this.postsButton);
-            this.tab1.Controls.Add(this.friendsButton);
-            this.tab1.Controls.Add(this.pagesButton);
-            this.tab1.Controls.Add(this.groupsButton);
-            this.tab1.Controls.Add(this.photosPicture);
-            this.tab1.Controls.Add(this.postsPicture);
-            this.tab1.Controls.Add(this.friendsPicture);
-            this.tab1.Controls.Add(this.likedPicture);
-            this.tab1.Controls.Add(this.groupsPicture);
-            this.tab1.Controls.Add(this.rememberMe_CheckBox);
-            this.tab1.Controls.Add(this.label1);
-            this.tab1.Controls.Add(this.buttonLogout);
-            this.tab1.Controls.Add(this.buttonLogin);
-            this.tab1.Controls.Add(this.panel1);
-            this.tab1.Location = new System.Drawing.Point(4, 31);
-            this.tab1.Name = "tab1";
-            this.tab1.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1.Size = new System.Drawing.Size(1235, 662);
-            this.tab1.TabIndex = 0;
-            this.tab1.Text = "tabPage1";
-            this.tab1.Click += new System.EventHandler(this.tab1_Click_1);
+            this.feedTab.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.feedTab.Controls.Add(this.label10);
+            this.feedTab.Controls.Add(this.settingsButton);
+            this.feedTab.Controls.Add(this.pictureBoxProfile);
+            this.feedTab.Controls.Add(this.statusPanel);
+            this.feedTab.Controls.Add(this.emailLabel);
+            this.feedTab.Controls.Add(this.birthdayLabel);
+            this.feedTab.Controls.Add(this.eventsButton);
+            this.feedTab.Controls.Add(this.eventsPictureBox);
+            this.feedTab.Controls.Add(this.DataPanel);
+            this.feedTab.Controls.Add(this.DataListBox);
+            this.feedTab.Controls.Add(this.albumsButton);
+            this.feedTab.Controls.Add(this.postsButton);
+            this.feedTab.Controls.Add(this.friendsButton);
+            this.feedTab.Controls.Add(this.pagesButton);
+            this.feedTab.Controls.Add(this.groupsButton);
+            this.feedTab.Controls.Add(this.photosPicture);
+            this.feedTab.Controls.Add(this.postsPicture);
+            this.feedTab.Controls.Add(this.friendsPicture);
+            this.feedTab.Controls.Add(this.likedPicture);
+            this.feedTab.Controls.Add(this.groupsPicture);
+            this.feedTab.Controls.Add(this.rememberMe_CheckBox);
+            this.feedTab.Controls.Add(this.label1);
+            this.feedTab.Controls.Add(this.buttonLogout);
+            this.feedTab.Controls.Add(this.buttonLogin);
+            this.feedTab.Controls.Add(this.panel1);
+            this.feedTab.Location = new System.Drawing.Point(4, 31);
+            this.feedTab.Name = "feedTab";
+            this.feedTab.Padding = new System.Windows.Forms.Padding(3);
+            this.feedTab.Size = new System.Drawing.Size(1235, 662);
+            this.feedTab.TabIndex = 0;
+            this.feedTab.Text = "Feed";
+            this.feedTab.Click += new System.EventHandler(this.tab1_Click_1);
             // 
             // settingsButton
             // 
@@ -401,36 +401,36 @@
             this.rememberMe_CheckBox.Text = "Remember Me";
             this.rememberMe_CheckBox.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // wishlistTab
             // 
-            this.tabPage2.Controls.Add(this.buttonDeleteItem);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.buttonPost);
-            this.tabPage2.Controls.Add(this.buttonAdd);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.pictureBoxPets);
-            this.tabPage2.Controls.Add(this.pictureBoxShopping);
-            this.tabPage2.Controls.Add(this.pictureBoxActivities);
-            this.tabPage2.Controls.Add(this.pictureBoxFood);
-            this.tabPage2.Controls.Add(this.checkedListBoxShopping);
-            this.tabPage2.Controls.Add(this.checkedListBoxPets);
-            this.tabPage2.Controls.Add(this.checkedListBoxActivities);
-            this.tabPage2.Controls.Add(this.checkedListBoxFood);
-            this.tabPage2.Controls.Add(this.buttonAddPhoto);
-            this.tabPage2.Controls.Add(this.comboBoxCategory);
-            this.tabPage2.Controls.Add(this.textBoxName);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 31);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1235, 662);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.wishlistTab.Controls.Add(this.buttonDeleteItem);
+            this.wishlistTab.Controls.Add(this.label9);
+            this.wishlistTab.Controls.Add(this.label8);
+            this.wishlistTab.Controls.Add(this.buttonPost);
+            this.wishlistTab.Controls.Add(this.buttonAdd);
+            this.wishlistTab.Controls.Add(this.label7);
+            this.wishlistTab.Controls.Add(this.label6);
+            this.wishlistTab.Controls.Add(this.label5);
+            this.wishlistTab.Controls.Add(this.label4);
+            this.wishlistTab.Controls.Add(this.pictureBoxPets);
+            this.wishlistTab.Controls.Add(this.pictureBoxShopping);
+            this.wishlistTab.Controls.Add(this.pictureBoxActivities);
+            this.wishlistTab.Controls.Add(this.pictureBoxFood);
+            this.wishlistTab.Controls.Add(this.checkedListBoxShopping);
+            this.wishlistTab.Controls.Add(this.checkedListBoxPets);
+            this.wishlistTab.Controls.Add(this.checkedListBoxActivities);
+            this.wishlistTab.Controls.Add(this.checkedListBoxFood);
+            this.wishlistTab.Controls.Add(this.buttonAddPhoto);
+            this.wishlistTab.Controls.Add(this.comboBoxCategory);
+            this.wishlistTab.Controls.Add(this.textBoxName);
+            this.wishlistTab.Controls.Add(this.label3);
+            this.wishlistTab.Location = new System.Drawing.Point(4, 31);
+            this.wishlistTab.Name = "wishlistTab";
+            this.wishlistTab.Padding = new System.Windows.Forms.Padding(3);
+            this.wishlistTab.Size = new System.Drawing.Size(1235, 662);
+            this.wishlistTab.TabIndex = 1;
+            this.wishlistTab.Text = "Wishlist";
+            this.wishlistTab.UseVisualStyleBackColor = true;
             // 
             // buttonAdd
             // 
@@ -703,7 +703,7 @@
             this.buttonStatistics.TabIndex = 89;
             this.buttonStatistics.Text = "statistics";
             this.buttonStatistics.UseVisualStyleBackColor = false;
-            this.buttonStatistics.Click += new System.EventHandler(this.button2_Click);
+            this.buttonStatistics.Click += new System.EventHandler(this.buttonStatistics_Click);
             // 
             // pictureBoxProfile
             // 
@@ -834,14 +834,14 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Facebook App";
             this.tabControl1.ResumeLayout(false);
-            this.tab1.ResumeLayout(false);
-            this.tab1.PerformLayout();
+            this.feedTab.ResumeLayout(false);
+            this.feedTab.PerformLayout();
             this.statusPanel.ResumeLayout(false);
             this.statusPanel.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.wishlistTab.ResumeLayout(false);
+            this.wishlistTab.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).EndInit();
@@ -864,7 +864,7 @@
 		private System.Windows.Forms.Button buttonLogout;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.TabPage tab1;
+		private System.Windows.Forms.TabPage feedTab;
         private System.Windows.Forms.CheckBox rememberMe_CheckBox;
         private System.Windows.Forms.PictureBox groupsPicture;
         private System.Windows.Forms.PictureBox likedPicture;
@@ -889,7 +889,7 @@
         private System.Windows.Forms.TextBox statusTextBox;
         private System.Windows.Forms.PictureBox pictureBoxProfile;
         private System.Windows.Forms.Button settingsButton;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage wishlistTab;
         private System.Windows.Forms.CheckedListBox checkedListBoxShopping;
         private System.Windows.Forms.CheckedListBox checkedListBoxPets;
         private System.Windows.Forms.CheckedListBox checkedListBoxActivities;

@@ -295,7 +295,6 @@ namespace BasicFacebookFeatures
             ListObject selectedItem = (ListObject)list.Items[list.SelectedIndex];
             list.Items.RemoveAt(list.SelectedIndex);
             RemoveFromWishlist(category.ToString(), selectedItem);
-
         }
     }
 }

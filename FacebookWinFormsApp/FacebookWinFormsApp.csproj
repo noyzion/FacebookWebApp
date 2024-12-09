@@ -67,6 +67,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Speech" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -106,8 +107,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatisicsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatisicsForm.Designer.cs">
+      <DependentUpon>StatisicsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tab2Manager.cs" />
     <Compile Include="Workout.cs" />
+    <EmbeddedResource Include="StatisicsForm.resx">
+      <DependentUpon>StatisicsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </None>
