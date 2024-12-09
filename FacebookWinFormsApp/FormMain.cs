@@ -205,55 +205,34 @@ namespace BasicFacebookFeatures
             buttonLogout.Enabled = false;
         }
 
-        private void groupsButton_Click(object sender, EventArgs e)
+        private void groups_Click(object sender, EventArgs e)
         {
             fetchGroups();
         }
 
-        private void friendsButton_Click(object sender, EventArgs e)
+        private void friends_Click(object sender, EventArgs e)
         {
             fetchFriends();
         }
 
-        private void postsButton_Click(object sender, EventArgs e)
+        private void posts_Click(object sender, EventArgs e)
         {
             fetchPosts();
         }
 
-        private void photosButton_Click(object sender, EventArgs e)
+        private void photos_Click(object sender, EventArgs e)
         {
             fetchAlbums();
         }
 
-        private void pagesButton_Click(object sender, EventArgs e)
+        private void pages_Click(object sender, EventArgs e)
         {
             fetchLiked();
         }
 
-        private void groupsPicture_Click(object sender, EventArgs e)
+        private void events_Click(object sender, EventArgs e)
         {
-            fetchGroups();
-        }
-
-        private void likedPicture_Click(object sender, EventArgs e)
-        {
-            fetchLiked();
-        }
-
-        private void friendsPicture_Click(object sender, EventArgs e)
-        {
-            fetchFriends();
-        }
-
-        private void postsPicture_Click(object sender, EventArgs e)
-        {
-            fetchPosts();
-        }
-
-        private void photosPicture_Click(object sender, EventArgs e)
-        {
-            fetchAlbums();
-
+            fetchEvents();
         }
 
         private void fetchGroups()
@@ -610,7 +589,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-
         private void OpenAlbumPhotos(Album album)
         {
             Form albumForm = new Form
@@ -651,7 +629,6 @@ namespace BasicFacebookFeatures
             albumForm.ShowDialog();
         }
 
-
         private void displayPostDetails(Post post)
         {
             if (post != null)
@@ -684,15 +661,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void eventsButton_Click(object sender, EventArgs e)
-        {
-            fetchEvents();
-        }
-
-        private void eventsPictureBox_Click(object sender, EventArgs e)
-        {
-            fetchEvents();
-        }
 
         private void addPostButton_Click(object sender, EventArgs e)
         {
@@ -731,10 +699,7 @@ namespace BasicFacebookFeatures
 
             Post postedPhoto = m_LoginResult.LoggedInUser.PostPhoto(photoPath);
         }
-            
-
-        
-
+  
         private string addPhoto()
         {
             string selectedFilePath = null;
@@ -806,7 +771,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-
         private void pictureBoxProfile_Click(object sender, EventArgs e)
         {
             using (OpenProfilePicture optionsForm = new OpenProfilePicture())
@@ -820,7 +784,7 @@ namespace BasicFacebookFeatures
                             break;
 
                         case ProfileOption.ChangeProfile:
-                            Post postedPhoto = m_LoginResult.LoggedInUser.PostPhoto(addPhoto(), "Uploaded via MyApp");
+                            addPictureButton_Click(sender, e);
                             break;
                     }
                 }
@@ -855,20 +819,6 @@ namespace BasicFacebookFeatures
             catch (Exception ex)
             {
                 MessageBox.Show($"Failed to load the profile picture: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void ChangeProfile()
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog
-            {
-                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp",
-                Title = "Select a Profile Picture"
-            };
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                pictureBoxProfile.ImageLocation = openFileDialog.FileName;
             }
         }
 
@@ -989,8 +939,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-
-
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             isTextBoxChanged = !string.IsNullOrWhiteSpace(textBoxName.Text);
@@ -1089,8 +1037,6 @@ namespace BasicFacebookFeatures
             }
             MessageBox.Show("Item deleted successfully.");
         }
-
-
 
         private void buttonAddWorkout_Click(object sender, EventArgs e)
         {

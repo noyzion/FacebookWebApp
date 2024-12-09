@@ -285,7 +285,7 @@
             this.eventsButton.TabIndex = 74;
             this.eventsButton.Text = "Events";
             this.eventsButton.UseVisualStyleBackColor = false;
-            this.eventsButton.Click += new System.EventHandler(this.eventsButton_Click);
+            this.eventsButton.Click += new System.EventHandler(this.events_Click);
             // 
             // DataPanel
             // 
@@ -328,7 +328,7 @@
             this.albumsButton.TabIndex = 69;
             this.albumsButton.Text = "Albums";
             this.albumsButton.UseVisualStyleBackColor = false;
-            this.albumsButton.Click += new System.EventHandler(this.photosButton_Click);
+            this.albumsButton.Click += new System.EventHandler(this.photos_Click);
             // 
             // postsButton
             // 
@@ -343,7 +343,7 @@
             this.postsButton.TabIndex = 68;
             this.postsButton.Text = "Posts";
             this.postsButton.UseVisualStyleBackColor = false;
-            this.postsButton.Click += new System.EventHandler(this.postsButton_Click);
+            this.postsButton.Click += new System.EventHandler(this.posts_Click);
             // 
             // friendsButton
             // 
@@ -358,7 +358,7 @@
             this.friendsButton.TabIndex = 66;
             this.friendsButton.Text = "Friends";
             this.friendsButton.UseVisualStyleBackColor = false;
-            this.friendsButton.Click += new System.EventHandler(this.friendsButton_Click);
+            this.friendsButton.Click += new System.EventHandler(this.friends_Click);
             // 
             // pagesButton
             // 
@@ -373,7 +373,7 @@
             this.pagesButton.TabIndex = 65;
             this.pagesButton.Text = "Pages";
             this.pagesButton.UseVisualStyleBackColor = false;
-            this.pagesButton.Click += new System.EventHandler(this.pagesButton_Click);
+            this.pagesButton.Click += new System.EventHandler(this.pages_Click);
             // 
             // groupsButton
             // 
@@ -388,7 +388,7 @@
             this.groupsButton.TabIndex = 64;
             this.groupsButton.Text = "Groups";
             this.groupsButton.UseVisualStyleBackColor = false;
-            this.groupsButton.Click += new System.EventHandler(this.groupsButton_Click);
+            this.groupsButton.Click += new System.EventHandler(this.groups_Click);
             // 
             // rememberMe_CheckBox
             // 
@@ -724,7 +724,7 @@
             this.eventsPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.eventsPictureBox.TabIndex = 73;
             this.eventsPictureBox.TabStop = false;
-            this.eventsPictureBox.Click += new System.EventHandler(this.eventsPictureBox_Click);
+            this.eventsPictureBox.Click += new System.EventHandler(this.events_Click);
             // 
             // photosPicture
             // 
@@ -736,7 +736,7 @@
             this.photosPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.photosPicture.TabIndex = 63;
             this.photosPicture.TabStop = false;
-            this.photosPicture.Click += new System.EventHandler(this.photosPicture_Click);
+            this.photosPicture.Click += new System.EventHandler(this.photos_Click);
             // 
             // postsPicture
             // 
@@ -748,7 +748,7 @@
             this.postsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.postsPicture.TabIndex = 62;
             this.postsPicture.TabStop = false;
-            this.postsPicture.Click += new System.EventHandler(this.postsPicture_Click);
+            this.postsPicture.Click += new System.EventHandler(this.posts_Click);
             // 
             // friendsPicture
             // 
@@ -760,7 +760,7 @@
             this.friendsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.friendsPicture.TabIndex = 60;
             this.friendsPicture.TabStop = false;
-            this.friendsPicture.Click += new System.EventHandler(this.friendsPicture_Click);
+            this.friendsPicture.Click += new System.EventHandler(this.friends_Click);
             // 
             // likedPicture
             // 
@@ -772,7 +772,7 @@
             this.likedPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.likedPicture.TabIndex = 59;
             this.likedPicture.TabStop = false;
-            this.likedPicture.Click += new System.EventHandler(this.likedPicture_Click);
+            this.likedPicture.Click += new System.EventHandler(this.pages_Click);
             // 
             // groupsPicture
             // 
@@ -784,7 +784,7 @@
             this.groupsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.groupsPicture.TabIndex = 58;
             this.groupsPicture.TabStop = false;
-            this.groupsPicture.Click += new System.EventHandler(this.groupsPicture_Click);
+            this.groupsPicture.Click += new System.EventHandler(this.groups_Click);
             // 
             // pictureBoxPets
             // 

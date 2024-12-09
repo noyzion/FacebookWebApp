@@ -24,35 +24,14 @@ namespace BasicFacebookFeatures
         {
             InitializeComponent();
         }
-        private void showProfileButton_Click(object sender, EventArgs e)
+        private void showProfile_Click(object sender, EventArgs e)
         {
             SelectedOption = ProfileOption.ShowProfile;
             DialogResult = DialogResult.OK;
             Close();
         }
 
-        private void OpenProfilePicture_Load(object sender, EventArgs e)
-        {
-            SelectedOption = ProfileOption.ChangeProfile;
-            DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void showProfilePictureBox_Click(object sender, EventArgs e)
-        {
-            SelectedOption = ProfileOption.ShowProfile;
-            DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void changePorfilePictureBox_Click(object sender, EventArgs e)
-        {
-            SelectedOption = ProfileOption.ChangeProfile;
-            DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void changeProfileButton_Click(object sender, EventArgs e)
+        private void changeProfile_Click(object sender, EventArgs e)
         {
             SelectedOption = ProfileOption.ChangeProfile;
             DialogResult = DialogResult.OK;
@@ -101,11 +80,6 @@ namespace BasicFacebookFeatures
         private void showProfilePictureBox_MouseLeave(object sender, EventArgs e)
         {
             PictureBox_MouseLeave(sender, e);
-        }
-
-        private void OpenProfilePic_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

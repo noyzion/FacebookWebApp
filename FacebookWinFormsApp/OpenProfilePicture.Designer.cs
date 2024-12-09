@@ -46,7 +46,7 @@
             this.showProfilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.showProfilePictureBox.TabIndex = 7;
             this.showProfilePictureBox.TabStop = false;
-            this.showProfilePictureBox.Click += new System.EventHandler(this.showProfilePictureBox_Click);
+            this.showProfilePictureBox.Click += new System.EventHandler(this.showProfile_Click);
             this.showProfilePictureBox.MouseEnter += new System.EventHandler(this.showProfilePictureBox_MouseEnter);
             this.showProfilePictureBox.MouseLeave += new System.EventHandler(this.showProfilePictureBox_MouseLeave);
             // 
@@ -60,7 +60,7 @@
             this.changePorfilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.changePorfilePictureBox.TabIndex = 6;
             this.changePorfilePictureBox.TabStop = false;
-            this.changePorfilePictureBox.Click += new System.EventHandler(this.changePorfilePictureBox_Click);
+            this.changePorfilePictureBox.Click += new System.EventHandler(this.changeProfile_Click);
             this.changePorfilePictureBox.MouseEnter += new System.EventHandler(this.changePorfilePictureBox_MouseEnter);
             this.changePorfilePictureBox.MouseLeave += new System.EventHandler(this.changePorfilePictureBox_MouseLeave);
             // 
@@ -73,7 +73,7 @@
             this.changeProfileButton.TabIndex = 5;
             this.changeProfileButton.Text = "Change your profile";
             this.changeProfileButton.UseVisualStyleBackColor = true;
-            this.changeProfileButton.Click += new System.EventHandler(this.changePorfilePictureBox_Click);
+            this.changeProfileButton.Click += new System.EventHandler(this.changeProfile_Click);
             // 
             // showProfileButton
             // 
@@ -84,7 +84,7 @@
             this.showProfileButton.TabIndex = 4;
             this.showProfileButton.Text = "Show your profile";
             this.showProfileButton.UseVisualStyleBackColor = true;
-            this.showProfileButton.Click += new System.EventHandler(this.showProfilePictureBox_Click);
+            this.showProfileButton.Click += new System.EventHandler(this.showProfile_Click);
             // 
             // OpenProfilePicture
             // 
