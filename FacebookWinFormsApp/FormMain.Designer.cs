@@ -80,6 +80,7 @@
             this.buttonPost = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.buttonDeleteItem = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
@@ -492,6 +493,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.buttonDeleteItem);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.buttonPost);
@@ -740,6 +742,21 @@
             this.label9.TabIndex = 24;
             this.label9.Text = "what do you wish for?";
             // 
+            // buttonDeleteItem
+            // 
+            this.buttonDeleteItem.BackColor = System.Drawing.Color.Tomato;
+            this.buttonDeleteItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonDeleteItem.Enabled = false;
+            this.buttonDeleteItem.FlatAppearance.BorderSize = 0;
+            this.buttonDeleteItem.ForeColor = System.Drawing.Color.Black;
+            this.buttonDeleteItem.Location = new System.Drawing.Point(1120, 505);
+            this.buttonDeleteItem.Name = "buttonDeleteItem";
+            this.buttonDeleteItem.Size = new System.Drawing.Size(81, 34);
+            this.buttonDeleteItem.TabIndex = 25;
+            this.buttonDeleteItem.Text = "delete";
+            this.buttonDeleteItem.UseVisualStyleBackColor = false;
+            this.buttonDeleteItem.Click += new System.EventHandler(this.buttonDeleteItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -827,6 +844,7 @@
         private System.Windows.Forms.Button buttonPost;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button buttonDeleteItem;
     }
 }
 

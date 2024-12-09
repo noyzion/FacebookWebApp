@@ -68,6 +68,20 @@ namespace BasicFacebookFeatures
             }
         }
 
+        public void RemoveFromWishlist(string category, ListObject item)
+        {
+            var existingCategory = m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
+
+            if (existingCategory.Key != null)
+            {
+                existingCategory.Value.Remove(item);
+                if (existingCategory.Value.Count == 0)
+                {
+                    m_WishlistValues.Remove(existingCategory);
+                }
+            }
+
+        }
 
         public void ShareWishlist(
            CheckedListBox foodListBox,
@@ -231,6 +245,15 @@ namespace BasicFacebookFeatures
                 }
             }
             return null;
+        }
+
+
+        public void deleteFromList(CheckedListBox list, EWishlistCategories category)
+        {
+            ListObject selectedItem = (ListObject)list.Items[list.SelectedIndex];
+            list.Items.RemoveAt(list.SelectedIndex);
+            RemoveFromWishlist(category.ToString(), selectedItem);
+
         }
     }
 }

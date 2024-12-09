@@ -864,7 +864,7 @@ namespace BasicFacebookFeatures
         private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e, CheckedListBox list)
         {
             string itemName = list.Text;
-           ListObject listObject= m_Tab2Manager.FindListObjectByName(itemName);
+            ListObject listObject = m_Tab2Manager.FindListObjectByName(itemName);
             if (listObject != null)
             {
                 if (listObject.m_Checked)
@@ -877,25 +877,52 @@ namespace BasicFacebookFeatures
         private void checkedListBoxFood_SelectedIndexChanged(object sender, EventArgs e)
         {
             m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxFood, pictureBoxFood);
+            buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxShopping_SelectedIndexChanged(object sender, EventArgs e)
         {
             m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxShopping, pictureBoxShopping);
+            buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxPets_SelectedIndexChanged(object sender, EventArgs e)
         {
             m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxPets, pictureBoxPets);
+            buttonDeleteItem.Enabled = true;
+
         }
         private void checkedListBoxActivities_SelectedIndexChanged(object sender, EventArgs e)
         {
             m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxActivities, pictureBoxActivities);
+            buttonDeleteItem.Enabled = true;
+
         }
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
-            m_Tab2Manager.ShareWishlist(checkedListBoxFood,checkedListBoxActivities,checkedListBoxPets,checkedListBoxShopping);
+            m_Tab2Manager.ShareWishlist(checkedListBoxFood, checkedListBoxActivities, checkedListBoxPets, checkedListBoxShopping);
         }
-    }
 
+        private void buttonDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (checkedListBoxFood.SelectedIndex >= 0)
+            {
+               m_Tab2Manager.deleteFromList(checkedListBoxFood, EWishlistCategories.food);
+            }
+            if (checkedListBoxActivities.SelectedIndex >= 0)
+            {
+                m_Tab2Manager.deleteFromList(checkedListBoxActivities, EWishlistCategories.activities);
+            }
+            if (checkedListBoxPets.SelectedIndex >= 0)
+            {
+                m_Tab2Manager.deleteFromList(checkedListBoxPets, EWishlistCategories.pets);
+
+            }
+            if (checkedListBoxShopping.SelectedIndex >= 0)
+            {
+                m_Tab2Manager.deleteFromList(checkedListBoxShopping, EWishlistCategories.shopping);
+            }
+            MessageBox.Show("Item deleted successfully.");
+        } 
+    }
 }
 
