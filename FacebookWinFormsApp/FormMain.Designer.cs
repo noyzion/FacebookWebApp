@@ -34,7 +34,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab1 = new System.Windows.Forms.TabPage();
             this.settingsButton = new System.Windows.Forms.Button();
-            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.statusPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.videoButton = new System.Windows.Forms.Button();
@@ -42,7 +41,6 @@
             this.addPictureButton = new System.Windows.Forms.Button();
             this.statusTextBox = new System.Windows.Forms.TextBox();
             this.eventsButton = new System.Windows.Forms.Button();
-            this.eventsPictureBox = new System.Windows.Forms.PictureBox();
             this.DataPanel = new System.Windows.Forms.TableLayoutPanel();
             this.DataListBox = new System.Windows.Forms.ListBox();
             this.albumsButton = new System.Windows.Forms.Button();
@@ -50,17 +48,8 @@
             this.friendsButton = new System.Windows.Forms.Button();
             this.pagesButton = new System.Windows.Forms.Button();
             this.groupsButton = new System.Windows.Forms.Button();
-            this.photosPicture = new System.Windows.Forms.PictureBox();
-            this.postsPicture = new System.Windows.Forms.PictureBox();
-            this.friendsPicture = new System.Windows.Forms.PictureBox();
-            this.likedPicture = new System.Windows.Forms.PictureBox();
-            this.groupsPicture = new System.Windows.Forms.PictureBox();
             this.rememberMe_CheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pictureBoxPets = new System.Windows.Forms.PictureBox();
-            this.pictureBoxShopping = new System.Windows.Forms.PictureBox();
-            this.pictureBoxActivities = new System.Windows.Forms.PictureBox();
-            this.pictureBoxFood = new System.Windows.Forms.PictureBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -85,24 +74,34 @@
             this.birthdayLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
             this.panelWorkouts = new System.Windows.Forms.Panel();
-            this.buttonCompete = new System.Windows.Forms.Button();
-            this.panelStatisticsWorkouts = new System.Windows.Forms.Panel();
+            this.buttonStatistics = new System.Windows.Forms.Button();
+            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
+            this.eventsPictureBox = new System.Windows.Forms.PictureBox();
+            this.photosPicture = new System.Windows.Forms.PictureBox();
+            this.postsPicture = new System.Windows.Forms.PictureBox();
+            this.friendsPicture = new System.Windows.Forms.PictureBox();
+            this.likedPicture = new System.Windows.Forms.PictureBox();
+            this.groupsPicture = new System.Windows.Forms.PictureBox();
+            this.pictureBoxPets = new System.Windows.Forms.PictureBox();
+            this.pictureBoxShopping = new System.Windows.Forms.PictureBox();
+            this.pictureBoxActivities = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFood = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.statusPanel.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photosPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.likedPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsPicture)).BeginInit();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShopping)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActivities)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -205,16 +204,6 @@
             this.settingsButton.UseVisualStyleBackColor = false;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
-            // pictureBoxProfile
-            // 
-            this.pictureBoxProfile.Location = new System.Drawing.Point(245, 28);
-            this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.Size = new System.Drawing.Size(132, 130);
-            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxProfile.TabIndex = 55;
-            this.pictureBoxProfile.TabStop = false;
-            this.pictureBoxProfile.Click += new System.EventHandler(this.pictureBoxProfile_Click);
-            // 
             // statusPanel
             // 
             this.statusPanel.Controls.Add(this.label2);
@@ -298,18 +287,6 @@
             this.eventsButton.Text = "Events";
             this.eventsButton.UseVisualStyleBackColor = false;
             this.eventsButton.Click += new System.EventHandler(this.eventsButton_Click);
-            // 
-            // eventsPictureBox
-            // 
-            this.eventsPictureBox.Image = global::BasicFacebookFeatures.Properties.Resources.events_icon;
-            this.eventsPictureBox.InitialImage = global::BasicFacebookFeatures.Properties.Resources.events_icon;
-            this.eventsPictureBox.Location = new System.Drawing.Point(18, 465);
-            this.eventsPictureBox.Name = "eventsPictureBox";
-            this.eventsPictureBox.Size = new System.Drawing.Size(49, 48);
-            this.eventsPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.eventsPictureBox.TabIndex = 73;
-            this.eventsPictureBox.TabStop = false;
-            this.eventsPictureBox.Click += new System.EventHandler(this.eventsPictureBox_Click);
             // 
             // DataPanel
             // 
@@ -414,66 +391,6 @@
             this.groupsButton.UseVisualStyleBackColor = false;
             this.groupsButton.Click += new System.EventHandler(this.groupsButton_Click);
             // 
-            // photosPicture
-            // 
-            this.photosPicture.Image = global::BasicFacebookFeatures.Properties.Resources.photos_icon__2_;
-            this.photosPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.photos_icon__2_;
-            this.photosPicture.Location = new System.Drawing.Point(18, 355);
-            this.photosPicture.Name = "photosPicture";
-            this.photosPicture.Size = new System.Drawing.Size(49, 48);
-            this.photosPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.photosPicture.TabIndex = 63;
-            this.photosPicture.TabStop = false;
-            this.photosPicture.Click += new System.EventHandler(this.photosPicture_Click);
-            // 
-            // postsPicture
-            // 
-            this.postsPicture.Image = global::BasicFacebookFeatures.Properties.Resources.posts_icon;
-            this.postsPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.posts_icon;
-            this.postsPicture.Location = new System.Drawing.Point(18, 409);
-            this.postsPicture.Name = "postsPicture";
-            this.postsPicture.Size = new System.Drawing.Size(49, 48);
-            this.postsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.postsPicture.TabIndex = 62;
-            this.postsPicture.TabStop = false;
-            this.postsPicture.Click += new System.EventHandler(this.postsPicture_Click);
-            // 
-            // friendsPicture
-            // 
-            this.friendsPicture.Image = global::BasicFacebookFeatures.Properties.Resources.new_friends_icon;
-            this.friendsPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.new_friends_icon;
-            this.friendsPicture.Location = new System.Drawing.Point(18, 301);
-            this.friendsPicture.Name = "friendsPicture";
-            this.friendsPicture.Size = new System.Drawing.Size(49, 48);
-            this.friendsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.friendsPicture.TabIndex = 60;
-            this.friendsPicture.TabStop = false;
-            this.friendsPicture.Click += new System.EventHandler(this.friendsPicture_Click);
-            // 
-            // likedPicture
-            // 
-            this.likedPicture.Image = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
-            this.likedPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
-            this.likedPicture.Location = new System.Drawing.Point(18, 247);
-            this.likedPicture.Name = "likedPicture";
-            this.likedPicture.Size = new System.Drawing.Size(49, 48);
-            this.likedPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.likedPicture.TabIndex = 59;
-            this.likedPicture.TabStop = false;
-            this.likedPicture.Click += new System.EventHandler(this.likedPicture_Click);
-            // 
-            // groupsPicture
-            // 
-            this.groupsPicture.Image = global::BasicFacebookFeatures.Properties.Resources.groups_icon;
-            this.groupsPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.groups_icon;
-            this.groupsPicture.Location = new System.Drawing.Point(18, 193);
-            this.groupsPicture.Name = "groupsPicture";
-            this.groupsPicture.Size = new System.Drawing.Size(49, 48);
-            this.groupsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.groupsPicture.TabIndex = 58;
-            this.groupsPicture.TabStop = false;
-            this.groupsPicture.Click += new System.EventHandler(this.groupsPicture_Click);
-            // 
             // rememberMe_CheckBox
             // 
             this.rememberMe_CheckBox.AutoSize = true;
@@ -490,15 +407,15 @@
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.buttonPost);
-            this.tabPage2.Controls.Add(this.pictureBoxPets);
-            this.tabPage2.Controls.Add(this.pictureBoxShopping);
-            this.tabPage2.Controls.Add(this.pictureBoxActivities);
-            this.tabPage2.Controls.Add(this.pictureBoxFood);
             this.tabPage2.Controls.Add(this.buttonAdd);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.pictureBoxPets);
+            this.tabPage2.Controls.Add(this.pictureBoxShopping);
+            this.tabPage2.Controls.Add(this.pictureBoxActivities);
+            this.tabPage2.Controls.Add(this.pictureBoxFood);
             this.tabPage2.Controls.Add(this.checkedListBoxShopping);
             this.tabPage2.Controls.Add(this.checkedListBoxPets);
             this.tabPage2.Controls.Add(this.checkedListBoxActivities);
@@ -514,43 +431,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // pictureBoxPets
-            // 
-            this.pictureBoxPets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPets.Location = new System.Drawing.Point(741, 439);
-            this.pictureBoxPets.Name = "pictureBoxPets";
-            this.pictureBoxPets.Size = new System.Drawing.Size(100, 100);
-            this.pictureBoxPets.TabIndex = 16;
-            this.pictureBoxPets.TabStop = false;
-            // 
-            // pictureBoxShopping
-            // 
-            this.pictureBoxShopping.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxShopping.Location = new System.Drawing.Point(1001, 439);
-            this.pictureBoxShopping.Name = "pictureBoxShopping";
-            this.pictureBoxShopping.Size = new System.Drawing.Size(100, 100);
-            this.pictureBoxShopping.TabIndex = 15;
-            this.pictureBoxShopping.TabStop = false;
-            // 
-            // pictureBoxActivities
-            // 
-            this.pictureBoxActivities.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxActivities.Location = new System.Drawing.Point(479, 439);
-            this.pictureBoxActivities.Name = "pictureBoxActivities";
-            this.pictureBoxActivities.Size = new System.Drawing.Size(100, 100);
-            this.pictureBoxActivities.TabIndex = 14;
-            this.pictureBoxActivities.TabStop = false;
-            this.pictureBoxActivities.Click += new System.EventHandler(this.pictureBoxActivities_Click);
-            // 
-            // pictureBoxFood
-            // 
-            this.pictureBoxFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxFood.Location = new System.Drawing.Point(218, 439);
-            this.pictureBoxFood.Name = "pictureBoxFood";
-            this.pictureBoxFood.Size = new System.Drawing.Size(100, 100);
-            this.pictureBoxFood.TabIndex = 13;
-            this.pictureBoxFood.TabStop = false;
             // 
             // buttonAdd
             // 
@@ -753,13 +633,12 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.panelStatisticsWorkouts);
-            this.panel1.Controls.Add(this.buttonCompete);
+            this.panel1.Controls.Add(this.buttonStatistics);
             this.panel1.Controls.Add(this.panelWorkouts);
             this.panel1.Controls.Add(this.buttonAddWorkout);
-            this.panel1.Location = new System.Drawing.Point(618, 28);
+            this.panel1.Location = new System.Drawing.Point(609, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(609, 145);
+            this.panel1.Size = new System.Drawing.Size(618, 145);
             this.panel1.TabIndex = 86;
             // 
             // label10
@@ -776,14 +655,16 @@
             // 
             this.buttonAddWorkout.BackColor = System.Drawing.Color.LightYellow;
             this.buttonAddWorkout.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.buttonAddWorkout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAddWorkout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddWorkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddWorkout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddWorkout.Location = new System.Drawing.Point(11, 29);
+            this.buttonAddWorkout.Location = new System.Drawing.Point(497, 39);
             this.buttonAddWorkout.Name = "buttonAddWorkout";
-            this.buttonAddWorkout.Size = new System.Drawing.Size(152, 35);
+            this.buttonAddWorkout.Size = new System.Drawing.Size(116, 35);
             this.buttonAddWorkout.TabIndex = 87;
             this.buttonAddWorkout.Text = "Add Workout";
             this.buttonAddWorkout.UseVisualStyleBackColor = false;
+            this.buttonAddWorkout.Click += new System.EventHandler(this.buttonAddWorkout_Click);
             // 
             // birthdayLabel
             // 
@@ -804,32 +685,144 @@
             // panelWorkouts
             // 
             this.panelWorkouts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelWorkouts.Location = new System.Drawing.Point(169, 3);
+            this.panelWorkouts.Location = new System.Drawing.Point(3, 4);
             this.panelWorkouts.Name = "panelWorkouts";
-            this.panelWorkouts.Size = new System.Drawing.Size(204, 137);
+            this.panelWorkouts.Size = new System.Drawing.Size(488, 137);
             this.panelWorkouts.TabIndex = 88;
             // 
-            // buttonCompete
+            // buttonStatistics
             // 
-            this.buttonCompete.BackColor = System.Drawing.Color.SandyBrown;
-            this.buttonCompete.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.buttonCompete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCompete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCompete.Location = new System.Drawing.Point(35, 78);
-            this.buttonCompete.Name = "buttonCompete";
-            this.buttonCompete.Size = new System.Drawing.Size(101, 36);
-            this.buttonCompete.TabIndex = 89;
-            this.buttonCompete.Text = "compete!";
-            this.buttonCompete.UseVisualStyleBackColor = false;
-            this.buttonCompete.Click += new System.EventHandler(this.button2_Click);
+            this.buttonStatistics.BackColor = System.Drawing.Color.PaleGreen;
+            this.buttonStatistics.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonStatistics.Location = new System.Drawing.Point(511, 83);
+            this.buttonStatistics.Name = "buttonStatistics";
+            this.buttonStatistics.Size = new System.Drawing.Size(88, 29);
+            this.buttonStatistics.TabIndex = 89;
+            this.buttonStatistics.Text = "statistics";
+            this.buttonStatistics.UseVisualStyleBackColor = false;
+            this.buttonStatistics.Click += new System.EventHandler(this.button2_Click);
             // 
-            // panelStatisticsWorkouts
+            // pictureBoxProfile
             // 
-            this.panelStatisticsWorkouts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelStatisticsWorkouts.Location = new System.Drawing.Point(379, 3);
-            this.panelStatisticsWorkouts.Name = "panelStatisticsWorkouts";
-            this.panelStatisticsWorkouts.Size = new System.Drawing.Size(221, 137);
-            this.panelStatisticsWorkouts.TabIndex = 89;
+            this.pictureBoxProfile.Location = new System.Drawing.Point(245, 28);
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.Size = new System.Drawing.Size(132, 130);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxProfile.TabIndex = 55;
+            this.pictureBoxProfile.TabStop = false;
+            this.pictureBoxProfile.Click += new System.EventHandler(this.pictureBoxProfile_Click);
+            // 
+            // eventsPictureBox
+            // 
+            this.eventsPictureBox.Image = global::BasicFacebookFeatures.Properties.Resources.events_icon;
+            this.eventsPictureBox.InitialImage = global::BasicFacebookFeatures.Properties.Resources.events_icon;
+            this.eventsPictureBox.Location = new System.Drawing.Point(18, 465);
+            this.eventsPictureBox.Name = "eventsPictureBox";
+            this.eventsPictureBox.Size = new System.Drawing.Size(49, 48);
+            this.eventsPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.eventsPictureBox.TabIndex = 73;
+            this.eventsPictureBox.TabStop = false;
+            this.eventsPictureBox.Click += new System.EventHandler(this.eventsPictureBox_Click);
+            // 
+            // photosPicture
+            // 
+            this.photosPicture.Image = global::BasicFacebookFeatures.Properties.Resources.photos_icon__2_;
+            this.photosPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.photos_icon__2_;
+            this.photosPicture.Location = new System.Drawing.Point(18, 355);
+            this.photosPicture.Name = "photosPicture";
+            this.photosPicture.Size = new System.Drawing.Size(49, 48);
+            this.photosPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.photosPicture.TabIndex = 63;
+            this.photosPicture.TabStop = false;
+            this.photosPicture.Click += new System.EventHandler(this.photosPicture_Click);
+            // 
+            // postsPicture
+            // 
+            this.postsPicture.Image = global::BasicFacebookFeatures.Properties.Resources.posts_icon;
+            this.postsPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.posts_icon;
+            this.postsPicture.Location = new System.Drawing.Point(18, 409);
+            this.postsPicture.Name = "postsPicture";
+            this.postsPicture.Size = new System.Drawing.Size(49, 48);
+            this.postsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.postsPicture.TabIndex = 62;
+            this.postsPicture.TabStop = false;
+            this.postsPicture.Click += new System.EventHandler(this.postsPicture_Click);
+            // 
+            // friendsPicture
+            // 
+            this.friendsPicture.Image = global::BasicFacebookFeatures.Properties.Resources.new_friends_icon;
+            this.friendsPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.new_friends_icon;
+            this.friendsPicture.Location = new System.Drawing.Point(18, 301);
+            this.friendsPicture.Name = "friendsPicture";
+            this.friendsPicture.Size = new System.Drawing.Size(49, 48);
+            this.friendsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.friendsPicture.TabIndex = 60;
+            this.friendsPicture.TabStop = false;
+            this.friendsPicture.Click += new System.EventHandler(this.friendsPicture_Click);
+            // 
+            // likedPicture
+            // 
+            this.likedPicture.Image = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
+            this.likedPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
+            this.likedPicture.Location = new System.Drawing.Point(18, 247);
+            this.likedPicture.Name = "likedPicture";
+            this.likedPicture.Size = new System.Drawing.Size(49, 48);
+            this.likedPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.likedPicture.TabIndex = 59;
+            this.likedPicture.TabStop = false;
+            this.likedPicture.Click += new System.EventHandler(this.likedPicture_Click);
+            // 
+            // groupsPicture
+            // 
+            this.groupsPicture.Image = global::BasicFacebookFeatures.Properties.Resources.groups_icon;
+            this.groupsPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.groups_icon;
+            this.groupsPicture.Location = new System.Drawing.Point(18, 193);
+            this.groupsPicture.Name = "groupsPicture";
+            this.groupsPicture.Size = new System.Drawing.Size(49, 48);
+            this.groupsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.groupsPicture.TabIndex = 58;
+            this.groupsPicture.TabStop = false;
+            this.groupsPicture.Click += new System.EventHandler(this.groupsPicture_Click);
+            // 
+            // pictureBoxPets
+            // 
+            this.pictureBoxPets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxPets.Location = new System.Drawing.Point(741, 439);
+            this.pictureBoxPets.Name = "pictureBoxPets";
+            this.pictureBoxPets.Size = new System.Drawing.Size(100, 100);
+            this.pictureBoxPets.TabIndex = 16;
+            this.pictureBoxPets.TabStop = false;
+            // 
+            // pictureBoxShopping
+            // 
+            this.pictureBoxShopping.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxShopping.Location = new System.Drawing.Point(1001, 439);
+            this.pictureBoxShopping.Name = "pictureBoxShopping";
+            this.pictureBoxShopping.Size = new System.Drawing.Size(100, 100);
+            this.pictureBoxShopping.TabIndex = 15;
+            this.pictureBoxShopping.TabStop = false;
+            // 
+            // pictureBoxActivities
+            // 
+            this.pictureBoxActivities.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxActivities.Location = new System.Drawing.Point(479, 439);
+            this.pictureBoxActivities.Name = "pictureBoxActivities";
+            this.pictureBoxActivities.Size = new System.Drawing.Size(100, 100);
+            this.pictureBoxActivities.TabIndex = 14;
+            this.pictureBoxActivities.TabStop = false;
+            this.pictureBoxActivities.Click += new System.EventHandler(this.pictureBoxActivities_Click);
+            // 
+            // pictureBoxFood
+            // 
+            this.pictureBoxFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxFood.Location = new System.Drawing.Point(218, 439);
+            this.pictureBoxFood.Name = "pictureBoxFood";
+            this.pictureBoxFood.Size = new System.Drawing.Size(100, 100);
+            this.pictureBoxFood.TabIndex = 13;
+            this.pictureBoxFood.TabStop = false;
             // 
             // FormMain
             // 
@@ -845,22 +838,22 @@
             this.tabControl1.ResumeLayout(false);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.statusPanel.ResumeLayout(false);
             this.statusPanel.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photosPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.likedPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsPicture)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShopping)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActivities)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFood)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -923,9 +916,8 @@
         private System.Windows.Forms.Button buttonAddWorkout;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label birthdayLabel;
-        private System.Windows.Forms.Button buttonCompete;
+        private System.Windows.Forms.Button buttonStatistics;
         private System.Windows.Forms.Panel panelWorkouts;
-        private System.Windows.Forms.Panel panelStatisticsWorkouts;
     }
 }
 

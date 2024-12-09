@@ -20,6 +20,7 @@ namespace BasicFacebookFeatures
         public FormMain()
         {
             InitializeComponent();
+            InitializeWorkoutTable();
             m_AppSettings = AppSettings.LoadFromFile();
             this.rememberMe_CheckBox.Checked = m_AppSettings.RememberUser;
 
@@ -931,6 +932,32 @@ namespace BasicFacebookFeatures
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private List<Workout> workouts = new List<Workout>();
+
+        private void InitializeWorkoutTable()
+        {
+             workoutTable = new DataGridView
+            {
+                Dock = DockStyle.Fill,
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
+                ColumnCount = 4
+            };
+
+            workoutTable.Columns[0].Name = "Category";
+            workoutTable.Columns[1].Name = "Duration";
+            workoutTable.Columns[2].Name = "Calories";
+            workoutTable.Columns[3].Name = "Date";
+
+            panelWorkouts.Controls.Add(workoutTable);
+        }
+        private DataGridView workoutTable;
+
+        private void buttonAddWorkout_Click(object sender, EventArgs e)
+        {
+            AddWorkoutForm addWorkoutForm = new AddWorkoutForm(workoutTable);
+            addWorkoutForm.ShowDialog();
         }
     }
 }

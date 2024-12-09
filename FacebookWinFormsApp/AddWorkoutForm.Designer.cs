@@ -57,10 +57,38 @@
             // comboBoxWorkoutCategory
             // 
             this.comboBoxWorkoutCategory.FormattingEnabled = true;
+            this.comboBoxWorkoutCategory.Items.AddRange(new object[] {
+            "Cardio",
+            "Running",
+            "Cycling",
+            "Swimming",
+            "Walking",
+            "Jump Rope",
+            "Hiking",
+            "Weightlifting",
+            "Bodyweight",
+            "Powerlifting",
+            "CrossFit",
+            "Yoga & Flexibility",
+            "Hatha Yoga",
+            "Vinyasa Yoga",
+            "Pilates",
+            "Basketball",
+            "Soccer",
+            "Tennis",
+            "Football",
+            "Baseball",
+            "Golf",
+            "HIIT (High-Intensity Interval Training)",
+            "Tabata",
+            "Core & Abs",
+            "Dance",
+            "Zumba"});
             this.comboBoxWorkoutCategory.Location = new System.Drawing.Point(101, 109);
             this.comboBoxWorkoutCategory.Name = "comboBoxWorkoutCategory";
             this.comboBoxWorkoutCategory.Size = new System.Drawing.Size(121, 24);
             this.comboBoxWorkoutCategory.TabIndex = 3;
+            this.comboBoxWorkoutCategory.TextChanged += new System.EventHandler(this.comboBoxWorkoutCategory_TextChanged);
             // 
             // dateTimePickerWorkout
             // 
@@ -68,9 +96,11 @@
             this.dateTimePickerWorkout.Name = "dateTimePickerWorkout";
             this.dateTimePickerWorkout.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerWorkout.TabIndex = 4;
+            this.dateTimePickerWorkout.ValueChanged += new System.EventHandler(this.dateTimePickerWorkout_ValueChanged);
             // 
             // buttonAddWorkout
             // 
+            this.buttonAddWorkout.Enabled = false;
             this.buttonAddWorkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddWorkout.Location = new System.Drawing.Point(125, 360);
             this.buttonAddWorkout.Name = "buttonAddWorkout";
@@ -78,6 +108,7 @@
             this.buttonAddWorkout.TabIndex = 6;
             this.buttonAddWorkout.Text = "Add";
             this.buttonAddWorkout.UseVisualStyleBackColor = true;
+            this.buttonAddWorkout.Click += new System.EventHandler(this.buttonAddWorkout_Click);
             // 
             // label2
             // 
@@ -105,7 +136,7 @@
             this.numericUpDownDuration.Name = "numericUpDownDuration";
             this.numericUpDownDuration.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownDuration.TabIndex = 9;
-            this.numericUpDownDuration.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.numericUpDownDuration.ValueChanged += new System.EventHandler(this.numericUpDownDuration_ValueChanged);
             // 
             // numericUpDownCalories
             // 
@@ -113,16 +144,17 @@
             this.numericUpDownCalories.Name = "numericUpDownCalories";
             this.numericUpDownCalories.Size = new System.Drawing.Size(120, 22);
             this.numericUpDownCalories.TabIndex = 10;
+            this.numericUpDownCalories.ValueChanged += new System.EventHandler(this.numericUpDownCalories_ValueChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(121, 295);
+            this.label5.Location = new System.Drawing.Point(83, 295);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 20);
+            this.label5.Size = new System.Drawing.Size(154, 20);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Duration:";
+            this.label5.Text = "Duration (Minutes):";
             // 
             // label3
             // 

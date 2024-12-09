@@ -8,18 +8,21 @@ namespace BasicFacebookFeatures
 {
     public class Workout
     {
-        public int Duration { get; set; }
-        public string Catergory { get; set; }
+        public decimal Duration { get; set; }
+        public string Category { get; set; }
         public DateTime DateTime { get; set; }
-        public int Calories { get; set; }
+        public decimal Calories { get; set; }
         public Workout() { }
-        public Workout(int duration, string catergory, DateTime dateTime, int calories)
+        public Workout(decimal duration, string catergory, DateTime dateTime, decimal calories)
         {
             Duration = duration;
-            Catergory = catergory;
+            Category = catergory;
             DateTime = dateTime;
             Calories = calories;
         }
-
+        public override string ToString()
+        {
+            return $"Workout: {Category}, Duration: {Duration} min, Calories: {Calories} kcal, Date: {DateTime.ToShortDateString()}";
+        }
     }
 }
