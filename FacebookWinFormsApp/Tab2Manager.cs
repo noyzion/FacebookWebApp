@@ -69,19 +69,15 @@ namespace BasicFacebookFeatures
         }
 
 
-
-        public void ShareWishlist(CheckedListBox foodListBox, CheckedListBox activitiesListBox, CheckedListBox petsListBox, CheckedListBox shoppingListBox)
+        public void ShareWishlist(
+           CheckedListBox foodListBox,
+           CheckedListBox activitiesListBox,
+           CheckedListBox petsListBox,
+           CheckedListBox shoppingListBox)
         {
             try
             {
-                StringBuilder wishlist = new StringBuilder("My Wishlist:\n");
-
-                wishlist.Append("Food:\n" + getCheckedItemsAsString(foodListBox));
-                wishlist.Append("\nActivities:\n" + getCheckedItemsAsString(activitiesListBox));
-                wishlist.Append("\nPets:\n" + getCheckedItemsAsString(petsListBox));
-                wishlist.Append("\nShopping:\n" + getCheckedItemsAsString(shoppingListBox));
-
-                MessageBox.Show(wishlist.ToString());
+                DisplayCombinedWishlistPopup(foodListBox, activitiesListBox, petsListBox, shoppingListBox);
             }
             catch (Exception ex)
             {
@@ -89,14 +85,117 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private string getCheckedItemsAsString(CheckedListBox checkedListBox)
+        private void DisplayCombinedWishlistPopup(
+     CheckedListBox foodListBox,
+     CheckedListBox activitiesListBox,
+     CheckedListBox petsListBox,
+     CheckedListBox shoppingListBox)
         {
-            List<string> checkedItems = new List<string>();
-            foreach (var item in checkedListBox.CheckedItems)
+            Form popupForm = new Form
             {
-                checkedItems.Add(item.ToString());
+                Text = "My Wishlist",
+                Size = new Size(870, 580),
+                StartPosition = FormStartPosition.CenterScreen,
+                AutoScroll = true
+            };
+
+            FlowLayoutPanel mainPanel = new FlowLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Padding = new Padding(10)
+            };
+
+            mainPanel.Controls.Add(CreateCategoryPanel("Food", foodListBox));
+            mainPanel.Controls.Add(CreateCategoryPanel("Activities", activitiesListBox));
+            mainPanel.Controls.Add(CreateCategoryPanel("Pets", petsListBox));
+            mainPanel.Controls.Add(CreateCategoryPanel("Shopping", shoppingListBox));
+
+            popupForm.Controls.Add(mainPanel);
+
+            popupForm.ShowDialog();
+        }
+
+        private Panel CreateCategoryPanel(string categoryName, CheckedListBox checkedListBox)
+        {
+            FlowLayoutPanel categoryPanel = new FlowLayoutPanel
+            {
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
+                AutoScroll = true,
+                Size = new Size(200, 500),
+                Padding = new Padding(5),
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
+            Label categoryLabel = new Label
+            {
+                Text = categoryName,
+                AutoSize = true,
+                Font = new Font("Arial", 14, FontStyle.Bold),
+                ForeColor = Color.DarkBlue,
+                Margin = new Padding(5)
+            };
+            categoryPanel.Controls.Add(categoryLabel);
+
+            if (checkedListBox.Items.Count > 0)
+            {
+                foreach (ListObject item in checkedListBox.Items)
+                {
+                    Panel itemPanel = new Panel
+                    {
+                        Size = new Size(180, 100),
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Margin = new Padding(5)
+                    };
+
+                    Label label = new Label
+                    {
+                        Text = $"{item.m_Text}" + (item.m_Checked ? " (Achieved ✅)" : ""),
+                        AutoSize = true,
+                        Location = new Point(5, 5),
+                        Font = new Font("Arial", 10, FontStyle.Regular)
+                    };
+
+                    PictureBox pictureBox = new PictureBox
+                    {
+                        Size = new Size(60, 60),
+                        Location = new Point(5, 30),
+                        SizeMode = PictureBoxSizeMode.StretchImage
+                    };
+
+                    if (!string.IsNullOrEmpty(item.m_PhotoUrl) && File.Exists(item.m_PhotoUrl))
+                    {
+                        pictureBox.Image = Image.FromFile(item.m_PhotoUrl);
+                    }
+                    else
+                    {
+                        pictureBox.Image = null;
+                    }
+
+                    itemPanel.Controls.Add(label);
+                    itemPanel.Controls.Add(pictureBox);
+
+                    categoryPanel.Controls.Add(itemPanel);
+                }
             }
-            return string.Join(", ", checkedItems);
+            else
+            {
+                Label emptyMessage = new Label
+                {
+                    Text = "No items in this category.",
+                    AutoSize = true,
+                    Font = new Font("Arial", 10, FontStyle.Italic),
+                    ForeColor = Color.Gray,
+                    Margin = new Padding(5)
+                };
+
+                categoryPanel.Controls.Add(emptyMessage);
+            }
+
+            return categoryPanel;
         }
 
         public void loadImageForPictureBoxInList(CheckedListBox list, PictureBox pictureBox)
@@ -127,7 +226,6 @@ namespace BasicFacebookFeatures
                 {
                     if (listObject.m_Text == itemName)
                     {
-                        listObject.m_Checked = true;
                         return listObject;
                     }
                 }

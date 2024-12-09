@@ -77,6 +77,9 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
+            this.buttonPost = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
@@ -489,6 +492,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.buttonPost);
             this.tabPage2.Controls.Add(this.pictureBoxPets);
             this.tabPage2.Controls.Add(this.pictureBoxShopping);
             this.tabPage2.Controls.Add(this.pictureBoxActivities);
@@ -516,6 +522,7 @@
             // 
             // pictureBoxPets
             // 
+            this.pictureBoxPets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxPets.Location = new System.Drawing.Point(741, 439);
             this.pictureBoxPets.Name = "pictureBoxPets";
             this.pictureBoxPets.Size = new System.Drawing.Size(100, 100);
@@ -524,6 +531,7 @@
             // 
             // pictureBoxShopping
             // 
+            this.pictureBoxShopping.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxShopping.Location = new System.Drawing.Point(1001, 439);
             this.pictureBoxShopping.Name = "pictureBoxShopping";
             this.pictureBoxShopping.Size = new System.Drawing.Size(100, 100);
@@ -532,6 +540,7 @@
             // 
             // pictureBoxActivities
             // 
+            this.pictureBoxActivities.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxActivities.Location = new System.Drawing.Point(479, 439);
             this.pictureBoxActivities.Name = "pictureBoxActivities";
             this.pictureBoxActivities.Size = new System.Drawing.Size(100, 100);
@@ -541,6 +550,7 @@
             // 
             // pictureBoxFood
             // 
+            this.pictureBoxFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxFood.Location = new System.Drawing.Point(218, 439);
             this.pictureBoxFood.Name = "pictureBoxFood";
             this.pictureBoxFood.Size = new System.Drawing.Size(100, 100);
@@ -600,45 +610,50 @@
             // 
             // checkedListBoxShopping
             // 
+            this.checkedListBoxShopping.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBoxShopping.DisplayMember = "m_Text";
             this.checkedListBoxShopping.FormattingEnabled = true;
             this.checkedListBoxShopping.Location = new System.Drawing.Point(876, 190);
             this.checkedListBoxShopping.Name = "checkedListBoxShopping";
-            this.checkedListBoxShopping.Size = new System.Drawing.Size(225, 349);
+            this.checkedListBoxShopping.Size = new System.Drawing.Size(225, 347);
             this.checkedListBoxShopping.TabIndex = 17;
             this.checkedListBoxShopping.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxShopping_ItemCheck);
             this.checkedListBoxShopping.SelectedValueChanged += new System.EventHandler(this.checkedListBoxShopping_SelectedIndexChanged);
             // 
             // checkedListBoxPets
             // 
+            this.checkedListBoxPets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBoxPets.DisplayMember = "m_Text";
             this.checkedListBoxPets.FormattingEnabled = true;
             this.checkedListBoxPets.Location = new System.Drawing.Point(616, 190);
             this.checkedListBoxPets.Name = "checkedListBoxPets";
-            this.checkedListBoxPets.Size = new System.Drawing.Size(225, 349);
+            this.checkedListBoxPets.Size = new System.Drawing.Size(225, 347);
             this.checkedListBoxPets.TabIndex = 18;
             this.checkedListBoxPets.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPets_ItemCheck);
             this.checkedListBoxPets.SelectedValueChanged += new System.EventHandler(this.checkedListBoxPets_SelectedIndexChanged);
             // 
             // checkedListBoxActivities
             // 
+            this.checkedListBoxActivities.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBoxActivities.DisplayMember = "m_Text";
             this.checkedListBoxActivities.FormattingEnabled = true;
             this.checkedListBoxActivities.Location = new System.Drawing.Point(354, 190);
             this.checkedListBoxActivities.Name = "checkedListBoxActivities";
-            this.checkedListBoxActivities.Size = new System.Drawing.Size(225, 349);
+            this.checkedListBoxActivities.Size = new System.Drawing.Size(225, 347);
             this.checkedListBoxActivities.TabIndex = 19;
             this.checkedListBoxActivities.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxActivities_ItemCheck);
             this.checkedListBoxActivities.SelectedValueChanged += new System.EventHandler(this.checkedListBoxActivities_SelectedIndexChanged);
             // 
             // checkedListBoxFood
             // 
+            this.checkedListBoxFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBoxFood.DisplayMember = "m_Text";
             this.checkedListBoxFood.FormattingEnabled = true;
             this.checkedListBoxFood.Location = new System.Drawing.Point(93, 190);
             this.checkedListBoxFood.Name = "checkedListBoxFood";
-            this.checkedListBoxFood.Size = new System.Drawing.Size(225, 349);
+            this.checkedListBoxFood.Size = new System.Drawing.Size(225, 347);
             this.checkedListBoxFood.TabIndex = 20;
+            this.checkedListBoxFood.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxFood_ItemCheck);
             this.checkedListBoxFood.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxFood_SelectedIndexChanged);
             // 
             // buttonAddPhoto
@@ -669,10 +684,13 @@
             // 
             // textBoxName
             // 
+            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxName.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBoxName.Location = new System.Drawing.Point(329, 83);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(245, 28);
             this.textBoxName.TabIndex = 1;
+            this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // label3
@@ -684,6 +702,43 @@
             this.label3.Size = new System.Drawing.Size(185, 43);
             this.label3.TabIndex = 0;
             this.label3.Text = "My Wishlist";
+            // 
+            // buttonPost
+            // 
+            this.buttonPost.BackColor = System.Drawing.Color.PaleGreen;
+            this.buttonPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonPost.FlatAppearance.BorderSize = 0;
+            this.buttonPost.ForeColor = System.Drawing.Color.Black;
+            this.buttonPost.Location = new System.Drawing.Point(517, 567);
+            this.buttonPost.Name = "buttonPost";
+            this.buttonPost.Size = new System.Drawing.Size(191, 43);
+            this.buttonPost.TabIndex = 22;
+            this.buttonPost.Text = "Share your wishlist!";
+            this.buttonPost.UseVisualStyleBackColor = false;
+            this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label8.Location = new System.Drawing.Point(588, 64);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label8.Size = new System.Drawing.Size(60, 16);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "category";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label9.Location = new System.Drawing.Point(329, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(132, 16);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "what do you wish for?";
             // 
             // FormMain
             // 
@@ -769,6 +824,9 @@
         private System.Windows.Forms.PictureBox pictureBoxShopping;
         private System.Windows.Forms.PictureBox pictureBoxActivities;
         private System.Windows.Forms.PictureBox pictureBoxFood;
+        private System.Windows.Forms.Button buttonPost;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
 

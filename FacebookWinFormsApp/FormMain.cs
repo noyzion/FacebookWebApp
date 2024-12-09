@@ -140,7 +140,7 @@ namespace BasicFacebookFeatures
                 int index = checkedListBox.Items.IndexOf(item);
                 if (index >= 0)
                 {
-                    checkedListBoxFood.SetItemChecked(index, true);
+                    checkedListBox.SetItemChecked(index, true);
                 }
             }
         }
@@ -864,10 +864,14 @@ namespace BasicFacebookFeatures
         private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e, CheckedListBox list)
         {
             string itemName = list.Text;
-
-            m_Tab2Manager.FindListObjectByName(itemName);
-
-
+           ListObject listObject= m_Tab2Manager.FindListObjectByName(itemName);
+            if (listObject != null)
+            {
+                if (listObject.m_Checked)
+                    listObject.m_Checked = false;
+                else
+                    listObject.m_Checked = true;
+            }
         }
 
         private void checkedListBoxFood_SelectedIndexChanged(object sender, EventArgs e)
@@ -887,6 +891,10 @@ namespace BasicFacebookFeatures
             m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxActivities, pictureBoxActivities);
         }
 
+        private void buttonPost_Click(object sender, EventArgs e)
+        {
+            m_Tab2Manager.ShareWishlist(checkedListBoxFood,checkedListBoxActivities,checkedListBoxPets,checkedListBoxShopping);
+        }
     }
 
 }
