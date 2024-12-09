@@ -577,9 +577,13 @@ namespace BasicFacebookFeatures
 
         private void addPostButton_Click(object sender, EventArgs e)
         {
+             post(statusTextBox.Text);         
+        }
+        private void post(string message)
+        {
             try
             {
-                Status postedStatus = m_LoginResult.LoggedInUser.PostStatus(statusTextBox.Text);
+                Status postedStatus = m_LoginResult.LoggedInUser.PostStatus(message);
                 MessageBox.Show($"Status posted! ID: {postedStatus.Id}");
 
             }
@@ -594,7 +598,6 @@ namespace BasicFacebookFeatures
 
             }
         }
-
         private void addPictureButton_Click(object sender, EventArgs e)
         {
             Post postedPhoto = m_LoginResult.LoggedInUser.PostPhoto(addPhoto(), "Uploaded via MyApp");
@@ -899,14 +902,15 @@ namespace BasicFacebookFeatures
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
-            m_Tab2Manager.ShareWishlist(checkedListBoxFood, checkedListBoxActivities, checkedListBoxPets, checkedListBoxShopping);
+          string postData=  m_Tab2Manager.ShareWishlist(checkedListBoxFood, checkedListBoxActivities, checkedListBoxPets, checkedListBoxShopping);
+            post(postData);
         }
 
         private void buttonDeleteItem_Click(object sender, EventArgs e)
         {
             if (checkedListBoxFood.SelectedIndex >= 0)
             {
-               m_Tab2Manager.deleteFromList(checkedListBoxFood, EWishlistCategories.food);
+                m_Tab2Manager.deleteFromList(checkedListBoxFood, EWishlistCategories.food);
             }
             if (checkedListBoxActivities.SelectedIndex >= 0)
             {
@@ -922,7 +926,7 @@ namespace BasicFacebookFeatures
                 m_Tab2Manager.deleteFromList(checkedListBoxShopping, EWishlistCategories.shopping);
             }
             MessageBox.Show("Item deleted successfully.");
-        } 
+        }
     }
 }
 

@@ -82,28 +82,69 @@ namespace BasicFacebookFeatures
             }
 
         }
-
-        public void ShareWishlist(
-           CheckedListBox foodListBox,
-           CheckedListBox activitiesListBox,
-           CheckedListBox petsListBox,
-           CheckedListBox shoppingListBox)
+        public string ShareWishlist(
+            CheckedListBox foodListBox,
+            CheckedListBox activitiesListBox,
+            CheckedListBox petsListBox,
+            CheckedListBox shoppingListBox)
         {
             try
             {
+                string wishlistString = DisplayCombinedWishlist(foodListBox, activitiesListBox, petsListBox, shoppingListBox);
+
+                // Show the popup form after constructing the wishlist string
                 DisplayCombinedWishlistPopup(foodListBox, activitiesListBox, petsListBox, shoppingListBox);
+
+                return wishlistString;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error sharing wishlist: {ex.Message}");
+                return $"Error sharing wishlist: {ex.Message}";
             }
         }
 
+        private string DisplayCombinedWishlist(
+            CheckedListBox foodListBox,
+            CheckedListBox activitiesListBox,
+            CheckedListBox petsListBox,
+            CheckedListBox shoppingListBox)
+        {
+            StringBuilder wishlistSummary = new StringBuilder();
+
+            wishlistSummary.AppendLine("My Wishlist:\n");
+
+            wishlistSummary.AppendLine("Food:");
+            wishlistSummary.Append(GetCategoryItemsAsString(foodListBox));
+
+            wishlistSummary.AppendLine("\nActivities:");
+            wishlistSummary.Append(GetCategoryItemsAsString(activitiesListBox));
+
+            wishlistSummary.AppendLine("\nPets:");
+            wishlistSummary.Append(GetCategoryItemsAsString(petsListBox));
+
+            wishlistSummary.AppendLine("\nShopping:");
+            wishlistSummary.Append(GetCategoryItemsAsString(shoppingListBox));
+
+            return wishlistSummary.ToString();
+        }
+
+        private string GetCategoryItemsAsString(CheckedListBox listBox)
+        {
+            StringBuilder categoryItems = new StringBuilder();
+
+            foreach (ListObject item in listBox.Items)
+            {
+                categoryItems.AppendLine($"- {item.m_Text}" + (item.m_Checked ? " (Achieved ✅)" : ""));
+            }
+
+            return categoryItems.ToString();
+        }
+
         private void DisplayCombinedWishlistPopup(
-     CheckedListBox foodListBox,
-     CheckedListBox activitiesListBox,
-     CheckedListBox petsListBox,
-     CheckedListBox shoppingListBox)
+            CheckedListBox foodListBox,
+            CheckedListBox activitiesListBox,
+            CheckedListBox petsListBox,
+            CheckedListBox shoppingListBox)
         {
             Form popupForm = new Form
             {
@@ -131,6 +172,7 @@ namespace BasicFacebookFeatures
 
             popupForm.ShowDialog();
         }
+
 
         private Panel CreateCategoryPanel(string categoryName, CheckedListBox checkedListBox)
         {
