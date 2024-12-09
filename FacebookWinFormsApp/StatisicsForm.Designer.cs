@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.amountTab = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -108,33 +108,33 @@
             // 
             // caloriesChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.caloriesChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.caloriesChart.Legends.Add(legend4);
+            chartArea5.Name = "ChartArea1";
+            this.caloriesChart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.caloriesChart.Legends.Add(legend5);
             this.caloriesChart.Location = new System.Drawing.Point(6, 70);
             this.caloriesChart.Name = "caloriesChart";
             this.caloriesChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Calories";
-            this.caloriesChart.Series.Add(series4);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Calories";
+            this.caloriesChart.Series.Add(series5);
             this.caloriesChart.Size = new System.Drawing.Size(558, 435);
             this.caloriesChart.TabIndex = 0;
             this.caloriesChart.Text = "chart2";
             // 
             // timeChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.timeChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.timeChart.Legends.Add(legend3);
+            chartArea6.Name = "ChartArea1";
+            this.timeChart.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.timeChart.Legends.Add(legend6);
             this.timeChart.Location = new System.Drawing.Point(6, 70);
             this.timeChart.Name = "timeChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Amount";
-            this.timeChart.Series.Add(series3);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Amount";
+            this.timeChart.Series.Add(series6);
             this.timeChart.Size = new System.Drawing.Size(558, 435);
             this.timeChart.TabIndex = 2;
             this.timeChart.Text = "chart2";
@@ -146,6 +146,7 @@
             this.ClientSize = new System.Drawing.Size(575, 564);
             this.Controls.Add(this.tabControl1);
             this.Name = "StatisicsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Statisics By Month";
             this.tabControl1.ResumeLayout(false);
             this.amountTab.ResumeLayout(false);

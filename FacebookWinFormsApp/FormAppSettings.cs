@@ -58,5 +58,10 @@ namespace BasicFacebookFeatures
         {
 
         }
+
+        private void FormAppSettings_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

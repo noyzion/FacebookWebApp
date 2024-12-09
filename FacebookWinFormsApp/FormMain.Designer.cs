@@ -211,7 +211,7 @@
             this.statusPanel.Controls.Add(this.addPostButton);
             this.statusPanel.Controls.Add(this.addPictureButton);
             this.statusPanel.Controls.Add(this.statusTextBox);
-            this.statusPanel.Location = new System.Drawing.Point(430, 549);
+            this.statusPanel.Location = new System.Drawing.Point(430, 558);
             this.statusPanel.Name = "statusPanel";
             this.statusPanel.Size = new System.Drawing.Size(785, 90);
             this.statusPanel.TabIndex = 84;
@@ -280,7 +280,7 @@
             this.eventsButton.Enabled = false;
             this.eventsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.eventsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.eventsButton.Location = new System.Drawing.Point(73, 474);
+            this.eventsButton.Location = new System.Drawing.Point(73, 594);
             this.eventsButton.Name = "eventsButton";
             this.eventsButton.Size = new System.Drawing.Size(91, 35);
             this.eventsButton.TabIndex = 74;
@@ -293,7 +293,7 @@
             this.DataPanel.ColumnCount = 2;
             this.DataPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.DataPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DataPanel.Location = new System.Drawing.Point(430, 179);
+            this.DataPanel.Location = new System.Drawing.Point(430, 188);
             this.DataPanel.Name = "DataPanel";
             this.DataPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.DataPanel.RowCount = 2;
@@ -308,11 +308,11 @@
             this.DataListBox.FormattingEnabled = true;
             this.DataListBox.HorizontalScrollbar = true;
             this.DataListBox.ItemHeight = 22;
-            this.DataListBox.Location = new System.Drawing.Point(204, 179);
+            this.DataListBox.Location = new System.Drawing.Point(195, 179);
             this.DataListBox.Name = "DataListBox";
             this.DataListBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.DataListBox.ScrollAlwaysVisible = true;
-            this.DataListBox.Size = new System.Drawing.Size(196, 356);
+            this.DataListBox.Size = new System.Drawing.Size(215, 466);
             this.DataListBox.TabIndex = 70;
             this.DataListBox.SelectedIndexChanged += new System.EventHandler(this.DataListBox_SelectedIndexChanged);
             // 
@@ -323,7 +323,7 @@
             this.albumsButton.Enabled = false;
             this.albumsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.albumsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.albumsButton.Location = new System.Drawing.Point(73, 364);
+            this.albumsButton.Location = new System.Drawing.Point(73, 435);
             this.albumsButton.Name = "albumsButton";
             this.albumsButton.Size = new System.Drawing.Size(91, 35);
             this.albumsButton.TabIndex = 69;
@@ -338,7 +338,7 @@
             this.postsButton.Enabled = false;
             this.postsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.postsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.postsButton.Location = new System.Drawing.Point(73, 418);
+            this.postsButton.Location = new System.Drawing.Point(73, 515);
             this.postsButton.Name = "postsButton";
             this.postsButton.Size = new System.Drawing.Size(91, 35);
             this.postsButton.TabIndex = 68;
@@ -353,7 +353,7 @@
             this.friendsButton.Enabled = false;
             this.friendsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.friendsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.friendsButton.Location = new System.Drawing.Point(73, 308);
+            this.friendsButton.Location = new System.Drawing.Point(73, 353);
             this.friendsButton.Name = "friendsButton";
             this.friendsButton.Size = new System.Drawing.Size(91, 35);
             this.friendsButton.TabIndex = 66;
@@ -368,9 +368,9 @@
             this.pagesButton.Enabled = false;
             this.pagesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.pagesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pagesButton.Location = new System.Drawing.Point(73, 255);
+            this.pagesButton.Location = new System.Drawing.Point(73, 277);
             this.pagesButton.Name = "pagesButton";
-            this.pagesButton.Size = new System.Drawing.Size(91, 35);
+            this.pagesButton.Size = new System.Drawing.Size(91, 32);
             this.pagesButton.TabIndex = 65;
             this.pagesButton.Text = "Pages";
             this.pagesButton.UseVisualStyleBackColor = false;
@@ -394,7 +394,7 @@
             // rememberMe_CheckBox
             // 
             this.rememberMe_CheckBox.AutoSize = true;
-            this.rememberMe_CheckBox.Location = new System.Drawing.Point(12, 133);
+            this.rememberMe_CheckBox.Location = new System.Drawing.Point(12, 137);
             this.rememberMe_CheckBox.Name = "rememberMe_CheckBox";
             this.rememberMe_CheckBox.Size = new System.Drawing.Size(159, 28);
             this.rememberMe_CheckBox.TabIndex = 56;
@@ -435,7 +435,7 @@
             // buttonAdd
             // 
             this.buttonAdd.Enabled = false;
-            this.buttonAdd.Location = new System.Drawing.Point(876, 80);
+            this.buttonAdd.Location = new System.Drawing.Point(876, 87);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(88, 35);
             this.buttonAdd.TabIndex = 12;
@@ -534,7 +534,7 @@
             // buttonAddPhoto
             // 
             this.buttonAddPhoto.Enabled = false;
-            this.buttonAddPhoto.Location = new System.Drawing.Point(722, 80);
+            this.buttonAddPhoto.Location = new System.Drawing.Point(722, 87);
             this.buttonAddPhoto.Name = "buttonAddPhoto";
             this.buttonAddPhoto.Size = new System.Drawing.Size(145, 35);
             this.buttonAddPhoto.TabIndex = 21;
@@ -551,7 +551,7 @@
             "pets",
             "activities",
             "shopping"});
-            this.comboBoxCategory.Location = new System.Drawing.Point(587, 83);
+            this.comboBoxCategory.Location = new System.Drawing.Point(587, 90);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(121, 30);
             this.comboBoxCategory.TabIndex = 2;
@@ -561,7 +561,7 @@
             // 
             this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxName.Location = new System.Drawing.Point(329, 83);
+            this.textBoxName.Location = new System.Drawing.Point(329, 90);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(245, 28);
             this.textBoxName.TabIndex = 1;
@@ -597,7 +597,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label8.Location = new System.Drawing.Point(588, 64);
+            this.label8.Location = new System.Drawing.Point(588, 71);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label8.Size = new System.Drawing.Size(60, 16);
@@ -609,7 +609,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label9.Location = new System.Drawing.Point(329, 66);
+            this.label9.Location = new System.Drawing.Point(329, 73);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(132, 16);
             this.label9.TabIndex = 24;
@@ -719,7 +719,7 @@
             // 
             this.eventsPictureBox.Image = global::BasicFacebookFeatures.Properties.Resources.events_icon;
             this.eventsPictureBox.InitialImage = global::BasicFacebookFeatures.Properties.Resources.events_icon;
-            this.eventsPictureBox.Location = new System.Drawing.Point(18, 465);
+            this.eventsPictureBox.Location = new System.Drawing.Point(18, 585);
             this.eventsPictureBox.Name = "eventsPictureBox";
             this.eventsPictureBox.Size = new System.Drawing.Size(49, 48);
             this.eventsPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -731,7 +731,7 @@
             // 
             this.photosPicture.Image = global::BasicFacebookFeatures.Properties.Resources.photos_icon__2_;
             this.photosPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.photos_icon__2_;
-            this.photosPicture.Location = new System.Drawing.Point(18, 355);
+            this.photosPicture.Location = new System.Drawing.Point(18, 426);
             this.photosPicture.Name = "photosPicture";
             this.photosPicture.Size = new System.Drawing.Size(49, 48);
             this.photosPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -743,7 +743,7 @@
             // 
             this.postsPicture.Image = global::BasicFacebookFeatures.Properties.Resources.posts_icon;
             this.postsPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.posts_icon;
-            this.postsPicture.Location = new System.Drawing.Point(18, 409);
+            this.postsPicture.Location = new System.Drawing.Point(18, 506);
             this.postsPicture.Name = "postsPicture";
             this.postsPicture.Size = new System.Drawing.Size(49, 48);
             this.postsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -755,7 +755,7 @@
             // 
             this.friendsPicture.Image = global::BasicFacebookFeatures.Properties.Resources.new_friends_icon;
             this.friendsPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.new_friends_icon;
-            this.friendsPicture.Location = new System.Drawing.Point(18, 301);
+            this.friendsPicture.Location = new System.Drawing.Point(18, 346);
             this.friendsPicture.Name = "friendsPicture";
             this.friendsPicture.Size = new System.Drawing.Size(49, 48);
             this.friendsPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -767,9 +767,9 @@
             // 
             this.likedPicture.Image = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
             this.likedPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
-            this.likedPicture.Location = new System.Drawing.Point(18, 247);
+            this.likedPicture.Location = new System.Drawing.Point(18, 269);
             this.likedPicture.Name = "likedPicture";
-            this.likedPicture.Size = new System.Drawing.Size(49, 48);
+            this.likedPicture.Size = new System.Drawing.Size(49, 45);
             this.likedPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.likedPicture.TabIndex = 59;
             this.likedPicture.TabStop = false;

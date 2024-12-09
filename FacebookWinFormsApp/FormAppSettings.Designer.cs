@@ -153,7 +153,9 @@
             this.Controls.Add(this.comboAppID);
             this.Controls.Add(this.appIDLabel);
             this.Name = "FormAppSettings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "App Settings";
+            this.Load += new System.EventHandler(this.FormAppSettings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

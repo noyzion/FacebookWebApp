@@ -96,6 +96,7 @@
             this.Controls.Add(this.changeProfileButton);
             this.Controls.Add(this.showProfileButton);
             this.Name = "OpenProfilePicture";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Profile Picture Options";
             ((System.ComponentModel.ISupportInitialize)(this.showProfilePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.changePorfilePictureBox)).EndInit();

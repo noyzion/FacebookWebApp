@@ -117,10 +117,382 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 79</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 20</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items" xml:space="preserve">
+    <value>Cardio</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items1" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items2" xml:space="preserve">
+    <value>Cycling</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items3" xml:space="preserve">
+    <value>Swimming</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items4" xml:space="preserve">
+    <value>Walking</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items5" xml:space="preserve">
+    <value>Jump Rope</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items6" xml:space="preserve">
+    <value>Hiking</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items7" xml:space="preserve">
+    <value>Weightlifting</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items8" xml:space="preserve">
+    <value>Bodyweight</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items9" xml:space="preserve">
+    <value>Powerlifting</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items10" xml:space="preserve">
+    <value>CrossFit</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items11" xml:space="preserve">
+    <value>Yoga &amp; Flexibility</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items12" xml:space="preserve">
+    <value>Hatha Yoga</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items13" xml:space="preserve">
+    <value>Vinyasa Yoga</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items14" xml:space="preserve">
+    <value>Pilates</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items15" xml:space="preserve">
+    <value>Basketball</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items16" xml:space="preserve">
+    <value>Soccer</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items17" xml:space="preserve">
+    <value>Tennis</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items18" xml:space="preserve">
+    <value>Football</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items19" xml:space="preserve">
+    <value>Baseball</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items20" xml:space="preserve">
+    <value>Golf</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items21" xml:space="preserve">
+    <value>HIIT (High-Intensity Interval Training)</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items22" xml:space="preserve">
+    <value>Tabata</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items23" xml:space="preserve">
+    <value>Core &amp; Abs</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items24" xml:space="preserve">
+    <value>Dance</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Items25" xml:space="preserve">
+    <value>Zumba</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 102</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 24</value>
+  </data>
+  <data name="comboBoxWorkoutCategory.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;comboBoxWorkoutCategory.Name" xml:space="preserve">
+    <value>comboBoxWorkoutCategory</value>
+  </data>
+  <data name="&gt;&gt;comboBoxWorkoutCategory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxWorkoutCategory.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;comboBoxWorkoutCategory.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="dateTimePickerWorkout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>43, 172</value>
+  </data>
+  <data name="dateTimePickerWorkout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="dateTimePickerWorkout.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerWorkout.Name" xml:space="preserve">
+    <value>dateTimePickerWorkout</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerWorkout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerWorkout.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dateTimePickerWorkout.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="buttonAddWorkout.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="buttonAddWorkout.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="buttonAddWorkout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 349</value>
+  </data>
+  <data name="buttonAddWorkout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 34</value>
+  </data>
+  <data name="buttonAddWorkout.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="buttonAddWorkout.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="&gt;&gt;buttonAddWorkout.Name" xml:space="preserve">
+    <value>buttonAddWorkout</value>
+  </data>
+  <data name="&gt;&gt;buttonAddWorkout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonAddWorkout.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonAddWorkout.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>57, 149</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 20</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Choose workout date:</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 219</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 20</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Add calories:</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <data name="numericUpDownDuration.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 311</value>
+  </data>
+  <data name="numericUpDownDuration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="numericUpDownDuration.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownDuration.Name" xml:space="preserve">
+    <value>numericUpDownDuration</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownDuration.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownDuration.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownDuration.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="numericUpDownCalories.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 242</value>
+  </data>
+  <data name="numericUpDownCalories.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 22</value>
+  </data>
+  <data name="numericUpDownCalories.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownCalories.Name" xml:space="preserve">
+    <value>numericUpDownCalories</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownCalories.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownCalories.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownCalories.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 288</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 20</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Duration (Minutes):</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Narrow, 16.2pt, style=Bold</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>61, 33</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 33</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Add Workout</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>292, 411</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Add Workout</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
+    <value>toolTip1</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>AddWorkoutForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

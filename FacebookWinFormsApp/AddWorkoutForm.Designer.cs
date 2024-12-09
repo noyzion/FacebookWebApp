@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddWorkoutForm));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxWorkoutCategory = new System.Windows.Forms.ComboBox();
             this.dateTimePickerWorkout = new System.Windows.Forms.DateTimePicker();
@@ -46,131 +47,92 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(119, 86);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Category:";
             // 
             // comboBoxWorkoutCategory
             // 
             this.comboBoxWorkoutCategory.FormattingEnabled = true;
             this.comboBoxWorkoutCategory.Items.AddRange(new object[] {
-            "Cardio",
-            "Running",
-            "Cycling",
-            "Swimming",
-            "Walking",
-            "Jump Rope",
-            "Hiking",
-            "Weightlifting",
-            "Bodyweight",
-            "Powerlifting",
-            "CrossFit",
-            "Yoga & Flexibility",
-            "Hatha Yoga",
-            "Vinyasa Yoga",
-            "Pilates",
-            "Basketball",
-            "Soccer",
-            "Tennis",
-            "Football",
-            "Baseball",
-            "Golf",
-            "HIIT (High-Intensity Interval Training)",
-            "Tabata",
-            "Core & Abs",
-            "Dance",
-            "Zumba"});
-            this.comboBoxWorkoutCategory.Location = new System.Drawing.Point(101, 109);
+            resources.GetString("comboBoxWorkoutCategory.Items"),
+            resources.GetString("comboBoxWorkoutCategory.Items1"),
+            resources.GetString("comboBoxWorkoutCategory.Items2"),
+            resources.GetString("comboBoxWorkoutCategory.Items3"),
+            resources.GetString("comboBoxWorkoutCategory.Items4"),
+            resources.GetString("comboBoxWorkoutCategory.Items5"),
+            resources.GetString("comboBoxWorkoutCategory.Items6"),
+            resources.GetString("comboBoxWorkoutCategory.Items7"),
+            resources.GetString("comboBoxWorkoutCategory.Items8"),
+            resources.GetString("comboBoxWorkoutCategory.Items9"),
+            resources.GetString("comboBoxWorkoutCategory.Items10"),
+            resources.GetString("comboBoxWorkoutCategory.Items11"),
+            resources.GetString("comboBoxWorkoutCategory.Items12"),
+            resources.GetString("comboBoxWorkoutCategory.Items13"),
+            resources.GetString("comboBoxWorkoutCategory.Items14"),
+            resources.GetString("comboBoxWorkoutCategory.Items15"),
+            resources.GetString("comboBoxWorkoutCategory.Items16"),
+            resources.GetString("comboBoxWorkoutCategory.Items17"),
+            resources.GetString("comboBoxWorkoutCategory.Items18"),
+            resources.GetString("comboBoxWorkoutCategory.Items19"),
+            resources.GetString("comboBoxWorkoutCategory.Items20"),
+            resources.GetString("comboBoxWorkoutCategory.Items21"),
+            resources.GetString("comboBoxWorkoutCategory.Items22"),
+            resources.GetString("comboBoxWorkoutCategory.Items23"),
+            resources.GetString("comboBoxWorkoutCategory.Items24"),
+            resources.GetString("comboBoxWorkoutCategory.Items25")});
+            resources.ApplyResources(this.comboBoxWorkoutCategory, "comboBoxWorkoutCategory");
             this.comboBoxWorkoutCategory.Name = "comboBoxWorkoutCategory";
-            this.comboBoxWorkoutCategory.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxWorkoutCategory.TabIndex = 3;
             this.comboBoxWorkoutCategory.TextChanged += new System.EventHandler(this.comboBoxWorkoutCategory_TextChanged);
             // 
             // dateTimePickerWorkout
             // 
-            this.dateTimePickerWorkout.Location = new System.Drawing.Point(63, 179);
+            resources.ApplyResources(this.dateTimePickerWorkout, "dateTimePickerWorkout");
             this.dateTimePickerWorkout.Name = "dateTimePickerWorkout";
-            this.dateTimePickerWorkout.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePickerWorkout.TabIndex = 4;
             this.dateTimePickerWorkout.ValueChanged += new System.EventHandler(this.dateTimePickerWorkout_ValueChanged);
             // 
             // buttonAddWorkout
             // 
-            this.buttonAddWorkout.Enabled = false;
-            this.buttonAddWorkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddWorkout.Location = new System.Drawing.Point(125, 360);
+            resources.ApplyResources(this.buttonAddWorkout, "buttonAddWorkout");
             this.buttonAddWorkout.Name = "buttonAddWorkout";
-            this.buttonAddWorkout.Size = new System.Drawing.Size(58, 34);
-            this.buttonAddWorkout.TabIndex = 6;
-            this.buttonAddWorkout.Text = "Add";
             this.buttonAddWorkout.UseVisualStyleBackColor = true;
             this.buttonAddWorkout.Click += new System.EventHandler(this.buttonAddWorkout_Click);
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(77, 156);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Choose workout date:";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(108, 226);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Add calories:";
             // 
             // numericUpDownDuration
             // 
-            this.numericUpDownDuration.Location = new System.Drawing.Point(100, 318);
+            resources.ApplyResources(this.numericUpDownDuration, "numericUpDownDuration");
             this.numericUpDownDuration.Name = "numericUpDownDuration";
-            this.numericUpDownDuration.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDownDuration.TabIndex = 9;
             this.numericUpDownDuration.ValueChanged += new System.EventHandler(this.numericUpDownDuration_ValueChanged);
             // 
             // numericUpDownCalories
             // 
-            this.numericUpDownCalories.Location = new System.Drawing.Point(101, 249);
+            resources.ApplyResources(this.numericUpDownCalories, "numericUpDownCalories");
             this.numericUpDownCalories.Name = "numericUpDownCalories";
-            this.numericUpDownCalories.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDownCalories.TabIndex = 10;
             this.numericUpDownCalories.ValueChanged += new System.EventHandler(this.numericUpDownCalories_ValueChanged);
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(83, 295);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 20);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Duration (Minutes):";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(71, 32);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(192, 40);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Add Workout";
             // 
             // AddWorkoutForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 411);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.numericUpDownCalories);
             this.Controls.Add(this.numericUpDownDuration);
@@ -182,7 +144,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Name = "AddWorkoutForm";
-            this.Text = "Add Workout";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDuration)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCalories)).EndInit();
             this.ResumeLayout(false);
