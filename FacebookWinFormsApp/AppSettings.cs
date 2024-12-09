@@ -20,6 +20,8 @@ namespace BasicFacebookFeatures
 
        public Tab2Manager Tab2Manager { get; set; }
 
+       public WorkoutManager WorkoutManager { get; set; }
+
         public AppSettings()
         { 
             RememberUser = false;
@@ -27,6 +29,7 @@ namespace BasicFacebookFeatures
             s_Permissions = null;
             s_AppID = null;
             Tab2Manager = null;
+            WorkoutManager = null;
         }
 
         public void SaveToFile()

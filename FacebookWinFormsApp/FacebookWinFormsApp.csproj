@@ -86,6 +86,7 @@
       <DependentUpon>AddWorkoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="WorkoutManager.cs" />
     <Compile Include="EWishlistCategories.cs" />
     <Compile Include="FormAppSettings.cs">
       <SubType>Form</SubType>

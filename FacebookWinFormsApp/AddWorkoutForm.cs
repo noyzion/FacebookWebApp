@@ -17,11 +17,13 @@ namespace BasicFacebookFeatures
         private bool caloriesChanged;
         private bool durationChanged;
         private readonly DataGridView workoutTable;
+        private readonly WorkoutManager workoutManager;
 
-        public AddWorkoutForm(DataGridView workoutTable)
+        public AddWorkoutForm(DataGridView workoutTable, WorkoutManager workoutManager)
         {
             InitializeComponent();
             this.workoutTable = workoutTable;
+            this.workoutManager = workoutManager;
         }
 
         private void comboBoxWorkoutCategory_TextChanged(object sender, EventArgs e)
@@ -62,6 +64,9 @@ namespace BasicFacebookFeatures
                 numericUpDownCalories.Value
             );
 
+            if (workoutManager.Workouts == null)
+            { workoutManager.Workouts = new List<Workout>(); }
+            workoutManager.Workouts.Add(newWorkout);
             workoutTable.Rows.Add(newWorkout.Category, newWorkout.Duration, newWorkout.Calories, newWorkout.DateTime.ToShortDateString());
 
             this.Close();

@@ -20,9 +20,6 @@ namespace BasicFacebookFeatures
             DateTime = dateTime;
             Calories = calories;
         }
-        public override string ToString()
-        {
-            return $"Workout: {Category}, Duration: {Duration} min, Calories: {Calories} kcal, Date: {DateTime.ToShortDateString()}";
-        }
+       
     }
 }

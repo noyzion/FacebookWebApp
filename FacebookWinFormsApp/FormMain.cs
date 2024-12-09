@@ -14,23 +14,55 @@ namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
-        AppSettings m_AppSettings;
+        private AppSettings m_AppSettings;
         private Tab2Manager m_Tab2Manager;
+        private WorkoutManager m_workoutManager;
+        FacebookWrapper.LoginResult m_LoginResult;
+        public DataGridView workoutTable { get; set; }
 
         public FormMain()
         {
             InitializeComponent();
-            InitializeWorkoutTable();
             m_AppSettings = AppSettings.LoadFromFile();
             this.rememberMe_CheckBox.Checked = m_AppSettings.RememberUser;
-
             FacebookWrapper.FacebookService.s_CollectionLimit = 70; // If the limit is bigger, it works but very slow
             m_Tab2Manager = m_AppSettings.Tab2Manager;
+            m_workoutManager = m_AppSettings.WorkoutManager;
+            InitializeWorkoutTable();
+
 
 
         }
+        public void InitializeWorkoutTable()
+        {
+            workoutTable = new DataGridView
+            {
+                Dock = DockStyle.Fill,
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
+                ColumnCount = 4
+            };
 
-        FacebookWrapper.LoginResult m_LoginResult;
+            workoutTable.Columns[0].Name = "Category";
+            workoutTable.Columns[1].Name = "Duration";
+            workoutTable.Columns[2].Name = "Calories";
+            workoutTable.Columns[3].Name = "Date";
+
+            panelWorkouts.Controls.Add(workoutTable);
+
+            if (m_workoutManager.Workouts != null)
+            {
+                foreach (var workout in m_workoutManager.Workouts)
+                {
+                    workoutTable.Rows.Add(
+                        workout.Category,
+                        workout.Duration,
+                        workout.Calories,
+                        workout.DateTime.ToString("yyyy-MM-dd") 
+                    );
+                }
+            }
+        }
+
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -40,6 +72,7 @@ namespace BasicFacebookFeatures
             {
                 m_AppSettings.LastAccessToken = m_LoginResult.AccessToken;
                 m_AppSettings.Tab2Manager = m_Tab2Manager;
+                m_AppSettings.WorkoutManager = m_workoutManager;
             }
             else
             {
@@ -929,29 +962,11 @@ namespace BasicFacebookFeatures
             MessageBox.Show("Item deleted successfully.");
         }
 
-        private List<Workout> workouts = new List<Workout>();
 
-        private void InitializeWorkoutTable()
-        {
-             workoutTable = new DataGridView
-            {
-                Dock = DockStyle.Fill,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-                ColumnCount = 4
-            };
-
-            workoutTable.Columns[0].Name = "Category";
-            workoutTable.Columns[1].Name = "Duration";
-            workoutTable.Columns[2].Name = "Calories";
-            workoutTable.Columns[3].Name = "Date";
-
-            panelWorkouts.Controls.Add(workoutTable);
-        }
-        private DataGridView workoutTable;
 
         private void buttonAddWorkout_Click(object sender, EventArgs e)
         {
-            AddWorkoutForm addWorkoutForm = new AddWorkoutForm(workoutTable);
+            AddWorkoutForm addWorkoutForm = new AddWorkoutForm(workoutTable, m_workoutManager);
             addWorkoutForm.ShowDialog();
         }
 
