@@ -90,7 +90,6 @@
             this.listBoxPermissions.Size = new System.Drawing.Size(313, 293);
             this.listBoxPermissions.Sorted = true;
             this.listBoxPermissions.TabIndex = 8;
-            this.listBoxPermissions.SelectedIndexChanged += new System.EventHandler(this.listBoxPermissions_SelectedIndexChanged);
             // 
             // permissionsLabel
             // 
@@ -127,7 +126,6 @@
             this.comboAppID.Name = "comboAppID";
             this.comboAppID.Size = new System.Drawing.Size(215, 24);
             this.comboAppID.TabIndex = 10;
-            this.comboAppID.SelectedIndexChanged += new System.EventHandler(this.comboAppID_SelectedIndexChanged);
             // 
             // appIDLabel
             // 
@@ -155,7 +153,6 @@
             this.Name = "FormAppSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "App Settings";
-            this.Load += new System.EventHandler(this.FormAppSettings_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

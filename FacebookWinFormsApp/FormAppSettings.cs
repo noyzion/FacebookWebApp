@@ -49,19 +49,5 @@ namespace BasicFacebookFeatures
             listBoxPermissions.Items.Add(textBoxPermissionsToAdd.Text);
         }
 
-        private void listBoxPermissions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboAppID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormAppSettings_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -10,8 +10,5 @@ namespace BasicFacebookFeatures
     public class WorkoutManager
     {
         public List<Workout> Workouts {  get; set; }
-
-      
-      
     }
 }

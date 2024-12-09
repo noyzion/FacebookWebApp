@@ -186,7 +186,6 @@
             this.feedTab.Size = new System.Drawing.Size(1235, 662);
             this.feedTab.TabIndex = 0;
             this.feedTab.Text = "Feed";
-            this.feedTab.Click += new System.EventHandler(this.tab1_Click_1);
             // 
             // settingsButton
             // 
@@ -813,7 +812,6 @@
             this.pictureBoxActivities.Size = new System.Drawing.Size(100, 100);
             this.pictureBoxActivities.TabIndex = 14;
             this.pictureBoxActivities.TabStop = false;
-            this.pictureBoxActivities.Click += new System.EventHandler(this.pictureBoxActivities_Click);
             // 
             // pictureBoxFood
             // 

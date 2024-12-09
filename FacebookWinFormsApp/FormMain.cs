@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,6 +16,9 @@ namespace BasicFacebookFeatures
         private Tab2Manager m_Tab2Manager;
         private WorkoutManager m_workoutManager;
         FacebookWrapper.LoginResult m_LoginResult;
+        FormAppSettings m_FormAppSettings = null;
+        private bool isTextBoxChanged = false;
+        private bool isComboBoxChanged = false;
         public DataGridView workoutTable { get; set; }
 
         public FormMain()
@@ -29,9 +30,6 @@ namespace BasicFacebookFeatures
             m_Tab2Manager = m_AppSettings.Tab2Manager;
             m_workoutManager = m_AppSettings.WorkoutManager;
             InitializeWorkoutTable();
-
-
-
         }
         public void InitializeWorkoutTable()
         {
@@ -46,7 +44,6 @@ namespace BasicFacebookFeatures
             workoutTable.Columns[1].Name = "Duration";
             workoutTable.Columns[2].Name = "Calories";
             workoutTable.Columns[3].Name = "Date";
-
             panelWorkouts.Controls.Add(workoutTable);
 
             if (m_workoutManager.Workouts != null)
@@ -89,9 +86,8 @@ namespace BasicFacebookFeatures
                 m_LoginResult = FacebookService.Connect(m_AppSettings.LastAccessToken);
                 populateUIFromFacebookData();
             }
-
-
         }
+
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             Clipboard.SetText("design.patterns");
@@ -262,89 +258,142 @@ namespace BasicFacebookFeatures
 
         private void fetchGroups()
         {
-            DataListBox.DataSource = null;
-            if (DataListBox.Items != null)
-                DataListBox.Items.Clear();
-            DataListBox.DisplayMember = "Name";
             try
             {
+                DataListBox.DataSource = null;
+                DataListBox.Items?.Clear();
+                DataListBox.DisplayMember = "Name";
+
                 foreach (Group group in m_LoginResult.LoggedInUser.Groups)
                 {
                     DataListBox.Items.Add(group);
                 }
+
+                if (DataListBox.Items.Count == 0)
+                {
+                    MessageBox.Show("No groups to retrieve :(");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }
-            if (DataListBox.Items.Count == 0)
-            {
-                MessageBox.Show("No groups to retrive :(");
+                MessageBox.Show($"Error fetching groups: {ex.Message}");
             }
         }
+
         private void fetchAlbums()
         {
-            DataListBox.DataSource = null;
-            if (DataListBox.Items != null)
-                DataListBox.Items.Clear();
-            DataListBox.DisplayMember = "Name";
-            DataListBox.DataSource = m_LoginResult.LoggedInUser.Albums;
+            try
+            {
+                DataListBox.DataSource = null;
+                DataListBox.Items?.Clear();
+                DataListBox.DisplayMember = "Name";
+
+                DataListBox.DataSource = m_LoginResult.LoggedInUser.Albums;
+
+                if (DataListBox.Items.Count == 0)
+                {
+                    MessageBox.Show("No albums to retrieve :(");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching albums: {ex.Message}");
+            }
         }
 
         private void fetchFriends()
         {
-            DataListBox.DataSource = null;
-            if (DataListBox.Items != null)
-                DataListBox.Items.Clear();
-            DataListBox.DisplayMember = "Name";
-            DataListBox.DataSource = m_LoginResult.LoggedInUser.Friends;
+            try
+            {
+                DataListBox.DataSource = null;
+                DataListBox.Items?.Clear();
+                DataListBox.DisplayMember = "Name";
+
+                DataListBox.DataSource = m_LoginResult.LoggedInUser.Friends;
+
+                if (DataListBox.Items.Count == 0)
+                {
+                    MessageBox.Show("No friends to retrieve :(");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching friends: {ex.Message}");
+            }
         }
 
         private void fetchPosts()
         {
-            DataListBox.DataSource = null;
-            if (DataListBox.Items != null)
-                DataListBox.Items.Clear();
-            DataListBox.DisplayMember = "UpdateTime";
-            foreach (Post post in m_LoginResult.LoggedInUser.Posts)
+            try
             {
-                if (post.Message != null)
+                DataListBox.DataSource = null;
+                DataListBox.Items?.Clear();
+                DataListBox.DisplayMember = "UpdateTime";
+
+                foreach (Post post in m_LoginResult.LoggedInUser.Posts)
                 {
-                    DataListBox.Items.Add(post);
-                }
-                else if (post.PictureURL != null)
-                {
-                    DataListBox.Items.Add(post);
+                    if (post.Message != null || post.PictureURL != null)
+                    {
+                        DataListBox.Items.Add(post);
+                    }
                 }
 
+                if (DataListBox.Items.Count == 0)
+                {
+                    MessageBox.Show("No posts to retrieve :(");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching posts: {ex.Message}");
             }
         }
 
         private void fetchLiked()
         {
-            DataListBox.DataSource = null;
-            if (DataListBox.Items != null)
-                DataListBox.Items.Clear();
-            DataListBox.DisplayMember = "Name";
-            foreach (Page page in m_LoginResult.LoggedInUser.LikedPages)
+            try
             {
-                DataListBox.Items.Add(page);
+                DataListBox.DataSource = null;
+                DataListBox.Items?.Clear();
+                DataListBox.DisplayMember = "Name";
+
+                foreach (Page page in m_LoginResult.LoggedInUser.LikedPages)
+                {
+                    DataListBox.Items.Add(page);
+                }
+
+                if (DataListBox.Items.Count == 0)
+                {
+                    MessageBox.Show("No liked pages to retrieve :(");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching liked pages: {ex.Message}");
             }
         }
 
         private void fetchEvents()
         {
-            DataListBox.DataSource = null;
-            if (DataListBox.Items != null)
-                DataListBox.Items.Clear();
-            DataListBox.DisplayMember = "Name";
-            foreach (Event fbEvent in m_LoginResult.LoggedInUser.Events)
+            try
             {
-                DataListBox.Items.Add(fbEvent);
+                DataListBox.DataSource = null;
+                DataListBox.Items?.Clear();
+                DataListBox.DisplayMember = "Name";
+
+                foreach (Event fbEvent in m_LoginResult.LoggedInUser.Events)
+                {
+                    DataListBox.Items.Add(fbEvent);
+                }
+
+                if (DataListBox.Items.Count == 0)
+                {
+                    MessageBox.Show("No events to retrieve :(");
+                }
             }
-            if (DataListBox.Items.Count == 0)
+            catch (Exception ex)
             {
-                MessageBox.Show("No events to retrive");
+                MessageBox.Show($"Error fetching events: {ex.Message}");
             }
         }
 
@@ -383,148 +432,184 @@ namespace BasicFacebookFeatures
 
         private void displayFriendsDetails(User user)
         {
-            if (user != null)
+            try
             {
-                Label nameLabel = new Label { Text = $"Name: {user.Name}", AutoSize = true };
-                DataPanel.Controls.Add(nameLabel);
-                PictureBox userPictureBox = new PictureBox()
+                if (user != null)
                 {
-                    SizeMode = PictureBoxSizeMode.StretchImage,
-                    Size = new Size(150, 150)
+                    Label nameLabel = new Label { Text = $"Name: {user.Name}", AutoSize = true };
+                    DataPanel.Controls.Add(nameLabel);
 
-                };
-                if (!string.IsNullOrEmpty(user.PictureNormalURL))
-                {
-                    userPictureBox.ImageLocation = user.PictureNormalURL;
+                    PictureBox userPictureBox = new PictureBox
+                    {
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        Size = new Size(150, 150)
+                    };
+
+                    if (!string.IsNullOrEmpty(user.PictureNormalURL))
+                    {
+                        userPictureBox.ImageLocation = user.PictureNormalURL;
+                    }
+                    else
+                    {
+                        userPictureBox.Image = pictureBoxProfile.ErrorImage;
+                    }
+
+                    DataPanel.Controls.Add(userPictureBox);
                 }
-                else
-                {
-                    userPictureBox.Image = pictureBoxProfile.ErrorImage;
-                }
-                DataPanel.Controls.Add(userPictureBox);
-
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error displaying friend details: {ex.Message}");
             }
         }
+
         private void displayGroupDetails(Group group)
         {
-            if (group != null)
+            try
             {
-                Label nameLabel = new Label { Text = $"Group Name: {group.Name}", AutoSize = true };
-                Label membersLabel = new Label { Text = $"Members: {group.Members.Count}", AutoSize = true };
-                Label privacyLabel = new Label { Text = $"Privacy: {group.Privacy}", AutoSize = true };
-
-                DataPanel.Controls.Add(nameLabel);
-                DataPanel.Controls.Add(membersLabel);
-                DataPanel.Controls.Add(privacyLabel);
-
-                PictureBox groupPicture = new PictureBox
+                if (group != null)
                 {
-                    SizeMode = PictureBoxSizeMode.StretchImage,
-                    Size = new Size(150, 150)
-                };
+                    Label nameLabel = new Label { Text = $"Group Name: {group.Name}", AutoSize = true };
+                    Label membersLabel = new Label { Text = $"Members: {group.Members.Count}", AutoSize = true };
+                    Label privacyLabel = new Label { Text = $"Privacy: {group.Privacy}", AutoSize = true };
 
-                if (!string.IsNullOrEmpty(group.PictureNormalURL))
-                {
-                    groupPicture.ImageLocation = group.PictureNormalURL;
+                    DataPanel.Controls.Add(nameLabel);
+                    DataPanel.Controls.Add(membersLabel);
+                    DataPanel.Controls.Add(privacyLabel);
+
+                    PictureBox groupPicture = new PictureBox
+                    {
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        Size = new Size(150, 150)
+                    };
+
+                    if (!string.IsNullOrEmpty(group.PictureNormalURL))
+                    {
+                        groupPicture.ImageLocation = group.PictureNormalURL;
+                    }
+                    else
+                    {
+                        groupPicture.Image = pictureBoxProfile.ErrorImage;
+                    }
+
+                    DataPanel.Controls.Add(groupPicture);
                 }
-                else
-                {
-                    groupPicture.Image = pictureBoxProfile.ErrorImage;
-                }
-
-                DataPanel.Controls.Add(groupPicture);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error displaying group details: {ex.Message}");
             }
         }
-
-
 
         private void displayPageDetails(Page page)
         {
-            if (page != null)
+            try
             {
-                Label nameLabel = new Label { Text = $"Page Name: {page.Name}", AutoSize = true };
-                Label categoryLabel = new Label { Text = $"Category: {page.Category}", AutoSize = true };
-                Label likesLabel = new Label { Text = $"Likes: {page.LikesCount}", AutoSize = true };
-
-                DataPanel.Controls.Add(nameLabel);
-                DataPanel.Controls.Add(categoryLabel);
-                DataPanel.Controls.Add(likesLabel);
-
-                PictureBox pagePicture = new PictureBox
+                if (page != null)
                 {
-                    SizeMode = PictureBoxSizeMode.StretchImage,
-                    Size = new Size(150, 150)
-                };
+                    Label nameLabel = new Label { Text = $"Page Name: {page.Name}", AutoSize = true };
+                    Label categoryLabel = new Label { Text = $"Category: {page.Category}", AutoSize = true };
+                    Label likesLabel = new Label { Text = $"Likes: {page.LikesCount}", AutoSize = true };
 
-                if (!string.IsNullOrEmpty(page.PictureURL))
-                {
-                    pagePicture.ImageLocation = page.PictureURL;
+                    DataPanel.Controls.Add(nameLabel);
+                    DataPanel.Controls.Add(categoryLabel);
+                    DataPanel.Controls.Add(likesLabel);
+
+                    PictureBox pagePicture = new PictureBox
+                    {
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        Size = new Size(150, 150)
+                    };
+
+                    if (!string.IsNullOrEmpty(page.PictureURL))
+                    {
+                        pagePicture.ImageLocation = page.PictureURL;
+                    }
+                    else
+                    {
+                        pagePicture.Image = pictureBoxProfile.ErrorImage;
+                    }
+
+                    DataPanel.Controls.Add(pagePicture);
                 }
-                else
-                {
-                    pagePicture.Image = pictureBoxProfile.ErrorImage;
-                }
-                DataPanel.Controls.Add(pagePicture);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error displaying page details: {ex.Message}");
             }
         }
 
         private void displayEventDetails(Event fbEvent)
         {
-            if (fbEvent != null)
+            try
             {
-                Label nameLabel = new Label { Text = $"Event Name: {fbEvent.Name}", AutoSize = true };
-                Label descriptionLabel = new Label { Text = $"Description: {fbEvent.Description}", AutoSize = true };
-                Label startTimeLabel = new Label { Text = $"Start Time: {fbEvent.StartTime}", AutoSize = true };
-                Label endTimeLabel = new Label { Text = $"End Time: {fbEvent.EndTime}", AutoSize = true };
-                Label locationLabel = new Label { Text = $"Location: {fbEvent.Location}", AutoSize = true };
+                if (fbEvent != null)
+                {
+                    Label nameLabel = new Label { Text = $"Event Name: {fbEvent.Name}", AutoSize = true };
+                    Label descriptionLabel = new Label { Text = $"Description: {fbEvent.Description}", AutoSize = true };
+                    Label startTimeLabel = new Label { Text = $"Start Time: {fbEvent.StartTime}", AutoSize = true };
+                    Label endTimeLabel = new Label { Text = $"End Time: {fbEvent.EndTime}", AutoSize = true };
+                    Label locationLabel = new Label { Text = $"Location: {fbEvent.Location}", AutoSize = true };
 
-                DataPanel.Controls.Add(nameLabel);
-                DataPanel.Controls.Add(descriptionLabel);
-                DataPanel.Controls.Add(startTimeLabel);
-                DataPanel.Controls.Add(endTimeLabel);
-                DataPanel.Controls.Add(locationLabel);
+                    DataPanel.Controls.Add(nameLabel);
+                    DataPanel.Controls.Add(descriptionLabel);
+                    DataPanel.Controls.Add(startTimeLabel);
+                    DataPanel.Controls.Add(endTimeLabel);
+                    DataPanel.Controls.Add(locationLabel);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error displaying event details: {ex.Message}");
             }
         }
 
         private void displayAlbumDetails(Album album)
         {
-            if (album != null)
+            try
             {
-                Label nameLabel = new Label { Text = $"Album Name: {album.Name}", RightToLeft = RightToLeft.Yes, AutoSize = true };
-                Label countLabel = new Label { Text = $"Photos: {album.Photos.Count}", RightToLeft = RightToLeft.Yes, AutoSize = true };
-
-                DataPanel.Controls.Add(nameLabel);
-                DataPanel.Controls.Add(countLabel);
-
-                PictureBox albumPicture = new PictureBox
+                if (album != null)
                 {
-                    SizeMode = PictureBoxSizeMode.StretchImage,
-                    Size = new Size(150, 150)
-                };
+                    Label nameLabel = new Label { Text = $"Album Name: {album.Name}", RightToLeft = RightToLeft.Yes, AutoSize = true };
+                    Label countLabel = new Label { Text = $"Photos: {album.Photos.Count}", RightToLeft = RightToLeft.Yes, AutoSize = true };
 
-                if (!string.IsNullOrEmpty(album.PictureAlbumURL))
-                {
-                    albumPicture.ImageLocation = album.PictureAlbumURL;
+                    DataPanel.Controls.Add(nameLabel);
+                    DataPanel.Controls.Add(countLabel);
+
+                    PictureBox albumPicture = new PictureBox
+                    {
+                        SizeMode = PictureBoxSizeMode.StretchImage,
+                        Size = new Size(150, 150)
+                    };
+
+                    if (!string.IsNullOrEmpty(album.PictureAlbumURL))
+                    {
+                        albumPicture.ImageLocation = album.PictureAlbumURL;
+                    }
+                    else
+                    {
+                        albumPicture.Image = pictureBoxProfile.ErrorImage;
+                    }
+
+                    DataPanel.Controls.Add(albumPicture);
+
+                    Button openAlbumButton = new Button
+                    {
+                        Text = "Open Album",
+                        AutoSize = true
+                    };
+
+                    DataPanel.Controls.Add(openAlbumButton);
+
+                    openAlbumButton.Click += (sender, e) => OpenAlbumPhotos(album);
                 }
-                else
-                {
-                    albumPicture.Image = pictureBoxProfile.ErrorImage;
-                }
-
-                DataPanel.Controls.Add(albumPicture);
-
-                Button openAlbumButton = new Button
-                {
-                    Text = "Open Album",
-                    AutoSize = true
-                };
-
-                DataPanel.Controls.Add(openAlbumButton);
-
-                openAlbumButton.Click += (sender, e) => OpenAlbumPhotos(album);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error displaying album details: {ex.Message}");
             }
         }
+
 
         private void OpenAlbumPhotos(Album album)
         {
@@ -632,11 +717,23 @@ namespace BasicFacebookFeatures
 
             }
         }
+
         private void addPictureButton_Click(object sender, EventArgs e)
         {
-            Post postedPhoto = m_LoginResult.LoggedInUser.PostPhoto(addPhoto(), "Uploaded via MyApp");
-            MessageBox.Show($"Photo posted successfully! ID: {postedPhoto?.Id}");
+
+            string photoPath = addPhoto();
+
+            if (string.IsNullOrEmpty(photoPath))
+            {
+                MessageBox.Show("No photo selected. Please select a photo to post.");
+                return;
+            }
+
+            Post postedPhoto = m_LoginResult.LoggedInUser.PostPhoto(photoPath);
         }
+            
+
+        
 
         private string addPhoto()
         {
@@ -669,29 +766,46 @@ namespace BasicFacebookFeatures
 
         private void videoButton_Click(object sender, EventArgs e)
         {
+            string selectedFilePath = SelectVideoFile();
+
+            if (string.IsNullOrEmpty(selectedFilePath))
+            {
+                MessageBox.Show("No video selected. Please select a video to upload.");
+                return;
+            }
+
+            Post postedVideo = PostVideo(selectedFilePath);
+        }
+
+        private string SelectVideoFile()
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Video Files|*.mp4;*.avi;*.mov;*.wmv;*.flv";
+                openFileDialog.Title = "Select a Video File to Upload";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    return openFileDialog.FileName;
+                }
+            }
+
+            return null;
+        }
+
+        private Post PostVideo(string filePath)
+        {
             try
             {
-                using (OpenFileDialog openFileDialog = new OpenFileDialog())
-                {
-                    // Filter to accept only video file formats
-                    openFileDialog.Filter = "Video Files|*.mp4;*.avi;*.mov;*.wmv;*.flv";
-                    openFileDialog.Title = "Select a Video File to Upload";
-
-                    if (openFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        string selectedFilePath = openFileDialog.FileName;
-
-                        // Upload the video
-                        Post postedVideo = m_LoginResult.LoggedInUser.PostPhoto(selectedFilePath, "Uploaded via MyApp");
-                        MessageBox.Show($"Video posted successfully! ID: {postedVideo?.Id}");
-                    }
-                }
+                return m_LoginResult.LoggedInUser.PostPhoto(filePath);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}");
+                MessageBox.Show($"An error occurred while posting the video: {ex.Message}");
+                return null;
             }
         }
+
 
         private void pictureBoxProfile_Click(object sender, EventArgs e)
         {
@@ -758,13 +872,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void tab1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-
-        FormAppSettings m_FormAppSettings = null;
         private void settingsButton_Click(object sender, EventArgs e)
         {
             if (m_FormAppSettings == null)
@@ -789,79 +896,100 @@ namespace BasicFacebookFeatures
             }
         }
 
-
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonAddPhoto_Click(object sender, EventArgs e)
         {
             m_Tab2Manager.AddToWishlist(comboBoxCategory.Text, new ListObject(textBoxName.Text, addPhoto()));
         }
-        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            int categoryIndex = comboBoxCategory.SelectedIndex;
-            string category = comboBoxCategory.Text;
-            string itemName = textBoxName.Text;
-
-            if (m_Tab2Manager.m_WishlistValues == null)
+            try
             {
-                m_Tab2Manager.m_WishlistValues = new List<KeyValuePairWrapper>();
-            }
+                string category = comboBoxCategory.Text;
+                string itemName = textBoxName.Text;
 
-            var existingCategory = m_Tab2Manager.m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
-
-            if (!string.IsNullOrEmpty(category) && existingCategory != null)
-            {
-                bool itemExists = existingCategory.Value.Any(item => item.m_Text == itemName);
-                if (!itemExists)
+                if (string.IsNullOrEmpty(category) || string.IsNullOrEmpty(itemName))
                 {
-                    existingCategory.Value.Add(new ListObject(itemName));
+                    MessageBox.Show("Please provide both a category and item name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                AddItemToWishlist(category, itemName);
+                UpdateCheckedListBox(category, itemName);
+                textBoxName.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AddItemToWishlist(string category, string itemName)
+        {
+            try
+            {
+                if (m_Tab2Manager.m_WishlistValues == null)
+                {
+                    m_Tab2Manager.m_WishlistValues = new List<KeyValuePairWrapper>();
+                }
+
+                var existingCategory = m_Tab2Manager.m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
+
+                if (existingCategory != null)
+                {
+                    bool itemExists = existingCategory.Value.Any(item => item.m_Text == itemName);
+                    if (!itemExists)
+                    {
+                        existingCategory.Value.Add(new ListObject(itemName));
+                    }
+                }
+                else
+                {
+                    m_Tab2Manager.AddToWishlist(category, new ListObject(itemName));
                 }
             }
-            else
+            catch (Exception ex)
             {
-                m_Tab2Manager.AddToWishlist(category, new ListObject(itemName));
+                MessageBox.Show($"An error occurred while adding to wishlist: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
-
-            switch (categoryIndex)
-            {
-                case (int)EWishlistCategories.food:
-                    checkedListBoxFood.Items.Add(itemName);
-                    break;
-
-                case (int)EWishlistCategories.shopping:
-                    checkedListBoxShopping.Items.Add(itemName);
-                    break;
-
-                case (int)EWishlistCategories.activities:
-                    checkedListBoxActivities.Items.Add(itemName);
-                    break;
-
-                case (int)EWishlistCategories.pets:
-                    checkedListBoxPets.Items.Add(itemName);
-                    break;
-            }
-
-            textBoxName.Clear();
         }
 
-
-
-        private void pictureBoxActivities_Click(object sender, EventArgs e)
+        private void UpdateCheckedListBox(string category, string itemName)
         {
+            try
+            {
+                switch (category)
+                {
+                    case nameof(EWishlistCategories.food):
+                        checkedListBoxFood.Items.Add(itemName);
+                        break;
 
+                    case nameof(EWishlistCategories.shopping):
+                        checkedListBoxShopping.Items.Add(itemName);
+                        break;
+
+                    case nameof(EWishlistCategories.activities):
+                        checkedListBoxActivities.Items.Add(itemName);
+                        break;
+
+                    case nameof(EWishlistCategories.pets):
+                        checkedListBoxPets.Items.Add(itemName);
+                        break;
+
+                    default:
+                        MessageBox.Show("Invalid category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while updating the checked list box: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw; 
+            }
         }
 
-        private bool isTextBoxChanged = false;
-        private bool isComboBoxChanged = false;
+
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {

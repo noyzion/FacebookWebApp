@@ -9,42 +9,6 @@ using System.Xml.Serialization;
 
 namespace BasicFacebookFeatures
 {
-    public class ListObject
-    {
-        public string m_Text { get; set; }
-        public string m_PhotoUrl { get; set; }
-
-        public bool m_Checked;
-
-        public ListObject() { }
-
-        public ListObject(string text, string photoUrl)
-        {
-            m_Text = text;
-            m_PhotoUrl = photoUrl;
-        }
-
-        public ListObject(string text)
-        {
-            m_Text = text;
-            m_PhotoUrl = null;
-        }
-    }
-
-    public class KeyValuePairWrapper
-    {
-        public string Key { get; set; }
-        public List<ListObject> Value { get; set; }
-
-        public KeyValuePairWrapper() { }
-
-        public KeyValuePairWrapper(string key, List<ListObject> value)
-        {
-            Key = key;
-            Value = value;
-        }
-    }
-
     public class Tab2Manager
     {
         public List<KeyValuePairWrapper> m_WishlistValues { get; set; }
@@ -92,7 +56,6 @@ namespace BasicFacebookFeatures
             {
                 string wishlistString = DisplayCombinedWishlist(foodListBox, activitiesListBox, petsListBox, shoppingListBox);
 
-                // Show the popup form after constructing the wishlist string
                 DisplayCombinedWishlistPopup(foodListBox, activitiesListBox, petsListBox, shoppingListBox);
 
                 return wishlistString;
@@ -103,27 +66,16 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private string DisplayCombinedWishlist(
-            CheckedListBox foodListBox,
-            CheckedListBox activitiesListBox,
-            CheckedListBox petsListBox,
-            CheckedListBox shoppingListBox)
+        private string DisplayCombinedWishlist(CheckedListBox foodListBox, CheckedListBox activitiesListBox,
+                                                CheckedListBox petsListBox, CheckedListBox shoppingListBox)
         {
             StringBuilder wishlistSummary = new StringBuilder();
+            wishlistSummary.AppendLine($@"My Wishlist:
+Food:{GetCategoryItemsAsString(foodListBox)}
+Activities:{GetCategoryItemsAsString(activitiesListBox)}
+Pets:{GetCategoryItemsAsString(petsListBox)}
+Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
 
-            wishlistSummary.AppendLine("My Wishlist:\n");
-
-            wishlistSummary.AppendLine("Food:");
-            wishlistSummary.Append(GetCategoryItemsAsString(foodListBox));
-
-            wishlistSummary.AppendLine("\nActivities:");
-            wishlistSummary.Append(GetCategoryItemsAsString(activitiesListBox));
-
-            wishlistSummary.AppendLine("\nPets:");
-            wishlistSummary.Append(GetCategoryItemsAsString(petsListBox));
-
-            wishlistSummary.AppendLine("\nShopping:");
-            wishlistSummary.Append(GetCategoryItemsAsString(shoppingListBox));
 
             return wishlistSummary.ToString();
         }
@@ -140,11 +92,8 @@ namespace BasicFacebookFeatures
             return categoryItems.ToString();
         }
 
-        private void DisplayCombinedWishlistPopup(
-            CheckedListBox foodListBox,
-            CheckedListBox activitiesListBox,
-            CheckedListBox petsListBox,
-            CheckedListBox shoppingListBox)
+        private void DisplayCombinedWishlistPopup(CheckedListBox foodListBox, CheckedListBox activitiesListBox,
+                                                  CheckedListBox petsListBox, CheckedListBox shoppingListBox)
         {
             Form popupForm = new Form
             {
@@ -167,16 +116,38 @@ namespace BasicFacebookFeatures
             mainPanel.Controls.Add(CreateCategoryPanel("Activities", activitiesListBox));
             mainPanel.Controls.Add(CreateCategoryPanel("Pets", petsListBox));
             mainPanel.Controls.Add(CreateCategoryPanel("Shopping", shoppingListBox));
-
             popupForm.Controls.Add(mainPanel);
-
             popupForm.ShowDialog();
         }
 
 
         private Panel CreateCategoryPanel(string categoryName, CheckedListBox checkedListBox)
         {
-            FlowLayoutPanel categoryPanel = new FlowLayoutPanel
+            FlowLayoutPanel categoryPanel = CreateCategoryPanelLayout();
+
+            Label categoryLabel = CreateCategoryLabel(categoryName);
+            categoryPanel.Controls.Add(categoryLabel);
+
+            if (checkedListBox.Items.Count > 0)
+            {
+                foreach (ListObject item in checkedListBox.Items)
+                {
+                    Panel itemPanel = CreateItemPanel(item);
+                    categoryPanel.Controls.Add(itemPanel);
+                }
+            }
+            else
+            {
+                Label emptyMessage = CreateEmptyMessageLabel();
+                categoryPanel.Controls.Add(emptyMessage);
+            }
+
+            return categoryPanel;
+        }
+
+        private FlowLayoutPanel CreateCategoryPanelLayout()
+        {
+            return new FlowLayoutPanel
             {
                 FlowDirection = FlowDirection.TopDown,
                 WrapContents = false,
@@ -185,8 +156,11 @@ namespace BasicFacebookFeatures
                 Padding = new Padding(5),
                 BorderStyle = BorderStyle.FixedSingle
             };
+        }
 
-            Label categoryLabel = new Label
+        private Label CreateCategoryLabel(string categoryName)
+        {
+            return new Label
             {
                 Text = categoryName,
                 AutoSize = true,
@@ -194,64 +168,68 @@ namespace BasicFacebookFeatures
                 ForeColor = Color.DarkBlue,
                 Margin = new Padding(5)
             };
-            categoryPanel.Controls.Add(categoryLabel);
+        }
 
-            if (checkedListBox.Items.Count > 0)
+        private Panel CreateItemPanel(ListObject item)
+        {
+            Panel itemPanel = new Panel
             {
-                foreach (ListObject item in checkedListBox.Items)
-                {
-                    Panel itemPanel = new Panel
-                    {
-                        Size = new Size(180, 100),
-                        BorderStyle = BorderStyle.FixedSingle,
-                        Margin = new Padding(5)
-                    };
+                Size = new Size(180, 100),
+                BorderStyle = BorderStyle.FixedSingle,
+                Margin = new Padding(5)
+            };
 
-                    Label label = new Label
-                    {
-                        Text = $"{item.m_Text}" + (item.m_Checked ? " (Achieved ✅)" : ""),
-                        AutoSize = true,
-                        Location = new Point(5, 5),
-                        Font = new Font("Arial", 10, FontStyle.Regular)
-                    };
+            Label label = CreateItemLabel(item);
+            itemPanel.Controls.Add(label);
 
-                    PictureBox pictureBox = new PictureBox
-                    {
-                        Size = new Size(60, 60),
-                        Location = new Point(5, 30),
-                        SizeMode = PictureBoxSizeMode.StretchImage
-                    };
+            PictureBox pictureBox = CreateItemPictureBox(item);
+            itemPanel.Controls.Add(pictureBox);
 
-                    if (!string.IsNullOrEmpty(item.m_PhotoUrl) && File.Exists(item.m_PhotoUrl))
-                    {
-                        pictureBox.Image = Image.FromFile(item.m_PhotoUrl);
-                    }
-                    else
-                    {
-                        pictureBox.Image = null;
-                    }
+            return itemPanel;
+        }
 
-                    itemPanel.Controls.Add(label);
-                    itemPanel.Controls.Add(pictureBox);
+        private Label CreateItemLabel(ListObject item)
+        {
+            return new Label
+            {
+                Text = $"{item.m_Text}" + (item.m_Checked ? " (Achieved ✅)" : ""),
+                AutoSize = true,
+                Location = new Point(5, 5),
+                Font = new Font("Arial", 10, FontStyle.Regular)
+            };
+        }
 
-                    categoryPanel.Controls.Add(itemPanel);
-                }
+        private PictureBox CreateItemPictureBox(ListObject item)
+        {
+            PictureBox pictureBox = new PictureBox
+            {
+                Size = new Size(60, 60),
+                Location = new Point(5, 30),
+                SizeMode = PictureBoxSizeMode.StretchImage
+            };
+
+            if (!string.IsNullOrEmpty(item.m_PhotoUrl) && File.Exists(item.m_PhotoUrl))
+            {
+                pictureBox.Image = Image.FromFile(item.m_PhotoUrl);
             }
             else
             {
-                Label emptyMessage = new Label
-                {
-                    Text = "No items in this category.",
-                    AutoSize = true,
-                    Font = new Font("Arial", 10, FontStyle.Italic),
-                    ForeColor = Color.Gray,
-                    Margin = new Padding(5)
-                };
-
-                categoryPanel.Controls.Add(emptyMessage);
+                pictureBox.Image = null;
             }
 
-            return categoryPanel;
+            return pictureBox;
+        }
+
+        private Label CreateEmptyMessageLabel()
+        {
+            return new Label
+            {
+                Text = "No items in this category.",
+                AutoSize = true,
+                Font = new Font("Arial", 10, FontStyle.Italic),
+                ForeColor = Color.Gray,
+                Margin = new Padding(5)
+            };
         }
 
         public void loadImageForPictureBoxInList(CheckedListBox list, PictureBox pictureBox)
@@ -288,8 +266,6 @@ namespace BasicFacebookFeatures
             }
             return null;
         }
-
-
         public void deleteFromList(CheckedListBox list, EWishlistCategories category)
         {
             ListObject selectedItem = (ListObject)list.Items[list.SelectedIndex];

@@ -19,7 +19,40 @@ namespace BasicFacebookFeatures
 
         private void GenerateWorkoutStatistics()
         {
+            Dictionary<int, int> caloriesPerMonth = CalculateCaloriesPerMonth();
+            Dictionary<int, int> workoutCountPerMonth = CalculateWorkoutCountPerMonth();
+
+            DisplayCharts(caloriesPerMonth, workoutCountPerMonth);
+        }
+
+        private Dictionary<int, int> CalculateCaloriesPerMonth()
+        {
             Dictionary<int, int> caloriesPerMonth = new Dictionary<int, int>();
+
+            foreach (DataGridViewRow row in workoutTable.Rows)
+            {
+                if (row.Cells["Date"]?.Value != null && row.Cells["Calories"]?.Value != null)
+                {
+                    DateTime workoutDate = Convert.ToDateTime(row.Cells["Date"].Value);
+                    int month = workoutDate.Month;
+                    int calories = Convert.ToInt32(row.Cells["Calories"].Value);
+
+                    if (caloriesPerMonth.ContainsKey(month))
+                    {
+                        caloriesPerMonth[month] += calories;
+                    }
+                    else
+                    {
+                        caloriesPerMonth[month] = calories;
+                    }
+                }
+            }
+
+            return caloriesPerMonth;
+        }
+
+        private Dictionary<int, int> CalculateWorkoutCountPerMonth()
+        {
             Dictionary<int, int> workoutCountPerMonth = new Dictionary<int, int>();
 
             foreach (DataGridViewRow row in workoutTable.Rows)
@@ -37,34 +70,28 @@ namespace BasicFacebookFeatures
                     {
                         workoutCountPerMonth[month] = 1;
                     }
-
-                    if (row.Cells["Calories"]?.Value != null)
-                    {
-                        int calories = Convert.ToInt32(row.Cells["Calories"].Value);
-                        if (caloriesPerMonth.ContainsKey(month))
-                        {
-                            caloriesPerMonth[month] += calories;
-                        }
-                        else
-                        {
-                            caloriesPerMonth[month] = calories;
-                        }
-                    }
                 }
             }
 
+            return workoutCountPerMonth;
+        }
+
+        private void DisplayCharts(Dictionary<int, int> caloriesPerMonth, Dictionary<int, int> workoutCountPerMonth)
+        {
             string[] monthNames = {
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    };
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            };
 
             caloriesChart.Series["Calories"].Points.Clear();
             timeChart.Series["Amount"].Points.Clear();
 
-            foreach (var month in workoutCountPerMonth.Keys
-                                      .Union(caloriesPerMonth.Keys)
-                                      .Distinct()
-                                      .OrderBy(m => m))
+            var months = workoutCountPerMonth.Keys
+                           .Union(caloriesPerMonth.Keys)
+                           .Distinct()
+                           .OrderBy(m => m);
+
+            foreach (var month in months)
             {
                 string monthName = monthNames[month - 1];
                 int caloriesForMonth = caloriesPerMonth.ContainsKey(month) ? caloriesPerMonth[month] : 0;
@@ -84,6 +111,5 @@ namespace BasicFacebookFeatures
             caloriesChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
             timeChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
         }
-
     }
 }

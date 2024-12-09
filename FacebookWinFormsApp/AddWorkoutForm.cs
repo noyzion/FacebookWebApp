@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
@@ -57,6 +52,12 @@ namespace BasicFacebookFeatures
 
         private void buttonAddWorkout_Click(object sender, EventArgs e)
         {
+            if (dateTimePickerWorkout.Value.Date > DateTime.Today)
+            {
+                MessageBox.Show("The workout date cannot be in the future.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; 
+            }
+
             Workout newWorkout = new Workout(
                 numericUpDownDuration.Value,
                 comboBoxWorkoutCategory.Text,
@@ -65,12 +66,14 @@ namespace BasicFacebookFeatures
             );
 
             if (workoutManager.Workouts == null)
-            { workoutManager.Workouts = new List<Workout>(); }
+            {
+                workoutManager.Workouts = new List<Workout>();
+            }
             workoutManager.Workouts.Add(newWorkout);
+
             workoutTable.Rows.Add(newWorkout.Category, newWorkout.Duration, newWorkout.Calories, newWorkout.DateTime.ToShortDateString());
 
             this.Close();
         }
-
     }
 }
