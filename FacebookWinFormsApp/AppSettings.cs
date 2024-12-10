@@ -9,7 +9,7 @@ namespace BasicFacebookFeatures
         public string[] Permissions { get; set; }
         public bool RememberUser { get; set; }
         public string LastAccessToken { get; set; }
-        public WishlistManager m_WishlistManager { get; set; }
+        public WishlistManager WishlistManager { get; set; }
         public WorkoutManager WorkoutManager { get; set; }
         public AppSettings()
         {
@@ -17,7 +17,7 @@ namespace BasicFacebookFeatures
             LastAccessToken = null;
             Permissions = null;
             AppID = null;
-            m_WishlistManager = null;
+            WishlistManager = null;
             WorkoutManager = null;
         }
         public void SaveToFile()
@@ -31,6 +31,7 @@ namespace BasicFacebookFeatures
         public static AppSettings LoadFromFile()
         {
             AppSettings settings = new AppSettings();
+
             if (File.Exists(@"C:\Users\noyzi\OneDrive\Documents\appSettings.xml"))
             {
                 using (Stream stream = new FileStream(@"C:\Users\noyzi\OneDrive\Documents\appSettings.xml", FileMode.Open))

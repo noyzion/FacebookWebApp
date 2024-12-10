@@ -86,7 +86,7 @@ Shopping:{getCategoryItemsAsString(shoppingListBox)}");
 
             foreach (ListObject item in listBox.Items)
             {
-                categoryItems.AppendLine($"- {item.m_Text}" + (item.m_Checked ? " (Achieved ✅)" : ""));
+                categoryItems.AppendLine($"- {item.Text}" + (item.m_Checked ? " (Achieved ✅)" : ""));
             }
 
             return categoryItems.ToString();
@@ -185,7 +185,7 @@ Shopping:{getCategoryItemsAsString(shoppingListBox)}");
         {
             return new Label
             {
-                Text = $"{item.m_Text}" + (item.m_Checked ? " (Achieved ✅)" : ""),
+                Text = $"{item.Text}" + (item.m_Checked ? " (Achieved ✅)" : ""),
                 AutoSize = true,
                 Location = new Point(5, 5),
                 Font = new Font("Arial", 10, FontStyle.Regular)
@@ -200,9 +200,9 @@ Shopping:{getCategoryItemsAsString(shoppingListBox)}");
                 SizeMode = PictureBoxSizeMode.StretchImage
             };
 
-            if (!string.IsNullOrEmpty(item.m_PhotoUrl) && File.Exists(item.m_PhotoUrl))
+            if (!string.IsNullOrEmpty(item.PhotoUrl) && File.Exists(item.PhotoUrl))
             {
-                pictureBox.Image = Image.FromFile(item.m_PhotoUrl);
+                pictureBox.Image = Image.FromFile(item.PhotoUrl);
             }
             else
             {
@@ -224,11 +224,11 @@ Shopping:{getCategoryItemsAsString(shoppingListBox)}");
         }
         public void LoadImageForPictureBoxInList(ListObject listObject, PictureBox pictureBox)
         {
-            if (listObject != null && listObject.m_PhotoUrl != null)
+            if (listObject != null && listObject.PhotoUrl != null)
             {
                 try
                 {
-                    pictureBox.Image = Image.FromFile(listObject.m_PhotoUrl);
+                    pictureBox.Image = Image.FromFile(listObject.PhotoUrl);
                     pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 }

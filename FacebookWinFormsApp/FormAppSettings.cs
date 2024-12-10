@@ -9,23 +9,24 @@ namespace BasicFacebookFeatures
 {
      public partial class FormAppSettings : Form
     {
-        public AppSettings appSettings;
+        private AppSettings m_AppSettings;
+        StringBuilder m_PermissionsStringBuilder = new StringBuilder();
+
         public FormAppSettings(AppSettings appSettings)
         {
             InitializeComponent();
-            this.appSettings = appSettings;
+            this.m_AppSettings = appSettings;
             foreach (var permission in appSettings.Permissions)
             {
                 int index = listBoxPermissions.Items.IndexOf(permission);
                 listBoxPermissions.SetItemChecked(index,true);
             }
+
             int appIDIndex = comboBoxAppID.Items.IndexOf(appSettings
                 .AppID);
+
             comboBoxAppID.SelectedIndex = appIDIndex;
         }
-
-        StringBuilder m_PermissionsStringBuilder = new StringBuilder();
-
         private void buttonAddAppID_Click(object sender, EventArgs e)
         {
             comboBoxAppID.Items.Insert(0, textBoxAppID.Text);
@@ -37,9 +38,10 @@ namespace BasicFacebookFeatures
             {
                 comboBoxAppID.SelectedIndex = 0;
             }
-            appSettings.AppID = comboBoxAppID.SelectedItem.ToString();
-            appSettings.Permissions = new string[listBoxPermissions.CheckedItems.Count];
-            listBoxPermissions.CheckedItems.CopyTo(appSettings.Permissions, 0);
+
+            m_AppSettings.AppID = comboBoxAppID.SelectedItem.ToString();
+            m_AppSettings.Permissions = new string[listBoxPermissions.CheckedItems.Count];
+            listBoxPermissions.CheckedItems.CopyTo(m_AppSettings.Permissions, 0);
             DialogResult = DialogResult.OK;
             this.Close();
         }

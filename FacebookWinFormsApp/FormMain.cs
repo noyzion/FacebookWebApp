@@ -19,7 +19,7 @@ namespace BasicFacebookFeatures
         FormAppSettings m_FormAppSettings = null;
         private bool m_IsTextBoxChanged = false;
         private bool m_IsComboBoxChanged = false;
-        public DataGridView workoutTable { get; set; }
+        public DataGridView WorkoutTable { get; set; }
         private FacebookManager m_FacebookManager;
         public FormMain()
         {
@@ -27,7 +27,7 @@ namespace BasicFacebookFeatures
             m_AppSettings = AppSettings.LoadFromFile();
             this.rememberMeCheckBox.Checked = m_AppSettings.RememberUser;
             FacebookWrapper.FacebookService.s_CollectionLimit = 70; // If the limit is bigger, it works but very slow
-            m_WishlistManager = m_AppSettings.m_WishlistManager;
+            m_WishlistManager = m_AppSettings.WishlistManager;
             m_WorkoutManager = m_AppSettings.WorkoutManager;
             InitializeWorkoutTable();
         }
@@ -56,18 +56,18 @@ namespace BasicFacebookFeatures
         }
         public void InitializeWorkoutTable()
         {
-            workoutTable = new DataGridView
+            WorkoutTable = new DataGridView
             {
                 Dock = DockStyle.Fill,
                 AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
                 ColumnCount = 4
             };
 
-            workoutTable.Columns[0].Name = "Category";
-            workoutTable.Columns[1].Name = "Duration";
-            workoutTable.Columns[2].Name = "Calories";
-            workoutTable.Columns[3].Name = "Date";
-            panelWorkouts.Controls.Add(workoutTable);
+            WorkoutTable.Columns[0].Name = "Category";
+            WorkoutTable.Columns[1].Name = "Duration";
+            WorkoutTable.Columns[2].Name = "Calories";
+            WorkoutTable.Columns[3].Name = "Date";
+            panelWorkouts.Controls.Add(WorkoutTable);
         }
         private void fetchWorkoutData()
         {
@@ -75,7 +75,7 @@ namespace BasicFacebookFeatures
             {
                 foreach (var workout in m_WorkoutManager.Workouts)
                 {
-                    workoutTable.Rows.Add(
+                    WorkoutTable.Rows.Add(
                         workout.Category,
                         workout.Duration,
                         workout.Calories,
@@ -91,7 +91,7 @@ namespace BasicFacebookFeatures
             if (m_AppSettings.RememberUser)
             {
                 m_AppSettings.LastAccessToken = m_LoginResult.AccessToken;
-                m_AppSettings.m_WishlistManager = m_WishlistManager;
+                m_AppSettings.WishlistManager = m_WishlistManager;
                 m_AppSettings.WorkoutManager = m_WorkoutManager;
             }
             else
@@ -165,7 +165,7 @@ namespace BasicFacebookFeatures
             pictureBoxProfile.ImageLocation = null;
             labelBirthday.Text = "Birthday: ";
             labelEmail.Text = "Email: ";
-            workoutTable.Rows.Clear();
+            WorkoutTable.Rows.Clear();
             m_WishlistManager.ResetWishlistUI(checkedListBoxFood, checkedListBoxPets,
                                               checkedListBoxActivities, checkedListBoxShopping);
 
@@ -480,7 +480,7 @@ namespace BasicFacebookFeatures
         }
         private void populateCheckBoxListOfWishlist(int i, EWishlistCategories category)
         {
-            foreach (var kvp in m_AppSettings.m_WishlistManager.m_WishlistValues)
+            foreach (var kvp in m_AppSettings.WishlistManager.m_WishlistValues)
             {
                 if (category.ToString() == kvp.Key)
                 {
@@ -620,7 +620,7 @@ namespace BasicFacebookFeatures
                 {
                     foreach (var listObject in kvp.Value)
                     {
-                        if (listObject.m_Text == itemName)
+                        if (listObject.Text == itemName)
                         {
                             return listObject;
                         }
@@ -790,12 +790,12 @@ namespace BasicFacebookFeatures
         }
         private void buttonAddWorkout_Click(object sender, EventArgs e)
         {
-            AddWorkoutForm addWorkoutForm = new AddWorkoutForm(workoutTable, m_WorkoutManager);
+            AddWorkoutForm addWorkoutForm = new AddWorkoutForm(WorkoutTable, m_WorkoutManager);
             addWorkoutForm.ShowDialog();
         }
         private void buttonStatistics_Click(object sender, EventArgs e)
         {
-            StatisicsForm statisicsForm = new StatisicsForm(workoutTable);
+            StatisicsForm statisicsForm = new StatisicsForm(WorkoutTable);
             statisicsForm.ShowDialog();
         }
     }

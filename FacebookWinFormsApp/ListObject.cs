@@ -8,19 +8,19 @@ namespace BasicFacebookFeatures
 {
     public class ListObject
     {
-        public string m_Text { get; set; }
-        public string m_PhotoUrl { get; set; }
+        public string Text { get; set; }
+        public string PhotoUrl { get; set; }
         public bool m_Checked;
         public ListObject() { }
         public ListObject(string text, string photoUrl)
         {
-            m_Text = text;
-            m_PhotoUrl = photoUrl;
+            Text = text;
+            PhotoUrl = photoUrl;
         }
         public ListObject(string text)
         {
-            m_Text = text;
-            m_PhotoUrl = null;
+            Text = text;
+            PhotoUrl = null;
         }
         public override bool Equals(object obj)
         {
@@ -31,11 +31,11 @@ namespace BasicFacebookFeatures
 
             ListObject other = (ListObject)obj;
 
-            return m_Text == other.m_Text;
+            return Text == other.Text;
         }
         public override int GetHashCode()
         {
-            return m_Text.GetHashCode();
+            return Text.GetHashCode();
         }
     }
 }
