@@ -20,6 +20,7 @@ namespace BasicFacebookFeatures
         private bool isTextBoxChanged = false;
         private bool isComboBoxChanged = false;
         public DataGridView workoutTable { get; set; }
+        private FacebookManager m_FacebookManager;
 
         public FormMain()
         {
@@ -83,6 +84,7 @@ namespace BasicFacebookFeatures
             if (m_AppSettings.RememberUser && !string.IsNullOrEmpty(m_AppSettings.LastAccessToken))
             {
                 m_LoginResult = FacebookService.Connect(m_AppSettings.LastAccessToken);
+                m_FacebookManager = new FacebookManager(m_LoginResult);
                 populateUIFromFacebookData();
             }
         }
@@ -94,71 +96,6 @@ namespace BasicFacebookFeatures
             if (m_LoginResult == null || string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
                 login();
-            }
-        }
-
-        private void login()
-        {
-            m_LoginResult = FacebookService.Login(
-              m_AppSettings.s_AppID, m_AppSettings.s_Permissions);
-
-            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
-            {
-                populateUIFromFacebookData();
-            }
-        }
-
-
-        private void populateUIFromFacebookData()
-        {
-            this.Text = $"{m_LoginResult.LoggedInUser.Name} Facebook App";
-            buttonLogin.Text = $"Logged in as {m_LoginResult.LoggedInUser.Name}";
-            buttonLogin.BackColor = Color.LightGreen;
-            pictureBoxProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
-
-            birthdayLabel.Text = $"Birthday:  {m_LoginResult.LoggedInUser.Birthday}";
-            emailLabel.Text = $"Email: {m_LoginResult.LoggedInUser?.Email}";
-            for (int i = 0; i < Enum.GetValues(typeof(EWishlistCategories)).Length; i++)
-            {
-                EWishlistCategories category = (EWishlistCategories)i;
-                populateCheckBoxListOfWishlist(i, (EWishlistCategories)i);
-            }
-            buttonsAfterLogin();
-        }
-
-        private void populateCheckBoxListOfWishlist(int i, EWishlistCategories category)
-        {
-            foreach (var kvp in m_AppSettings.Tab2Manager.m_WishlistValues)
-            {
-                if (category.ToString() == kvp.Key)
-                {
-
-                    foreach (var item in kvp.Value)
-                    {
-                        switch (category)
-                        {
-                            case EWishlistCategories.food:
-                                checkedListBoxFood.Items.Add(item);
-                                checkItem(checkedListBoxFood, item);
-                                break;
-                            case EWishlistCategories.shopping:
-                                checkedListBoxShopping.Items.Add(item);
-                                checkItem(checkedListBoxShopping, item);
-                                break;
-                            case EWishlistCategories.activities:
-                                checkedListBoxActivities.Items.Add(item);
-                                checkItem(checkedListBoxActivities, item);
-                                break;
-
-                            case EWishlistCategories.pets:
-                                checkedListBoxPets.Items.Add(item);
-                                checkItem(checkedListBoxPets, item);
-                                break;
-
-                        }
-                    }
-
-                }
             }
         }
 
@@ -206,172 +143,41 @@ namespace BasicFacebookFeatures
 
         private void groups_Click(object sender, EventArgs e)
         {
-            fetchGroups();
+            m_FacebookManager.fetchGroups(DataListBox);
         }
 
         private void friends_Click(object sender, EventArgs e)
         {
-            fetchFriends();
+            m_FacebookManager.fetchFriends(DataListBox);
         }
 
         private void posts_Click(object sender, EventArgs e)
         {
-            fetchPosts();
+            m_FacebookManager.fetchPosts(DataListBox);
         }
 
         private void photos_Click(object sender, EventArgs e)
         {
-            fetchAlbums();
+            m_FacebookManager.fetchAlbums(DataListBox);
         }
 
         private void pages_Click(object sender, EventArgs e)
         {
-            fetchLiked();
+            m_FacebookManager.fetchLiked(DataListBox);
         }
 
         private void events_Click(object sender, EventArgs e)
         {
-            fetchEvents();
+            m_FacebookManager.fetchEvents(DataListBox);
         }
-
-        private void fetchGroups()
+        public void login()
         {
-            try
+            m_LoginResult = FacebookService.Login(
+              m_AppSettings.s_AppID, m_AppSettings.s_Permissions);
+
+            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
-                DataListBox.DataSource = null;
-                DataListBox.Items?.Clear();
-                DataListBox.DisplayMember = "Name";
-
-                foreach (Group group in m_LoginResult.LoggedInUser.Groups)
-                {
-                    DataListBox.Items.Add(group);
-                }
-
-                if (DataListBox.Items.Count == 0)
-                {
-                    MessageBox.Show("No groups to retrieve :(");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error fetching groups: {ex.Message}");
-            }
-        }
-
-        private void fetchAlbums()
-        {
-            try
-            {
-                DataListBox.DataSource = null;
-                DataListBox.Items?.Clear();
-                DataListBox.DisplayMember = "Name";
-
-                DataListBox.DataSource = m_LoginResult.LoggedInUser.Albums;
-
-                if (DataListBox.Items.Count == 0)
-                {
-                    MessageBox.Show("No albums to retrieve :(");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error fetching albums: {ex.Message}");
-            }
-        }
-
-        private void fetchFriends()
-        {
-            try
-            {
-                DataListBox.DataSource = null;
-                DataListBox.Items?.Clear();
-                DataListBox.DisplayMember = "Name";
-
-                DataListBox.DataSource = m_LoginResult.LoggedInUser.Friends;
-
-                if (DataListBox.Items.Count == 0)
-                {
-                    MessageBox.Show("No friends to retrieve :(");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error fetching friends: {ex.Message}");
-            }
-        }
-
-        private void fetchPosts()
-        {
-            try
-            {
-                DataListBox.DataSource = null;
-                DataListBox.Items?.Clear();
-                DataListBox.DisplayMember = "UpdateTime";
-
-                foreach (Post post in m_LoginResult.LoggedInUser.Posts)
-                {
-                    if (post.Message != null || post.PictureURL != null)
-                    {
-                        DataListBox.Items.Add(post);
-                    }
-                }
-
-                if (DataListBox.Items.Count == 0)
-                {
-                    MessageBox.Show("No posts to retrieve :(");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error fetching posts: {ex.Message}");
-            }
-        }
-
-        private void fetchLiked()
-        {
-            try
-            {
-                DataListBox.DataSource = null;
-                DataListBox.Items?.Clear();
-                DataListBox.DisplayMember = "Name";
-
-                foreach (Page page in m_LoginResult.LoggedInUser.LikedPages)
-                {
-                    DataListBox.Items.Add(page);
-                }
-
-                if (DataListBox.Items.Count == 0)
-                {
-                    MessageBox.Show("No liked pages to retrieve :(");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error fetching liked pages: {ex.Message}");
-            }
-        }
-
-        private void fetchEvents()
-        {
-            try
-            {
-                DataListBox.DataSource = null;
-                DataListBox.Items?.Clear();
-                DataListBox.DisplayMember = "Name";
-
-                foreach (Event fbEvent in m_LoginResult.LoggedInUser.Events)
-                {
-                    DataListBox.Items.Add(fbEvent);
-                }
-
-                if (DataListBox.Items.Count == 0)
-                {
-                    MessageBox.Show("No events to retrieve :(");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error fetching events: {ex.Message}");
+                populateUIFromFacebookData();
             }
         }
 
@@ -659,36 +465,67 @@ namespace BasicFacebookFeatures
                 DataPanel.Controls.Add(thisPostPicture);
             }
         }
+        private void populateCheckBoxListOfWishlist(int i, EWishlistCategories category)
+        {
+            foreach (var kvp in m_AppSettings.Tab2Manager.m_WishlistValues)
+            {
+                if (category.ToString() == kvp.Key)
+                {
 
+                    foreach (var item in kvp.Value)
+                    {
+                        switch (category)
+                        {
+                            case EWishlistCategories.food:
+                                checkedListBoxFood.Items.Add(item);
+                                checkItem(checkedListBoxFood, item);
+                                break;
+                            case EWishlistCategories.shopping:
+                                checkedListBoxShopping.Items.Add(item);
+                                checkItem(checkedListBoxShopping, item);
+                                break;
+                            case EWishlistCategories.activities:
+                                checkedListBoxActivities.Items.Add(item);
+                                checkItem(checkedListBoxActivities, item);
+                                break;
 
+                            case EWishlistCategories.pets:
+                                checkedListBoxPets.Items.Add(item);
+                                checkItem(checkedListBoxPets, item);
+                                break;
+
+                        }
+                    }
+
+                }
+            }
+        }
+
+        public void populateUIFromFacebookData()
+        {
+            this.Text = $"{m_LoginResult.LoggedInUser.Name} Facebook App";
+            buttonLogin.Text = $"Logged in as {m_LoginResult.LoggedInUser.Name}";
+            buttonLogin.BackColor = Color.LightGreen;
+            pictureBoxProfile.ImageLocation = m_LoginResult.LoggedInUser.PictureNormalURL;
+
+            birthdayLabel.Text = $"Birthday:  {m_LoginResult.LoggedInUser.Birthday}";
+            emailLabel.Text = $"Email: {m_LoginResult.LoggedInUser?.Email}";
+            for (int i = 0; i < Enum.GetValues(typeof(EWishlistCategories)).Length; i++)
+            {
+                EWishlistCategories category = (EWishlistCategories)i;
+                populateCheckBoxListOfWishlist(i, (EWishlistCategories)i);
+            }
+            buttonsAfterLogin();
+        }
         private void addPostButton_Click(object sender, EventArgs e)
         {
-             post(statusTextBox.Text);         
-        }
-        private void post(string message)
-        {
-            try
-            {
-                Status postedStatus = m_LoginResult.LoggedInUser.PostStatus(message);
-                MessageBox.Show($"Status posted! ID: {postedStatus.Id}");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-
-            }
-            finally
-            {
-                statusTextBox.Clear();
-
-            }
+             m_FacebookManager.post(statusTextBox.Text,statusTextBox);         
         }
 
         private void addPictureButton_Click(object sender, EventArgs e)
         {
 
-            string photoPath = addPhoto();
+            string photoPath = m_FacebookManager.addPhoto();
 
             if (string.IsNullOrEmpty(photoPath))
             {
@@ -699,30 +536,6 @@ namespace BasicFacebookFeatures
             Post postedPhoto = m_LoginResult.LoggedInUser.PostPhoto(photoPath);
         }
   
-        private string addPhoto()
-        {
-            string selectedFilePath = null;
-            try
-            {
-                using (OpenFileDialog openFileDialog = new OpenFileDialog())
-                {
-                    openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
-                    openFileDialog.Title = "Select a Picture to Upload";
-
-                    if (openFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        selectedFilePath = openFileDialog.FileName;
-                    }
-                }
-                return selectedFilePath;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-        }
         private void statusTextBox_TextChanged(object sender, EventArgs e)
         {
             addPostButton.Enabled = !string.IsNullOrWhiteSpace(statusTextBox.Text);
@@ -730,7 +543,7 @@ namespace BasicFacebookFeatures
 
         private void videoButton_Click(object sender, EventArgs e)
         {
-            string selectedFilePath = SelectVideoFile();
+            string selectedFilePath = m_FacebookManager.SelectVideoFile();
 
             if (string.IsNullOrEmpty(selectedFilePath))
             {
@@ -738,37 +551,10 @@ namespace BasicFacebookFeatures
                 return;
             }
 
-            Post postedVideo = PostVideo(selectedFilePath);
+            Post postedVideo = m_FacebookManager.PostVideo(selectedFilePath);
         }
 
-        private string SelectVideoFile()
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Filter = "Video Files|*.mp4;*.avi;*.mov;*.wmv;*.flv";
-                openFileDialog.Title = "Select a Video File to Upload";
 
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    return openFileDialog.FileName;
-                }
-            }
-
-            return null;
-        }
-
-        private Post PostVideo(string filePath)
-        {
-            try
-            {
-                return m_LoginResult.LoggedInUser.PostPhoto(filePath);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while posting the video: {ex.Message}");
-                return null;
-            }
-        }
 
         private void pictureBoxProfile_Click(object sender, EventArgs e)
         {
@@ -847,7 +633,7 @@ namespace BasicFacebookFeatures
 
         private void buttonAddPhoto_Click(object sender, EventArgs e)
         {
-            ListObject newObject = new ListObject(textBoxName.Text, addPhoto());
+            ListObject newObject = new ListObject(textBoxName.Text, m_FacebookManager.addPhoto());
             m_Tab2Manager.AddToWishlist(comboBoxCategory.Text, newObject);
             UpdateCheckedListBox(comboBoxCategory.Text, newObject);
 
@@ -1019,7 +805,7 @@ namespace BasicFacebookFeatures
         private void buttonPost_Click(object sender, EventArgs e)
         {
           string postData=  m_Tab2Manager.ShareWishlist(checkedListBoxFood, checkedListBoxActivities, checkedListBoxPets, checkedListBoxShopping);
-            post(postData);
+            m_FacebookManager.post(postData,statusTextBox);
         }
 
         private void buttonDeleteItem_Click(object sender, EventArgs e)
