@@ -118,7 +118,7 @@
     <Compile Include="StatisicsForm.Designer.cs">
       <DependentUpon>StatisicsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tab2Manager.cs" />
+    <Compile Include="WishlistManager.cs" />
     <Compile Include="Workout.cs" />
     <EmbeddedResource Include="StatisicsForm.resx">
       <DependentUpon>StatisicsForm.cs</DependentUpon>

@@ -13,7 +13,7 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private AppSettings m_AppSettings;
-        private Tab2Manager m_Tab2Manager;
+        private WishlistManager m_Tab2Manager;
         private WorkoutManager m_workoutManager;
         FacebookWrapper.LoginResult m_LoginResult;
         FormAppSettings m_FormAppSettings = null;
@@ -554,8 +554,6 @@ namespace BasicFacebookFeatures
             Post postedVideo = m_FacebookManager.PostVideo(selectedFilePath);
         }
 
-
-
         private void pictureBoxProfile_Click(object sender, EventArgs e)
         {
             using (OpenProfilePicture optionsForm = new OpenProfilePicture())
@@ -636,7 +634,6 @@ namespace BasicFacebookFeatures
             ListObject newObject = new ListObject(textBoxName.Text, m_FacebookManager.addPhoto());
             m_Tab2Manager.AddToWishlist(comboBoxCategory.Text, newObject);
             UpdateCheckedListBox(comboBoxCategory.Text, newObject);
-
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -663,38 +660,9 @@ namespace BasicFacebookFeatures
 
         private void AddItemToWishlist(string category, string itemName)
         {
-            try
-            {
-                if (m_Tab2Manager.m_WishlistValues == null)
-                {
-                    m_Tab2Manager.m_WishlistValues = new List<KeyValuePairWrapper>();
-                }
-
-                var existingCategory = m_Tab2Manager.m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
-
-                if (existingCategory != null)
-                {
-                    bool itemExists = existingCategory.Value.Any(item => item.m_Text == itemName);
-                    if (!itemExists)
-                    {
-                        ListObject newObject = new ListObject(itemName);
-                        existingCategory.Value.Add(newObject);
-                        UpdateCheckedListBox(existingCategory.Key, newObject);
-
-                    }
-                }
-                else
-                {
-                    ListObject newObject = new ListObject(itemName);
-                    m_Tab2Manager.AddToWishlist(category,newObject);
-                    UpdateCheckedListBox(category, newObject);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while adding to wishlist: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
-            }
+            ListObject newObject = m_Tab2Manager.AddItemToWishlist(ref category, itemName);
+            if (newObject != null)
+                UpdateCheckedListBox(category, newObject);
         }
 
         private void UpdateCheckedListBox(string category, ListObject item)

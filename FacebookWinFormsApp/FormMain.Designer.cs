@@ -33,14 +33,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.feedTab = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
             this.settingsButton = new System.Windows.Forms.Button();
+            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.statusPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.videoButton = new System.Windows.Forms.Button();
             this.addPostButton = new System.Windows.Forms.Button();
             this.addPictureButton = new System.Windows.Forms.Button();
             this.statusTextBox = new System.Windows.Forms.TextBox();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.birthdayLabel = new System.Windows.Forms.Label();
             this.eventsButton = new System.Windows.Forms.Button();
+            this.eventsPictureBox = new System.Windows.Forms.PictureBox();
             this.DataPanel = new System.Windows.Forms.TableLayoutPanel();
             this.DataListBox = new System.Windows.Forms.ListBox();
             this.albumsButton = new System.Windows.Forms.Button();
@@ -48,13 +53,30 @@
             this.friendsButton = new System.Windows.Forms.Button();
             this.pagesButton = new System.Windows.Forms.Button();
             this.groupsButton = new System.Windows.Forms.Button();
+            this.photosPicture = new System.Windows.Forms.PictureBox();
+            this.postsPicture = new System.Windows.Forms.PictureBox();
+            this.friendsPicture = new System.Windows.Forms.PictureBox();
+            this.likedPicture = new System.Windows.Forms.PictureBox();
+            this.groupsPicture = new System.Windows.Forms.PictureBox();
             this.rememberMe_CheckBox = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonStatistics = new System.Windows.Forms.Button();
+            this.panelWorkouts = new System.Windows.Forms.Panel();
+            this.buttonAddWorkout = new System.Windows.Forms.Button();
             this.wishlistTab = new System.Windows.Forms.TabPage();
+            this.buttonDeleteItem = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.buttonPost = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBoxPets = new System.Windows.Forms.PictureBox();
+            this.pictureBoxShopping = new System.Windows.Forms.PictureBox();
+            this.pictureBoxActivities = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFood = new System.Windows.Forms.PictureBox();
             this.checkedListBoxShopping = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxPets = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxActivities = new System.Windows.Forms.CheckedListBox();
@@ -64,40 +86,18 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
-            this.buttonPost = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.buttonDeleteItem = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.buttonAddWorkout = new System.Windows.Forms.Button();
-            this.birthdayLabel = new System.Windows.Forms.Label();
-            this.emailLabel = new System.Windows.Forms.Label();
-            this.panelWorkouts = new System.Windows.Forms.Panel();
-            this.buttonStatistics = new System.Windows.Forms.Button();
-            this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
-            this.eventsPictureBox = new System.Windows.Forms.PictureBox();
-            this.photosPicture = new System.Windows.Forms.PictureBox();
-            this.postsPicture = new System.Windows.Forms.PictureBox();
-            this.friendsPicture = new System.Windows.Forms.PictureBox();
-            this.likedPicture = new System.Windows.Forms.PictureBox();
-            this.groupsPicture = new System.Windows.Forms.PictureBox();
-            this.pictureBoxPets = new System.Windows.Forms.PictureBox();
-            this.pictureBoxShopping = new System.Windows.Forms.PictureBox();
-            this.pictureBoxActivities = new System.Windows.Forms.PictureBox();
-            this.pictureBoxFood = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.feedTab.SuspendLayout();
-            this.statusPanel.SuspendLayout();
-            this.wishlistTab.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
+            this.statusPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photosPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.likedPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsPicture)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.wishlistTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShopping)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActivities)).BeginInit();
@@ -187,6 +187,16 @@
             this.feedTab.TabIndex = 0;
             this.feedTab.Text = "Feed";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(625, 3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(130, 27);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "My Workouts";
+            // 
             // settingsButton
             // 
             this.settingsButton.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -202,6 +212,16 @@
             this.settingsButton.Text = "Settings";
             this.settingsButton.UseVisualStyleBackColor = false;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            // 
+            // pictureBoxProfile
+            // 
+            this.pictureBoxProfile.Location = new System.Drawing.Point(245, 28);
+            this.pictureBoxProfile.Name = "pictureBoxProfile";
+            this.pictureBoxProfile.Size = new System.Drawing.Size(132, 130);
+            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxProfile.TabIndex = 55;
+            this.pictureBoxProfile.TabStop = false;
+            this.pictureBoxProfile.Click += new System.EventHandler(this.pictureBoxProfile_Click);
             // 
             // statusPanel
             // 
@@ -272,6 +292,22 @@
             this.statusTextBox.TabIndex = 86;
             this.statusTextBox.TextChanged += new System.EventHandler(this.statusTextBox_TextChanged);
             // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Location = new System.Drawing.Point(391, 64);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(0, 24);
+            this.emailLabel.TabIndex = 81;
+            // 
+            // birthdayLabel
+            // 
+            this.birthdayLabel.AutoSize = true;
+            this.birthdayLabel.Location = new System.Drawing.Point(391, 107);
+            this.birthdayLabel.Name = "birthdayLabel";
+            this.birthdayLabel.Size = new System.Drawing.Size(0, 24);
+            this.birthdayLabel.TabIndex = 80;
+            // 
             // eventsButton
             // 
             this.eventsButton.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -286,6 +322,18 @@
             this.eventsButton.Text = "Events";
             this.eventsButton.UseVisualStyleBackColor = false;
             this.eventsButton.Click += new System.EventHandler(this.events_Click);
+            // 
+            // eventsPictureBox
+            // 
+            this.eventsPictureBox.Image = global::BasicFacebookFeatures.Properties.Resources.events_icon;
+            this.eventsPictureBox.InitialImage = global::BasicFacebookFeatures.Properties.Resources.events_icon;
+            this.eventsPictureBox.Location = new System.Drawing.Point(18, 585);
+            this.eventsPictureBox.Name = "eventsPictureBox";
+            this.eventsPictureBox.Size = new System.Drawing.Size(49, 48);
+            this.eventsPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.eventsPictureBox.TabIndex = 73;
+            this.eventsPictureBox.TabStop = false;
+            this.eventsPictureBox.Click += new System.EventHandler(this.events_Click);
             // 
             // DataPanel
             // 
@@ -390,342 +438,6 @@
             this.groupsButton.UseVisualStyleBackColor = false;
             this.groupsButton.Click += new System.EventHandler(this.groups_Click);
             // 
-            // rememberMe_CheckBox
-            // 
-            this.rememberMe_CheckBox.AutoSize = true;
-            this.rememberMe_CheckBox.Location = new System.Drawing.Point(12, 137);
-            this.rememberMe_CheckBox.Name = "rememberMe_CheckBox";
-            this.rememberMe_CheckBox.Size = new System.Drawing.Size(159, 28);
-            this.rememberMe_CheckBox.TabIndex = 56;
-            this.rememberMe_CheckBox.Text = "Remember Me";
-            this.rememberMe_CheckBox.UseVisualStyleBackColor = true;
-            // 
-            // wishlistTab
-            // 
-            this.wishlistTab.Controls.Add(this.buttonDeleteItem);
-            this.wishlistTab.Controls.Add(this.label9);
-            this.wishlistTab.Controls.Add(this.label8);
-            this.wishlistTab.Controls.Add(this.buttonPost);
-            this.wishlistTab.Controls.Add(this.buttonAdd);
-            this.wishlistTab.Controls.Add(this.label7);
-            this.wishlistTab.Controls.Add(this.label6);
-            this.wishlistTab.Controls.Add(this.label5);
-            this.wishlistTab.Controls.Add(this.label4);
-            this.wishlistTab.Controls.Add(this.pictureBoxPets);
-            this.wishlistTab.Controls.Add(this.pictureBoxShopping);
-            this.wishlistTab.Controls.Add(this.pictureBoxActivities);
-            this.wishlistTab.Controls.Add(this.pictureBoxFood);
-            this.wishlistTab.Controls.Add(this.checkedListBoxShopping);
-            this.wishlistTab.Controls.Add(this.checkedListBoxPets);
-            this.wishlistTab.Controls.Add(this.checkedListBoxActivities);
-            this.wishlistTab.Controls.Add(this.checkedListBoxFood);
-            this.wishlistTab.Controls.Add(this.buttonAddPhoto);
-            this.wishlistTab.Controls.Add(this.comboBoxCategory);
-            this.wishlistTab.Controls.Add(this.textBoxName);
-            this.wishlistTab.Controls.Add(this.label3);
-            this.wishlistTab.Location = new System.Drawing.Point(4, 31);
-            this.wishlistTab.Name = "wishlistTab";
-            this.wishlistTab.Padding = new System.Windows.Forms.Padding(3);
-            this.wishlistTab.Size = new System.Drawing.Size(1235, 662);
-            this.wishlistTab.TabIndex = 1;
-            this.wishlistTab.Text = "Wishlist";
-            this.wishlistTab.UseVisualStyleBackColor = true;
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Enabled = false;
-            this.buttonAdd.Location = new System.Drawing.Point(876, 87);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(88, 35);
-            this.buttonAdd.TabIndex = 12;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(421, 147);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 24);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Activities";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(699, 147);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 24);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Pets";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(938, 147);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 24);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Shopping";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(176, 147);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 24);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Food";
-            // 
-            // checkedListBoxShopping
-            // 
-            this.checkedListBoxShopping.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkedListBoxShopping.DisplayMember = "m_Text";
-            this.checkedListBoxShopping.FormattingEnabled = true;
-            this.checkedListBoxShopping.Location = new System.Drawing.Point(876, 190);
-            this.checkedListBoxShopping.Name = "checkedListBoxShopping";
-            this.checkedListBoxShopping.Size = new System.Drawing.Size(225, 347);
-            this.checkedListBoxShopping.TabIndex = 17;
-            this.checkedListBoxShopping.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxShopping_ItemCheck);
-            this.checkedListBoxShopping.SelectedValueChanged += new System.EventHandler(this.checkedListBoxShopping_SelectedIndexChanged);
-            // 
-            // checkedListBoxPets
-            // 
-            this.checkedListBoxPets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkedListBoxPets.DisplayMember = "m_Text";
-            this.checkedListBoxPets.FormattingEnabled = true;
-            this.checkedListBoxPets.Location = new System.Drawing.Point(616, 190);
-            this.checkedListBoxPets.Name = "checkedListBoxPets";
-            this.checkedListBoxPets.Size = new System.Drawing.Size(225, 347);
-            this.checkedListBoxPets.TabIndex = 18;
-            this.checkedListBoxPets.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPets_ItemCheck);
-            this.checkedListBoxPets.SelectedValueChanged += new System.EventHandler(this.checkedListBoxPets_SelectedIndexChanged);
-            // 
-            // checkedListBoxActivities
-            // 
-            this.checkedListBoxActivities.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkedListBoxActivities.DisplayMember = "m_Text";
-            this.checkedListBoxActivities.FormattingEnabled = true;
-            this.checkedListBoxActivities.Location = new System.Drawing.Point(354, 190);
-            this.checkedListBoxActivities.Name = "checkedListBoxActivities";
-            this.checkedListBoxActivities.Size = new System.Drawing.Size(225, 347);
-            this.checkedListBoxActivities.TabIndex = 19;
-            this.checkedListBoxActivities.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxActivities_ItemCheck);
-            this.checkedListBoxActivities.SelectedValueChanged += new System.EventHandler(this.checkedListBoxActivities_SelectedIndexChanged);
-            // 
-            // checkedListBoxFood
-            // 
-            this.checkedListBoxFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkedListBoxFood.DisplayMember = "m_Text";
-            this.checkedListBoxFood.FormattingEnabled = true;
-            this.checkedListBoxFood.Location = new System.Drawing.Point(93, 190);
-            this.checkedListBoxFood.Name = "checkedListBoxFood";
-            this.checkedListBoxFood.Size = new System.Drawing.Size(225, 347);
-            this.checkedListBoxFood.TabIndex = 20;
-            this.checkedListBoxFood.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxFood_ItemCheck);
-            this.checkedListBoxFood.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxFood_SelectedIndexChanged);
-            // 
-            // buttonAddPhoto
-            // 
-            this.buttonAddPhoto.Enabled = false;
-            this.buttonAddPhoto.Location = new System.Drawing.Point(722, 87);
-            this.buttonAddPhoto.Name = "buttonAddPhoto";
-            this.buttonAddPhoto.Size = new System.Drawing.Size(145, 35);
-            this.buttonAddPhoto.TabIndex = 21;
-            this.buttonAddPhoto.Text = "Add Photo";
-            this.buttonAddPhoto.UseVisualStyleBackColor = true;
-            this.buttonAddPhoto.Click += new System.EventHandler(this.buttonAddPhoto_Click);
-            // 
-            // comboBoxCategory
-            // 
-            this.comboBoxCategory.DisplayMember = "choose category";
-            this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Items.AddRange(new object[] {
-            "food",
-            "pets",
-            "activities",
-            "shopping"});
-            this.comboBoxCategory.Location = new System.Drawing.Point(587, 90);
-            this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(121, 30);
-            this.comboBoxCategory.TabIndex = 2;
-            this.comboBoxCategory.TextChanged += new System.EventHandler(this.comboBoxCategory_TextChanged);
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxName.Location = new System.Drawing.Point(329, 90);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(245, 28);
-            this.textBoxName.TabIndex = 1;
-            this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(523, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 43);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "My Wishlist";
-            // 
-            // buttonPost
-            // 
-            this.buttonPost.BackColor = System.Drawing.Color.PaleGreen;
-            this.buttonPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonPost.FlatAppearance.BorderSize = 0;
-            this.buttonPost.ForeColor = System.Drawing.Color.Black;
-            this.buttonPost.Location = new System.Drawing.Point(517, 567);
-            this.buttonPost.Name = "buttonPost";
-            this.buttonPost.Size = new System.Drawing.Size(191, 43);
-            this.buttonPost.TabIndex = 22;
-            this.buttonPost.Text = "Share your wishlist!";
-            this.buttonPost.UseVisualStyleBackColor = false;
-            this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label8.Location = new System.Drawing.Point(588, 71);
-            this.label8.Name = "label8";
-            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(60, 16);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "category";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label9.Location = new System.Drawing.Point(329, 73);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(132, 16);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "what do you wish for?";
-            // 
-            // buttonDeleteItem
-            // 
-            this.buttonDeleteItem.BackColor = System.Drawing.Color.Tomato;
-            this.buttonDeleteItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonDeleteItem.Enabled = false;
-            this.buttonDeleteItem.FlatAppearance.BorderSize = 0;
-            this.buttonDeleteItem.ForeColor = System.Drawing.Color.Black;
-            this.buttonDeleteItem.Location = new System.Drawing.Point(1120, 505);
-            this.buttonDeleteItem.Name = "buttonDeleteItem";
-            this.buttonDeleteItem.Size = new System.Drawing.Size(81, 34);
-            this.buttonDeleteItem.TabIndex = 25;
-            this.buttonDeleteItem.Text = "delete";
-            this.buttonDeleteItem.UseVisualStyleBackColor = false;
-            this.buttonDeleteItem.Click += new System.EventHandler(this.buttonDeleteItem_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.buttonStatistics);
-            this.panel1.Controls.Add(this.panelWorkouts);
-            this.panel1.Controls.Add(this.buttonAddWorkout);
-            this.panel1.Location = new System.Drawing.Point(609, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(618, 145);
-            this.panel1.TabIndex = 86;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(625, 3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(130, 27);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "My Workouts";
-            // 
-            // buttonAddWorkout
-            // 
-            this.buttonAddWorkout.BackColor = System.Drawing.Color.LightYellow;
-            this.buttonAddWorkout.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.buttonAddWorkout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddWorkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddWorkout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddWorkout.Location = new System.Drawing.Point(497, 39);
-            this.buttonAddWorkout.Name = "buttonAddWorkout";
-            this.buttonAddWorkout.Size = new System.Drawing.Size(116, 35);
-            this.buttonAddWorkout.TabIndex = 87;
-            this.buttonAddWorkout.Text = "Add Workout";
-            this.buttonAddWorkout.UseVisualStyleBackColor = false;
-            this.buttonAddWorkout.Click += new System.EventHandler(this.buttonAddWorkout_Click);
-            // 
-            // birthdayLabel
-            // 
-            this.birthdayLabel.AutoSize = true;
-            this.birthdayLabel.Location = new System.Drawing.Point(391, 107);
-            this.birthdayLabel.Name = "birthdayLabel";
-            this.birthdayLabel.Size = new System.Drawing.Size(0, 24);
-            this.birthdayLabel.TabIndex = 80;
-            // 
-            // emailLabel
-            // 
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(391, 64);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(0, 24);
-            this.emailLabel.TabIndex = 81;
-            // 
-            // panelWorkouts
-            // 
-            this.panelWorkouts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelWorkouts.Location = new System.Drawing.Point(3, 4);
-            this.panelWorkouts.Name = "panelWorkouts";
-            this.panelWorkouts.Size = new System.Drawing.Size(488, 137);
-            this.panelWorkouts.TabIndex = 88;
-            // 
-            // buttonStatistics
-            // 
-            this.buttonStatistics.BackColor = System.Drawing.Color.PaleGreen;
-            this.buttonStatistics.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.buttonStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonStatistics.Location = new System.Drawing.Point(511, 83);
-            this.buttonStatistics.Name = "buttonStatistics";
-            this.buttonStatistics.Size = new System.Drawing.Size(88, 29);
-            this.buttonStatistics.TabIndex = 89;
-            this.buttonStatistics.Text = "statistics";
-            this.buttonStatistics.UseVisualStyleBackColor = false;
-            this.buttonStatistics.Click += new System.EventHandler(this.buttonStatistics_Click);
-            // 
-            // pictureBoxProfile
-            // 
-            this.pictureBoxProfile.Location = new System.Drawing.Point(245, 28);
-            this.pictureBoxProfile.Name = "pictureBoxProfile";
-            this.pictureBoxProfile.Size = new System.Drawing.Size(132, 130);
-            this.pictureBoxProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxProfile.TabIndex = 55;
-            this.pictureBoxProfile.TabStop = false;
-            this.pictureBoxProfile.Click += new System.EventHandler(this.pictureBoxProfile_Click);
-            // 
-            // eventsPictureBox
-            // 
-            this.eventsPictureBox.Image = global::BasicFacebookFeatures.Properties.Resources.events_icon;
-            this.eventsPictureBox.InitialImage = global::BasicFacebookFeatures.Properties.Resources.events_icon;
-            this.eventsPictureBox.Location = new System.Drawing.Point(18, 585);
-            this.eventsPictureBox.Name = "eventsPictureBox";
-            this.eventsPictureBox.Size = new System.Drawing.Size(49, 48);
-            this.eventsPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.eventsPictureBox.TabIndex = 73;
-            this.eventsPictureBox.TabStop = false;
-            this.eventsPictureBox.Click += new System.EventHandler(this.events_Click);
-            // 
             // photosPicture
             // 
             this.photosPicture.Image = global::BasicFacebookFeatures.Properties.Resources.photos_icon__2_;
@@ -786,6 +498,199 @@
             this.groupsPicture.TabStop = false;
             this.groupsPicture.Click += new System.EventHandler(this.groups_Click);
             // 
+            // rememberMe_CheckBox
+            // 
+            this.rememberMe_CheckBox.AutoSize = true;
+            this.rememberMe_CheckBox.Location = new System.Drawing.Point(12, 137);
+            this.rememberMe_CheckBox.Name = "rememberMe_CheckBox";
+            this.rememberMe_CheckBox.Size = new System.Drawing.Size(159, 28);
+            this.rememberMe_CheckBox.TabIndex = 56;
+            this.rememberMe_CheckBox.Text = "Remember Me";
+            this.rememberMe_CheckBox.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.buttonStatistics);
+            this.panel1.Controls.Add(this.panelWorkouts);
+            this.panel1.Controls.Add(this.buttonAddWorkout);
+            this.panel1.Location = new System.Drawing.Point(609, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(618, 145);
+            this.panel1.TabIndex = 86;
+            // 
+            // buttonStatistics
+            // 
+            this.buttonStatistics.BackColor = System.Drawing.Color.PaleGreen;
+            this.buttonStatistics.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonStatistics.Location = new System.Drawing.Point(511, 83);
+            this.buttonStatistics.Name = "buttonStatistics";
+            this.buttonStatistics.Size = new System.Drawing.Size(88, 29);
+            this.buttonStatistics.TabIndex = 89;
+            this.buttonStatistics.Text = "statistics";
+            this.buttonStatistics.UseVisualStyleBackColor = false;
+            this.buttonStatistics.Click += new System.EventHandler(this.buttonStatistics_Click);
+            // 
+            // panelWorkouts
+            // 
+            this.panelWorkouts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelWorkouts.Location = new System.Drawing.Point(3, 4);
+            this.panelWorkouts.Name = "panelWorkouts";
+            this.panelWorkouts.Size = new System.Drawing.Size(488, 137);
+            this.panelWorkouts.TabIndex = 88;
+            // 
+            // buttonAddWorkout
+            // 
+            this.buttonAddWorkout.BackColor = System.Drawing.Color.LightYellow;
+            this.buttonAddWorkout.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonAddWorkout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddWorkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddWorkout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddWorkout.Location = new System.Drawing.Point(497, 39);
+            this.buttonAddWorkout.Name = "buttonAddWorkout";
+            this.buttonAddWorkout.Size = new System.Drawing.Size(116, 35);
+            this.buttonAddWorkout.TabIndex = 87;
+            this.buttonAddWorkout.Text = "Add Workout";
+            this.buttonAddWorkout.UseVisualStyleBackColor = false;
+            this.buttonAddWorkout.Click += new System.EventHandler(this.buttonAddWorkout_Click);
+            // 
+            // wishlistTab
+            // 
+            this.wishlistTab.Controls.Add(this.buttonDeleteItem);
+            this.wishlistTab.Controls.Add(this.label9);
+            this.wishlistTab.Controls.Add(this.label8);
+            this.wishlistTab.Controls.Add(this.buttonPost);
+            this.wishlistTab.Controls.Add(this.buttonAdd);
+            this.wishlistTab.Controls.Add(this.label7);
+            this.wishlistTab.Controls.Add(this.label6);
+            this.wishlistTab.Controls.Add(this.label5);
+            this.wishlistTab.Controls.Add(this.label4);
+            this.wishlistTab.Controls.Add(this.pictureBoxPets);
+            this.wishlistTab.Controls.Add(this.pictureBoxShopping);
+            this.wishlistTab.Controls.Add(this.pictureBoxActivities);
+            this.wishlistTab.Controls.Add(this.pictureBoxFood);
+            this.wishlistTab.Controls.Add(this.checkedListBoxShopping);
+            this.wishlistTab.Controls.Add(this.checkedListBoxPets);
+            this.wishlistTab.Controls.Add(this.checkedListBoxActivities);
+            this.wishlistTab.Controls.Add(this.checkedListBoxFood);
+            this.wishlistTab.Controls.Add(this.buttonAddPhoto);
+            this.wishlistTab.Controls.Add(this.comboBoxCategory);
+            this.wishlistTab.Controls.Add(this.textBoxName);
+            this.wishlistTab.Controls.Add(this.label3);
+            this.wishlistTab.Location = new System.Drawing.Point(4, 31);
+            this.wishlistTab.Name = "wishlistTab";
+            this.wishlistTab.Padding = new System.Windows.Forms.Padding(3);
+            this.wishlistTab.Size = new System.Drawing.Size(1235, 662);
+            this.wishlistTab.TabIndex = 1;
+            this.wishlistTab.Text = "Wishlist";
+            this.wishlistTab.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeleteItem
+            // 
+            this.buttonDeleteItem.BackColor = System.Drawing.Color.Tomato;
+            this.buttonDeleteItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonDeleteItem.Enabled = false;
+            this.buttonDeleteItem.FlatAppearance.BorderSize = 0;
+            this.buttonDeleteItem.ForeColor = System.Drawing.Color.Black;
+            this.buttonDeleteItem.Location = new System.Drawing.Point(1120, 505);
+            this.buttonDeleteItem.Name = "buttonDeleteItem";
+            this.buttonDeleteItem.Size = new System.Drawing.Size(81, 34);
+            this.buttonDeleteItem.TabIndex = 25;
+            this.buttonDeleteItem.Text = "delete";
+            this.buttonDeleteItem.UseVisualStyleBackColor = false;
+            this.buttonDeleteItem.Click += new System.EventHandler(this.buttonDeleteItem_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label9.Location = new System.Drawing.Point(281, 73);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(132, 16);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "what do you wish for?";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.label8.Location = new System.Drawing.Point(540, 71);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label8.Size = new System.Drawing.Size(60, 16);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "category";
+            // 
+            // buttonPost
+            // 
+            this.buttonPost.BackColor = System.Drawing.Color.PaleGreen;
+            this.buttonPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonPost.FlatAppearance.BorderSize = 0;
+            this.buttonPost.ForeColor = System.Drawing.Color.Black;
+            this.buttonPost.Location = new System.Drawing.Point(517, 567);
+            this.buttonPost.Name = "buttonPost";
+            this.buttonPost.Size = new System.Drawing.Size(191, 43);
+            this.buttonPost.TabIndex = 22;
+            this.buttonPost.Text = "Share your wishlist!";
+            this.buttonPost.UseVisualStyleBackColor = false;
+            this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Enabled = false;
+            this.buttonAdd.Location = new System.Drawing.Point(848, 87);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(190, 35);
+            this.buttonAdd.TabIndex = 12;
+            this.buttonAdd.Text = "Add Without Photo";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(421, 147);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 24);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Activities";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(699, 147);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 24);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Pets";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(938, 147);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 24);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Shopping";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(176, 147);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 24);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Food";
+            // 
             // pictureBoxPets
             // 
             this.pictureBoxPets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -822,6 +727,101 @@
             this.pictureBoxFood.TabIndex = 13;
             this.pictureBoxFood.TabStop = false;
             // 
+            // checkedListBoxShopping
+            // 
+            this.checkedListBoxShopping.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkedListBoxShopping.DisplayMember = "m_Text";
+            this.checkedListBoxShopping.FormattingEnabled = true;
+            this.checkedListBoxShopping.Location = new System.Drawing.Point(876, 190);
+            this.checkedListBoxShopping.Name = "checkedListBoxShopping";
+            this.checkedListBoxShopping.Size = new System.Drawing.Size(225, 347);
+            this.checkedListBoxShopping.TabIndex = 17;
+            this.checkedListBoxShopping.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxShopping_ItemCheck);
+            this.checkedListBoxShopping.SelectedValueChanged += new System.EventHandler(this.checkedListBoxShopping_SelectedIndexChanged);
+            // 
+            // checkedListBoxPets
+            // 
+            this.checkedListBoxPets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkedListBoxPets.DisplayMember = "m_Text";
+            this.checkedListBoxPets.FormattingEnabled = true;
+            this.checkedListBoxPets.Location = new System.Drawing.Point(616, 190);
+            this.checkedListBoxPets.Name = "checkedListBoxPets";
+            this.checkedListBoxPets.Size = new System.Drawing.Size(225, 347);
+            this.checkedListBoxPets.TabIndex = 18;
+            this.checkedListBoxPets.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPets_ItemCheck);
+            this.checkedListBoxPets.SelectedValueChanged += new System.EventHandler(this.checkedListBoxPets_SelectedIndexChanged);
+            // 
+            // checkedListBoxActivities
+            // 
+            this.checkedListBoxActivities.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkedListBoxActivities.DisplayMember = "m_Text";
+            this.checkedListBoxActivities.FormattingEnabled = true;
+            this.checkedListBoxActivities.Location = new System.Drawing.Point(354, 190);
+            this.checkedListBoxActivities.Name = "checkedListBoxActivities";
+            this.checkedListBoxActivities.Size = new System.Drawing.Size(225, 347);
+            this.checkedListBoxActivities.TabIndex = 19;
+            this.checkedListBoxActivities.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxActivities_ItemCheck);
+            this.checkedListBoxActivities.SelectedValueChanged += new System.EventHandler(this.checkedListBoxActivities_SelectedIndexChanged);
+            // 
+            // checkedListBoxFood
+            // 
+            this.checkedListBoxFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkedListBoxFood.DisplayMember = "m_Text";
+            this.checkedListBoxFood.FormattingEnabled = true;
+            this.checkedListBoxFood.Location = new System.Drawing.Point(93, 190);
+            this.checkedListBoxFood.Name = "checkedListBoxFood";
+            this.checkedListBoxFood.Size = new System.Drawing.Size(225, 347);
+            this.checkedListBoxFood.TabIndex = 20;
+            this.checkedListBoxFood.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxFood_ItemCheck);
+            this.checkedListBoxFood.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxFood_SelectedIndexChanged);
+            // 
+            // buttonAddPhoto
+            // 
+            this.buttonAddPhoto.Enabled = false;
+            this.buttonAddPhoto.Location = new System.Drawing.Point(666, 87);
+            this.buttonAddPhoto.Name = "buttonAddPhoto";
+            this.buttonAddPhoto.Size = new System.Drawing.Size(175, 35);
+            this.buttonAddPhoto.TabIndex = 21;
+            this.buttonAddPhoto.Text = "Add With Photo";
+            this.buttonAddPhoto.UseVisualStyleBackColor = true;
+            this.buttonAddPhoto.Click += new System.EventHandler(this.buttonAddPhoto_Click);
+            // 
+            // comboBoxCategory
+            // 
+            this.comboBoxCategory.DisplayMember = "choose category";
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Items.AddRange(new object[] {
+            "food",
+            "pets",
+            "activities",
+            "shopping"});
+            this.comboBoxCategory.Location = new System.Drawing.Point(539, 90);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(121, 30);
+            this.comboBoxCategory.TabIndex = 2;
+            this.comboBoxCategory.TextChanged += new System.EventHandler(this.comboBoxCategory_TextChanged);
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxName.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBoxName.Location = new System.Drawing.Point(281, 90);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(245, 28);
+            this.textBoxName.TabIndex = 1;
+            this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(523, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(185, 43);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "My Wishlist";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -836,18 +836,18 @@
             this.tabControl1.ResumeLayout(false);
             this.feedTab.ResumeLayout(false);
             this.feedTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.statusPanel.ResumeLayout(false);
             this.statusPanel.PerformLayout();
-            this.wishlistTab.ResumeLayout(false);
-            this.wishlistTab.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photosPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.likedPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsPicture)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.wishlistTab.ResumeLayout(false);
+            this.wishlistTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShopping)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActivities)).EndInit();

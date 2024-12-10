@@ -18,7 +18,7 @@ namespace BasicFacebookFeatures
         public bool RememberUser { get; set; }
         public string LastAccessToken { get; set; }
 
-       public Tab2Manager Tab2Manager { get; set; }
+       public WishlistManager Tab2Manager { get; set; }
 
        public WorkoutManager WorkoutManager { get; set; }
 

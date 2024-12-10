@@ -9,11 +9,11 @@ using System.Xml.Serialization;
 
 namespace BasicFacebookFeatures
 {
-    public class Tab2Manager
+    public class WishlistManager
     {
         public List<KeyValuePairWrapper> m_WishlistValues { get; set; }
 
-        public Tab2Manager()
+        public WishlistManager()
         {
             m_WishlistValues = new List<KeyValuePairWrapper>();
         }
@@ -46,11 +46,8 @@ namespace BasicFacebookFeatures
             }
 
         }
-        public string ShareWishlist(
-            CheckedListBox foodListBox,
-            CheckedListBox activitiesListBox,
-            CheckedListBox petsListBox,
-            CheckedListBox shoppingListBox)
+        public string ShareWishlist(CheckedListBox foodListBox, CheckedListBox activitiesListBox,
+                                    CheckedListBox petsListBox, CheckedListBox shoppingListBox)
         {
             try
             {
@@ -272,7 +269,54 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
             list.Items.RemoveAt(list.SelectedIndex);
             RemoveFromWishlist(category.ToString(), selectedItem);
         }
+
+        public ListObject AddItemToWishlist(ref string category, string itemName)
+        {
+            try
+            {
+                if (m_WishlistValues == null)
+                {
+                    m_WishlistValues = new List<KeyValuePairWrapper>();
+                }
+
+                string localCategory = category;
+
+                var existingCategory = m_WishlistValues.FirstOrDefault(kvp => string.Equals(kvp.Key, localCategory));
+
+                if (existingCategory.Key != null)
+                {
+                    category = existingCategory.Key;
+
+                    bool itemExists = existingCategory.Value.Any(item => item.m_Text == itemName);
+                    if (!itemExists)
+                    {
+                        ListObject newObject = new ListObject(itemName);
+                        existingCategory.Value.Add(newObject);
+                        return newObject;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    ListObject newObject = new ListObject(itemName);
+                    AddToWishlist(category, newObject);
+                    return newObject;
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while adding to wishlist: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
     }
+
 }
 
 
