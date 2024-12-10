@@ -1,37 +1,25 @@
-﻿using BasicFacebookFeatures.Properties;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Xml.Serialization;
 
 namespace BasicFacebookFeatures
 {
     public class AppSettings
     {
-        public string s_AppID { get; set; }
-        public string[] s_Permissions { get; set; }
-
+        public string AppID { get; set; }
+        public string[] Permissions { get; set; }
         public bool RememberUser { get; set; }
         public string LastAccessToken { get; set; }
-
         public WishlistManager m_WishlistManager { get; set; }
-
         public WorkoutManager WorkoutManager { get; set; }
-
         public AppSettings()
         {
             RememberUser = false;
             LastAccessToken = null;
-            s_Permissions = null;
-            s_AppID = null;
+            Permissions = null;
+            AppID = null;
             m_WishlistManager = null;
             WorkoutManager = null;
         }
-
         public void SaveToFile()
         {
             using (Stream stream = new FileStream(@"C:\Users\noyzi\OneDrive\Documents\appSettings.xml", FileMode.Truncate))
@@ -40,7 +28,6 @@ namespace BasicFacebookFeatures
                 serilaizer.Serialize(stream, this);
             }
         }
-
         public static AppSettings LoadFromFile()
         {
             AppSettings settings = new AppSettings();

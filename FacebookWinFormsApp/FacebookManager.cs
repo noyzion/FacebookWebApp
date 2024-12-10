@@ -1,12 +1,5 @@
-﻿using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
+﻿using FacebookWrapper.ObjectModel;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
@@ -14,13 +7,11 @@ namespace BasicFacebookFeatures
     public class FacebookManager : IFacebookManager
     {
         private FacebookWrapper.LoginResult m_LoginResult;
-
         public FacebookManager(FacebookWrapper.LoginResult loginResult)
         {
             m_LoginResult = loginResult;
         }
-
-        public void fetchGroups(ListBox DataListBox)
+        public void FetchGroups(ListBox DataListBox)
         {
             try
             {
@@ -43,8 +34,7 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"Error fetching groups: {ex.Message}");
             }
         }
-
-        public void fetchAlbums(ListBox DataListBox)
+        public void FetchAlbums(ListBox DataListBox)
         {
             try
             {
@@ -64,8 +54,7 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"Error fetching albums: {ex.Message}");
             }
         }
-
-        public void fetchFriends(ListBox DataListBox)
+        public void FetchFriends(ListBox DataListBox)
         {
             try
             {
@@ -85,8 +74,7 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"Error fetching friends: {ex.Message}");
             }
         }
-
-        public void fetchPosts(ListBox DataListBox)
+        public void FetchPosts(ListBox DataListBox)
         {
             try
             {
@@ -112,8 +100,7 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"Error fetching posts: {ex.Message}");
             }
         }
-
-        public void fetchLiked(ListBox DataListBox)
+        public void FetchLikedPages(ListBox DataListBox)
         {
             try
             {
@@ -136,8 +123,7 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"Error fetching liked pages: {ex.Message}");
             }
         }
-
-        public void fetchEvents(ListBox DataListBox)
+        public void FetchEvents(ListBox DataListBox)
         {
             try
             {
@@ -160,8 +146,7 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"Error fetching events: {ex.Message}");
             }
         }
-
-        public void post(string message, TextBox statusTextBox)
+        public void Post(string message, TextBox statusTextBox)
         {
             try
             {
@@ -180,8 +165,7 @@ namespace BasicFacebookFeatures
 
             }
         }
-
-        public string addPhoto()
+        public string AddPhoto()
         {
             string selectedFilePath = null;
             try
@@ -205,7 +189,6 @@ namespace BasicFacebookFeatures
                 return null;
             }
         }
-
         public string SelectVideoFile()
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -221,7 +204,6 @@ namespace BasicFacebookFeatures
 
             return null;
         }
-
         public Post PostVideo(string filePath)
         {
             try
@@ -234,7 +216,5 @@ namespace BasicFacebookFeatures
                 return null;
             }
         }
-     
-
     }
 }

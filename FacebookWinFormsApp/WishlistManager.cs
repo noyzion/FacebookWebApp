@@ -13,12 +13,10 @@ namespace BasicFacebookFeatures
     public class WishlistManager : IWishlistManager
     {
         public List<KeyValuePairWrapper> m_WishlistValues { get; set; }
-
         public WishlistManager()
         {
             m_WishlistValues = new List<KeyValuePairWrapper>();
         }
-
         public void AddWishToWishlistValues(string category, ListObject item)
         {
             KeyValuePairWrapper existingCategoryList = m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
@@ -58,9 +56,9 @@ namespace BasicFacebookFeatures
         {
             try
             {
-                string wishlistString = DisplayCombinedWishlist(foodListBox, activitiesListBox, petsListBox, shoppingListBox);
+                string wishlistString = displayCombinedWishlist(foodListBox, activitiesListBox, petsListBox, shoppingListBox);
 
-                DisplayCombinedWishlistPopup(foodListBox, activitiesListBox, petsListBox, shoppingListBox);
+                displayCombinedWishlistPopup(foodListBox, activitiesListBox, petsListBox, shoppingListBox);
 
                 return wishlistString;
             }
@@ -69,22 +67,20 @@ namespace BasicFacebookFeatures
                 return $"Error sharing wishlist: {ex.Message}";
             }
         }
-
-        private string DisplayCombinedWishlist(CheckedListBox foodListBox, CheckedListBox activitiesListBox,
+        private string displayCombinedWishlist(CheckedListBox foodListBox, CheckedListBox activitiesListBox,
                                                 CheckedListBox petsListBox, CheckedListBox shoppingListBox)
         {
             StringBuilder wishlistSummary = new StringBuilder();
             wishlistSummary.AppendLine($@"My Wishlist:
-Food:{GetCategoryItemsAsString(foodListBox)}
-Activities:{GetCategoryItemsAsString(activitiesListBox)}
-Pets:{GetCategoryItemsAsString(petsListBox)}
-Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
+Food:{getCategoryItemsAsString(foodListBox)}
+Activities:{getCategoryItemsAsString(activitiesListBox)}
+Pets:{getCategoryItemsAsString(petsListBox)}
+Shopping:{getCategoryItemsAsString(shoppingListBox)}");
 
 
             return wishlistSummary.ToString();
         }
-
-        private string GetCategoryItemsAsString(CheckedListBox listBox)
+        private string getCategoryItemsAsString(CheckedListBox listBox)
         {
             StringBuilder categoryItems = new StringBuilder();
 
@@ -95,8 +91,7 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
 
             return categoryItems.ToString();
         }
-
-        private void DisplayCombinedWishlistPopup(CheckedListBox foodListBox, CheckedListBox activitiesListBox,
+        private void displayCombinedWishlistPopup(CheckedListBox foodListBox, CheckedListBox activitiesListBox,
                                                   CheckedListBox petsListBox, CheckedListBox shoppingListBox)
         {
             Form popupForm = new Form
@@ -116,40 +111,37 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
                 Padding = new Padding(10)
             };
 
-            mainPanel.Controls.Add(CreateCategoryPanel("Food", foodListBox));
-            mainPanel.Controls.Add(CreateCategoryPanel("Activities", activitiesListBox));
-            mainPanel.Controls.Add(CreateCategoryPanel("Pets", petsListBox));
-            mainPanel.Controls.Add(CreateCategoryPanel("Shopping", shoppingListBox));
+            mainPanel.Controls.Add(createCategoryPanel("Food", foodListBox));
+            mainPanel.Controls.Add(createCategoryPanel("Activities", activitiesListBox));
+            mainPanel.Controls.Add(createCategoryPanel("Pets", petsListBox));
+            mainPanel.Controls.Add(createCategoryPanel("Shopping", shoppingListBox));
             popupForm.Controls.Add(mainPanel);
             popupForm.ShowDialog();
         }
-
-
-        private Panel CreateCategoryPanel(string categoryName, CheckedListBox checkedListBox)
+        private Panel createCategoryPanel(string categoryName, CheckedListBox checkedListBox)
         {
-            FlowLayoutPanel categoryPanel = CreateCategoryPanelLayout();
+            FlowLayoutPanel categoryPanel = createCategoryPanelLayout();
 
-            Label categoryLabel = CreateCategoryLabel(categoryName);
+            Label categoryLabel = createCategoryLabel(categoryName);
             categoryPanel.Controls.Add(categoryLabel);
 
             if (checkedListBox.Items.Count > 0)
             {
                 foreach (ListObject item in checkedListBox.Items)
                 {
-                    Panel itemPanel = CreateItemPanel(item);
+                    Panel itemPanel = createItemPanel(item);
                     categoryPanel.Controls.Add(itemPanel);
                 }
             }
             else
             {
-                Label emptyMessage = CreateEmptyMessageLabel();
+                Label emptyMessage = createEmptyMessageLabel();
                 categoryPanel.Controls.Add(emptyMessage);
             }
 
             return categoryPanel;
         }
-
-        private FlowLayoutPanel CreateCategoryPanelLayout()
+        private FlowLayoutPanel createCategoryPanelLayout()
         {
             return new FlowLayoutPanel
             {
@@ -161,8 +153,7 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
                 BorderStyle = BorderStyle.FixedSingle
             };
         }
-
-        private Label CreateCategoryLabel(string categoryName)
+        private Label createCategoryLabel(string categoryName)
         {
             return new Label
             {
@@ -173,8 +164,7 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
                 Margin = new Padding(5)
             };
         }
-
-        private Panel CreateItemPanel(ListObject item)
+        private Panel createItemPanel(ListObject item)
         {
             Panel itemPanel = new Panel
             {
@@ -183,16 +173,15 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
                 Margin = new Padding(5)
             };
 
-            Label label = CreateItemLabel(item);
+            Label label = createItemLabel(item);
             itemPanel.Controls.Add(label);
 
-            PictureBox pictureBox = CreateItemPictureBox(item);
+            PictureBox pictureBox = createItemPictureBox(item);
             itemPanel.Controls.Add(pictureBox);
 
             return itemPanel;
         }
-
-        private Label CreateItemLabel(ListObject item)
+        private Label createItemLabel(ListObject item)
         {
             return new Label
             {
@@ -202,8 +191,7 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
                 Font = new Font("Arial", 10, FontStyle.Regular)
             };
         }
-
-        private PictureBox CreateItemPictureBox(ListObject item)
+        private PictureBox createItemPictureBox(ListObject item)
         {
             PictureBox pictureBox = new PictureBox
             {
@@ -223,8 +211,7 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
 
             return pictureBox;
         }
-
-        private Label CreateEmptyMessageLabel()
+        private Label createEmptyMessageLabel()
         {
             return new Label
             {
@@ -235,8 +222,7 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
                 Margin = new Padding(5)
             };
         }
-
-        public void loadImageForPictureBoxInList(ListObject listObject, PictureBox pictureBox)
+        public void LoadImageForPictureBoxInList(ListObject listObject, PictureBox pictureBox)
         {
             if (listObject != null && listObject.m_PhotoUrl != null)
             {
@@ -256,14 +242,13 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
                 pictureBox.Image = null;
             }
         }
-        public void deleteWishFromListBox(CheckedListBox checkedListBox, EWishlistCategories category)
+        public void DeleteWishFromListBox(CheckedListBox checkedListBox, EWishlistCategories category)
         {
             ListObject selectedItem = (ListObject)checkedListBox.Items[checkedListBox.SelectedIndex];
             checkedListBox.Items.RemoveAt(checkedListBox.SelectedIndex);
             RemoveWishFromWishlistValues(category.ToString(), selectedItem);
         }
-
-        public void resetWishlistUI(CheckedListBox listBoxFood, CheckedListBox listBoxPets,
+        public void ResetWishlistUI(CheckedListBox listBoxFood, CheckedListBox listBoxPets,
                                     CheckedListBox listBoxActivities, CheckedListBox listBoxShopping)
         {
             listBoxFood.Items.Clear();
@@ -271,7 +256,6 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
             listBoxActivities.Items.Clear();
             listBoxShopping.Items.Clear();
         }
-
         public void UpdateCheckedListBox(CheckedListBox foodList, CheckedListBox petsList,
                                          CheckedListBox activitiesList, CheckedListBox shoppingList,
                                          string category, ListObject item)
@@ -307,7 +291,6 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
                 throw;
             }
         }
-
     }
 }
 

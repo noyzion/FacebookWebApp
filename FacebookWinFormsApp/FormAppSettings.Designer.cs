@@ -32,11 +32,11 @@
             this.buttonAddPermission = new System.Windows.Forms.Button();
             this.textBoxPermissionsToAdd = new System.Windows.Forms.TextBox();
             this.listBoxPermissions = new System.Windows.Forms.CheckedListBox();
-            this.permissionsLabel = new System.Windows.Forms.Label();
+            this.labelPermissions = new System.Windows.Forms.Label();
             this.buttonAddAppID = new System.Windows.Forms.Button();
             this.textBoxAppID = new System.Windows.Forms.TextBox();
-            this.comboAppID = new System.Windows.Forms.ComboBox();
-            this.appIDLabel = new System.Windows.Forms.Label();
+            this.comboBoxAppID = new System.Windows.Forms.ComboBox();
+            this.labelAppID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonApply
@@ -93,12 +93,12 @@
             // 
             // permissionsLabel
             // 
-            this.permissionsLabel.AutoSize = true;
-            this.permissionsLabel.Location = new System.Drawing.Point(8, 92);
-            this.permissionsLabel.Name = "permissionsLabel";
-            this.permissionsLabel.Size = new System.Drawing.Size(84, 16);
-            this.permissionsLabel.TabIndex = 13;
-            this.permissionsLabel.Text = "Permissions:";
+            this.labelPermissions.AutoSize = true;
+            this.labelPermissions.Location = new System.Drawing.Point(8, 92);
+            this.labelPermissions.Name = "permissionsLabel";
+            this.labelPermissions.Size = new System.Drawing.Size(84, 16);
+            this.labelPermissions.TabIndex = 13;
+            this.labelPermissions.Text = "Permissions:";
             // 
             // buttonAddAppID
             // 
@@ -119,22 +119,22 @@
             // 
             // comboAppID
             // 
-            this.comboAppID.FormattingEnabled = true;
-            this.comboAppID.Items.AddRange(new object[] {
+            this.comboBoxAppID.FormattingEnabled = true;
+            this.comboBoxAppID.Items.AddRange(new object[] {
             "914564353962957"});
-            this.comboAppID.Location = new System.Drawing.Point(67, 25);
-            this.comboAppID.Name = "comboAppID";
-            this.comboAppID.Size = new System.Drawing.Size(215, 24);
-            this.comboAppID.TabIndex = 10;
+            this.comboBoxAppID.Location = new System.Drawing.Point(67, 25);
+            this.comboBoxAppID.Name = "comboAppID";
+            this.comboBoxAppID.Size = new System.Drawing.Size(215, 24);
+            this.comboBoxAppID.TabIndex = 10;
             // 
             // appIDLabel
             // 
-            this.appIDLabel.AutoSize = true;
-            this.appIDLabel.Location = new System.Drawing.Point(8, 28);
-            this.appIDLabel.Name = "appIDLabel";
-            this.appIDLabel.Size = new System.Drawing.Size(53, 16);
-            this.appIDLabel.TabIndex = 9;
-            this.appIDLabel.Text = "APP ID:";
+            this.labelAppID.AutoSize = true;
+            this.labelAppID.Location = new System.Drawing.Point(8, 28);
+            this.labelAppID.Name = "appIDLabel";
+            this.labelAppID.Size = new System.Drawing.Size(53, 16);
+            this.labelAppID.TabIndex = 9;
+            this.labelAppID.Text = "APP ID:";
             // 
             // FormAppSettings
             // 
@@ -145,11 +145,11 @@
             this.Controls.Add(this.buttonAddPermission);
             this.Controls.Add(this.textBoxPermissionsToAdd);
             this.Controls.Add(this.listBoxPermissions);
-            this.Controls.Add(this.permissionsLabel);
+            this.Controls.Add(this.labelPermissions);
             this.Controls.Add(this.buttonAddAppID);
             this.Controls.Add(this.textBoxAppID);
-            this.Controls.Add(this.comboAppID);
-            this.Controls.Add(this.appIDLabel);
+            this.Controls.Add(this.comboBoxAppID);
+            this.Controls.Add(this.labelAppID);
             this.Name = "FormAppSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "App Settings";
@@ -166,10 +166,10 @@
         private System.Windows.Forms.Button buttonAddPermission;
         private System.Windows.Forms.TextBox textBoxPermissionsToAdd;
         private System.Windows.Forms.CheckedListBox listBoxPermissions;
-        private System.Windows.Forms.Label permissionsLabel;
+        private System.Windows.Forms.Label labelPermissions;
         private System.Windows.Forms.Button buttonAddAppID;
         private System.Windows.Forms.TextBox textBoxAppID;
-        private System.Windows.Forms.ComboBox comboAppID;
-        private System.Windows.Forms.Label appIDLabel;
+        private System.Windows.Forms.ComboBox comboBoxAppID;
+        private System.Windows.Forms.Label labelAppID;
     }
 }

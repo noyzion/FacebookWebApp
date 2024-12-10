@@ -86,6 +86,7 @@
       <DependentUpon>AddWorkoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="EProfileOption.cs" />
     <Compile Include="FacebookManager.cs" />
     <Compile Include="IFacebookManager.cs" />
     <Compile Include="IWishlistManager.cs" />

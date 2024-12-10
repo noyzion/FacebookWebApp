@@ -8,28 +8,26 @@ namespace BasicFacebookFeatures
 {
     public partial class StatisicsForm : Form
     {
-        private readonly DataGridView workoutTable;
+        private readonly DataGridView r_WorkoutTable;
 
         public StatisicsForm(DataGridView workoutTable)
         {
             InitializeComponent();
-            this.workoutTable = workoutTable;
-            GenerateWorkoutStatistics();
+            r_WorkoutTable = workoutTable;
+            generateWorkoutStatistics();
         }
-
-        private void GenerateWorkoutStatistics()
+        private void generateWorkoutStatistics()
         {
-            Dictionary<int, int> caloriesPerMonth = CalculateCaloriesPerMonth();
-            Dictionary<int, int> workoutCountPerMonth = CalculateWorkoutCountPerMonth();
+            Dictionary<int, int> caloriesPerMonth = calculateCaloriesPerMonth();
+            Dictionary<int, int> workoutCountPerMonth = calculateWorkoutCountPerMonth();
 
-            DisplayCharts(caloriesPerMonth, workoutCountPerMonth);
+            displayCharts(caloriesPerMonth, workoutCountPerMonth);
         }
-
-        private Dictionary<int, int> CalculateCaloriesPerMonth()
+        private Dictionary<int, int> calculateCaloriesPerMonth()
         {
             Dictionary<int, int> caloriesPerMonth = new Dictionary<int, int>();
 
-            foreach (DataGridViewRow row in workoutTable.Rows)
+            foreach (DataGridViewRow row in r_WorkoutTable.Rows)
             {
                 if (row.Cells["Date"]?.Value != null && row.Cells["Calories"]?.Value != null)
                 {
@@ -51,11 +49,11 @@ namespace BasicFacebookFeatures
             return caloriesPerMonth;
         }
 
-        private Dictionary<int, int> CalculateWorkoutCountPerMonth()
+        private Dictionary<int, int> calculateWorkoutCountPerMonth()
         {
             Dictionary<int, int> workoutCountPerMonth = new Dictionary<int, int>();
 
-            foreach (DataGridViewRow row in workoutTable.Rows)
+            foreach (DataGridViewRow row in r_WorkoutTable.Rows)
             {
                 if (row.Cells["Date"]?.Value != null)
                 {
@@ -76,7 +74,7 @@ namespace BasicFacebookFeatures
             return workoutCountPerMonth;
         }
 
-        private void DisplayCharts(Dictionary<int, int> caloriesPerMonth, Dictionary<int, int> workoutCountPerMonth)
+        private void displayCharts(Dictionary<int, int> caloriesPerMonth, Dictionary<int, int> workoutCountPerMonth)
         {
             string[] monthNames = {
                 "January", "February", "March", "April", "May", "June",

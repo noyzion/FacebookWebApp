@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartAreaAmountOfWorkouts = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartAreaCaloriesOfWorkouts = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.tabControlStatistics = new System.Windows.Forms.TabControl();
             this.amountTab = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.caloriesTab = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.caloriesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tabControl1.SuspendLayout();
+            this.labelAmountTimesHeader = new System.Windows.Forms.Label();
+            this.caloriesTab = new System.Windows.Forms.TabPage();
+            this.labelCaloriesChartHeader = new System.Windows.Forms.Label();
+            this.caloriesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabControlStatistics.SuspendLayout();
             this.amountTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeChart)).BeginInit();
             this.caloriesTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.caloriesChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeChart)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControlStatistics
             // 
-            this.tabControl1.Controls.Add(this.amountTab);
-            this.tabControl1.Controls.Add(this.caloriesTab);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(551, 540);
-            this.tabControl1.TabIndex = 0;
+            this.tabControlStatistics.Controls.Add(this.amountTab);
+            this.tabControlStatistics.Controls.Add(this.caloriesTab);
+            this.tabControlStatistics.Location = new System.Drawing.Point(12, 12);
+            this.tabControlStatistics.Name = "tabControlStatistics";
+            this.tabControlStatistics.SelectedIndex = 0;
+            this.tabControlStatistics.Size = new System.Drawing.Size(551, 540);
+            this.tabControlStatistics.TabIndex = 0;
             // 
             // amountTab
             // 
             this.amountTab.Controls.Add(this.timeChart);
-            this.amountTab.Controls.Add(this.label1);
+            this.amountTab.Controls.Add(this.labelAmountTimesHeader);
             this.amountTab.Location = new System.Drawing.Point(4, 25);
             this.amountTab.Name = "amountTab";
             this.amountTab.Padding = new System.Windows.Forms.Padding(3);
@@ -70,21 +70,37 @@
             this.amountTab.Text = "By Amount";
             this.amountTab.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // timeChart
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(151, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(293, 54);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "How Many Times\r\n Do You Workout Each Month?";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            chartAreaAmountOfWorkouts.Name = "ChartArea1";
+            this.timeChart.ChartAreas.Add(chartAreaAmountOfWorkouts);
+            legend1.Name = "Legend1";
+            this.timeChart.Legends.Add(legend1);
+            this.timeChart.Location = new System.Drawing.Point(34, 73);
+            this.timeChart.Name = "timeChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Amount";
+            this.timeChart.Series.Add(series1);
+            this.timeChart.Size = new System.Drawing.Size(503, 435);
+            this.timeChart.TabIndex = 2;
+            this.timeChart.Text = "chart2";
+            // 
+            // labelAmountTimesHeader
+            // 
+            this.labelAmountTimesHeader.AutoSize = true;
+            this.labelAmountTimesHeader.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAmountTimesHeader.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelAmountTimesHeader.Location = new System.Drawing.Point(127, 15);
+            this.labelAmountTimesHeader.Name = "labelAmountTimesHeader";
+            this.labelAmountTimesHeader.Size = new System.Drawing.Size(293, 54);
+            this.labelAmountTimesHeader.TabIndex = 1;
+            this.labelAmountTimesHeader.Text = "How Many Times\r\n Do You Workout Each Month?";
+            this.labelAmountTimesHeader.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // caloriesTab
             // 
-            this.caloriesTab.Controls.Add(this.label2);
+            this.caloriesTab.Controls.Add(this.labelCaloriesChartHeader);
             this.caloriesTab.Controls.Add(this.caloriesChart);
             this.caloriesTab.Location = new System.Drawing.Point(4, 25);
             this.caloriesTab.Name = "caloriesTab";
@@ -94,79 +110,63 @@
             this.caloriesTab.Text = "By Calories";
             this.caloriesTab.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // labelCaloriesChartHeader
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(168, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(261, 54);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "How Many Calories\r\n Do You Burn Each Month?";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelCaloriesChartHeader.AutoSize = true;
+            this.labelCaloriesChartHeader.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCaloriesChartHeader.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelCaloriesChartHeader.Location = new System.Drawing.Point(127, 15);
+            this.labelCaloriesChartHeader.Name = "labelCaloriesChartHeader";
+            this.labelCaloriesChartHeader.Size = new System.Drawing.Size(261, 54);
+            this.labelCaloriesChartHeader.TabIndex = 2;
+            this.labelCaloriesChartHeader.Text = "How Many Calories\r\n Do You Burn Each Month?";
+            this.labelCaloriesChartHeader.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // caloriesChart
             // 
-            chartArea5.Name = "ChartArea1";
-            this.caloriesChart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.caloriesChart.Legends.Add(legend5);
-            this.caloriesChart.Location = new System.Drawing.Point(6, 70);
+            chartAreaCaloriesOfWorkouts.Name = "ChartArea1";
+            this.caloriesChart.ChartAreas.Add(chartAreaCaloriesOfWorkouts);
+            legend2.Name = "Legend1";
+            this.caloriesChart.Legends.Add(legend2);
+            this.caloriesChart.Location = new System.Drawing.Point(34, 73);
             this.caloriesChart.Name = "caloriesChart";
             this.caloriesChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Calories";
-            this.caloriesChart.Series.Add(series5);
-            this.caloriesChart.Size = new System.Drawing.Size(558, 435);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Calories";
+            this.caloriesChart.Series.Add(series2);
+            this.caloriesChart.Size = new System.Drawing.Size(503, 435);
             this.caloriesChart.TabIndex = 0;
             this.caloriesChart.Text = "chart2";
-            // 
-            // timeChart
-            // 
-            chartArea6.Name = "ChartArea1";
-            this.timeChart.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.timeChart.Legends.Add(legend6);
-            this.timeChart.Location = new System.Drawing.Point(6, 70);
-            this.timeChart.Name = "timeChart";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Amount";
-            this.timeChart.Series.Add(series6);
-            this.timeChart.Size = new System.Drawing.Size(558, 435);
-            this.timeChart.TabIndex = 2;
-            this.timeChart.Text = "chart2";
             // 
             // StatisicsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 564);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(576, 567);
+            this.Controls.Add(this.tabControlStatistics);
             this.Name = "StatisicsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Statisics By Month";
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlStatistics.ResumeLayout(false);
             this.amountTab.ResumeLayout(false);
             this.amountTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeChart)).EndInit();
             this.caloriesTab.ResumeLayout(false);
             this.caloriesTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.caloriesChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeChart)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlStatistics;
         private System.Windows.Forms.TabPage amountTab;
         private System.Windows.Forms.TabPage caloriesTab;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelAmountTimesHeader;
         private System.Windows.Forms.DataVisualization.Charting.Chart caloriesChart;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelCaloriesChartHeader;
         private System.Windows.Forms.DataVisualization.Charting.Chart timeChart;
     }
 }

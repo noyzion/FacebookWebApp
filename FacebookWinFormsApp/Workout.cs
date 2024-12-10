@@ -20,6 +20,5 @@ namespace BasicFacebookFeatures
             DateTime = dateTime;
             Calories = calories;
         }
-       
     }
 }

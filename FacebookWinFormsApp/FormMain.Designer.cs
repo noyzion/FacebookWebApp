@@ -30,49 +30,48 @@
         {
             this.buttonLogin = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.feedTab = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
-            this.settingsButton = new System.Windows.Forms.Button();
+            this.tabControlMainForm = new System.Windows.Forms.TabControl();
+            this.tabFeed = new System.Windows.Forms.TabPage();
+            this.labelWorkoutsHeader = new System.Windows.Forms.Label();
+            this.buttonSettings = new System.Windows.Forms.Button();
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
-            this.statusPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.videoButton = new System.Windows.Forms.Button();
-            this.addPostButton = new System.Windows.Forms.Button();
-            this.addPictureButton = new System.Windows.Forms.Button();
-            this.statusTextBox = new System.Windows.Forms.TextBox();
-            this.emailLabel = new System.Windows.Forms.Label();
-            this.birthdayLabel = new System.Windows.Forms.Label();
+            this.panelStatus = new System.Windows.Forms.Panel();
+            this.labelAddStatus = new System.Windows.Forms.Label();
+            this.buttonAddVideo = new System.Windows.Forms.Button();
+            this.buttonAddPost = new System.Windows.Forms.Button();
+            this.buttonAddPicture = new System.Windows.Forms.Button();
+            this.textBoxStatus = new System.Windows.Forms.TextBox();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelBirthday = new System.Windows.Forms.Label();
             this.eventsButton = new System.Windows.Forms.Button();
-            this.eventsPictureBox = new System.Windows.Forms.PictureBox();
-            this.DataPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.DataListBox = new System.Windows.Forms.ListBox();
-            this.albumsButton = new System.Windows.Forms.Button();
-            this.postsButton = new System.Windows.Forms.Button();
-            this.friendsButton = new System.Windows.Forms.Button();
-            this.pagesButton = new System.Windows.Forms.Button();
-            this.groupsButton = new System.Windows.Forms.Button();
+            this.pictureBoxEventes = new System.Windows.Forms.PictureBox();
+            this.dataPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.dataListBox = new System.Windows.Forms.ListBox();
+            this.buttonAlbums = new System.Windows.Forms.Button();
+            this.buttonPosts = new System.Windows.Forms.Button();
+            this.buttonFriends = new System.Windows.Forms.Button();
+            this.buttonLikesPages = new System.Windows.Forms.Button();
+            this.buttonGroups = new System.Windows.Forms.Button();
             this.photosPicture = new System.Windows.Forms.PictureBox();
             this.postsPicture = new System.Windows.Forms.PictureBox();
             this.friendsPicture = new System.Windows.Forms.PictureBox();
-            this.likedPicture = new System.Windows.Forms.PictureBox();
+            this.likedPagesPicture = new System.Windows.Forms.PictureBox();
             this.groupsPicture = new System.Windows.Forms.PictureBox();
-            this.rememberMe_CheckBox = new System.Windows.Forms.CheckBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.rememberMeCheckBox = new System.Windows.Forms.CheckBox();
+            this.panelWorkoutFeature = new System.Windows.Forms.Panel();
             this.buttonStatistics = new System.Windows.Forms.Button();
             this.panelWorkouts = new System.Windows.Forms.Panel();
             this.buttonAddWorkout = new System.Windows.Forms.Button();
-            this.wishlistTab = new System.Windows.Forms.TabPage();
+            this.tabWishlist = new System.Windows.Forms.TabPage();
             this.buttonDeleteItem = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelNameOfWish = new System.Windows.Forms.Label();
+            this.labelCategory = new System.Windows.Forms.Label();
             this.buttonPost = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelActivities = new System.Windows.Forms.Label();
+            this.labelPets = new System.Windows.Forms.Label();
+            this.labelShopping = new System.Windows.Forms.Label();
+            this.labelFood = new System.Windows.Forms.Label();
             this.pictureBoxPets = new System.Windows.Forms.PictureBox();
             this.pictureBoxShopping = new System.Windows.Forms.PictureBox();
             this.pictureBoxActivities = new System.Windows.Forms.PictureBox();
@@ -84,20 +83,20 @@
             this.buttonAddPhoto = new System.Windows.Forms.Button();
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelWishlistHeader = new System.Windows.Forms.Label();
             this.serviceController1 = new System.ServiceProcess.ServiceController();
-            this.tabControl1.SuspendLayout();
-            this.feedTab.SuspendLayout();
+            this.tabControlMainForm.SuspendLayout();
+            this.tabFeed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
-            this.statusPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).BeginInit();
+            this.panelStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photosPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.likedPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.likedPagesPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsPicture)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.wishlistTab.SuspendLayout();
+            this.panelWorkoutFeature.SuspendLayout();
+            this.tabWishlist.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShopping)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActivities)).BeginInit();
@@ -131,87 +130,77 @@
             this.buttonLogout.UseVisualStyleBackColor = false;
             this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
-            // label1
+            // tabControlMainForm
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(307, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 24);
-            this.label1.TabIndex = 53;
+            this.tabControlMainForm.Controls.Add(this.tabFeed);
+            this.tabControlMainForm.Controls.Add(this.tabWishlist);
+            this.tabControlMainForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlMainForm.Location = new System.Drawing.Point(0, 0);
+            this.tabControlMainForm.Name = "tabControlMainForm";
+            this.tabControlMainForm.SelectedIndex = 0;
+            this.tabControlMainForm.Size = new System.Drawing.Size(1243, 697);
+            this.tabControlMainForm.TabIndex = 54;
+            this.tabControlMainForm.Tag = "";
             // 
-            // tabControl1
+            // tabFeed
             // 
-            this.tabControl1.Controls.Add(this.feedTab);
-            this.tabControl1.Controls.Add(this.wishlistTab);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1243, 697);
-            this.tabControl1.TabIndex = 54;
-            this.tabControl1.Tag = "";
+            this.tabFeed.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabFeed.Controls.Add(this.labelWorkoutsHeader);
+            this.tabFeed.Controls.Add(this.buttonSettings);
+            this.tabFeed.Controls.Add(this.pictureBoxProfile);
+            this.tabFeed.Controls.Add(this.panelStatus);
+            this.tabFeed.Controls.Add(this.labelEmail);
+            this.tabFeed.Controls.Add(this.labelBirthday);
+            this.tabFeed.Controls.Add(this.eventsButton);
+            this.tabFeed.Controls.Add(this.pictureBoxEventes);
+            this.tabFeed.Controls.Add(this.dataPanel);
+            this.tabFeed.Controls.Add(this.dataListBox);
+            this.tabFeed.Controls.Add(this.buttonAlbums);
+            this.tabFeed.Controls.Add(this.buttonPosts);
+            this.tabFeed.Controls.Add(this.buttonFriends);
+            this.tabFeed.Controls.Add(this.buttonLikesPages);
+            this.tabFeed.Controls.Add(this.buttonGroups);
+            this.tabFeed.Controls.Add(this.photosPicture);
+            this.tabFeed.Controls.Add(this.postsPicture);
+            this.tabFeed.Controls.Add(this.friendsPicture);
+            this.tabFeed.Controls.Add(this.likedPagesPicture);
+            this.tabFeed.Controls.Add(this.groupsPicture);
+            this.tabFeed.Controls.Add(this.rememberMeCheckBox);
+            this.tabFeed.Controls.Add(this.buttonLogout);
+            this.tabFeed.Controls.Add(this.buttonLogin);
+            this.tabFeed.Controls.Add(this.panelWorkoutFeature);
+            this.tabFeed.Location = new System.Drawing.Point(4, 31);
+            this.tabFeed.Name = "tabFeed";
+            this.tabFeed.Padding = new System.Windows.Forms.Padding(3);
+            this.tabFeed.Size = new System.Drawing.Size(1235, 662);
+            this.tabFeed.TabIndex = 0;
+            this.tabFeed.Text = "Feed";
             // 
-            // feedTab
+            // labelWorkoutsHeader
             // 
-            this.feedTab.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.feedTab.Controls.Add(this.label10);
-            this.feedTab.Controls.Add(this.settingsButton);
-            this.feedTab.Controls.Add(this.pictureBoxProfile);
-            this.feedTab.Controls.Add(this.statusPanel);
-            this.feedTab.Controls.Add(this.emailLabel);
-            this.feedTab.Controls.Add(this.birthdayLabel);
-            this.feedTab.Controls.Add(this.eventsButton);
-            this.feedTab.Controls.Add(this.eventsPictureBox);
-            this.feedTab.Controls.Add(this.DataPanel);
-            this.feedTab.Controls.Add(this.DataListBox);
-            this.feedTab.Controls.Add(this.albumsButton);
-            this.feedTab.Controls.Add(this.postsButton);
-            this.feedTab.Controls.Add(this.friendsButton);
-            this.feedTab.Controls.Add(this.pagesButton);
-            this.feedTab.Controls.Add(this.groupsButton);
-            this.feedTab.Controls.Add(this.photosPicture);
-            this.feedTab.Controls.Add(this.postsPicture);
-            this.feedTab.Controls.Add(this.friendsPicture);
-            this.feedTab.Controls.Add(this.likedPicture);
-            this.feedTab.Controls.Add(this.groupsPicture);
-            this.feedTab.Controls.Add(this.rememberMe_CheckBox);
-            this.feedTab.Controls.Add(this.label1);
-            this.feedTab.Controls.Add(this.buttonLogout);
-            this.feedTab.Controls.Add(this.buttonLogin);
-            this.feedTab.Controls.Add(this.panel1);
-            this.feedTab.Location = new System.Drawing.Point(4, 31);
-            this.feedTab.Name = "feedTab";
-            this.feedTab.Padding = new System.Windows.Forms.Padding(3);
-            this.feedTab.Size = new System.Drawing.Size(1235, 662);
-            this.feedTab.TabIndex = 0;
-            this.feedTab.Text = "Feed";
+            this.labelWorkoutsHeader.AutoSize = true;
+            this.labelWorkoutsHeader.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWorkoutsHeader.Location = new System.Drawing.Point(625, 3);
+            this.labelWorkoutsHeader.Name = "labelWorkoutsHeader";
+            this.labelWorkoutsHeader.Size = new System.Drawing.Size(130, 27);
+            this.labelWorkoutsHeader.TabIndex = 0;
+            this.labelWorkoutsHeader.Text = "My Workouts";
             // 
-            // label10
+            // buttonSettings
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial Narrow", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(625, 3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(130, 27);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "My Workouts";
-            // 
-            // settingsButton
-            // 
-            this.settingsButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.settingsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.settingsButton.Enabled = false;
-            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.settingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsButton.Location = new System.Drawing.Point(13, 15);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(79, 30);
-            this.settingsButton.TabIndex = 85;
-            this.settingsButton.Text = "Settings";
-            this.settingsButton.UseVisualStyleBackColor = false;
-            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            this.buttonSettings.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonSettings.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonSettings.Enabled = false;
+            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSettings.Location = new System.Drawing.Point(13, 15);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(79, 30);
+            this.buttonSettings.TabIndex = 85;
+            this.buttonSettings.Text = "Settings";
+            this.buttonSettings.UseVisualStyleBackColor = false;
+            this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
             // 
             // pictureBoxProfile
             // 
@@ -222,93 +211,93 @@
             this.pictureBoxProfile.TabIndex = 55;
             this.pictureBoxProfile.TabStop = false;
             this.pictureBoxProfile.Click += new System.EventHandler(this.pictureBoxProfile_Click);
-            this.pictureBoxProfile.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
-            this.pictureBoxProfile.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            this.pictureBoxProfile.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.pictureBoxProfile.MouseLeave += new System.EventHandler(this.pictureBox_MouseLeave);
             // 
-            // statusPanel
+            // panelStatus
             // 
-            this.statusPanel.Controls.Add(this.label2);
-            this.statusPanel.Controls.Add(this.videoButton);
-            this.statusPanel.Controls.Add(this.addPostButton);
-            this.statusPanel.Controls.Add(this.addPictureButton);
-            this.statusPanel.Controls.Add(this.statusTextBox);
-            this.statusPanel.Location = new System.Drawing.Point(430, 558);
-            this.statusPanel.Name = "statusPanel";
-            this.statusPanel.Size = new System.Drawing.Size(785, 90);
-            this.statusPanel.TabIndex = 84;
+            this.panelStatus.Controls.Add(this.labelAddStatus);
+            this.panelStatus.Controls.Add(this.buttonAddVideo);
+            this.panelStatus.Controls.Add(this.buttonAddPost);
+            this.panelStatus.Controls.Add(this.buttonAddPicture);
+            this.panelStatus.Controls.Add(this.textBoxStatus);
+            this.panelStatus.Location = new System.Drawing.Point(430, 558);
+            this.panelStatus.Name = "panelStatus";
+            this.panelStatus.Size = new System.Drawing.Size(785, 90);
+            this.panelStatus.TabIndex = 84;
             // 
-            // label2
+            // labelAddStatus
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 24);
-            this.label2.TabIndex = 87;
-            this.label2.Text = "Add status:";
+            this.labelAddStatus.AutoSize = true;
+            this.labelAddStatus.Location = new System.Drawing.Point(13, 8);
+            this.labelAddStatus.Name = "labelAddStatus";
+            this.labelAddStatus.Size = new System.Drawing.Size(102, 24);
+            this.labelAddStatus.TabIndex = 87;
+            this.labelAddStatus.Text = "Add status:";
             // 
-            // videoButton
+            // buttonAddVideo
             // 
-            this.videoButton.BackColor = System.Drawing.Color.White;
-            this.videoButton.Enabled = false;
-            this.videoButton.Location = new System.Drawing.Point(412, 50);
-            this.videoButton.Name = "videoButton";
-            this.videoButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.videoButton.Size = new System.Drawing.Size(136, 31);
-            this.videoButton.TabIndex = 89;
-            this.videoButton.Text = "Add video";
-            this.videoButton.UseVisualStyleBackColor = false;
-            this.videoButton.Click += new System.EventHandler(this.videoButton_Click);
+            this.buttonAddVideo.BackColor = System.Drawing.Color.White;
+            this.buttonAddVideo.Enabled = false;
+            this.buttonAddVideo.Location = new System.Drawing.Point(412, 50);
+            this.buttonAddVideo.Name = "buttonAddVideo";
+            this.buttonAddVideo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonAddVideo.Size = new System.Drawing.Size(136, 31);
+            this.buttonAddVideo.TabIndex = 89;
+            this.buttonAddVideo.Text = "Add video";
+            this.buttonAddVideo.UseVisualStyleBackColor = false;
+            this.buttonAddVideo.Click += new System.EventHandler(this.buttonVideo_Click);
             // 
-            // addPostButton
+            // buttonAddPost
             // 
-            this.addPostButton.BackColor = System.Drawing.Color.White;
-            this.addPostButton.Enabled = false;
-            this.addPostButton.Location = new System.Drawing.Point(709, 6);
-            this.addPostButton.Name = "addPostButton";
-            this.addPostButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addPostButton.Size = new System.Drawing.Size(70, 31);
-            this.addPostButton.TabIndex = 85;
-            this.addPostButton.Text = "Post";
-            this.addPostButton.UseVisualStyleBackColor = false;
-            this.addPostButton.Click += new System.EventHandler(this.addPostButton_Click);
+            this.buttonAddPost.BackColor = System.Drawing.Color.White;
+            this.buttonAddPost.Enabled = false;
+            this.buttonAddPost.Location = new System.Drawing.Point(709, 6);
+            this.buttonAddPost.Name = "buttonAddPost";
+            this.buttonAddPost.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonAddPost.Size = new System.Drawing.Size(70, 31);
+            this.buttonAddPost.TabIndex = 85;
+            this.buttonAddPost.Text = "Post";
+            this.buttonAddPost.UseVisualStyleBackColor = false;
+            this.buttonAddPost.Click += new System.EventHandler(this.addPostButton_Click);
             // 
-            // addPictureButton
+            // buttonAddPicture
             // 
-            this.addPictureButton.BackColor = System.Drawing.Color.White;
-            this.addPictureButton.Enabled = false;
-            this.addPictureButton.Location = new System.Drawing.Point(270, 50);
-            this.addPictureButton.Name = "addPictureButton";
-            this.addPictureButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addPictureButton.Size = new System.Drawing.Size(136, 31);
-            this.addPictureButton.TabIndex = 88;
-            this.addPictureButton.Text = "Add picture";
-            this.addPictureButton.UseVisualStyleBackColor = false;
-            this.addPictureButton.Click += new System.EventHandler(this.addPictureButton_Click);
+            this.buttonAddPicture.BackColor = System.Drawing.Color.White;
+            this.buttonAddPicture.Enabled = false;
+            this.buttonAddPicture.Location = new System.Drawing.Point(270, 50);
+            this.buttonAddPicture.Name = "buttonAddPicture";
+            this.buttonAddPicture.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonAddPicture.Size = new System.Drawing.Size(136, 31);
+            this.buttonAddPicture.TabIndex = 88;
+            this.buttonAddPicture.Text = "Add picture";
+            this.buttonAddPicture.UseVisualStyleBackColor = false;
+            this.buttonAddPicture.Click += new System.EventHandler(this.addPictureButton_Click);
             // 
-            // statusTextBox
+            // textBoxStatus
             // 
-            this.statusTextBox.Enabled = false;
-            this.statusTextBox.Location = new System.Drawing.Point(124, 7);
-            this.statusTextBox.Name = "statusTextBox";
-            this.statusTextBox.Size = new System.Drawing.Size(579, 28);
-            this.statusTextBox.TabIndex = 86;
-            this.statusTextBox.TextChanged += new System.EventHandler(this.statusTextBox_TextChanged);
+            this.textBoxStatus.Enabled = false;
+            this.textBoxStatus.Location = new System.Drawing.Point(124, 7);
+            this.textBoxStatus.Name = "textBoxStatus";
+            this.textBoxStatus.Size = new System.Drawing.Size(579, 28);
+            this.textBoxStatus.TabIndex = 86;
+            this.textBoxStatus.TextChanged += new System.EventHandler(this.textBoxStatus_TextChanged);
             // 
-            // emailLabel
+            // labelEmail
             // 
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(391, 64);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(0, 24);
-            this.emailLabel.TabIndex = 81;
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Location = new System.Drawing.Point(391, 64);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(0, 24);
+            this.labelEmail.TabIndex = 81;
             // 
-            // birthdayLabel
+            // labelBirthday
             // 
-            this.birthdayLabel.AutoSize = true;
-            this.birthdayLabel.Location = new System.Drawing.Point(391, 107);
-            this.birthdayLabel.Name = "birthdayLabel";
-            this.birthdayLabel.Size = new System.Drawing.Size(0, 24);
-            this.birthdayLabel.TabIndex = 80;
+            this.labelBirthday.AutoSize = true;
+            this.labelBirthday.Location = new System.Drawing.Point(391, 107);
+            this.labelBirthday.Name = "labelBirthday";
+            this.labelBirthday.Size = new System.Drawing.Size(0, 24);
+            this.labelBirthday.TabIndex = 80;
             // 
             // eventsButton
             // 
@@ -325,122 +314,122 @@
             this.eventsButton.UseVisualStyleBackColor = false;
             this.eventsButton.Click += new System.EventHandler(this.events_Click);
             // 
-            // eventsPictureBox
+            // pictureBoxEventes
             // 
-            this.eventsPictureBox.Image = global::BasicFacebookFeatures.Properties.Resources.events_icon;
-            this.eventsPictureBox.InitialImage = global::BasicFacebookFeatures.Properties.Resources.events_icon;
-            this.eventsPictureBox.Location = new System.Drawing.Point(18, 585);
-            this.eventsPictureBox.Name = "eventsPictureBox";
-            this.eventsPictureBox.Size = new System.Drawing.Size(49, 48);
-            this.eventsPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.eventsPictureBox.TabIndex = 73;
-            this.eventsPictureBox.TabStop = false;
-            this.eventsPictureBox.Click += new System.EventHandler(this.events_Click);
-            this.eventsPictureBox.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
-            this.eventsPictureBox.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            this.pictureBoxEventes.Image = global::BasicFacebookFeatures.Properties.Resources.events_icon;
+            this.pictureBoxEventes.InitialImage = global::BasicFacebookFeatures.Properties.Resources.events_icon;
+            this.pictureBoxEventes.Location = new System.Drawing.Point(18, 585);
+            this.pictureBoxEventes.Name = "pictureBoxEventes";
+            this.pictureBoxEventes.Size = new System.Drawing.Size(49, 48);
+            this.pictureBoxEventes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxEventes.TabIndex = 73;
+            this.pictureBoxEventes.TabStop = false;
+            this.pictureBoxEventes.Click += new System.EventHandler(this.events_Click);
+            this.pictureBoxEventes.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.pictureBoxEventes.MouseLeave += new System.EventHandler(this.pictureBox_MouseLeave);
             // 
-            // DataPanel
+            // dataPanel
             // 
-            this.DataPanel.ColumnCount = 2;
-            this.DataPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DataPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DataPanel.Location = new System.Drawing.Point(430, 188);
-            this.DataPanel.Name = "DataPanel";
-            this.DataPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.DataPanel.RowCount = 2;
-            this.DataPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DataPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DataPanel.Size = new System.Drawing.Size(785, 356);
-            this.DataPanel.TabIndex = 72;
+            this.dataPanel.ColumnCount = 2;
+            this.dataPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.dataPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.dataPanel.Location = new System.Drawing.Point(430, 188);
+            this.dataPanel.Name = "dataPanel";
+            this.dataPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataPanel.RowCount = 2;
+            this.dataPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.dataPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.dataPanel.Size = new System.Drawing.Size(785, 356);
+            this.dataPanel.TabIndex = 72;
             // 
-            // DataListBox
+            // dataListBox
             // 
-            this.DataListBox.AccessibleName = "DataListBox";
-            this.DataListBox.FormattingEnabled = true;
-            this.DataListBox.HorizontalScrollbar = true;
-            this.DataListBox.ItemHeight = 22;
-            this.DataListBox.Location = new System.Drawing.Point(195, 179);
-            this.DataListBox.Name = "DataListBox";
-            this.DataListBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.DataListBox.ScrollAlwaysVisible = true;
-            this.DataListBox.Size = new System.Drawing.Size(215, 466);
-            this.DataListBox.TabIndex = 70;
-            this.DataListBox.SelectedIndexChanged += new System.EventHandler(this.DataListBox_SelectedIndexChanged);
+            this.dataListBox.AccessibleName = "DataListBox";
+            this.dataListBox.FormattingEnabled = true;
+            this.dataListBox.HorizontalScrollbar = true;
+            this.dataListBox.ItemHeight = 22;
+            this.dataListBox.Location = new System.Drawing.Point(195, 179);
+            this.dataListBox.Name = "dataListBox";
+            this.dataListBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataListBox.ScrollAlwaysVisible = true;
+            this.dataListBox.Size = new System.Drawing.Size(215, 466);
+            this.dataListBox.TabIndex = 70;
+            this.dataListBox.SelectedIndexChanged += new System.EventHandler(this.dataListBox_SelectedIndexChanged);
             // 
-            // albumsButton
+            // buttonAlbums
             // 
-            this.albumsButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.albumsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.albumsButton.Enabled = false;
-            this.albumsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.albumsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.albumsButton.Location = new System.Drawing.Point(73, 435);
-            this.albumsButton.Name = "albumsButton";
-            this.albumsButton.Size = new System.Drawing.Size(91, 35);
-            this.albumsButton.TabIndex = 69;
-            this.albumsButton.Text = "Albums";
-            this.albumsButton.UseVisualStyleBackColor = false;
-            this.albumsButton.Click += new System.EventHandler(this.photos_Click);
+            this.buttonAlbums.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonAlbums.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonAlbums.Enabled = false;
+            this.buttonAlbums.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAlbums.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAlbums.Location = new System.Drawing.Point(73, 435);
+            this.buttonAlbums.Name = "buttonAlbums";
+            this.buttonAlbums.Size = new System.Drawing.Size(91, 35);
+            this.buttonAlbums.TabIndex = 69;
+            this.buttonAlbums.Text = "Albums";
+            this.buttonAlbums.UseVisualStyleBackColor = false;
+            this.buttonAlbums.Click += new System.EventHandler(this.photos_Click);
             // 
-            // postsButton
+            // buttonPosts
             // 
-            this.postsButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.postsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.postsButton.Enabled = false;
-            this.postsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.postsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.postsButton.Location = new System.Drawing.Point(73, 515);
-            this.postsButton.Name = "postsButton";
-            this.postsButton.Size = new System.Drawing.Size(91, 35);
-            this.postsButton.TabIndex = 68;
-            this.postsButton.Text = "Posts";
-            this.postsButton.UseVisualStyleBackColor = false;
-            this.postsButton.Click += new System.EventHandler(this.posts_Click);
+            this.buttonPosts.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonPosts.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonPosts.Enabled = false;
+            this.buttonPosts.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonPosts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonPosts.Location = new System.Drawing.Point(73, 515);
+            this.buttonPosts.Name = "buttonPosts";
+            this.buttonPosts.Size = new System.Drawing.Size(91, 35);
+            this.buttonPosts.TabIndex = 68;
+            this.buttonPosts.Text = "Posts";
+            this.buttonPosts.UseVisualStyleBackColor = false;
+            this.buttonPosts.Click += new System.EventHandler(this.posts_Click);
             // 
-            // friendsButton
+            // buttonFriends
             // 
-            this.friendsButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.friendsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.friendsButton.Enabled = false;
-            this.friendsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.friendsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.friendsButton.Location = new System.Drawing.Point(73, 353);
-            this.friendsButton.Name = "friendsButton";
-            this.friendsButton.Size = new System.Drawing.Size(91, 35);
-            this.friendsButton.TabIndex = 66;
-            this.friendsButton.Text = "Friends";
-            this.friendsButton.UseVisualStyleBackColor = false;
-            this.friendsButton.Click += new System.EventHandler(this.friends_Click);
+            this.buttonFriends.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonFriends.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonFriends.Enabled = false;
+            this.buttonFriends.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonFriends.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonFriends.Location = new System.Drawing.Point(73, 353);
+            this.buttonFriends.Name = "buttonFriends";
+            this.buttonFriends.Size = new System.Drawing.Size(91, 35);
+            this.buttonFriends.TabIndex = 66;
+            this.buttonFriends.Text = "Friends";
+            this.buttonFriends.UseVisualStyleBackColor = false;
+            this.buttonFriends.Click += new System.EventHandler(this.friends_Click);
             // 
-            // pagesButton
+            // buttonLikesPages
             // 
-            this.pagesButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pagesButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pagesButton.Enabled = false;
-            this.pagesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.pagesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.pagesButton.Location = new System.Drawing.Point(73, 277);
-            this.pagesButton.Name = "pagesButton";
-            this.pagesButton.Size = new System.Drawing.Size(91, 32);
-            this.pagesButton.TabIndex = 65;
-            this.pagesButton.Text = "Pages";
-            this.pagesButton.UseVisualStyleBackColor = false;
-            this.pagesButton.Click += new System.EventHandler(this.pages_Click);
+            this.buttonLikesPages.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonLikesPages.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonLikesPages.Enabled = false;
+            this.buttonLikesPages.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonLikesPages.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonLikesPages.Location = new System.Drawing.Point(73, 277);
+            this.buttonLikesPages.Name = "buttonLikesPages";
+            this.buttonLikesPages.Size = new System.Drawing.Size(91, 32);
+            this.buttonLikesPages.TabIndex = 65;
+            this.buttonLikesPages.Text = "Pages";
+            this.buttonLikesPages.UseVisualStyleBackColor = false;
+            this.buttonLikesPages.Click += new System.EventHandler(this.pages_Click);
             // 
-            // groupsButton
+            // buttonGroups
             // 
-            this.groupsButton.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.groupsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.groupsButton.Enabled = false;
-            this.groupsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.groupsButton.Location = new System.Drawing.Point(73, 199);
-            this.groupsButton.Name = "groupsButton";
-            this.groupsButton.Size = new System.Drawing.Size(91, 35);
-            this.groupsButton.TabIndex = 64;
-            this.groupsButton.Text = "Groups";
-            this.groupsButton.UseVisualStyleBackColor = false;
-            this.groupsButton.Click += new System.EventHandler(this.groups_Click);
+            this.buttonGroups.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonGroups.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonGroups.Enabled = false;
+            this.buttonGroups.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonGroups.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGroups.Location = new System.Drawing.Point(73, 199);
+            this.buttonGroups.Name = "buttonGroups";
+            this.buttonGroups.Size = new System.Drawing.Size(91, 35);
+            this.buttonGroups.TabIndex = 64;
+            this.buttonGroups.Text = "Groups";
+            this.buttonGroups.UseVisualStyleBackColor = false;
+            this.buttonGroups.Click += new System.EventHandler(this.groups_Click);
             // 
             // photosPicture
             // 
@@ -453,8 +442,8 @@
             this.photosPicture.TabIndex = 63;
             this.photosPicture.TabStop = false;
             this.photosPicture.Click += new System.EventHandler(this.photos_Click);
-            this.photosPicture.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
-            this.photosPicture.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            this.photosPicture.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.photosPicture.MouseLeave += new System.EventHandler(this.pictureBox_MouseLeave);
             // 
             // postsPicture
             // 
@@ -467,8 +456,8 @@
             this.postsPicture.TabIndex = 62;
             this.postsPicture.TabStop = false;
             this.postsPicture.Click += new System.EventHandler(this.posts_Click);
-            this.postsPicture.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
-            this.postsPicture.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            this.postsPicture.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.postsPicture.MouseLeave += new System.EventHandler(this.pictureBox_MouseLeave);
             // 
             // friendsPicture
             // 
@@ -481,22 +470,22 @@
             this.friendsPicture.TabIndex = 60;
             this.friendsPicture.TabStop = false;
             this.friendsPicture.Click += new System.EventHandler(this.friends_Click);
-            this.friendsPicture.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
-            this.friendsPicture.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            this.friendsPicture.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.friendsPicture.MouseLeave += new System.EventHandler(this.pictureBox_MouseLeave);
             // 
-            // likedPicture
+            // likedPagesPicture
             // 
-            this.likedPicture.Image = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
-            this.likedPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
-            this.likedPicture.Location = new System.Drawing.Point(18, 269);
-            this.likedPicture.Name = "likedPicture";
-            this.likedPicture.Size = new System.Drawing.Size(49, 45);
-            this.likedPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.likedPicture.TabIndex = 59;
-            this.likedPicture.TabStop = false;
-            this.likedPicture.Click += new System.EventHandler(this.pages_Click);
-            this.likedPicture.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
-            this.likedPicture.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            this.likedPagesPicture.Image = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
+            this.likedPagesPicture.InitialImage = global::BasicFacebookFeatures.Properties.Resources.liked_icon;
+            this.likedPagesPicture.Location = new System.Drawing.Point(18, 269);
+            this.likedPagesPicture.Name = "likedPagesPicture";
+            this.likedPagesPicture.Size = new System.Drawing.Size(49, 45);
+            this.likedPagesPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.likedPagesPicture.TabIndex = 59;
+            this.likedPagesPicture.TabStop = false;
+            this.likedPagesPicture.Click += new System.EventHandler(this.pages_Click);
+            this.likedPagesPicture.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.likedPagesPicture.MouseLeave += new System.EventHandler(this.pictureBox_MouseLeave);
             // 
             // groupsPicture
             // 
@@ -509,29 +498,29 @@
             this.groupsPicture.TabIndex = 58;
             this.groupsPicture.TabStop = false;
             this.groupsPicture.Click += new System.EventHandler(this.groups_Click);
-            this.groupsPicture.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
-            this.groupsPicture.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            this.groupsPicture.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.groupsPicture.MouseLeave += new System.EventHandler(this.pictureBox_MouseLeave);
             // 
-            // rememberMe_CheckBox
+            // rememberMeCheckBox
             // 
-            this.rememberMe_CheckBox.AutoSize = true;
-            this.rememberMe_CheckBox.Location = new System.Drawing.Point(12, 137);
-            this.rememberMe_CheckBox.Name = "rememberMe_CheckBox";
-            this.rememberMe_CheckBox.Size = new System.Drawing.Size(159, 28);
-            this.rememberMe_CheckBox.TabIndex = 56;
-            this.rememberMe_CheckBox.Text = "Remember Me";
-            this.rememberMe_CheckBox.UseVisualStyleBackColor = true;
+            this.rememberMeCheckBox.AutoSize = true;
+            this.rememberMeCheckBox.Location = new System.Drawing.Point(12, 137);
+            this.rememberMeCheckBox.Name = "rememberMeCheckBox";
+            this.rememberMeCheckBox.Size = new System.Drawing.Size(159, 28);
+            this.rememberMeCheckBox.TabIndex = 56;
+            this.rememberMeCheckBox.Text = "Remember Me";
+            this.rememberMeCheckBox.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // panelWorkoutFeature
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.buttonStatistics);
-            this.panel1.Controls.Add(this.panelWorkouts);
-            this.panel1.Controls.Add(this.buttonAddWorkout);
-            this.panel1.Location = new System.Drawing.Point(609, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(618, 145);
-            this.panel1.TabIndex = 86;
+            this.panelWorkoutFeature.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelWorkoutFeature.Controls.Add(this.buttonStatistics);
+            this.panelWorkoutFeature.Controls.Add(this.panelWorkouts);
+            this.panelWorkoutFeature.Controls.Add(this.buttonAddWorkout);
+            this.panelWorkoutFeature.Location = new System.Drawing.Point(609, 28);
+            this.panelWorkoutFeature.Name = "panelWorkoutFeature";
+            this.panelWorkoutFeature.Size = new System.Drawing.Size(618, 145);
+            this.panelWorkoutFeature.TabIndex = 86;
             // 
             // buttonStatistics
             // 
@@ -571,36 +560,36 @@
             this.buttonAddWorkout.UseVisualStyleBackColor = false;
             this.buttonAddWorkout.Click += new System.EventHandler(this.buttonAddWorkout_Click);
             // 
-            // wishlistTab
+            // tabWishlist
             // 
-            this.wishlistTab.Controls.Add(this.buttonDeleteItem);
-            this.wishlistTab.Controls.Add(this.label9);
-            this.wishlistTab.Controls.Add(this.label8);
-            this.wishlistTab.Controls.Add(this.buttonPost);
-            this.wishlistTab.Controls.Add(this.buttonAdd);
-            this.wishlistTab.Controls.Add(this.label7);
-            this.wishlistTab.Controls.Add(this.label6);
-            this.wishlistTab.Controls.Add(this.label5);
-            this.wishlistTab.Controls.Add(this.label4);
-            this.wishlistTab.Controls.Add(this.pictureBoxPets);
-            this.wishlistTab.Controls.Add(this.pictureBoxShopping);
-            this.wishlistTab.Controls.Add(this.pictureBoxActivities);
-            this.wishlistTab.Controls.Add(this.pictureBoxFood);
-            this.wishlistTab.Controls.Add(this.checkedListBoxShopping);
-            this.wishlistTab.Controls.Add(this.checkedListBoxPets);
-            this.wishlistTab.Controls.Add(this.checkedListBoxActivities);
-            this.wishlistTab.Controls.Add(this.checkedListBoxFood);
-            this.wishlistTab.Controls.Add(this.buttonAddPhoto);
-            this.wishlistTab.Controls.Add(this.comboBoxCategory);
-            this.wishlistTab.Controls.Add(this.textBoxName);
-            this.wishlistTab.Controls.Add(this.label3);
-            this.wishlistTab.Location = new System.Drawing.Point(4, 31);
-            this.wishlistTab.Name = "wishlistTab";
-            this.wishlistTab.Padding = new System.Windows.Forms.Padding(3);
-            this.wishlistTab.Size = new System.Drawing.Size(1235, 662);
-            this.wishlistTab.TabIndex = 1;
-            this.wishlistTab.Text = "Wishlist";
-            this.wishlistTab.UseVisualStyleBackColor = true;
+            this.tabWishlist.Controls.Add(this.buttonDeleteItem);
+            this.tabWishlist.Controls.Add(this.labelNameOfWish);
+            this.tabWishlist.Controls.Add(this.labelCategory);
+            this.tabWishlist.Controls.Add(this.buttonPost);
+            this.tabWishlist.Controls.Add(this.buttonAdd);
+            this.tabWishlist.Controls.Add(this.labelActivities);
+            this.tabWishlist.Controls.Add(this.labelPets);
+            this.tabWishlist.Controls.Add(this.labelShopping);
+            this.tabWishlist.Controls.Add(this.labelFood);
+            this.tabWishlist.Controls.Add(this.pictureBoxPets);
+            this.tabWishlist.Controls.Add(this.pictureBoxShopping);
+            this.tabWishlist.Controls.Add(this.pictureBoxActivities);
+            this.tabWishlist.Controls.Add(this.pictureBoxFood);
+            this.tabWishlist.Controls.Add(this.checkedListBoxShopping);
+            this.tabWishlist.Controls.Add(this.checkedListBoxPets);
+            this.tabWishlist.Controls.Add(this.checkedListBoxActivities);
+            this.tabWishlist.Controls.Add(this.checkedListBoxFood);
+            this.tabWishlist.Controls.Add(this.buttonAddPhoto);
+            this.tabWishlist.Controls.Add(this.comboBoxCategory);
+            this.tabWishlist.Controls.Add(this.textBoxName);
+            this.tabWishlist.Controls.Add(this.labelWishlistHeader);
+            this.tabWishlist.Location = new System.Drawing.Point(4, 31);
+            this.tabWishlist.Name = "tabWishlist";
+            this.tabWishlist.Padding = new System.Windows.Forms.Padding(3);
+            this.tabWishlist.Size = new System.Drawing.Size(1235, 662);
+            this.tabWishlist.TabIndex = 1;
+            this.tabWishlist.Text = "Wishlist";
+            this.tabWishlist.UseVisualStyleBackColor = true;
             // 
             // buttonDeleteItem
             // 
@@ -617,28 +606,28 @@
             this.buttonDeleteItem.UseVisualStyleBackColor = false;
             this.buttonDeleteItem.Click += new System.EventHandler(this.buttonDeleteItem_Click);
             // 
-            // label9
+            // labelNameOfWish
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label9.Location = new System.Drawing.Point(281, 73);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(132, 16);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "what do you wish for?";
+            this.labelNameOfWish.AutoSize = true;
+            this.labelNameOfWish.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNameOfWish.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.labelNameOfWish.Location = new System.Drawing.Point(281, 73);
+            this.labelNameOfWish.Name = "labelNameOfWish";
+            this.labelNameOfWish.Size = new System.Drawing.Size(132, 16);
+            this.labelNameOfWish.TabIndex = 24;
+            this.labelNameOfWish.Text = "what do you wish for?";
             // 
-            // label8
+            // labelCategory
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.label8.Location = new System.Drawing.Point(540, 71);
-            this.label8.Name = "label8";
-            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(60, 16);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "category";
+            this.labelCategory.AutoSize = true;
+            this.labelCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCategory.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.labelCategory.Location = new System.Drawing.Point(540, 71);
+            this.labelCategory.Name = "labelCategory";
+            this.labelCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelCategory.Size = new System.Drawing.Size(60, 16);
+            this.labelCategory.TabIndex = 23;
+            this.labelCategory.Text = "category";
             // 
             // buttonPost
             // 
@@ -665,45 +654,45 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // label7
+            // labelActivities
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(421, 147);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 24);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Activities";
+            this.labelActivities.AutoSize = true;
+            this.labelActivities.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelActivities.Location = new System.Drawing.Point(421, 147);
+            this.labelActivities.Name = "labelActivities";
+            this.labelActivities.Size = new System.Drawing.Size(92, 24);
+            this.labelActivities.TabIndex = 11;
+            this.labelActivities.Text = "Activities";
             // 
-            // label6
+            // labelPets
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(699, 147);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 24);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Pets";
+            this.labelPets.AutoSize = true;
+            this.labelPets.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPets.Location = new System.Drawing.Point(699, 147);
+            this.labelPets.Name = "labelPets";
+            this.labelPets.Size = new System.Drawing.Size(50, 24);
+            this.labelPets.TabIndex = 10;
+            this.labelPets.Text = "Pets";
             // 
-            // label5
+            // labelShopping
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(938, 147);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 24);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Shopping";
+            this.labelShopping.AutoSize = true;
+            this.labelShopping.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelShopping.Location = new System.Drawing.Point(938, 147);
+            this.labelShopping.Name = "labelShopping";
+            this.labelShopping.Size = new System.Drawing.Size(100, 24);
+            this.labelShopping.TabIndex = 9;
+            this.labelShopping.Text = "Shopping";
             // 
-            // label4
+            // labelFood
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(176, 147);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 24);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Food";
+            this.labelFood.AutoSize = true;
+            this.labelFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFood.Location = new System.Drawing.Point(176, 147);
+            this.labelFood.Name = "labelFood";
+            this.labelFood.Size = new System.Drawing.Size(59, 24);
+            this.labelFood.TabIndex = 8;
+            this.labelFood.Text = "Food";
             // 
             // pictureBoxPets
             // 
@@ -826,42 +815,42 @@
             this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
-            // label3
+            // labelWishlistHeader
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(523, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 43);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "My Wishlist";
+            this.labelWishlistHeader.AutoSize = true;
+            this.labelWishlistHeader.Font = new System.Drawing.Font("Arial Narrow", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWishlistHeader.Location = new System.Drawing.Point(523, 14);
+            this.labelWishlistHeader.Name = "labelWishlistHeader";
+            this.labelWishlistHeader.Size = new System.Drawing.Size(185, 43);
+            this.labelWishlistHeader.TabIndex = 0;
+            this.labelWishlistHeader.Text = "My Wishlist";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1243, 697);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlMainForm);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facebook App";
-            this.tabControl1.ResumeLayout(false);
-            this.feedTab.ResumeLayout(false);
-            this.feedTab.PerformLayout();
+            this.tabControlMainForm.ResumeLayout(false);
+            this.tabFeed.ResumeLayout(false);
+            this.tabFeed.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
-            this.statusPanel.ResumeLayout(false);
-            this.statusPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eventsPictureBox)).EndInit();
+            this.panelStatus.ResumeLayout(false);
+            this.panelStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEventes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photosPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.postsPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.likedPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.likedPagesPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsPicture)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.wishlistTab.ResumeLayout(false);
-            this.wishlistTab.PerformLayout();
+            this.panelWorkoutFeature.ResumeLayout(false);
+            this.tabWishlist.ResumeLayout(false);
+            this.tabWishlist.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPets)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShopping)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActivities)).EndInit();
@@ -874,45 +863,44 @@
 
 		private System.Windows.Forms.Button buttonLogin;
 		private System.Windows.Forms.Button buttonLogout;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.TabPage feedTab;
-        private System.Windows.Forms.CheckBox rememberMe_CheckBox;
+		private System.Windows.Forms.TabControl tabControlMainForm;
+		private System.Windows.Forms.TabPage tabFeed;
+        private System.Windows.Forms.CheckBox rememberMeCheckBox;
         private System.Windows.Forms.PictureBox groupsPicture;
-        private System.Windows.Forms.PictureBox likedPicture;
+        private System.Windows.Forms.PictureBox likedPagesPicture;
         private System.Windows.Forms.PictureBox photosPicture;
         private System.Windows.Forms.PictureBox postsPicture;
         private System.Windows.Forms.PictureBox friendsPicture;
-        private System.Windows.Forms.Button groupsButton;
+        private System.Windows.Forms.Button buttonGroups;
         private System.ServiceProcess.ServiceController serviceController1;
-        private System.Windows.Forms.Button friendsButton;
-        private System.Windows.Forms.Button pagesButton;
-        private System.Windows.Forms.Button albumsButton;
-        private System.Windows.Forms.Button postsButton;
-        private System.Windows.Forms.ListBox DataListBox;
-        private System.Windows.Forms.TableLayoutPanel DataPanel;
+        private System.Windows.Forms.Button buttonFriends;
+        private System.Windows.Forms.Button buttonLikesPages;
+        private System.Windows.Forms.Button buttonAlbums;
+        private System.Windows.Forms.Button buttonPosts;
+        private System.Windows.Forms.ListBox dataListBox;
+        private System.Windows.Forms.TableLayoutPanel dataPanel;
         private System.Windows.Forms.Button eventsButton;
-        private System.Windows.Forms.PictureBox eventsPictureBox;
-        private System.Windows.Forms.Panel statusPanel;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button videoButton;
-        private System.Windows.Forms.Button addPostButton;
-        private System.Windows.Forms.Button addPictureButton;
-        private System.Windows.Forms.TextBox statusTextBox;
+        private System.Windows.Forms.PictureBox pictureBoxEventes;
+        private System.Windows.Forms.Panel panelStatus;
+        private System.Windows.Forms.Label labelAddStatus;
+        private System.Windows.Forms.Button buttonAddVideo;
+        private System.Windows.Forms.Button buttonAddPost;
+        private System.Windows.Forms.Button buttonAddPicture;
+        private System.Windows.Forms.TextBox textBoxStatus;
         private System.Windows.Forms.PictureBox pictureBoxProfile;
-        private System.Windows.Forms.Button settingsButton;
-        private System.Windows.Forms.TabPage wishlistTab;
+        private System.Windows.Forms.Button buttonSettings;
+        private System.Windows.Forms.TabPage tabWishlist;
         private System.Windows.Forms.CheckedListBox checkedListBoxShopping;
         private System.Windows.Forms.CheckedListBox checkedListBoxPets;
         private System.Windows.Forms.CheckedListBox checkedListBoxActivities;
         private System.Windows.Forms.CheckedListBox checkedListBoxFood;
         private System.Windows.Forms.ComboBox comboBoxCategory;
         private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelWishlistHeader;
+        private System.Windows.Forms.Label labelActivities;
+        private System.Windows.Forms.Label labelPets;
+        private System.Windows.Forms.Label labelShopping;
+        private System.Windows.Forms.Label labelFood;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonAddPhoto;
         private System.Windows.Forms.PictureBox pictureBoxPets;
@@ -920,14 +908,14 @@
         private System.Windows.Forms.PictureBox pictureBoxActivities;
         private System.Windows.Forms.PictureBox pictureBoxFood;
         private System.Windows.Forms.Button buttonPost;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelCategory;
+        private System.Windows.Forms.Label labelNameOfWish;
         private System.Windows.Forms.Button buttonDeleteItem;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panelWorkoutFeature;
+        private System.Windows.Forms.Label labelWorkoutsHeader;
         private System.Windows.Forms.Button buttonAddWorkout;
-        private System.Windows.Forms.Label emailLabel;
-        private System.Windows.Forms.Label birthdayLabel;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.Label labelBirthday;
         private System.Windows.Forms.Button buttonStatistics;
         private System.Windows.Forms.Panel panelWorkouts;
     }

@@ -7,50 +7,29 @@ using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
 {
-    public enum ProfileOption
-    {
-        ShowProfile,
-        ChangeProfile
-    }
     public partial class OpenProfilePicture : Form
     {
-        private Button showProfileButton;
-        private PictureBox changePorfilePictureBox;
-        private PictureBox showProfilePictureBox;
-        private Button changeProfileButton;
-        public ProfileOption SelectedOption { get; private set; }
-
+        public EProfileOption SelectedOption { get; set; }
         public OpenProfilePicture()
         {
             InitializeComponent();
         }
         private void showProfile_Click(object sender, EventArgs e)
         {
-            SelectedOption = ProfileOption.ShowProfile;
+            SelectedOption = EProfileOption.ShowProfile;
             DialogResult = DialogResult.OK;
             Close();
         }
-
         private void changeProfile_Click(object sender, EventArgs e)
         {
-            SelectedOption = ProfileOption.ChangeProfile;
+            SelectedOption = EProfileOption.ChangeProfile;
             DialogResult = DialogResult.OK;
             Close();
         }
-
-        private void changePorfilePictureBox_MouseEnter(object sender, EventArgs e)
-        {
-            PictureBox_MouseEnter(sender, e);
-        }
-
-        private void changePorfilePictureBox_MouseLeave(object sender, EventArgs e)
-        {
-            PictureBox_MouseLeave(sender, e);
-        }
-
-        private void PictureBox_MouseEnter(object sender, EventArgs e)
+        private void pictureBox_MouseEnter(object sender, EventArgs e)
         {
             PictureBox pictureBox = sender as PictureBox;
+
             if (pictureBox != null)
             {
                 pictureBox.BorderStyle = BorderStyle.FixedSingle;
@@ -59,10 +38,10 @@ namespace BasicFacebookFeatures
                 pictureBox.BackColor = System.Drawing.Color.LightGray;
             }
         }
-
         private void PictureBox_MouseLeave(object sender, EventArgs e)
         {
             PictureBox pictureBox = sender as PictureBox;
+
             if (pictureBox != null)
             {
                 pictureBox.BorderStyle = BorderStyle.None;

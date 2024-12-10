@@ -1,30 +1,19 @@
 ﻿using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
 {
     public interface IFacebookManager
     {
-        void fetchGroups(ListBox DataListBox);
-         void fetchAlbums(ListBox DataListBox);
-         void fetchFriends(ListBox DataListBox);
-         void fetchPosts(ListBox DataListBox);
-         void fetchLiked(ListBox DataListBox);
-         void fetchEvents(ListBox DataListBox);
-
-         void post(string message, TextBox statusTextBox);
-
-         string addPhoto();
-
+        void FetchGroups(ListBox DataListBox);
+         void FetchAlbums(ListBox DataListBox);
+         void FetchFriends(ListBox DataListBox);
+         void FetchPosts(ListBox DataListBox);
+         void FetchLikedPages(ListBox DataListBox);
+         void FetchEvents(ListBox DataListBox);
+         void Post(string message, TextBox statusTextBox);
+         string AddPhoto();
          string SelectVideoFile();
-
          Post PostVideo(string filePath);
-
-
     }
 }

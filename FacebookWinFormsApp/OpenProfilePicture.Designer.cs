@@ -1,4 +1,6 @@
-﻿namespace BasicFacebookFeatures
+﻿using System.Windows.Forms;
+
+namespace BasicFacebookFeatures
 {
     partial class OpenProfilePicture
     {
@@ -28,82 +30,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.showProfilePictureBox = new System.Windows.Forms.PictureBox();
-            this.changePorfilePictureBox = new System.Windows.Forms.PictureBox();
-            this.changeProfileButton = new System.Windows.Forms.Button();
-            this.showProfileButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.showProfilePictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.changePorfilePictureBox)).BeginInit();
+            this.pictureBoxShowProfile = new System.Windows.Forms.PictureBox();
+            this.pictureBoxChangeProfile = new System.Windows.Forms.PictureBox();
+            this.buttonchangeProfile = new System.Windows.Forms.Button();
+            this.buttonShowProfile = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShowProfile)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChangeProfile)).BeginInit();
             this.SuspendLayout();
             // 
-            // showProfilePictureBox
+            // pictureBoxShowProfile
             // 
-            this.showProfilePictureBox.Image = global::BasicFacebookFeatures.Properties.Resources._1865156_200;
-            this.showProfilePictureBox.InitialImage = global::BasicFacebookFeatures.Properties.Resources._1865156_200;
-            this.showProfilePictureBox.Location = new System.Drawing.Point(242, 23);
-            this.showProfilePictureBox.Name = "showProfilePictureBox";
-            this.showProfilePictureBox.Size = new System.Drawing.Size(45, 42);
-            this.showProfilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.showProfilePictureBox.TabIndex = 7;
-            this.showProfilePictureBox.TabStop = false;
-            this.showProfilePictureBox.Click += new System.EventHandler(this.showProfile_Click);
-            this.showProfilePictureBox.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
-            this.showProfilePictureBox.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
+            this.pictureBoxShowProfile.Image = global::BasicFacebookFeatures.Properties.Resources._1865156_200;
+            this.pictureBoxShowProfile.InitialImage = global::BasicFacebookFeatures.Properties.Resources._1865156_200;
+            this.pictureBoxShowProfile.Location = new System.Drawing.Point(242, 23);
+            this.pictureBoxShowProfile.Name = "pictureBoxShowProfile";
+            this.pictureBoxShowProfile.Size = new System.Drawing.Size(45, 42);
+            this.pictureBoxShowProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxShowProfile.TabIndex = 7;
+            this.pictureBoxShowProfile.TabStop = false;
+            this.pictureBoxShowProfile.Click += new System.EventHandler(this.showProfile_Click);
+            this.pictureBoxShowProfile.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.pictureBoxShowProfile.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             // 
-            // changePorfilePictureBox
+            // pictureBoxChangeProfile
             // 
-            this.changePorfilePictureBox.Image = global::BasicFacebookFeatures.Properties.Resources._3342137;
-            this.changePorfilePictureBox.InitialImage = global::BasicFacebookFeatures.Properties.Resources._3342137;
-            this.changePorfilePictureBox.Location = new System.Drawing.Point(242, 73);
-            this.changePorfilePictureBox.Name = "changePorfilePictureBox";
-            this.changePorfilePictureBox.Size = new System.Drawing.Size(45, 42);
-            this.changePorfilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.changePorfilePictureBox.TabIndex = 6;
-            this.changePorfilePictureBox.TabStop = false;
-            this.changePorfilePictureBox.Click += new System.EventHandler(this.changeProfile_Click);
-            this.changePorfilePictureBox.MouseEnter += new System.EventHandler(this.changePorfilePictureBox_MouseEnter);
-            this.changePorfilePictureBox.MouseLeave += new System.EventHandler(this.changePorfilePictureBox_MouseLeave);
+            this.pictureBoxChangeProfile.Image = global::BasicFacebookFeatures.Properties.Resources._3342137;
+            this.pictureBoxChangeProfile.InitialImage = global::BasicFacebookFeatures.Properties.Resources._3342137;
+            this.pictureBoxChangeProfile.Location = new System.Drawing.Point(242, 73);
+            this.pictureBoxChangeProfile.Name = "pictureBoxChangeProfile";
+            this.pictureBoxChangeProfile.Size = new System.Drawing.Size(45, 42);
+            this.pictureBoxChangeProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxChangeProfile.TabIndex = 6;
+            this.pictureBoxChangeProfile.TabStop = false;
+            this.pictureBoxChangeProfile.Click += new System.EventHandler(this.changeProfile_Click);
+            this.pictureBoxChangeProfile.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.pictureBoxChangeProfile.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             // 
-            // changeProfileButton
+            // buttonchangeProfile
             // 
-            this.changeProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeProfileButton.Location = new System.Drawing.Point(25, 79);
-            this.changeProfileButton.Name = "changeProfileButton";
-            this.changeProfileButton.Size = new System.Drawing.Size(211, 33);
-            this.changeProfileButton.TabIndex = 5;
-            this.changeProfileButton.Text = "Change your profile";
-            this.changeProfileButton.UseVisualStyleBackColor = true;
-            this.changeProfileButton.Click += new System.EventHandler(this.changeProfile_Click);
+            this.buttonchangeProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonchangeProfile.Location = new System.Drawing.Point(25, 79);
+            this.buttonchangeProfile.Name = "buttonChangeProfile";
+            this.buttonchangeProfile.Size = new System.Drawing.Size(211, 33);
+            this.buttonchangeProfile.TabIndex = 5;
+            this.buttonchangeProfile.Text = "Change your profile";
+            this.buttonchangeProfile.UseVisualStyleBackColor = true;
+            this.buttonchangeProfile.Click += new System.EventHandler(this.changeProfile_Click);
             // 
-            // showProfileButton
+            // buttonshowProfile
             // 
-            this.showProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showProfileButton.Location = new System.Drawing.Point(25, 27);
-            this.showProfileButton.Name = "showProfileButton";
-            this.showProfileButton.Size = new System.Drawing.Size(211, 33);
-            this.showProfileButton.TabIndex = 4;
-            this.showProfileButton.Text = "Show your profile";
-            this.showProfileButton.UseVisualStyleBackColor = true;
-            this.showProfileButton.Click += new System.EventHandler(this.showProfile_Click);
+            this.buttonShowProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonShowProfile.Location = new System.Drawing.Point(25, 27);
+            this.buttonShowProfile.Name = "buttonShowProfile";
+            this.buttonShowProfile.Size = new System.Drawing.Size(211, 33);
+            this.buttonShowProfile.TabIndex = 4;
+            this.buttonShowProfile.Text = "Show your profile";
+            this.buttonShowProfile.UseVisualStyleBackColor = true;
+            this.buttonShowProfile.Click += new System.EventHandler(this.showProfile_Click);
             // 
             // OpenProfilePicture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(321, 144);
-            this.Controls.Add(this.showProfilePictureBox);
-            this.Controls.Add(this.changePorfilePictureBox);
-            this.Controls.Add(this.changeProfileButton);
-            this.Controls.Add(this.showProfileButton);
+            this.Controls.Add(this.pictureBoxShowProfile);
+            this.Controls.Add(this.pictureBoxChangeProfile);
+            this.Controls.Add(this.buttonchangeProfile);
+            this.Controls.Add(this.buttonShowProfile);
             this.Name = "OpenProfilePicture";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Profile Picture Options";
-            ((System.ComponentModel.ISupportInitialize)(this.showProfilePictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.changePorfilePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShowProfile)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChangeProfile)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button buttonShowProfile;
+        private System.Windows.Forms.PictureBox pictureBoxChangeProfile;
+        private System.Windows.Forms.PictureBox pictureBoxShowProfile;
+        private System.Windows.Forms.Button buttonchangeProfile;
     }
 }
