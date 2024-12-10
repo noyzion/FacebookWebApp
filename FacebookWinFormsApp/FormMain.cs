@@ -631,9 +631,18 @@ namespace BasicFacebookFeatures
 
         private void buttonAddPhoto_Click(object sender, EventArgs e)
         {
-            ListObject newObject = new ListObject(textBoxName.Text, m_FacebookManager.addPhoto());
-            m_Tab2Manager.AddToWishlist(comboBoxCategory.Text, newObject);
-            UpdateCheckedListBox(comboBoxCategory.Text, newObject);
+
+            try
+            {
+                ListObject newObject = new ListObject(textBoxName.Text.Trim(), m_FacebookManager.addPhoto());
+                 m_Tab2Manager.AddToWishlist(comboBoxCategory.Text, newObject);
+                UpdateCheckedListBox(comboBoxCategory.Text, newObject);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -641,7 +650,7 @@ namespace BasicFacebookFeatures
             try
             {
                 string category = comboBoxCategory.Text;
-                string itemName = textBoxName.Text;
+                string itemName = textBoxName.Text.Trim();
 
                 if (string.IsNullOrEmpty(category) || string.IsNullOrEmpty(itemName))
                 {
@@ -663,6 +672,8 @@ namespace BasicFacebookFeatures
             ListObject newObject = m_Tab2Manager.AddItemToWishlist(ref category, itemName);
             if (newObject != null)
                 UpdateCheckedListBox(category, newObject);
+            else
+                throw new Exception("You can't add two items with the same name to the same list!");
         }
 
         private void UpdateCheckedListBox(string category, ListObject item)
@@ -719,25 +730,25 @@ namespace BasicFacebookFeatures
 
         private void checkedListBoxFood_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            checkedListBox_ItemCheck(sender, e, checkedListBoxFood);
+            checkedListBox_ItemCheck(sender, e, checkedListBoxFood, EWishlistCategories.food);
         }
 
         private void checkedListBoxShopping_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            checkedListBox_ItemCheck(sender, e, checkedListBoxShopping);
+            checkedListBox_ItemCheck(sender, e, checkedListBoxShopping, EWishlistCategories.shopping);
         }
         private void checkedListBoxActivities_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            checkedListBox_ItemCheck(sender, e, checkedListBoxActivities);
+            checkedListBox_ItemCheck(sender, e, checkedListBoxActivities, EWishlistCategories.activities);
         }
         private void checkedListBoxPets_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            checkedListBox_ItemCheck(sender, e, checkedListBoxPets);
+            checkedListBox_ItemCheck(sender, e, checkedListBoxPets, EWishlistCategories.pets);
         }
-        private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e, CheckedListBox list)
+        private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e, CheckedListBox list, EWishlistCategories category)
         {
             string itemName = list.Text;
-            ListObject listObject = m_Tab2Manager.FindListObjectByName(itemName);
+            ListObject listObject = m_Tab2Manager.FindListObjectByName(category, itemName);
             if (listObject != null)
             {
                 if (listObject.m_Checked)
@@ -749,23 +760,23 @@ namespace BasicFacebookFeatures
 
         private void checkedListBoxFood_SelectedIndexChanged(object sender, EventArgs e)
         {
-            m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxFood, pictureBoxFood);
+            m_Tab2Manager.loadImageForPictureBoxInList(EWishlistCategories.food, checkedListBoxFood, pictureBoxFood);
             buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxShopping_SelectedIndexChanged(object sender, EventArgs e)
         {
-            m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxShopping, pictureBoxShopping);
+            m_Tab2Manager.loadImageForPictureBoxInList(EWishlistCategories.shopping, checkedListBoxShopping, pictureBoxShopping);
             buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxPets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxPets, pictureBoxPets);
+            m_Tab2Manager.loadImageForPictureBoxInList(EWishlistCategories.pets, checkedListBoxPets, pictureBoxPets);
             buttonDeleteItem.Enabled = true;
 
         }
         private void checkedListBoxActivities_SelectedIndexChanged(object sender, EventArgs e)
         {
-            m_Tab2Manager.loadImageForPictureBoxInList(checkedListBoxActivities, pictureBoxActivities);
+            m_Tab2Manager.loadImageForPictureBoxInList(EWishlistCategories.activities, checkedListBoxActivities, pictureBoxActivities);
             buttonDeleteItem.Enabled = true;
 
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -28,11 +29,14 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                existingCategory.Value.Add(item);
+                if (!existingCategory.Value.Contains(item))
+                {
+                    existingCategory.Value.Add(item);
+                }
             }
+            throw new Exception("You can't add two items with the same name to the same list!");
         }
-
-        public void RemoveFromWishlist(string category, ListObject item)
+            public void RemoveFromWishlist(string category, ListObject item)
         {
             var existingCategory = m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
 
@@ -229,11 +233,11 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
             };
         }
 
-        public void loadImageForPictureBoxInList(CheckedListBox list, PictureBox pictureBox)
+        public void loadImageForPictureBoxInList(EWishlistCategories category, CheckedListBox list, PictureBox pictureBox)
         {
             string selectedItemName = list.Text;
 
-            ListObject listObject = FindListObjectByName(selectedItemName);
+            ListObject listObject = FindListObjectByName(category, selectedItemName);
 
             if (listObject != null && listObject.m_PhotoUrl != null)
             {
@@ -248,16 +252,23 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
                     MessageBox.Show($"Error loading image: {ex.Message}");
                 }
             }
+            else
+            {
+                pictureBox.Image = null;
+            }
         }
-        public ListObject FindListObjectByName(string itemName)
+        public ListObject FindListObjectByName(EWishlistCategories category, string itemName)
         {
             foreach (var kvp in m_WishlistValues)
             {
-                foreach (var listObject in kvp.Value)
+                if (kvp.Key.Equals(category.ToString()))
                 {
-                    if (listObject.m_Text == itemName)
+                    foreach (var listObject in kvp.Value)
                     {
-                        return listObject;
+                        if (listObject.m_Text == itemName)
+                        {
+                            return listObject;
+                        }
                     }
                 }
             }
@@ -283,7 +294,8 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
 
                 var existingCategory = m_WishlistValues.FirstOrDefault(kvp => string.Equals(kvp.Key, localCategory));
 
-                if (existingCategory.Key != null)
+
+                if (existingCategory != null)
                 {
                     category = existingCategory.Key;
 

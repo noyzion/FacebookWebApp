@@ -26,6 +26,17 @@ namespace BasicFacebookFeatures
             m_Text = text;
             m_PhotoUrl = null;
         }
-    }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != this.GetType())
+                return false;
+            ListObject other = (ListObject)obj;
+
+            return m_Text == other.m_Text;
+        }
+
+    
+    }
 }
+    
