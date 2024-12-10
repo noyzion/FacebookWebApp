@@ -47,8 +47,8 @@
             this.showProfilePictureBox.TabIndex = 7;
             this.showProfilePictureBox.TabStop = false;
             this.showProfilePictureBox.Click += new System.EventHandler(this.showProfile_Click);
-            this.showProfilePictureBox.MouseEnter += new System.EventHandler(this.showProfilePictureBox_MouseEnter);
-            this.showProfilePictureBox.MouseLeave += new System.EventHandler(this.showProfilePictureBox_MouseLeave);
+            this.showProfilePictureBox.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.showProfilePictureBox.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             // 
             // changePorfilePictureBox
             // 

@@ -71,15 +71,5 @@ namespace BasicFacebookFeatures
                 pictureBox.BackColor = System.Drawing.Color.Transparent;
             }
         }
-
-        private void showProfilePictureBox_MouseEnter(object sender, EventArgs e)
-        {
-            PictureBox_MouseEnter(sender, e);
-        }
-
-        private void showProfilePictureBox_MouseLeave(object sender, EventArgs e)
-        {
-            PictureBox_MouseLeave(sender, e);
-        }
     }
 }

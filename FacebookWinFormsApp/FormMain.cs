@@ -22,6 +22,30 @@ namespace BasicFacebookFeatures
         public DataGridView workoutTable { get; set; }
         private FacebookManager m_FacebookManager;
 
+        private void PictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = sender as PictureBox;
+            if (pictureBox != null)
+            {
+                pictureBox.BorderStyle = BorderStyle.FixedSingle;
+                pictureBox.Width += 5;
+                pictureBox.Height += 5;
+                pictureBox.BackColor = System.Drawing.Color.LightGray;
+            }
+        }
+
+        private void PictureBox_MouseLeave(object sender, EventArgs e)
+        {
+
+            PictureBox pictureBox = sender as PictureBox;
+            if (pictureBox != null)
+            {
+                pictureBox.BorderStyle = BorderStyle.None;
+                pictureBox.Width -= 5;
+                pictureBox.Height -= 5;
+                pictureBox.BackColor = System.Drawing.Color.Transparent;
+            }
+        }
         public FormMain()
         {
             InitializeComponent();

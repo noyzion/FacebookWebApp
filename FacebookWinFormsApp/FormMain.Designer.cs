@@ -222,6 +222,8 @@
             this.pictureBoxProfile.TabIndex = 55;
             this.pictureBoxProfile.TabStop = false;
             this.pictureBoxProfile.Click += new System.EventHandler(this.pictureBoxProfile_Click);
+            this.pictureBoxProfile.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.pictureBoxProfile.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             // 
             // statusPanel
             // 
@@ -334,6 +336,8 @@
             this.eventsPictureBox.TabIndex = 73;
             this.eventsPictureBox.TabStop = false;
             this.eventsPictureBox.Click += new System.EventHandler(this.events_Click);
+            this.eventsPictureBox.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.eventsPictureBox.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             // 
             // DataPanel
             // 
@@ -449,6 +453,8 @@
             this.photosPicture.TabIndex = 63;
             this.photosPicture.TabStop = false;
             this.photosPicture.Click += new System.EventHandler(this.photos_Click);
+            this.photosPicture.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.photosPicture.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             // 
             // postsPicture
             // 
@@ -461,6 +467,8 @@
             this.postsPicture.TabIndex = 62;
             this.postsPicture.TabStop = false;
             this.postsPicture.Click += new System.EventHandler(this.posts_Click);
+            this.postsPicture.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.postsPicture.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             // 
             // friendsPicture
             // 
@@ -473,6 +481,8 @@
             this.friendsPicture.TabIndex = 60;
             this.friendsPicture.TabStop = false;
             this.friendsPicture.Click += new System.EventHandler(this.friends_Click);
+            this.friendsPicture.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.friendsPicture.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             // 
             // likedPicture
             // 
@@ -485,6 +495,8 @@
             this.likedPicture.TabIndex = 59;
             this.likedPicture.TabStop = false;
             this.likedPicture.Click += new System.EventHandler(this.pages_Click);
+            this.likedPicture.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.likedPicture.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             // 
             // groupsPicture
             // 
@@ -497,6 +509,8 @@
             this.groupsPicture.TabIndex = 58;
             this.groupsPicture.TabStop = false;
             this.groupsPicture.Click += new System.EventHandler(this.groups_Click);
+            this.groupsPicture.MouseEnter += new System.EventHandler(this.PictureBox_MouseEnter);
+            this.groupsPicture.MouseLeave += new System.EventHandler(this.PictureBox_MouseLeave);
             // 
             // rememberMe_CheckBox
             // 
