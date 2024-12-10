@@ -28,7 +28,7 @@ namespace BasicFacebookFeatures
             m_AppSettings = AppSettings.LoadFromFile();
             this.rememberMe_CheckBox.Checked = m_AppSettings.RememberUser;
             FacebookWrapper.FacebookService.s_CollectionLimit = 70; // If the limit is bigger, it works but very slow
-            m_WishlistManager = m_AppSettings.Tab2Manager;
+            m_WishlistManager = m_AppSettings.m_WishlistManager;
             m_workoutManager = m_AppSettings.WorkoutManager;
             InitializeWorkoutTable();
         }
@@ -69,7 +69,7 @@ namespace BasicFacebookFeatures
             if (m_AppSettings.RememberUser)
             {
                 m_AppSettings.LastAccessToken = m_LoginResult.AccessToken;
-                m_AppSettings.Tab2Manager = m_WishlistManager;
+                m_AppSettings.m_WishlistManager = m_WishlistManager;
                 m_AppSettings.WorkoutManager = m_workoutManager;
             }
             else
@@ -479,7 +479,7 @@ namespace BasicFacebookFeatures
         }
         private void populateCheckBoxListOfWishlist(int i, EWishlistCategories category)
         {
-            foreach (var kvp in m_AppSettings.Tab2Manager.m_WishlistValues)
+            foreach (var kvp in m_AppSettings.m_WishlistManager.m_WishlistValues)
             {
                 if (category.ToString() == kvp.Key)
                 {

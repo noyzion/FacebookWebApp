@@ -12,23 +12,23 @@ namespace BasicFacebookFeatures
 {
     public class AppSettings
     {
-        public string s_AppID {  get; set; }
+        public string s_AppID { get; set; }
         public string[] s_Permissions { get; set; }
 
         public bool RememberUser { get; set; }
         public string LastAccessToken { get; set; }
 
-       public WishlistManager Tab2Manager { get; set; }
+        public WishlistManager m_WishlistManager { get; set; }
 
-       public WorkoutManager WorkoutManager { get; set; }
+        public WorkoutManager WorkoutManager { get; set; }
 
         public AppSettings()
-        { 
+        {
             RememberUser = false;
             LastAccessToken = null;
             s_Permissions = null;
             s_AppID = null;
-            Tab2Manager = null;
+            m_WishlistManager = null;
             WorkoutManager = null;
         }
 
@@ -41,7 +41,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        public static AppSettings LoadFromFile() 
+        public static AppSettings LoadFromFile()
         {
             AppSettings settings = new AppSettings();
             if (File.Exists(@"C:\Users\noyzi\OneDrive\Documents\appSettings.xml"))
