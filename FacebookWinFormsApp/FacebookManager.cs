@@ -19,8 +19,6 @@ namespace BasicFacebookFeatures
             m_LoginResult = loginResult;
         }
 
-       
-
         public void fetchGroups(ListBox DataListBox)
         {
             try
@@ -235,5 +233,7 @@ namespace BasicFacebookFeatures
                 return null;
             }
         }
+     
+
     }
 }

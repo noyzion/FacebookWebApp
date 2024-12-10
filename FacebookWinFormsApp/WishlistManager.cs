@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace BasicFacebookFeatures
 {
-    public class WishlistManager
+    public class WishlistManager : IWishlistManager
     {
         public List<KeyValuePairWrapper> m_WishlistValues { get; set; }
 
@@ -19,26 +19,29 @@ namespace BasicFacebookFeatures
             m_WishlistValues = new List<KeyValuePairWrapper>();
         }
 
-        public void AddToWishlist(string category, ListObject item)
+        public void AddWishToWishlistValues(string category, ListObject item)
         {
-            var existingCategory = m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
+            KeyValuePairWrapper existingCategoryList = m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
 
-            if (existingCategory == null)
+            if (existingCategoryList == null)
             {
                 m_WishlistValues.Add(new KeyValuePairWrapper(category, new List<ListObject> { item }));
             }
             else
             {
-                if (!existingCategory.Value.Contains(item))
+                if (!existingCategoryList.Value.Contains(item))
                 {
-                    existingCategory.Value.Add(item);
+                    existingCategoryList.Value.Add(item);
+                }
+                else
+                {
+                    throw new Exception("You can't add two items with the same name to the same list!");
                 }
             }
-            throw new Exception("You can't add two items with the same name to the same list!");
         }
-            public void RemoveFromWishlist(string category, ListObject item)
+        public void RemoveWishFromWishlistValues(string category, ListObject item)
         {
-            var existingCategory = m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
+            KeyValuePairWrapper existingCategory = m_WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
 
             if (existingCategory.Key != null)
             {
@@ -233,12 +236,8 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
             };
         }
 
-        public void loadImageForPictureBoxInList(EWishlistCategories category, CheckedListBox list, PictureBox pictureBox)
+        public void loadImageForPictureBoxInList(ListObject listObject, PictureBox pictureBox)
         {
-            string selectedItemName = list.Text;
-
-            ListObject listObject = FindListObjectByName(category, selectedItemName);
-
             if (listObject != null && listObject.m_PhotoUrl != null)
             {
                 try
@@ -257,78 +256,59 @@ Shopping:{GetCategoryItemsAsString(shoppingListBox)}");
                 pictureBox.Image = null;
             }
         }
-        public ListObject FindListObjectByName(EWishlistCategories category, string itemName)
+        public void deleteWishFromListBox(CheckedListBox checkedListBox, EWishlistCategories category)
         {
-            foreach (var kvp in m_WishlistValues)
-            {
-                if (kvp.Key.Equals(category.ToString()))
-                {
-                    foreach (var listObject in kvp.Value)
-                    {
-                        if (listObject.m_Text == itemName)
-                        {
-                            return listObject;
-                        }
-                    }
-                }
-            }
-            return null;
-        }
-        public void deleteFromList(CheckedListBox list, EWishlistCategories category)
-        {
-            ListObject selectedItem = (ListObject)list.Items[list.SelectedIndex];
-            list.Items.RemoveAt(list.SelectedIndex);
-            RemoveFromWishlist(category.ToString(), selectedItem);
+            ListObject selectedItem = (ListObject)checkedListBox.Items[checkedListBox.SelectedIndex];
+            checkedListBox.Items.RemoveAt(checkedListBox.SelectedIndex);
+            RemoveWishFromWishlistValues(category.ToString(), selectedItem);
         }
 
-        public ListObject AddItemToWishlist(ref string category, string itemName)
+        public void resetWishlistUI(CheckedListBox listBoxFood, CheckedListBox listBoxPets,
+                                    CheckedListBox listBoxActivities, CheckedListBox listBoxShopping)
+        {
+            listBoxFood.Items.Clear();
+            listBoxPets.Items.Clear();
+            listBoxActivities.Items.Clear();
+            listBoxShopping.Items.Clear();
+        }
+
+        public void UpdateCheckedListBox(CheckedListBox foodList, CheckedListBox petsList,
+                                         CheckedListBox activitiesList, CheckedListBox shoppingList,
+                                         string category, ListObject item)
         {
             try
             {
-                if (m_WishlistValues == null)
+                switch (category)
                 {
-                    m_WishlistValues = new List<KeyValuePairWrapper>();
+                    case nameof(EWishlistCategories.food):
+                        foodList.Items.Add(item);
+                        break;
+
+                    case nameof(EWishlistCategories.shopping):
+                        shoppingList.Items.Add(item);
+                        break;
+
+                    case nameof(EWishlistCategories.activities):
+                        activitiesList.Items.Add(item);
+                        break;
+
+                    case nameof(EWishlistCategories.pets):
+                        petsList.Items.Add(item);
+                        break;
+
+                    default:
+                        MessageBox.Show("Invalid category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
                 }
-
-                string localCategory = category;
-
-                var existingCategory = m_WishlistValues.FirstOrDefault(kvp => string.Equals(kvp.Key, localCategory));
-
-
-                if (existingCategory != null)
-                {
-                    category = existingCategory.Key;
-
-                    bool itemExists = existingCategory.Value.Any(item => item.m_Text == itemName);
-                    if (!itemExists)
-                    {
-                        ListObject newObject = new ListObject(itemName);
-                        existingCategory.Value.Add(newObject);
-                        return newObject;
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                }
-                else
-                {
-                    ListObject newObject = new ListObject(itemName);
-                    AddToWishlist(category, newObject);
-                    return newObject;
-                }
-
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while adding to wishlist: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occurred while updating the checked list box: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
         }
 
     }
-
 }
 
 
