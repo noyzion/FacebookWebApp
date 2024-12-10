@@ -480,7 +480,7 @@ namespace BasicFacebookFeatures
         }
         private void populateCheckBoxListOfWishlist(int i, EWishlistCategories category)
         {
-            foreach (var kvp in m_AppSettings.WishlistManager.m_WishlistValues)
+            foreach (var kvp in m_AppSettings.WishlistManager.WishlistValues)
             {
                 if (category.ToString() == kvp.Key)
                 {
@@ -614,7 +614,7 @@ namespace BasicFacebookFeatures
         }
         private ListObject findListObjectByName(EWishlistCategories category, string itemName)
         {
-            foreach (var kvp in m_WishlistManager.m_WishlistValues)
+            foreach (var kvp in m_WishlistManager.WishlistValues)
             {
                 if (kvp.Key.Equals(category.ToString()))
                 {

@@ -30,25 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddWorkoutForm));
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelCategory = new System.Windows.Forms.Label();
             this.comboBoxWorkoutCategory = new System.Windows.Forms.ComboBox();
             this.dateTimePickerWorkout = new System.Windows.Forms.DateTimePicker();
             this.buttonAddWorkout = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.labelChooseDate = new System.Windows.Forms.Label();
+            this.labelAddCalories = new System.Windows.Forms.Label();
             this.numericUpDownDuration = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownCalories = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelDuration = new System.Windows.Forms.Label();
+            this.labelAddWorkoutHeader = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDuration)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCalories)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelCategory
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.labelCategory, "labelCategory");
+            this.labelCategory.Name = "labelCategory";
             // 
             // comboBoxWorkoutCategory
             // 
@@ -97,15 +96,15 @@
             this.buttonAddWorkout.UseVisualStyleBackColor = true;
             this.buttonAddWorkout.Click += new System.EventHandler(this.buttonAddWorkout_Click);
             // 
-            // label2
+            // labelChooseDate
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.labelChooseDate, "labelChooseDate");
+            this.labelChooseDate.Name = "labelChooseDate";
             // 
-            // label4
+            // labelAddCalories
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.labelAddCalories, "labelAddCalories");
+            this.labelAddCalories.Name = "labelAddCalories";
             // 
             // numericUpDownDuration
             // 
@@ -119,30 +118,30 @@
             this.numericUpDownCalories.Name = "numericUpDownCalories";
             this.numericUpDownCalories.ValueChanged += new System.EventHandler(this.numericUpDownCalories_ValueChanged);
             // 
-            // label5
+            // labelDuration
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(this.labelDuration, "labelDuration");
+            this.labelDuration.Name = "labelDuration";
             // 
-            // label3
+            // labelAddWorkoutHeader
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            resources.ApplyResources(this.labelAddWorkoutHeader, "labelAddWorkoutHeader");
+            this.labelAddWorkoutHeader.Name = "labelAddWorkoutHeader";
             // 
             // AddWorkoutForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelDuration);
             this.Controls.Add(this.numericUpDownCalories);
             this.Controls.Add(this.numericUpDownDuration);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelAddCalories);
+            this.Controls.Add(this.labelChooseDate);
             this.Controls.Add(this.buttonAddWorkout);
             this.Controls.Add(this.dateTimePickerWorkout);
             this.Controls.Add(this.comboBoxWorkoutCategory);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelCategory);
+            this.Controls.Add(this.labelAddWorkoutHeader);
             this.Name = "AddWorkoutForm";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDuration)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCalories)).EndInit();
@@ -152,16 +151,15 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelCategory;
         private System.Windows.Forms.ComboBox comboBoxWorkoutCategory;
         private System.Windows.Forms.DateTimePicker dateTimePickerWorkout;
         private System.Windows.Forms.Button buttonAddWorkout;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label labelChooseDate;
+        private System.Windows.Forms.Label labelAddCalories;
         private System.Windows.Forms.NumericUpDown numericUpDownDuration;
         private System.Windows.Forms.NumericUpDown numericUpDownCalories;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelDuration;
+        private System.Windows.Forms.Label labelAddWorkoutHeader;
     }
 }
