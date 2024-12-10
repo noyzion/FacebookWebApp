@@ -60,7 +60,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -848,7 +847,10 @@ namespace BasicFacebookFeatures
 
         private void buttonAddPhoto_Click(object sender, EventArgs e)
         {
-            m_Tab2Manager.AddToWishlist(comboBoxCategory.Text, new ListObject(textBoxName.Text, addPhoto()));
+            ListObject newObject = new ListObject(textBoxName.Text, addPhoto());
+            m_Tab2Manager.AddToWishlist(comboBoxCategory.Text, newObject);
+            UpdateCheckedListBox(comboBoxCategory.Text, newObject);
+
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -865,7 +867,6 @@ namespace BasicFacebookFeatures
                 }
 
                 AddItemToWishlist(category, itemName);
-                UpdateCheckedListBox(category, itemName);
                 textBoxName.Clear();
             }
             catch (Exception ex)
@@ -890,12 +891,17 @@ namespace BasicFacebookFeatures
                     bool itemExists = existingCategory.Value.Any(item => item.m_Text == itemName);
                     if (!itemExists)
                     {
-                        existingCategory.Value.Add(new ListObject(itemName));
+                        ListObject newObject = new ListObject(itemName);
+                        existingCategory.Value.Add(newObject);
+                        UpdateCheckedListBox(existingCategory.Key, newObject);
+
                     }
                 }
                 else
                 {
-                    m_Tab2Manager.AddToWishlist(category, new ListObject(itemName));
+                    ListObject newObject = new ListObject(itemName);
+                    m_Tab2Manager.AddToWishlist(category,newObject);
+                    UpdateCheckedListBox(category, newObject);
                 }
             }
             catch (Exception ex)
@@ -905,26 +911,26 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void UpdateCheckedListBox(string category, string itemName)
+        private void UpdateCheckedListBox(string category, ListObject item)
         {
             try
             {
                 switch (category)
                 {
                     case nameof(EWishlistCategories.food):
-                        checkedListBoxFood.Items.Add(itemName);
+                        checkedListBoxFood.Items.Add(item);
                         break;
 
                     case nameof(EWishlistCategories.shopping):
-                        checkedListBoxShopping.Items.Add(itemName);
+                        checkedListBoxShopping.Items.Add(item);
                         break;
 
                     case nameof(EWishlistCategories.activities):
-                        checkedListBoxActivities.Items.Add(itemName);
+                        checkedListBoxActivities.Items.Add(item);
                         break;
 
                     case nameof(EWishlistCategories.pets):
-                        checkedListBoxPets.Items.Add(itemName);
+                        checkedListBoxPets.Items.Add(item);
                         break;
 
                     default:
