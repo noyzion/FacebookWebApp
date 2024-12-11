@@ -108,12 +108,22 @@
             // numericUpDownDuration
             // 
             resources.ApplyResources(this.numericUpDownDuration, "numericUpDownDuration");
+            this.numericUpDownDuration.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.numericUpDownDuration.Name = "numericUpDownDuration";
             this.numericUpDownDuration.ValueChanged += new System.EventHandler(this.numericUpDownDuration_ValueChanged);
             // 
             // numericUpDownCalories
             // 
             resources.ApplyResources(this.numericUpDownCalories, "numericUpDownCalories");
+            this.numericUpDownCalories.Maximum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             this.numericUpDownCalories.Name = "numericUpDownCalories";
             this.numericUpDownCalories.ValueChanged += new System.EventHandler(this.numericUpDownCalories_ValueChanged);
             // 

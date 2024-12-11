@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,24 +11,36 @@ namespace BasicFacebookFeatures
 {
     public class WishlistManager : IWishlistManager
     {
-        public List<KeyValuePairWrapper> WishlistValues { get; set; }
+        public List<CategoryListWrapper> WishlistValues { get; set; }
+        private const int k_PopUpWidthSize = 870;
+        private const int k_PopUpHeightSize = 580;
+        private const int k_WidthPanelSize = 200;
+        private const int k_HeightPanelSize = 500;
+        private const int k_Padding = 5;
+        private const int k_ItemHeight = 100;
+        private const int k_ItemWidth = 180;
+        private const int k_PictureBoxItemSize = 60;
+        private const int k_PictureBoxLocationX = 5;
+        private const int k_PictureBoxLocationY = 30;
+
+
         public WishlistManager()
         {
-            WishlistValues = new List<KeyValuePairWrapper>();
+            WishlistValues = new List<CategoryListWrapper>();
         }
         public void AddWishToWishlistValues(string i_Category, WishListItem i_ItemToAdd)
         {
-            KeyValuePairWrapper existingCategoryList = WishlistValues.FirstOrDefault(kvp => kvp.Key == i_Category);
+            CategoryListWrapper existingCategoryList = WishlistValues.FirstOrDefault(kvp => kvp.KeyCategory == i_Category);
 
             if (existingCategoryList == null)
             {
-                WishlistValues.Add(new KeyValuePairWrapper(i_Category, new List<WishListItem> { i_ItemToAdd }));
+                WishlistValues.Add(new CategoryListWrapper(i_Category, new List<WishListItem> { i_ItemToAdd }));
             }
             else
             {
-                if (!existingCategoryList.Value.Contains(i_ItemToAdd))
+                if (!existingCategoryList.ListOfWishlists.Contains(i_ItemToAdd))
                 {
-                    existingCategoryList.Value.Add(i_ItemToAdd);
+                    existingCategoryList.ListOfWishlists.Add(i_ItemToAdd);
                 }
                 else
                 {
@@ -37,12 +50,12 @@ namespace BasicFacebookFeatures
         }
         public void RemoveWishFromWishlistValues(string i_Category, WishListItem i_ItemToAdd)
         {
-            KeyValuePairWrapper existingCategory = WishlistValues.FirstOrDefault(kvp => kvp.Key == i_Category);
+            CategoryListWrapper existingCategory = WishlistValues.FirstOrDefault(kvp => kvp.KeyCategory == i_Category);
 
-            if (existingCategory.Key != null)
+            if (existingCategory.KeyCategory != null)
             {
-                existingCategory.Value.Remove(i_ItemToAdd);
-                if (existingCategory.Value.Count == 0)
+                existingCategory.ListOfWishlists.Remove(i_ItemToAdd);
+                if (existingCategory.ListOfWishlists.Count == 0)
                 {
                     WishlistValues.Remove(existingCategory);
                 }
@@ -55,9 +68,10 @@ namespace BasicFacebookFeatures
 
             try
             {
-                wishlistString = displayCombinedWishlist(i_FoodListBox, i_ActivitiesListBox, i_PetsListBox, i_ShoppingListBox);
-
-                displayCombinedWishlistPopup(i_FoodListBox, i_ActivitiesListBox, i_PetsListBox, i_ShoppingListBox);
+                wishlistString = displayCombinedWishlist(i_FoodListBox, i_ActivitiesListBox,
+                                                        i_PetsListBox, i_ShoppingListBox);
+                displayCombinedWishlistPopup(i_FoodListBox, i_ActivitiesListBox, 
+                                             i_PetsListBox, i_ShoppingListBox);
             }
             catch (Exception ex)
             {
@@ -96,11 +110,11 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
             Form popupForm = new Form
             {
                 Text = "My Wishlist",
-                Size = new Size(870, 580),
+                Size = new Size(k_PopUpWidthSize, k_PopUpHeightSize),
                 StartPosition = FormStartPosition.CenterScreen,
                 AutoScroll = true
             };
-
+            
             FlowLayoutPanel mainPanel = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
@@ -146,8 +160,8 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
                 FlowDirection = FlowDirection.TopDown,
                 WrapContents = false,
                 AutoScroll = true,
-                Size = new Size(200, 500),
-                Padding = new Padding(5),
+                Size = new Size(k_WidthPanelSize, k_HeightPanelSize),
+                Padding = new Padding(k_Padding),
                 BorderStyle = BorderStyle.FixedSingle
             };
         }
@@ -159,16 +173,16 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
                 AutoSize = true,
                 Font = new Font("Arial", 14, FontStyle.Bold),
                 ForeColor = Color.DarkBlue,
-                Margin = new Padding(5)
+                Margin = new Padding(k_Padding)
             };
         }
         private Panel createItemPanel(WishListItem i_WishlistItem)
         {
             Panel itemPanel = new Panel
             {
-                Size = new Size(180, 100),
+                Size = new Size(k_ItemWidth, k_ItemHeight),
                 BorderStyle = BorderStyle.FixedSingle,
-                Margin = new Padding(5)
+                Margin = new Padding(k_Padding)
             };
 
             Label labelWishlistItem = createItemLabel(i_WishlistItem);
@@ -185,7 +199,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
             {
                 Text = $"{i_WishlistItem.Text}" + (i_WishlistItem.Checked ? " (Achieved ✅)" : ""),
                 AutoSize = true,
-                Location = new Point(5, 5),
+                Location = new Point(k_Padding, k_Padding),
                 Font = new Font("Arial", 10, FontStyle.Regular)
             };
         }
@@ -193,8 +207,8 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
         {
             PictureBox pictureBoxItem = new PictureBox
             {
-                Size = new Size(60, 60),
-                Location = new Point(5, 30),
+                Size = new Size(k_PictureBoxItemSize, k_PictureBoxItemSize),
+                Location = new Point(k_PictureBoxLocationX, k_PictureBoxLocationY),
                 SizeMode = PictureBoxSizeMode.StretchImage
             };
 
@@ -217,7 +231,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
                 AutoSize = true,
                 Font = new Font("Arial", 10, FontStyle.Italic),
                 ForeColor = Color.Gray,
-                Margin = new Padding(5)
+                Margin = new Padding(k_Padding)
             };
         }
         public void LoadImageForPictureBoxInList(WishListItem i_WishlistItem, PictureBox i_ItemPictureBox)
@@ -275,13 +289,15 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
                         i_PetsListBox.Items.Add(i_WishlistItem);
                         break;
                     default:
-                        MessageBox.Show("Invalid category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Invalid category.", "Error",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while updating the checked list box: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occurred while updating the checked list box:" +
+                                $"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
         }

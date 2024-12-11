@@ -9,7 +9,7 @@ namespace BasicFacebookFeatures
     public partial class StatisicsForm : Form
     {
         private readonly DataGridView r_WorkoutTable;
-
+        private const int k_LabelAngle = -45;
         public StatisicsForm(DataGridView i_WorkoutTable)
         {
             InitializeComponent();
@@ -103,8 +103,8 @@ namespace BasicFacebookFeatures
                 }
             }
 
-            caloriesChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
-            timeChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+            caloriesChart.ChartAreas[0].AxisX.LabelStyle.Angle = -k_LabelAngle;
+            timeChart.ChartAreas[0].AxisX.LabelStyle.Angle = -k_LabelAngle;
         }
     }
 }

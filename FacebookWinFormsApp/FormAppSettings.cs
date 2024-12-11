@@ -49,6 +49,5 @@ namespace BasicFacebookFeatures
         {
             listBoxPermissions.Items.Add(textBoxPermissionsToAdd.Text);
         }
-
     }
 }

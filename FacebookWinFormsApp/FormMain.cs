@@ -12,6 +12,8 @@ namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
+        private const string k_User = "UserData.xml";
+        private const int k_CollectionLimit = 70;  // If the limit is bigger, it works but very slow
         private readonly AppSettings r_AppSettings;
         private readonly WishlistManager r_WishlistManager;
         private readonly WorkoutManager r_WorkoutManager;
@@ -21,13 +23,23 @@ namespace BasicFacebookFeatures
         private bool m_IsComboBoxChanged = false;
         private FacebookManager m_FacebookManager;
         private readonly DataGridView r_WorkoutTable;
+        private const int k_HoverEffect = 5;
+        private const int k_ShowProfileSize = 600;
 
         public FormMain()
         {
             InitializeComponent();
-            r_AppSettings = AppSettings.LoadFromFile();
+            r_AppSettings = AppSettings.LoadFromFile(k_User);
             this.rememberMeCheckBox.Checked = r_AppSettings.RememberUser;
-            FacebookWrapper.FacebookService.s_CollectionLimit = 70; // If the limit is bigger, it works but very slow
+            FacebookWrapper.FacebookService.s_CollectionLimit = k_CollectionLimit;
+            if (r_AppSettings.WishlistManager == null)
+            {
+                r_AppSettings.WishlistManager = new WishlistManager();
+            }
+            if (r_AppSettings.WorkoutManager == null)
+            {
+                r_AppSettings.WorkoutManager = new WorkoutManager();
+            }
             r_WishlistManager = r_AppSettings.WishlistManager;
             r_WorkoutManager = r_AppSettings.WorkoutManager;
             r_WorkoutTable = r_WorkoutManager.InitializeWorkoutTable();
@@ -40,8 +52,8 @@ namespace BasicFacebookFeatures
             if (pictureBox != null)
             {
                 pictureBox.BorderStyle = BorderStyle.FixedSingle;
-                pictureBox.Width += 5;
-                pictureBox.Height += 5;
+                pictureBox.Width += k_HoverEffect;
+                pictureBox.Height += k_HoverEffect;
                 pictureBox.BackColor = System.Drawing.Color.LightGray;
             }
         }
@@ -52,8 +64,8 @@ namespace BasicFacebookFeatures
             if (pictureBox != null)
             {
                 pictureBox.BorderStyle = BorderStyle.None;
-                pictureBox.Width -= 5;
-                pictureBox.Height -= 5;
+                pictureBox.Width -= k_HoverEffect;
+                pictureBox.Height -= k_HoverEffect;
                 pictureBox.BackColor = System.Drawing.Color.Transparent;
             }
         }     
@@ -72,7 +84,7 @@ namespace BasicFacebookFeatures
                 r_AppSettings.LastAccessToken = null;
             }
 
-            r_AppSettings.SaveToFile();
+            r_AppSettings.SaveToFile(k_User);
         }
         protected override void OnShown(EventArgs e)
         {
@@ -89,6 +101,7 @@ namespace BasicFacebookFeatures
             if (m_LoginResult == null || string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
                 Login();
+                m_FacebookManager = new FacebookManager(m_LoginResult);
             }
         }
         private void buttonsAfterLogin()
@@ -157,7 +170,16 @@ namespace BasicFacebookFeatures
         }
         public void Login()
         {
-            m_LoginResult = FacebookService.Login(r_AppSettings.AppID, r_AppSettings.Permissions);
+            m_LoginResult = FacebookService.Login(
+                            "914564353962957",
+                            "email",
+                            "public_profile",
+                            "user_posts",
+                            "user_photos",
+                            "user_events",
+                            "user_friends",
+                            "user_likes"
+                            );
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
                 populateUIFromFacebookData();
@@ -244,6 +266,7 @@ namespace BasicFacebookFeatures
                 if (string.IsNullOrEmpty(selectedFilePath))
                 {
                     MessageBox.Show("No video selected. Please select a video to upload.");
+
                     return;
                 }
 
@@ -282,7 +305,7 @@ namespace BasicFacebookFeatures
                 PictureBox profilePictureBox = new PictureBox
                 {
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    Size = new Size(600, 600),
+                    Size = new Size(k_ShowProfileSize, k_ShowProfileSize),
                     Location = new Point(0, 0),
                     BorderStyle = BorderStyle.FixedSingle
                 };
@@ -292,7 +315,7 @@ namespace BasicFacebookFeatures
                 Form profileForm = new Form
                 {
                     Text = "Profile Picture",
-                    Size = new Size(600, 600),
+                    Size = new Size(k_ShowProfileSize, k_ShowProfileSize),
                 };
 
                 profileForm.Controls.Add(profilePictureBox);
@@ -312,12 +335,13 @@ namespace BasicFacebookFeatures
 
             if (m_FormAppSettings.ShowDialog() == DialogResult.OK)
             {
-                r_AppSettings.SaveToFile();
+                r_AppSettings.SaveToFile(k_User);
                 DialogResult reLoginDialog = MessageBox.Show(
                     "Permissions have been updated. You need to log in again to apply the changes. Proceed?",
                     "Re-login Required",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
+
                 if (reLoginDialog == DialogResult.Yes)
                 {
                     Login();
@@ -336,7 +360,7 @@ namespace BasicFacebookFeatures
                 }
             }
         }
-        private void textBoxName_TextChanged(object sender, EventArgs e)
+        private void textBoxWishlistName_TextChanged(object sender, EventArgs e)
         {
             m_IsTextBoxChanged = !string.IsNullOrWhiteSpace(textBoxName.Text);
             updateAddButtonState();
@@ -345,7 +369,6 @@ namespace BasicFacebookFeatures
         {
             m_IsComboBoxChanged = (comboBoxCategory.SelectedItem is EWishlistCategories selectedCategory);
             updateAddButtonState();
-
         }
         private void updateAddButtonState()
         {
@@ -354,11 +377,11 @@ namespace BasicFacebookFeatures
         }
         private void populateCheckBoxListOfWishlist(EWishlistCategories i_Category)
         {
-            foreach (KeyValuePairWrapper kvp in r_AppSettings.WishlistManager.WishlistValues)
+            foreach (CategoryListWrapper kvp in r_AppSettings.WishlistManager.WishlistValues)
             {
-                if (i_Category.ToString() == kvp.Key)
+                if (i_Category.ToString() == kvp.KeyCategory)
                 {
-                    foreach (WishListItem item in kvp.Value)
+                    foreach (WishListItem item in kvp.ListOfWishlists)
                     {
                         switch (i_Category)
                         {
@@ -469,7 +492,7 @@ namespace BasicFacebookFeatures
         }
         private void checkedListBoxShopping_SelectedIndexChanged(object sender, EventArgs e)
         {
-            WishListItem wishListItemOfSelectedItem = findWishListItemByName(EWishlistCategories.Shopping, checkedListBoxActivities.Text);
+            WishListItem wishListItemOfSelectedItem = findWishListItemByName(EWishlistCategories.Shopping, checkedListBoxShopping.Text);
 
             r_WishlistManager.LoadImageForPictureBoxInList(wishListItemOfSelectedItem, pictureBoxShopping);
             buttonDeleteItem.Enabled = true;
@@ -514,11 +537,11 @@ namespace BasicFacebookFeatures
         {
             WishListItem foundedWishListItem = null;
 
-            foreach (KeyValuePairWrapper kvp in r_WishlistManager.WishlistValues)
+            foreach (CategoryListWrapper kvp in r_WishlistManager.WishlistValues)
             {
-                if (kvp.Key.Equals(i_Category.ToString()))
+                if (kvp.KeyCategory.Equals(i_Category.ToString()))
                 {
-                    foreach (WishListItem WishListItem in kvp.Value)
+                    foreach (WishListItem WishListItem in kvp.ListOfWishlists)
                     {
                         if (WishListItem.Text == i_ItemName)
                         {

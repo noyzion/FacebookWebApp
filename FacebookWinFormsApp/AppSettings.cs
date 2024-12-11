@@ -20,27 +20,32 @@ namespace BasicFacebookFeatures
             WishlistManager = null;
             WorkoutManager = null;
         }
-        public void SaveToFile()
+        public void SaveToFile(string i_FilePath)
         {
-            using (Stream stream = new FileStream(@"C:\Users\noyzi\OneDrive\Documents\appSettings.xml", FileMode.Truncate))
+            if (!File.Exists(i_FilePath))
+            {
+                File.Create(i_FilePath).Dispose();
+            }
+            using (Stream stream = new FileStream(i_FilePath, FileMode.Truncate))
             {
                 XmlSerializer serilaizer = new XmlSerializer(this.GetType());
+
                 serilaizer.Serialize(stream, this);
             }
         }
-        public static AppSettings LoadFromFile()
+        public static AppSettings LoadFromFile(string i_FilePath)
         {
             AppSettings settings = new AppSettings();
 
-            if (File.Exists(@"C:\Users\noyzi\OneDrive\Documents\appSettings.xml"))
+            using (Stream stream = new FileStream(i_FilePath, FileMode.OpenOrCreate))
             {
-                using (Stream stream = new FileStream(@"C:\Users\noyzi\OneDrive\Documents\appSettings.xml", FileMode.Open))
+                if (stream.Length > 0)
                 {
                     XmlSerializer deserilaizer = new XmlSerializer(typeof(AppSettings));
+
                     settings = deserilaizer.Deserialize(stream) as AppSettings;
                 }
             }
-
             return settings;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using FacebookWrapper.ObjectModel;
 using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
@@ -8,6 +9,11 @@ namespace BasicFacebookFeatures
     public class FacebookManager : IFacebookManager
     {
         private readonly FacebookWrapper.LoginResult r_LoginResult;
+        private const int k_pictureSize = 150;
+        private const int k_AlbumFormWidth = 450;
+        private const int k_AlbumFormHeight = 600;
+        private const int k_PictureInAlbumSize = 200;
+
         public FacebookManager(FacebookWrapper.LoginResult i_LoginResult)
         {
             r_LoginResult = i_LoginResult;
@@ -219,7 +225,7 @@ namespace BasicFacebookFeatures
                 PictureBox userPictureBox = new PictureBox
                 {
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    Size = new Size(150, 150)
+                    Size = new Size(k_pictureSize, k_pictureSize)
                 };
 
                 if (!string.IsNullOrEmpty(i_User.PictureNormalURL))
@@ -254,7 +260,7 @@ namespace BasicFacebookFeatures
                     PictureBox groupPicture = new PictureBox
                     {
                         SizeMode = PictureBoxSizeMode.StretchImage,
-                        Size = new Size(150, 150)
+                        Size = new Size(k_pictureSize, k_pictureSize)
                     };
 
                     if (!string.IsNullOrEmpty(i_Group.PictureNormalURL))
@@ -290,7 +296,7 @@ namespace BasicFacebookFeatures
                     PictureBox pagePicture = new PictureBox
                     {
                         SizeMode = PictureBoxSizeMode.StretchImage,
-                        Size = new Size(150, 150)
+                        Size = new Size(k_pictureSize, k_pictureSize)
                     };
 
                     if (!string.IsNullOrEmpty(i_Page.PictureURL))
@@ -347,7 +353,7 @@ namespace BasicFacebookFeatures
                 PictureBox albumPicture = new PictureBox
                 {
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    Size = new Size(150, 150)
+                    Size = new Size(k_pictureSize, k_pictureSize)
                 };
 
                 if (!string.IsNullOrEmpty(i_Album.PictureAlbumURL))
@@ -391,7 +397,7 @@ namespace BasicFacebookFeatures
                     PictureBox thisPostPicture = new PictureBox
                     {
                         SizeMode = PictureBoxSizeMode.StretchImage,
-                        Size = new Size(150, 150)
+                        Size = new Size(k_pictureSize, k_pictureSize)
                     };
 
                     if (!string.IsNullOrEmpty(i_Post.PictureURL))
@@ -412,8 +418,8 @@ namespace BasicFacebookFeatures
             Form albumForm = new Form
             {
                 Text = i_Album.Name,
-                Width = 450,
-                Height = 600
+                Width = k_AlbumFormWidth,
+                Height = k_AlbumFormHeight
             };
 
             albumForm.StartPosition = FormStartPosition.CenterScreen;
@@ -428,7 +434,7 @@ namespace BasicFacebookFeatures
                 PictureBox photoPicture = new PictureBox
                 {
                     SizeMode = PictureBoxSizeMode.StretchImage,
-                    Size = new Size(200, 200)
+                    Size = new Size(k_PictureInAlbumSize, k_PictureInAlbumSize)
                 };
 
                 if (!string.IsNullOrEmpty(photo.PictureNormalURL))
@@ -439,6 +445,7 @@ namespace BasicFacebookFeatures
                 {
                     photoPicture.Image = i_PictureBoxProfile.ErrorImage;
                 }
+
                 photoPanel.Controls.Add(photoPicture);
             }
 

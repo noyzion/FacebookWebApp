@@ -10,6 +10,7 @@ namespace BasicFacebookFeatures
     public partial class OpenProfilePicture : Form
     {
         public EProfileOption SelectedOption { get; set; }
+        private const int k_HoverEffect = 5;
         public OpenProfilePicture()
         {
             InitializeComponent();
@@ -33,8 +34,8 @@ namespace BasicFacebookFeatures
             if (pictureBox != null)
             {
                 pictureBox.BorderStyle = BorderStyle.FixedSingle;
-                pictureBox.Width += 5;
-                pictureBox.Height += 5;
+                pictureBox.Width += k_HoverEffect;
+                pictureBox.Height += k_HoverEffect;
                 pictureBox.BackColor = System.Drawing.Color.LightGray;
             }
         }
@@ -45,8 +46,8 @@ namespace BasicFacebookFeatures
             if (pictureBox != null)
             {
                 pictureBox.BorderStyle = BorderStyle.None;
-                pictureBox.Width -= 5;
-                pictureBox.Height -= 5;
+                pictureBox.Width -= k_HoverEffect;
+                pictureBox.Height -= k_HoverEffect;
                 pictureBox.BackColor = System.Drawing.Color.Transparent;
             }
         }

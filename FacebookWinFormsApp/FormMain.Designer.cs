@@ -348,6 +348,7 @@ namespace BasicFacebookFeatures
             // dataListBox
             // 
             this.dataListBox.AccessibleName = "DataListBox";
+            this.dataListBox.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataListBox.FormattingEnabled = true;
             this.dataListBox.HorizontalScrollbar = true;
             this.dataListBox.ItemHeight = 22;
@@ -543,6 +544,7 @@ namespace BasicFacebookFeatures
             // panelWorkouts
             // 
             this.panelWorkouts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelWorkouts.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelWorkouts.Location = new System.Drawing.Point(3, 4);
             this.panelWorkouts.Name = "panelWorkouts";
             this.panelWorkouts.Size = new System.Drawing.Size(488, 137);
@@ -815,7 +817,7 @@ namespace BasicFacebookFeatures
             this.textBoxName.Size = new System.Drawing.Size(245, 28);
             this.textBoxName.TabIndex = 1;
             this.textBoxName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxWishlistName_TextChanged);
             // 
             // labelWishlistHeader
             // 
