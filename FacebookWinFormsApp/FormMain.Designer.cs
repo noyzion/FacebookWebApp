@@ -68,7 +68,7 @@ namespace BasicFacebookFeatures
             this.buttonDeleteItem = new System.Windows.Forms.Button();
             this.labelNameOfWish = new System.Windows.Forms.Label();
             this.labelCategory = new System.Windows.Forms.Label();
-            this.buttonPost = new System.Windows.Forms.Button();
+            this.buttonShareWishlist = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.labelActivities = new System.Windows.Forms.Label();
             this.labelPets = new System.Windows.Forms.Label();
@@ -335,6 +335,7 @@ namespace BasicFacebookFeatures
             this.dataPanel.ColumnCount = 2;
             this.dataPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.dataPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.dataPanel.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataPanel.Location = new System.Drawing.Point(430, 188);
             this.dataPanel.Name = "dataPanel";
             this.dataPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -567,7 +568,7 @@ namespace BasicFacebookFeatures
             this.tabWishlist.Controls.Add(this.buttonDeleteItem);
             this.tabWishlist.Controls.Add(this.labelNameOfWish);
             this.tabWishlist.Controls.Add(this.labelCategory);
-            this.tabWishlist.Controls.Add(this.buttonPost);
+            this.tabWishlist.Controls.Add(this.buttonShareWishlist);
             this.tabWishlist.Controls.Add(this.buttonAdd);
             this.tabWishlist.Controls.Add(this.labelActivities);
             this.tabWishlist.Controls.Add(this.labelPets);
@@ -631,19 +632,19 @@ namespace BasicFacebookFeatures
             this.labelCategory.TabIndex = 23;
             this.labelCategory.Text = "category";
             // 
-            // buttonPost
+            // buttonShareWishlist
             // 
-            this.buttonPost.BackColor = System.Drawing.Color.PaleGreen;
-            this.buttonPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonPost.FlatAppearance.BorderSize = 0;
-            this.buttonPost.ForeColor = System.Drawing.Color.Black;
-            this.buttonPost.Location = new System.Drawing.Point(517, 567);
-            this.buttonPost.Name = "buttonPost";
-            this.buttonPost.Size = new System.Drawing.Size(191, 43);
-            this.buttonPost.TabIndex = 22;
-            this.buttonPost.Text = "Share your wishlist!";
-            this.buttonPost.UseVisualStyleBackColor = false;
-            this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
+            this.buttonShareWishlist.BackColor = System.Drawing.Color.PaleGreen;
+            this.buttonShareWishlist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonShareWishlist.FlatAppearance.BorderSize = 0;
+            this.buttonShareWishlist.ForeColor = System.Drawing.Color.Black;
+            this.buttonShareWishlist.Location = new System.Drawing.Point(517, 567);
+            this.buttonShareWishlist.Name = "buttonShareWishlist";
+            this.buttonShareWishlist.Size = new System.Drawing.Size(191, 43);
+            this.buttonShareWishlist.TabIndex = 22;
+            this.buttonShareWishlist.Text = "Share your wishlist!";
+            this.buttonShareWishlist.UseVisualStyleBackColor = false;
+            this.buttonShareWishlist.Click += new System.EventHandler(this.buttonPostWishlist_Click);
             // 
             // buttonAdd
             // 
@@ -736,6 +737,7 @@ namespace BasicFacebookFeatures
             // 
             this.checkedListBoxShopping.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBoxShopping.DisplayMember = "Text";
+            this.checkedListBoxShopping.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxShopping.FormattingEnabled = true;
             this.checkedListBoxShopping.Location = new System.Drawing.Point(876, 190);
             this.checkedListBoxShopping.Name = "checkedListBoxShopping";
@@ -747,7 +749,8 @@ namespace BasicFacebookFeatures
             // checkedListBoxPets
             // 
             this.checkedListBoxPets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkedListBoxPets.DisplayMember ="Text";
+            this.checkedListBoxPets.DisplayMember = "Text";
+            this.checkedListBoxPets.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxPets.FormattingEnabled = true;
             this.checkedListBoxPets.Location = new System.Drawing.Point(616, 190);
             this.checkedListBoxPets.Name = "checkedListBoxPets";
@@ -760,6 +763,7 @@ namespace BasicFacebookFeatures
             // 
             this.checkedListBoxActivities.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBoxActivities.DisplayMember = "Text";
+            this.checkedListBoxActivities.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxActivities.FormattingEnabled = true;
             this.checkedListBoxActivities.Location = new System.Drawing.Point(354, 190);
             this.checkedListBoxActivities.Name = "checkedListBoxActivities";
@@ -772,6 +776,7 @@ namespace BasicFacebookFeatures
             // 
             this.checkedListBoxFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBoxFood.DisplayMember = "Text";
+            this.checkedListBoxFood.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxFood.FormattingEnabled = true;
             this.checkedListBoxFood.Location = new System.Drawing.Point(93, 190);
             this.checkedListBoxFood.Name = "checkedListBoxFood";
@@ -793,8 +798,8 @@ namespace BasicFacebookFeatures
             // 
             // comboBoxCategory
             // 
+            this.comboBoxCategory.DataSource = Enum.GetValues(typeof(BasicFacebookFeatures.EWishlistCategories));
             this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.DataSource = Enum.GetValues(typeof(EWishlistCategories));
             this.comboBoxCategory.Location = new System.Drawing.Point(539, 90);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(121, 30);
@@ -904,7 +909,7 @@ namespace BasicFacebookFeatures
         private System.Windows.Forms.PictureBox pictureBoxShopping;
         private System.Windows.Forms.PictureBox pictureBoxActivities;
         private System.Windows.Forms.PictureBox pictureBoxFood;
-        private System.Windows.Forms.Button buttonPost;
+        private System.Windows.Forms.Button buttonShareWishlist;
         private System.Windows.Forms.Label labelCategory;
         private System.Windows.Forms.Label labelNameOfWish;
         private System.Windows.Forms.Button buttonDeleteItem;

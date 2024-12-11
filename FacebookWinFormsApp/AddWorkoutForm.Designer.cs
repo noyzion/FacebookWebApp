@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddWorkoutForm));
             this.labelCategory = new System.Windows.Forms.Label();
             this.comboBoxWorkoutCategory = new System.Windows.Forms.ComboBox();

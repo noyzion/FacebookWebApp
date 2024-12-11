@@ -8,7 +8,7 @@ namespace BasicFacebookFeatures
     public class WorkoutManager
     {
         public List<Workout> Workouts { get; set; }
-        private static readonly string[] r_ColumnNames = { "Category", "Duration", "Calories", "Date" };
+        private readonly string[] r_ColumnNames = { "Category", "Duration", "Calories", "Date" };
         public DataGridView InitializeWorkoutTable()
         {
             DataGridView workoutTable = new DataGridView
