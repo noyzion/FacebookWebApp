@@ -14,9 +14,9 @@ namespace BasicFacebookFeatures
         void FetchEvents(ListBox i_DataListBox);
         void PostStatus(string i_Message, TextBox i_StatusTextBox);
         string AddPhoto();
-        string SelectVideoFile();
-        Post PostPhoto(string i_FilePath);
-        Post PostVideo(string i_FilePath);
+        string SelectPhotoFile();
+        void PostPhoto(string i_FilePath);
+        void PostVideo(string i_FilePath);
         void MakeFriendsPanel(ref TableLayoutPanel io_DataPanel, User i_User, PictureBox i_PictureBoxProfile);
         void MakeGroupsPanel(ref TableLayoutPanel io_DataPanel, Group i_Group, PictureBox i_PictureBoxProfile);
         void MakePagePanel(ref TableLayoutPanel io_DataPanel, Page i_Page, PictureBox i_PictureBoxProfile);

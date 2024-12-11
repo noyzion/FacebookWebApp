@@ -158,9 +158,9 @@ namespace BasicFacebookFeatures
                 i_StatusTextBox.Clear();
             }
         }
-        public Post PostPhoto(string i_FilePath)
+        public void PostPhoto(string i_FilePath)
         {
-            return m_LoginResult.LoggedInUser.PostPhoto(i_FilePath);
+            m_LoginResult.LoggedInUser.PostPhoto(i_FilePath);
         }
         public string AddPhoto()
         {
@@ -187,7 +187,7 @@ namespace BasicFacebookFeatures
                 return null;
             }
         }
-        public string SelectVideoFile()
+        public string SelectPhotoFile()
         {
             string selectedFilePath = null;
 
@@ -203,20 +203,9 @@ namespace BasicFacebookFeatures
 
             return selectedFilePath;
         }
-        public Post PostVideo(string i_FilePath)
+        public void PostVideo(string i_FilePath)
         {
-            Post newPostVideo = null;
-
-            try
-            {
-                newPostVideo = m_LoginResult.LoggedInUser.PostPhoto(i_FilePath);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while posting the video: {ex.Message}");
-            }
-            
-            return newPostVideo;
+            m_LoginResult.LoggedInUser.PostPhoto(i_FilePath);
         }
         public void MakeFriendsPanel(ref TableLayoutPanel io_DataPanel,User i_User, PictureBox i_PictureBoxProfile)
         {

@@ -280,15 +280,22 @@ namespace BasicFacebookFeatures
         }
         private void buttonVideo_Click(object sender, EventArgs e)
         {
-            string selectedFilePath = m_FacebookManager.SelectVideoFile();
-
-            if (string.IsNullOrEmpty(selectedFilePath))
+            try
             {
-                MessageBox.Show("No video selected. Please select a video to upload.");
-                return;
-            }
+                string selectedFilePath = m_FacebookManager.SelectPhotoFile();
 
-            m_FacebookManager.PostVideo(selectedFilePath);
+                if (string.IsNullOrEmpty(selectedFilePath))
+                {
+                    MessageBox.Show("No video selected. Please select a video to upload.");
+                    return;
+                }
+
+                m_FacebookManager.PostVideo(selectedFilePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void pictureBoxProfile_Click(object sender, EventArgs e)
         {
