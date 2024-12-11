@@ -252,7 +252,7 @@ namespace BasicFacebookFeatures
             for (int i = 0; i < Enum.GetValues(typeof(EWishlistCategories)).Length; i++)
             {
                 EWishlistCategories category = (EWishlistCategories)i;
-                populateCheckBoxListOfWishlist(i, (EWishlistCategories)i);
+                populateCheckBoxListOfWishlist((EWishlistCategories)i);
             }
 
             buttonsAfterLogin();
@@ -440,19 +440,19 @@ namespace BasicFacebookFeatures
         }
         private void checkedListBoxFood_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            checkedListBox_ItemCheck(sender, e, checkedListBoxFood, EWishlistCategories.food);
+            checkedListBox_ItemCheck(checkedListBoxFood, EWishlistCategories.food);
         }
         private void checkedListBoxShopping_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            checkedListBox_ItemCheck(sender, e, checkedListBoxShopping, EWishlistCategories.shopping);
+            checkedListBox_ItemCheck(checkedListBoxShopping, EWishlistCategories.shopping);
         }
         private void checkedListBoxActivities_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            checkedListBox_ItemCheck(sender, e, checkedListBoxActivities, EWishlistCategories.activities);
+            checkedListBox_ItemCheck(checkedListBoxActivities, EWishlistCategories.activities);
         }
         private void checkedListBoxPets_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            checkedListBox_ItemCheck(sender, e, checkedListBoxPets, EWishlistCategories.pets);
+            checkedListBox_ItemCheck(checkedListBoxPets, EWishlistCategories.pets);
         }
         private void checkedListBox_ItemCheck(CheckedListBox i_List, EWishlistCategories i_Category)
         {
@@ -512,7 +512,6 @@ namespace BasicFacebookFeatures
             deleteSelectedItem(checkedListBoxActivities, EWishlistCategories.activities);
             deleteSelectedItem(checkedListBoxPets, EWishlistCategories.pets);
             deleteSelectedItem(checkedListBoxShopping, EWishlistCategories.shopping);
-
             MessageBox.Show("Item deleted successfully.");
         }
         private void deleteSelectedItem(CheckedListBox i_CheckedListBox, EWishlistCategories i_Category)
