@@ -260,7 +260,7 @@ namespace BasicFacebookFeatures
         }
         private void addPostButton_Click(object sender, EventArgs e)
         {
-            m_FacebookManager.Post(textBoxStatus.Text, textBoxStatus);
+            m_FacebookManager.PostStatus(textBoxStatus.Text, textBoxStatus);
         }
         private void addPictureButton_Click(object sender, EventArgs e)
         {
@@ -272,7 +272,7 @@ namespace BasicFacebookFeatures
                 return;
             }
 
-            Post postedPhoto = m_LoginResult.LoggedInUser.PostPhoto(photoPath);
+            m_FacebookManager.PostPhoto(photoPath);
         }
         private void textBoxStatus_TextChanged(object sender, EventArgs e)
         {
@@ -288,7 +288,7 @@ namespace BasicFacebookFeatures
                 return;
             }
 
-            Post postedVideo = m_FacebookManager.PostVideo(selectedFilePath);
+            m_FacebookManager.PostVideo(selectedFilePath);
         }
         private void pictureBoxProfile_Click(object sender, EventArgs e)
         {
@@ -504,7 +504,7 @@ namespace BasicFacebookFeatures
             string postData = r_WishlistManager.ShareWishlist(checkedListBoxFood, checkedListBoxActivities, 
                                                               checkedListBoxPets, checkedListBoxShopping);
 
-            m_FacebookManager.Post(postData, textBoxStatus);
+            m_FacebookManager.PostStatus(postData, textBoxStatus);
         }
         private void buttonDeleteItem_Click(object sender, EventArgs e)
         {

@@ -140,7 +140,7 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"Error fetching events: {ex.Message}");
             }
         }
-        public void Post(string i_Message, TextBox i_StatusTextBox)
+        public void PostStatus(string i_Message, TextBox i_StatusTextBox)
         {
             try
             {
@@ -157,6 +157,10 @@ namespace BasicFacebookFeatures
             {
                 i_StatusTextBox.Clear();
             }
+        }
+        public Post PostPhoto(string i_FilePath)
+        {
+            return m_LoginResult.LoggedInUser.PostPhoto(i_FilePath);
         }
         public string AddPhoto()
         {

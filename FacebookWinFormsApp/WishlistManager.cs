@@ -17,19 +17,19 @@ namespace BasicFacebookFeatures
         {
             WishlistValues = new List<KeyValuePairWrapper>();
         }
-        public void AddWishToWishlistValues(string category, ListObject item)
+        public void AddWishToWishlistValues(string i_Category, ListObject i_ItemToAdd)
         {
-            KeyValuePairWrapper existingCategoryList = WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
+            KeyValuePairWrapper existingCategoryList = WishlistValues.FirstOrDefault(kvp => kvp.Key == i_Category);
 
             if (existingCategoryList == null)
             {
-                WishlistValues.Add(new KeyValuePairWrapper(category, new List<ListObject> { item }));
+                WishlistValues.Add(new KeyValuePairWrapper(i_Category, new List<ListObject> { i_ItemToAdd }));
             }
             else
             {
-                if (!existingCategoryList.Value.Contains(item))
+                if (!existingCategoryList.Value.Contains(i_ItemToAdd))
                 {
-                    existingCategoryList.Value.Add(item);
+                    existingCategoryList.Value.Add(i_ItemToAdd);
                 }
                 else
                 {
@@ -37,31 +37,30 @@ namespace BasicFacebookFeatures
                 }
             }
         }
-        public void RemoveWishFromWishlistValues(string category, ListObject item)
+        public void RemoveWishFromWishlistValues(string i_Category, ListObject i_ItemToAdd)
         {
-            KeyValuePairWrapper existingCategory = WishlistValues.FirstOrDefault(kvp => kvp.Key == category);
+            KeyValuePairWrapper existingCategory = WishlistValues.FirstOrDefault(kvp => kvp.Key == i_Category);
 
             if (existingCategory.Key != null)
             {
-                existingCategory.Value.Remove(item);
+                existingCategory.Value.Remove(i_ItemToAdd);
                 if (existingCategory.Value.Count == 0)
                 {
                     WishlistValues.Remove(existingCategory);
                 }
             }
         }
-        public string ShareWishlist(CheckedListBox foodListBox, CheckedListBox activitiesListBox,
-                                    CheckedListBox petsListBox, CheckedListBox shoppingListBox)
+        public string ShareWishlist(CheckedListBox i_FoodListBox, CheckedListBox i_ActivitiesListBox,
+                                    CheckedListBox i_PetsListBox, CheckedListBox i_ShoppingListBox)
         {
-            string wishlistString = null;
+            string wishlistString;
 
             try
             {
-                wishlistString = displayCombinedWishlist(foodListBox, activitiesListBox, petsListBox, shoppingListBox);
+                wishlistString = displayCombinedWishlist(i_FoodListBox, i_ActivitiesListBox, i_PetsListBox, i_ShoppingListBox);
 
-                displayCombinedWishlistPopup(foodListBox, activitiesListBox, petsListBox, shoppingListBox);
+                displayCombinedWishlistPopup(i_FoodListBox, i_ActivitiesListBox, i_PetsListBox, i_ShoppingListBox);
 
-                return wishlistString;
             }
             catch (Exception ex)
             {
