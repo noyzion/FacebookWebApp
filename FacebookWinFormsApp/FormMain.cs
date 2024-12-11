@@ -12,26 +12,26 @@ namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
     {
-        private AppSettings m_AppSettings;
-        private WishlistManager m_WishlistManager;
-        private WorkoutManager m_WorkoutManager;
+        private readonly AppSettings r_AppSettings;
+        private readonly WishlistManager r_WishlistManager;
+        private readonly WorkoutManager r_WorkoutManager;
         private FacebookWrapper.LoginResult m_LoginResult;
         private FormAppSettings m_FormAppSettings = null;
         private bool m_IsTextBoxChanged = false;
         private bool m_IsComboBoxChanged = false;
         private FacebookManager m_FacebookManager;
-        private DataGridView m_WorkoutTable;
+        private readonly DataGridView r_WorkoutTable;
 
         public FormMain()
         {
             InitializeComponent();
-            m_AppSettings = AppSettings.LoadFromFile();
-            this.rememberMeCheckBox.Checked = m_AppSettings.RememberUser;
+            r_AppSettings = AppSettings.LoadFromFile();
+            this.rememberMeCheckBox.Checked = r_AppSettings.RememberUser;
             FacebookWrapper.FacebookService.s_CollectionLimit = 70; // If the limit is bigger, it works but very slow
-            m_WishlistManager = m_AppSettings.WishlistManager;
-            m_WorkoutManager = m_AppSettings.WorkoutManager;
-            m_WorkoutTable = m_WorkoutManager.InitializeWorkoutTable();
-            panelWorkouts.Controls.Add(m_WorkoutTable);
+            r_WishlistManager = r_AppSettings.WishlistManager;
+            r_WorkoutManager = r_AppSettings.WorkoutManager;
+            r_WorkoutTable = r_WorkoutManager.InitializeWorkoutTable();
+            panelWorkouts.Controls.Add(r_WorkoutTable);
         }
         private void pictureBox_MouseEnter(object sender, EventArgs e)
         {
@@ -60,26 +60,26 @@ namespace BasicFacebookFeatures
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            m_AppSettings.RememberUser = this.rememberMeCheckBox.Checked;
-            if (m_AppSettings.RememberUser)
+            r_AppSettings.RememberUser = this.rememberMeCheckBox.Checked;
+            if (r_AppSettings.RememberUser)
             {
-                m_AppSettings.LastAccessToken = m_LoginResult.AccessToken;
-                m_AppSettings.WishlistManager = m_WishlistManager;
-                m_AppSettings.WorkoutManager = m_WorkoutManager;
+                r_AppSettings.LastAccessToken = m_LoginResult.AccessToken;
+                r_AppSettings.WishlistManager = r_WishlistManager;
+                r_AppSettings.WorkoutManager = r_WorkoutManager;
             }
             else
             {
-                m_AppSettings.LastAccessToken = null;
+                r_AppSettings.LastAccessToken = null;
             }
 
-            m_AppSettings.SaveToFile();
+            r_AppSettings.SaveToFile();
         }
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            if (m_AppSettings.RememberUser && !string.IsNullOrEmpty(m_AppSettings.LastAccessToken))
+            if (r_AppSettings.RememberUser && !string.IsNullOrEmpty(r_AppSettings.LastAccessToken))
             {
-                m_LoginResult = FacebookService.Connect(m_AppSettings.LastAccessToken);
+                m_LoginResult = FacebookService.Connect(r_AppSettings.LastAccessToken);
                 m_FacebookManager = new FacebookManager(m_LoginResult);
                 populateUIFromFacebookData();
             }
@@ -91,15 +91,15 @@ namespace BasicFacebookFeatures
                 Login();
             }
         }
-        private void checkItem(CheckedListBox checkedListBox, ListObject item)
+        private void checkItemInList(CheckedListBox i_CheckedListBox, ListObject i_CheckedItem)
         {
-            if (item.m_Checked)
+            if (i_CheckedItem.m_Checked)
             {
-                int index = checkedListBox.Items.IndexOf(item);
+                int indexInList = i_CheckedListBox.Items.IndexOf(i_CheckedItem);
 
-                if (index >= 0)
+                if (indexInList >= 0)
                 {
-                    checkedListBox.SetItemChecked(index, true);
+                    i_CheckedListBox.SetItemChecked(indexInList, true);
                 }
             }
         }
@@ -139,8 +139,8 @@ namespace BasicFacebookFeatures
             pictureBoxProfile.ImageLocation = null;
             labelBirthday.Text = "Birthday: ";
             labelEmail.Text = "Email: ";
-            m_WorkoutTable.Rows.Clear();
-            m_WishlistManager.ResetWishlistUI(checkedListBoxFood, checkedListBoxPets,
+            r_WorkoutTable.Rows.Clear();
+            r_WishlistManager.ResetWishlistUI(checkedListBoxFood, checkedListBoxPets,
                                               checkedListBoxActivities, checkedListBoxShopping);
         }
         private void groups_Click(object sender, EventArgs e)
@@ -169,7 +169,7 @@ namespace BasicFacebookFeatures
         }
         public void Login()
         {
-            m_LoginResult = FacebookService.Login(m_AppSettings.AppID, m_AppSettings.Permissions);
+            m_LoginResult = FacebookService.Login(r_AppSettings.AppID, r_AppSettings.Permissions);
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
                 populateUIFromFacebookData();
@@ -210,31 +210,31 @@ namespace BasicFacebookFeatures
                 }
             }
         }
-        private void populateCheckBoxListOfWishlist(int i, EWishlistCategories category)
+        private void populateCheckBoxListOfWishlist(EWishlistCategories i_Category)
         {
-            foreach (var kvp in m_AppSettings.WishlistManager.WishlistValues)
+            foreach (KeyValuePairWrapper kvp in r_AppSettings.WishlistManager.WishlistValues)
             {
-                if (category.ToString() == kvp.Key)
+                if (i_Category.ToString() == kvp.Key)
                 {
-                    foreach (var item in kvp.Value)
+                    foreach (ListObject item in kvp.Value)
                     {
-                        switch (category)
+                        switch (i_Category)
                         {
                             case EWishlistCategories.food:
                                 checkedListBoxFood.Items.Add(item);
-                                checkItem(checkedListBoxFood, item);
+                                checkItemInList(checkedListBoxFood, item);
                                 break;
                             case EWishlistCategories.shopping:
                                 checkedListBoxShopping.Items.Add(item);
-                                checkItem(checkedListBoxShopping, item);
+                                checkItemInList(checkedListBoxShopping, item);
                                 break;
                             case EWishlistCategories.activities:
                                 checkedListBoxActivities.Items.Add(item);
-                                checkItem(checkedListBoxActivities, item);
+                                checkItemInList(checkedListBoxActivities, item);
                                 break;
                             case EWishlistCategories.pets:
                                 checkedListBoxPets.Items.Add(item);
-                                checkItem(checkedListBoxPets, item);
+                                checkItemInList(checkedListBoxPets, item);
                                 break;
                         }
                     }
@@ -256,7 +256,7 @@ namespace BasicFacebookFeatures
             }
 
             buttonsAfterLogin();
-            m_WorkoutManager.FetchWorkoutData(m_WorkoutTable);
+            r_WorkoutManager.FetchWorkoutData(r_WorkoutTable);
         }
         private void addPostButton_Click(object sender, EventArgs e)
         {
@@ -339,17 +339,17 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"Failed to load the profile picture: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private ListObject findListObjectByName(EWishlistCategories category, string itemName)
+        private ListObject findListObjectByName(EWishlistCategories i_Category, string i_ItemName)
         {
             ListObject foundedListObject = null;
 
-            foreach (KeyValuePairWrapper kvp in m_WishlistManager.WishlistValues)
+            foreach (KeyValuePairWrapper kvp in r_WishlistManager.WishlistValues)
             {
-                if (kvp.Key.Equals(category.ToString()))
+                if (kvp.Key.Equals(i_Category.ToString()))
                 {
                     foreach (ListObject listObject in kvp.Value)
                     {
-                        if (listObject.Text == itemName)
+                        if (listObject.Text == i_ItemName)
                         {
                             foundedListObject = listObject;
                         }
@@ -362,12 +362,12 @@ namespace BasicFacebookFeatures
         {
             if (m_FormAppSettings == null)
             {
-                m_FormAppSettings = new FormAppSettings(m_AppSettings);
+                m_FormAppSettings = new FormAppSettings(r_AppSettings);
             }
 
             if (m_FormAppSettings.ShowDialog() == DialogResult.OK)
             {
-                m_AppSettings.SaveToFile();
+                r_AppSettings.SaveToFile();
                 DialogResult reLoginDialog = MessageBox.Show(
                     "Permissions have been updated. You need to log in again to apply the changes. Proceed?",
                     "Re-login Required",
@@ -386,8 +386,8 @@ namespace BasicFacebookFeatures
                 string photoURL = m_FacebookManager.AddPhoto();
                 ListObject newObject = new ListObject(textBoxName.Text.Trim(), photoURL);
 
-                m_WishlistManager.AddWishToWishlistValues(comboBoxCategory.Text, newObject);
-                m_WishlistManager.UpdateCheckedListBox(checkedListBoxFood, checkedListBoxPets,
+                r_WishlistManager.AddWishToWishlistValues(comboBoxCategory.Text, newObject);
+                r_WishlistManager.UpdateCheckedListBox(checkedListBoxFood, checkedListBoxPets,
                                                        checkedListBoxActivities, checkedListBoxShopping,
                                                        comboBoxCategory.Text, newObject);
             }
@@ -412,8 +412,8 @@ namespace BasicFacebookFeatures
 
                 ListObject newObject = new ListObject(itemName);
 
-                m_WishlistManager.AddWishToWishlistValues(category, newObject);
-                m_WishlistManager.UpdateCheckedListBox(checkedListBoxFood, checkedListBoxPets,
+                r_WishlistManager.AddWishToWishlistValues(category, newObject);
+                r_WishlistManager.UpdateCheckedListBox(checkedListBoxFood, checkedListBoxPets,
                                                         checkedListBoxActivities, checkedListBoxShopping,
                                                        category, newObject);
                 textBoxName.Clear();
@@ -454,87 +454,83 @@ namespace BasicFacebookFeatures
         {
             checkedListBox_ItemCheck(sender, e, checkedListBoxPets, EWishlistCategories.pets);
         }
-        private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e, CheckedListBox list, EWishlistCategories category)
+        private void checkedListBox_ItemCheck(CheckedListBox i_List, EWishlistCategories i_Category)
         {
-            string itemName = list.Text;
-            ListObject listObject = findListObjectByName(category, itemName);
+            string itemName = i_List.Text;
+            ListObject listObjectOfItemChecked = findListObjectByName(i_Category, itemName);
 
-            if (listObject != null)
+            if (listObjectOfItemChecked != null)
             {
-                if (listObject.m_Checked)
+                if (listObjectOfItemChecked.m_Checked)
                 {
-                    listObject.m_Checked = false;
+                    listObjectOfItemChecked.m_Checked = false;
                 }
                 else
                 {
-                    listObject.m_Checked = true;
+                    listObjectOfItemChecked.m_Checked = true;
                 }
             }
         }
         private void checkedListBoxFood_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListObject listObject = findListObjectByName(EWishlistCategories.food, checkedListBoxFood.Text);
+            ListObject listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.food, checkedListBoxFood.Text);
 
-            m_WishlistManager.LoadImageForPictureBoxInList(listObject, pictureBoxFood);
+            r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxFood);
             buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxShopping_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListObject listObject = findListObjectByName(EWishlistCategories.shopping, checkedListBoxActivities.Text);
+            ListObject listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.shopping, checkedListBoxActivities.Text);
 
-            m_WishlistManager.LoadImageForPictureBoxInList(listObject, pictureBoxShopping);
+            r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxShopping);
             buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxPets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListObject listObject = findListObjectByName(EWishlistCategories.pets, checkedListBoxPets.Text);
+            ListObject listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.pets, checkedListBoxPets.Text);
 
-            m_WishlistManager.LoadImageForPictureBoxInList(listObject, pictureBoxPets);
+            r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxPets);
             buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxActivities_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListObject listObject = findListObjectByName(EWishlistCategories.activities, checkedListBoxActivities.Text);
+            ListObject listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.activities, checkedListBoxActivities.Text);
 
-            m_WishlistManager.LoadImageForPictureBoxInList(listObject, pictureBoxActivities);
+            r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxActivities);
             buttonDeleteItem.Enabled = true;
         }
         private void buttonPost_Click(object sender, EventArgs e)
         {
-            string postData = m_WishlistManager.ShareWishlist(checkedListBoxFood, checkedListBoxActivities, checkedListBoxPets, checkedListBoxShopping);
+            string postData = r_WishlistManager.ShareWishlist(checkedListBoxFood, checkedListBoxActivities, 
+                                                              checkedListBoxPets, checkedListBoxShopping);
 
             m_FacebookManager.Post(postData, textBoxStatus);
         }
         private void buttonDeleteItem_Click(object sender, EventArgs e)
         {
-            if (checkedListBoxFood.SelectedIndex >= 0)
-            {
-                m_WishlistManager.DeleteWishFromListBox(checkedListBoxFood, EWishlistCategories.food);
-            }
-            if (checkedListBoxActivities.SelectedIndex >= 0)
-            {
-                m_WishlistManager.DeleteWishFromListBox(checkedListBoxActivities, EWishlistCategories.activities);
-            }
-            if (checkedListBoxPets.SelectedIndex >= 0)
-            {
-                m_WishlistManager.DeleteWishFromListBox(checkedListBoxPets, EWishlistCategories.pets);
-            }
-            if (checkedListBoxShopping.SelectedIndex >= 0)
-            {
-                m_WishlistManager.DeleteWishFromListBox(checkedListBoxShopping, EWishlistCategories.shopping);
-            }
+            deleteSelectedItem(checkedListBoxFood, EWishlistCategories.food);
+            deleteSelectedItem(checkedListBoxActivities, EWishlistCategories.activities);
+            deleteSelectedItem(checkedListBoxPets, EWishlistCategories.pets);
+            deleteSelectedItem(checkedListBoxShopping, EWishlistCategories.shopping);
 
             MessageBox.Show("Item deleted successfully.");
         }
+        private void deleteSelectedItem(CheckedListBox i_CheckedListBox, EWishlistCategories i_Category)
+        {
+            if (i_CheckedListBox.SelectedIndex >= 0)
+            {
+                r_WishlistManager.DeleteWishFromListBox(i_CheckedListBox, i_Category);
+            }
+        }
         private void buttonAddWorkout_Click(object sender, EventArgs e)
         {
-            AddWorkoutForm addWorkoutForm = new AddWorkoutForm(m_WorkoutTable, m_WorkoutManager);
+            AddWorkoutForm addWorkoutForm = new AddWorkoutForm(r_WorkoutTable, r_WorkoutManager);
 
             addWorkoutForm.ShowDialog();
         }
         private void buttonStatistics_Click(object sender, EventArgs e)
         {
-            StatisicsForm statisicsForm = new StatisicsForm(m_WorkoutTable);
+            StatisicsForm statisicsForm = new StatisicsForm(r_WorkoutTable);
 
             statisicsForm.ShowDialog();
         }
