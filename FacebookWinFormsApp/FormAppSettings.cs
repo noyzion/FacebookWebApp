@@ -9,20 +9,20 @@ namespace BasicFacebookFeatures
 {
      public partial class FormAppSettings : Form
     {
-        private AppSettings m_AppSettings;
-        StringBuilder m_PermissionsStringBuilder = new StringBuilder();
+        private readonly AppSettings r_AppSettings;
+        private readonly StringBuilder r_PermissionsStringBuilder = new StringBuilder();
 
-        public FormAppSettings(AppSettings appSettings)
+        public FormAppSettings(AppSettings i_AppSettings)
         {
             InitializeComponent();
-            this.m_AppSettings = appSettings;
-            foreach (var permission in appSettings.Permissions)
+            this.r_AppSettings = i_AppSettings;
+            foreach (string permission in i_AppSettings.Permissions)
             {
-                int index = listBoxPermissions.Items.IndexOf(permission);
-                listBoxPermissions.SetItemChecked(index,true);
+                int indexOfPermission = listBoxPermissions.Items.IndexOf(permission);
+                listBoxPermissions.SetItemChecked(indexOfPermission,true);
             }
 
-            int appIDIndex = comboBoxAppID.Items.IndexOf(appSettings
+            int appIDIndex = comboBoxAppID.Items.IndexOf(i_AppSettings
                 .AppID);
 
             comboBoxAppID.SelectedIndex = appIDIndex;
@@ -39,13 +39,12 @@ namespace BasicFacebookFeatures
                 comboBoxAppID.SelectedIndex = 0;
             }
 
-            m_AppSettings.AppID = comboBoxAppID.SelectedItem.ToString();
-            m_AppSettings.Permissions = new string[listBoxPermissions.CheckedItems.Count];
-            listBoxPermissions.CheckedItems.CopyTo(m_AppSettings.Permissions, 0);
+            r_AppSettings.AppID = comboBoxAppID.SelectedItem.ToString();
+            r_AppSettings.Permissions = new string[listBoxPermissions.CheckedItems.Count];
+            listBoxPermissions.CheckedItems.CopyTo(r_AppSettings.Permissions, 0);
             DialogResult = DialogResult.OK;
             this.Close();
         }
-
         private void buttonAddPermission_Click(object sender, EventArgs e)
         {
             listBoxPermissions.Items.Add(textBoxPermissionsToAdd.Text);

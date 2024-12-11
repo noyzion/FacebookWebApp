@@ -1,4 +1,6 @@
-﻿namespace BasicFacebookFeatures
+﻿using System;
+
+namespace BasicFacebookFeatures
 {
     partial class FormMain
     {
@@ -652,7 +654,7 @@
             this.buttonAdd.TabIndex = 12;
             this.buttonAdd.Text = "Add Without Photo";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAddWithoutPhoto_Click);
             // 
             // labelActivities
             // 
@@ -733,7 +735,7 @@
             // checkedListBoxShopping
             // 
             this.checkedListBoxShopping.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkedListBoxShopping.DisplayMember = "m_Text";
+            this.checkedListBoxShopping.DisplayMember = "Text";
             this.checkedListBoxShopping.FormattingEnabled = true;
             this.checkedListBoxShopping.Location = new System.Drawing.Point(876, 190);
             this.checkedListBoxShopping.Name = "checkedListBoxShopping";
@@ -745,7 +747,7 @@
             // checkedListBoxPets
             // 
             this.checkedListBoxPets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkedListBoxPets.DisplayMember = "m_Text";
+            this.checkedListBoxPets.DisplayMember ="Text";
             this.checkedListBoxPets.FormattingEnabled = true;
             this.checkedListBoxPets.Location = new System.Drawing.Point(616, 190);
             this.checkedListBoxPets.Name = "checkedListBoxPets";
@@ -757,7 +759,7 @@
             // checkedListBoxActivities
             // 
             this.checkedListBoxActivities.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkedListBoxActivities.DisplayMember = "m_Text";
+            this.checkedListBoxActivities.DisplayMember = "Text";
             this.checkedListBoxActivities.FormattingEnabled = true;
             this.checkedListBoxActivities.Location = new System.Drawing.Point(354, 190);
             this.checkedListBoxActivities.Name = "checkedListBoxActivities";
@@ -769,7 +771,7 @@
             // checkedListBoxFood
             // 
             this.checkedListBoxFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkedListBoxFood.DisplayMember = "m_Text";
+            this.checkedListBoxFood.DisplayMember = "Text";
             this.checkedListBoxFood.FormattingEnabled = true;
             this.checkedListBoxFood.Location = new System.Drawing.Point(93, 190);
             this.checkedListBoxFood.Name = "checkedListBoxFood";
@@ -787,22 +789,17 @@
             this.buttonAddPhoto.TabIndex = 21;
             this.buttonAddPhoto.Text = "Add With Photo";
             this.buttonAddPhoto.UseVisualStyleBackColor = true;
-            this.buttonAddPhoto.Click += new System.EventHandler(this.buttonAddPhoto_Click);
+            this.buttonAddPhoto.Click += new System.EventHandler(this.buttonAddWithPhoto_Click);
             // 
             // comboBoxCategory
             // 
-            this.comboBoxCategory.DisplayMember = "choose category";
             this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Items.AddRange(new object[] {
-            "food",
-            "pets",
-            "activities",
-            "shopping"});
+            this.comboBoxCategory.DataSource = Enum.GetValues(typeof(EWishlistCategories));
             this.comboBoxCategory.Location = new System.Drawing.Point(539, 90);
             this.comboBoxCategory.Name = "comboBoxCategory";
             this.comboBoxCategory.Size = new System.Drawing.Size(121, 30);
             this.comboBoxCategory.TabIndex = 2;
-            this.comboBoxCategory.TextChanged += new System.EventHandler(this.comboBoxCategory_TextChanged);
+            this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategory_SelectedIndexChanged);
             // 
             // textBoxName
             // 

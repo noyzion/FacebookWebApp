@@ -13,11 +13,11 @@ namespace BasicFacebookFeatures
         private bool m_DurationChanged;
         private readonly DataGridView r_WorkoutTable;
         private readonly WorkoutManager r_WorkoutManager;
-        public AddWorkoutForm(DataGridView workoutTable, WorkoutManager workoutManager)
+        public AddWorkoutForm(DataGridView i_WorkoutTable, WorkoutManager i_WorkoutManager)
         {
             InitializeComponent();
-            this.r_WorkoutTable = workoutTable;
-            this.r_WorkoutManager = workoutManager;
+            this.r_WorkoutTable = i_WorkoutTable;
+            this.r_WorkoutManager = i_WorkoutManager;
         }
         private void comboBoxWorkoutCategory_TextChanged(object sender, EventArgs e)
         {

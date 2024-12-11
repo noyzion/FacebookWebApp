@@ -10,13 +10,11 @@ namespace BasicFacebookFeatures
     {
         public string Key { get; set; }
         public List<ListObject> Value { get; set; }
-
         public KeyValuePairWrapper() { }
-
-        public KeyValuePairWrapper(string key, List<ListObject> value)
+        public KeyValuePairWrapper(string i_Key, List<ListObject> i_Value)
         {
-            Key = key;
-            Value = value;
+            Key = i_Key;
+            Value = i_Value;
         }
     }
 }

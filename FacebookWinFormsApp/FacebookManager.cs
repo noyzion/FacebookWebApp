@@ -374,13 +374,13 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"Error displaying album details: {ex.Message}");
             }
         }
-        public void MakePostPanel(ref TableLayoutPanel io_DataPanel,Post post)
+        public void MakePostPanel(ref TableLayoutPanel io_DataPanel,Post i_Post)
         {
             try
             {
-                if (post != null)
+                if (i_Post != null)
                 {
-                    Label messageLabel = new Label { Text = $"Message: {post.Message}", AutoSize = true };
+                    Label messageLabel = new Label { Text = $"Message: {i_Post.Message}", AutoSize = true };
                     // Label likesLabel = new Label { Text = $"Likes: {post.LikedBy.Count}", AutoSize = true }; // no access
                     // Label commentsLabel = new Label { Text = $"Comments: {post.Comments.Count}", AutoSize = true };
 
@@ -394,9 +394,9 @@ namespace BasicFacebookFeatures
                         Size = new Size(150, 150)
                     };
 
-                    if (!string.IsNullOrEmpty(post.PictureURL))
+                    if (!string.IsNullOrEmpty(i_Post.PictureURL))
                     {
-                        thisPostPicture.ImageLocation = post.PictureURL;
+                        thisPostPicture.ImageLocation = i_Post.PictureURL;
                     }
 
                     io_DataPanel.Controls.Add(thisPostPicture);

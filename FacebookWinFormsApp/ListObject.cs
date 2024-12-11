@@ -10,26 +10,26 @@ namespace BasicFacebookFeatures
     {
         public string Text { get; set; }
         public string PhotoUrl { get; set; }
-        public bool m_Checked;
+        public bool Checked {  get; set; }
         public ListObject() { }
-        public ListObject(string text, string photoUrl)
+        public ListObject(string i_Text, string i_PhotoUrl)
         {
-            Text = text;
-            PhotoUrl = photoUrl;
+            Text = i_Text;
+            PhotoUrl = i_PhotoUrl;
         }
-        public ListObject(string text)
+        public ListObject(string i_Text)
         {
-            Text = text;
+            Text = i_Text;
             PhotoUrl = null;
         }
-        public override bool Equals(object obj)
+        public override bool Equals(object i_Obj)
         {
-            if (obj == null || obj.GetType() != this.GetType())
+            if (i_Obj == null || i_Obj.GetType() != this.GetType())
             {
                 return false;
             }
 
-            ListObject other = (ListObject)obj;
+            ListObject other = (ListObject)i_Obj;
 
             return Text == other.Text;
         }

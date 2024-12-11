@@ -9,12 +9,12 @@ namespace BasicFacebookFeatures
         public DateTime DateTime { get; set; }
         public decimal Calories { get; set; }
         public Workout() { }
-        public Workout(decimal duration, string catergory, DateTime dateTime, decimal calories)
+        public Workout(decimal i_Duration, string i_Catergory, DateTime i_DateTime, decimal i_Calories)
         {
-            Duration = duration;
-            Category = catergory;
-            DateTime = dateTime;
-            Calories = calories;
+            Duration = i_Duration;
+            Category = i_Catergory;
+            DateTime = i_DateTime;
+            Calories = i_Calories;
         }
     }
 }

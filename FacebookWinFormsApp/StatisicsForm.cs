@@ -10,10 +10,10 @@ namespace BasicFacebookFeatures
     {
         private readonly DataGridView r_WorkoutTable;
 
-        public StatisicsForm(DataGridView workoutTable)
+        public StatisicsForm(DataGridView i_WorkoutTable)
         {
             InitializeComponent();
-            r_WorkoutTable = workoutTable;
+            r_WorkoutTable = i_WorkoutTable;
             generateWorkoutStatistics();
         }
         private void generateWorkoutStatistics()
@@ -48,7 +48,6 @@ namespace BasicFacebookFeatures
 
             return caloriesPerMonth;
         }
-
         private Dictionary<int, int> calculateWorkoutCountPerMonth()
         {
             Dictionary<int, int> workoutCountPerMonth = new Dictionary<int, int>();
@@ -73,8 +72,7 @@ namespace BasicFacebookFeatures
 
             return workoutCountPerMonth;
         }
-
-        private void displayCharts(Dictionary<int, int> caloriesPerMonth, Dictionary<int, int> workoutCountPerMonth)
+        private void displayCharts(Dictionary<int, int> i_CaloriesPerMonth, Dictionary<int, int> i_WorkoutCountPerMonth)
         {
             string[] monthNames = {
                 "January", "February", "March", "April", "May", "June",
@@ -84,16 +82,16 @@ namespace BasicFacebookFeatures
             caloriesChart.Series["Calories"].Points.Clear();
             timeChart.Series["Amount"].Points.Clear();
 
-            var months = workoutCountPerMonth.Keys
-                           .Union(caloriesPerMonth.Keys)
+            var months = i_WorkoutCountPerMonth.Keys
+                           .Union(i_CaloriesPerMonth.Keys)
                            .Distinct()
                            .OrderBy(m => m);
 
             foreach (var month in months)
             {
                 string monthName = monthNames[month - 1];
-                int caloriesForMonth = caloriesPerMonth.ContainsKey(month) ? caloriesPerMonth[month] : 0;
-                int workoutCountForMonth = workoutCountPerMonth.ContainsKey(month) ? workoutCountPerMonth[month] : 0;
+                int caloriesForMonth = i_CaloriesPerMonth.ContainsKey(month) ? i_CaloriesPerMonth[month] : 0;
+                int workoutCountForMonth = i_WorkoutCountPerMonth.ContainsKey(month) ? i_WorkoutCountPerMonth[month] : 0;
 
                 if (caloriesForMonth > 0)
                 {

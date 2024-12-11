@@ -2,9 +2,9 @@
 {
     public enum EWishlistCategories
     {
-        food,
-        pets,
-        activities,
-        shopping
+        Food,
+        Pets,
+        Activities,
+        Shopping
     }
 }

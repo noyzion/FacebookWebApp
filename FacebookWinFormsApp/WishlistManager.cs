@@ -87,7 +87,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
 
             foreach (ListObject item in i_ListBox.Items)
             {
-                categoryItems.AppendLine($"- {item.Text}" + (item.m_Checked ? " (Achieved ✅)" : ""));
+                categoryItems.AppendLine($"- {item.Text}" + (item.Checked ? " (Achieved ✅)" : ""));
             }
 
             return categoryItems.ToString();
@@ -111,7 +111,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
                 WrapContents = false,
                 Padding = new Padding(10)
             };
-
+            
             mainPanel.Controls.Add(createCategoryPanel("Food", i_FoodListBox));
             mainPanel.Controls.Add(createCategoryPanel("Activities", i_ActivitiesListBox));
             mainPanel.Controls.Add(createCategoryPanel("Pets", i_PetsListBox));
@@ -185,7 +185,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
         {
             return new Label
             {
-                Text = $"{i_WishlistItem.Text}" + (i_WishlistItem.m_Checked ? " (Achieved ✅)" : ""),
+                Text = $"{i_WishlistItem.Text}" + (i_WishlistItem.Checked ? " (Achieved ✅)" : ""),
                 AutoSize = true,
                 Location = new Point(5, 5),
                 Font = new Font("Arial", 10, FontStyle.Regular)
@@ -264,16 +264,16 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
             {
                 switch (i_Category)
                 {
-                    case nameof(EWishlistCategories.food):
+                    case nameof(EWishlistCategories.Food):
                         i_FoodListBox.Items.Add(i_WishlistItem);
                         break;
-                    case nameof(EWishlistCategories.shopping):
+                    case nameof(EWishlistCategories.Shopping):
                         i_ShoppingListBox.Items.Add(i_WishlistItem);
                         break;
-                    case nameof(EWishlistCategories.activities):
+                    case nameof(EWishlistCategories.Activities):
                         i_ActivitiesListBox.Items.Add(i_WishlistItem);
                         break;
-                    case nameof(EWishlistCategories.pets):
+                    case nameof(EWishlistCategories.Pets):
                         i_PetsListBox.Items.Add(i_WishlistItem);
                         break;
                     default:
