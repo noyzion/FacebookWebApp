@@ -13,8 +13,8 @@ namespace BasicFacebookFeatures
         void FetchLikedPages(ListBox i_DataListBox);
         void FetchEvents(ListBox i_DataListBox);
         void PostStatus(string i_Message, TextBox i_StatusTextBox);
-        string AddPhoto();
         string SelectPhotoFile();
+        string SelectVideoFile();
         void PostPhoto(string i_FilePath);
         void PostVideo(string i_FilePath);
         void MakeFriendsPanel(ref TableLayoutPanel io_DataPanel, User i_User, PictureBox i_PictureBoxProfile);

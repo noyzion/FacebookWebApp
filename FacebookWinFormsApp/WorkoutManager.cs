@@ -34,7 +34,7 @@ namespace BasicFacebookFeatures
                         workout.Category,
                         workout.Duration,
                         workout.Calories,
-                        workout.DateTime.ToString("yyyy-MM-dd")
+                        workout.Date.ToString("yyyy-MM-dd")
                     );
                 }
             }

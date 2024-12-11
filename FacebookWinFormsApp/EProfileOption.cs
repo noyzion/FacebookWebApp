@@ -6,5 +6,4 @@ namespace BasicFacebookFeatures
         ShowProfile,
         ChangeProfile
     }
-
 }

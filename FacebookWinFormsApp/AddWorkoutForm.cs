@@ -51,21 +51,18 @@ namespace BasicFacebookFeatures
                 return;
             }
 
-            Workout newWorkout = new Workout(
-                numericUpDownDuration.Value,
-                comboBoxWorkoutCategory.Text,
-                dateTimePickerWorkout.Value,
-                numericUpDownCalories.Value
+            Workout newWorkout = new Workout(numericUpDownDuration.Value, comboBoxWorkoutCategory.Text,
+                                             dateTimePickerWorkout.Value, numericUpDownCalories.Value
             );
 
             if (r_WorkoutManager.Workouts == null)
             {
                 r_WorkoutManager.Workouts = new List<Workout>();
             }
+
             r_WorkoutManager.Workouts.Add(newWorkout);
-
-            r_WorkoutTable.Rows.Add(newWorkout.Category, newWorkout.Duration, newWorkout.Calories, newWorkout.DateTime.ToShortDateString());
-
+            r_WorkoutTable.Rows.Add(newWorkout.Category, newWorkout.Duration, newWorkout.Calories, 
+                                    newWorkout.Date.ToShortDateString());
             this.Close();
         }
     }

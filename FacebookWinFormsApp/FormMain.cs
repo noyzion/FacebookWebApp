@@ -91,7 +91,7 @@ namespace BasicFacebookFeatures
                 Login();
             }
         }
-        private void checkItemInList(CheckedListBox i_CheckedListBox, ListObject i_CheckedItem)
+        private void checkItemInList(CheckedListBox i_CheckedListBox, WishListItem i_CheckedItem)
         {
             if (i_CheckedItem.Checked)
             {
@@ -216,7 +216,7 @@ namespace BasicFacebookFeatures
             {
                 if (i_Category.ToString() == kvp.Key)
                 {
-                    foreach (ListObject item in kvp.Value)
+                    foreach (WishListItem item in kvp.Value)
                     {
                         switch (i_Category)
                         {
@@ -264,7 +264,7 @@ namespace BasicFacebookFeatures
         }
         private void addPictureButton_Click(object sender, EventArgs e)
         {
-            string photoPath = m_FacebookManager.AddPhoto();
+            string photoPath = m_FacebookManager.SelectPhotoFile();
 
             if (string.IsNullOrEmpty(photoPath))
             {
@@ -282,7 +282,7 @@ namespace BasicFacebookFeatures
         {
             try
             {
-                string selectedFilePath = m_FacebookManager.SelectPhotoFile();
+                string selectedFilePath = m_FacebookManager.SelectVideoFile();
 
                 if (string.IsNullOrEmpty(selectedFilePath))
                 {
@@ -346,15 +346,15 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"Failed to load the profile picture: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private ListObject findListObjectByName(EWishlistCategories i_Category, string i_ItemName)
+        private WishListItem findListObjectByName(EWishlistCategories i_Category, string i_ItemName)
         {
-            ListObject foundedListObject = null;
+            WishListItem foundedListObject = null;
 
             foreach (KeyValuePairWrapper kvp in r_WishlistManager.WishlistValues)
             {
                 if (kvp.Key.Equals(i_Category.ToString()))
                 {
-                    foreach (ListObject listObject in kvp.Value)
+                    foreach (WishListItem listObject in kvp.Value)
                     {
                         if (listObject.Text == i_ItemName)
                         {
@@ -390,8 +390,8 @@ namespace BasicFacebookFeatures
         {
             try
             {
-                string photoURL = m_FacebookManager.AddPhoto();
-                ListObject newObject = new ListObject(textBoxName.Text.Trim(), photoURL);
+                string photoURL = m_FacebookManager.SelectPhotoFile();
+                WishListItem newObject = new WishListItem(textBoxName.Text.Trim(), photoURL);
 
                 r_WishlistManager.AddWishToWishlistValues(comboBoxCategory.Text, newObject);
                 r_WishlistManager.UpdateCheckedListBox(checkedListBoxFood, checkedListBoxPets,
@@ -417,7 +417,7 @@ namespace BasicFacebookFeatures
                     return;
                 }
 
-                ListObject newObject = new ListObject(itemName);
+                WishListItem newObject = new WishListItem(itemName);
 
                 r_WishlistManager.AddWishToWishlistValues(category, newObject);
                 r_WishlistManager.UpdateCheckedListBox(checkedListBoxFood, checkedListBoxPets,
@@ -465,7 +465,7 @@ namespace BasicFacebookFeatures
         private void checkedListBox_ItemCheck(CheckedListBox i_List, EWishlistCategories i_Category)
         {
             string itemName = i_List.Text;
-            ListObject listObjectOfItemChecked = findListObjectByName(i_Category, itemName);
+            WishListItem listObjectOfItemChecked = findListObjectByName(i_Category, itemName);
 
             if (listObjectOfItemChecked != null)
             {
@@ -481,28 +481,28 @@ namespace BasicFacebookFeatures
         }
         private void checkedListBoxFood_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListObject listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Food, checkedListBoxFood.Text);
+            WishListItem listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Food, checkedListBoxFood.Text);
 
             r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxFood);
             buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxShopping_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListObject listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Shopping, checkedListBoxActivities.Text);
+            WishListItem listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Shopping, checkedListBoxActivities.Text);
 
             r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxShopping);
             buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxPets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListObject listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Pets, checkedListBoxPets.Text);
+            WishListItem listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Pets, checkedListBoxPets.Text);
 
             r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxPets);
             buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxActivities_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListObject listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Activities, checkedListBoxActivities.Text);
+            WishListItem listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Activities, checkedListBoxActivities.Text);
 
             r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxActivities);
             buttonDeleteItem.Enabled = true;

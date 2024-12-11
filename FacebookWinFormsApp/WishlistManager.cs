@@ -17,13 +17,13 @@ namespace BasicFacebookFeatures
         {
             WishlistValues = new List<KeyValuePairWrapper>();
         }
-        public void AddWishToWishlistValues(string i_Category, ListObject i_ItemToAdd)
+        public void AddWishToWishlistValues(string i_Category, WishListItem i_ItemToAdd)
         {
             KeyValuePairWrapper existingCategoryList = WishlistValues.FirstOrDefault(kvp => kvp.Key == i_Category);
 
             if (existingCategoryList == null)
             {
-                WishlistValues.Add(new KeyValuePairWrapper(i_Category, new List<ListObject> { i_ItemToAdd }));
+                WishlistValues.Add(new KeyValuePairWrapper(i_Category, new List<WishListItem> { i_ItemToAdd }));
             }
             else
             {
@@ -37,7 +37,7 @@ namespace BasicFacebookFeatures
                 }
             }
         }
-        public void RemoveWishFromWishlistValues(string i_Category, ListObject i_ItemToAdd)
+        public void RemoveWishFromWishlistValues(string i_Category, WishListItem i_ItemToAdd)
         {
             KeyValuePairWrapper existingCategory = WishlistValues.FirstOrDefault(kvp => kvp.Key == i_Category);
 
@@ -85,7 +85,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
         {
             StringBuilder categoryItems = new StringBuilder();
 
-            foreach (ListObject item in i_ListBox.Items)
+            foreach (WishListItem item in i_ListBox.Items)
             {
                 categoryItems.AppendLine($"- {item.Text}" + (item.Checked ? " (Achieved ✅)" : ""));
             }
@@ -127,7 +127,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
             categoryPanel.Controls.Add(categoryLabel);
             if (i_CheckedListBox.Items.Count > 0)
             {
-                foreach (ListObject item in i_CheckedListBox.Items)
+                foreach (WishListItem item in i_CheckedListBox.Items)
                 {
                     Panel itemPanel = createItemPanel(item);
                     categoryPanel.Controls.Add(itemPanel);
@@ -164,7 +164,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
                 Margin = new Padding(5)
             };
         }
-        private Panel createItemPanel(ListObject i_WishlistItem)
+        private Panel createItemPanel(WishListItem i_WishlistItem)
         {
             Panel itemPanel = new Panel
             {
@@ -181,7 +181,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
 
             return itemPanel;
         }
-        private Label createItemLabel(ListObject i_WishlistItem)
+        private Label createItemLabel(WishListItem i_WishlistItem)
         {
             return new Label
             {
@@ -191,7 +191,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
                 Font = new Font("Arial", 10, FontStyle.Regular)
             };
         }
-        private PictureBox createItemPictureBox(ListObject i_WishlistItem)
+        private PictureBox createItemPictureBox(WishListItem i_WishlistItem)
         {
             PictureBox pictureBoxItem = new PictureBox
             {
@@ -222,7 +222,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
                 Margin = new Padding(5)
             };
         }
-        public void LoadImageForPictureBoxInList(ListObject i_WishlistItem, PictureBox i_ItemPictureBox)
+        public void LoadImageForPictureBoxInList(WishListItem i_WishlistItem, PictureBox i_ItemPictureBox)
         {
             if (i_WishlistItem != null && i_WishlistItem.PhotoUrl != null)
             {
@@ -243,7 +243,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
         }
         public void DeleteWishFromListBox(CheckedListBox i_CheckedListBox, EWishlistCategories i_Category)
         {
-            ListObject selectedItem = (ListObject)i_CheckedListBox.Items[i_CheckedListBox.SelectedIndex];
+            WishListItem selectedItem = (WishListItem)i_CheckedListBox.Items[i_CheckedListBox.SelectedIndex];
 
             i_CheckedListBox.Items.RemoveAt(i_CheckedListBox.SelectedIndex);
             RemoveWishFromWishlistValues(i_Category.ToString(), selectedItem);
@@ -258,7 +258,7 @@ Shopping:{getCategoryItemsAsString(i_ShoppingListBox)}");
         }
         public void UpdateCheckedListBox(CheckedListBox i_FoodListBox, CheckedListBox i_PetsListBox,
                                          CheckedListBox i_ActivitiesListBox, CheckedListBox i_ShoppingListBox,
-                                         string i_Category, ListObject i_WishlistItem)
+                                         string i_Category, WishListItem i_WishlistItem)
         {
             try
             {

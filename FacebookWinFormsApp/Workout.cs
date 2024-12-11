@@ -6,14 +6,14 @@ namespace BasicFacebookFeatures
     {
         public decimal Duration { get; set; }
         public string Category { get; set; }
-        public DateTime DateTime { get; set; }
+        public DateTime Date { get; set; }
         public decimal Calories { get; set; }
         public Workout() { }
         public Workout(decimal i_Duration, string i_Catergory, DateTime i_DateTime, decimal i_Calories)
         {
             Duration = i_Duration;
             Category = i_Catergory;
-            DateTime = i_DateTime;
+            Date = i_DateTime;
             Calories = i_Calories;
         }
     }

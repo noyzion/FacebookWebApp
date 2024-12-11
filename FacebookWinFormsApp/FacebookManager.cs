@@ -7,10 +7,10 @@ namespace BasicFacebookFeatures
 {
     public class FacebookManager : IFacebookManager
     {
-        private FacebookWrapper.LoginResult m_LoginResult;
+        private readonly FacebookWrapper.LoginResult r_LoginResult;
         public FacebookManager(FacebookWrapper.LoginResult i_LoginResult)
         {
-            m_LoginResult = i_LoginResult;
+            r_LoginResult = i_LoginResult;
         }
         public void FetchGroups(ListBox i_DataListBox)
         {
@@ -20,7 +20,7 @@ namespace BasicFacebookFeatures
                 i_DataListBox.Items?.Clear();
                 i_DataListBox.DisplayMember = "Name";
 
-                foreach (Group group in m_LoginResult.LoggedInUser.Groups)
+                foreach (Group group in r_LoginResult.LoggedInUser.Groups)
                 {
                     i_DataListBox.Items.Add(group);
                 }
@@ -42,7 +42,7 @@ namespace BasicFacebookFeatures
                 i_DataListBox.DataSource = null;
                 i_DataListBox.Items?.Clear();
                 i_DataListBox.DisplayMember = "Name";
-                i_DataListBox.DataSource = m_LoginResult.LoggedInUser.Albums;
+                i_DataListBox.DataSource = r_LoginResult.LoggedInUser.Albums;
                 if (i_DataListBox.Items.Count == 0)
                 {
                     MessageBox.Show("No albums to retrieve :(");
@@ -60,7 +60,7 @@ namespace BasicFacebookFeatures
                 i_DataListBox.DataSource = null;
                 i_DataListBox.Items?.Clear();
                 i_DataListBox.DisplayMember = "Name";
-                i_DataListBox.DataSource = m_LoginResult.LoggedInUser.Friends;
+                i_DataListBox.DataSource = r_LoginResult.LoggedInUser.Friends;
                 if (i_DataListBox.Items.Count == 0)
                 {
                     MessageBox.Show("No friends to retrieve :(");
@@ -78,7 +78,7 @@ namespace BasicFacebookFeatures
                 i_DataListBox.DataSource = null;
                 i_DataListBox.Items?.Clear();
                 i_DataListBox.DisplayMember = "UpdateTime";
-                foreach (Post post in m_LoginResult.LoggedInUser.Posts)
+                foreach (Post post in r_LoginResult.LoggedInUser.Posts)
                 {
                     if (post.Message != null || post.PictureURL != null)
                     {
@@ -103,7 +103,7 @@ namespace BasicFacebookFeatures
                 i_DataListBox.DataSource = null;
                 i_DataListBox.Items?.Clear();
                 i_DataListBox.DisplayMember = "Name";
-                foreach (Page page in m_LoginResult.LoggedInUser.LikedPages)
+                foreach (Page page in r_LoginResult.LoggedInUser.LikedPages)
                 {
                     i_DataListBox.Items.Add(page);
                 }
@@ -125,7 +125,7 @@ namespace BasicFacebookFeatures
                 i_DataListBox.DataSource = null;
                 i_DataListBox.Items?.Clear();
                 i_DataListBox.DisplayMember = "Name";
-                foreach (Event fbEvent in m_LoginResult.LoggedInUser.Events)
+                foreach (Event fbEvent in r_LoginResult.LoggedInUser.Events)
                 {
                     i_DataListBox.Items.Add(fbEvent);
                 }
@@ -144,7 +144,7 @@ namespace BasicFacebookFeatures
         {
             try
             {
-                Status postedStatus = m_LoginResult.LoggedInUser.PostStatus(i_Message);
+                Status postedStatus = r_LoginResult.LoggedInUser.PostStatus(i_Message);
 
                 MessageBox.Show($"Status posted! ID: {postedStatus.Id}");
             }
@@ -160,9 +160,9 @@ namespace BasicFacebookFeatures
         }
         public void PostPhoto(string i_FilePath)
         {
-            m_LoginResult.LoggedInUser.PostPhoto(i_FilePath);
+            r_LoginResult.LoggedInUser.PostPhoto(i_FilePath);
         }
-        public string AddPhoto()
+        public string SelectPhotoFile()
         {
             string selectedFilePath = null;
 
@@ -187,7 +187,7 @@ namespace BasicFacebookFeatures
                 return null;
             }
         }
-        public string SelectPhotoFile()
+        public string SelectVideoFile()
         {
             string selectedFilePath = null;
 
@@ -205,7 +205,7 @@ namespace BasicFacebookFeatures
         }
         public void PostVideo(string i_FilePath)
         {
-            m_LoginResult.LoggedInUser.PostPhoto(i_FilePath);
+            r_LoginResult.LoggedInUser.PostPhoto(i_FilePath);
         }
         public void MakeFriendsPanel(ref TableLayoutPanel io_DataPanel,User i_User, PictureBox i_PictureBoxProfile)
         {

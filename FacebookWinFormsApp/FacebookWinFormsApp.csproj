@@ -91,7 +91,7 @@
     <Compile Include="IFacebookManager.cs" />
     <Compile Include="IWishlistManager.cs" />
     <Compile Include="KeyValuePairWrapper.cs" />
-    <Compile Include="ListObject.cs" />
+    <Compile Include="WishListItem.cs" />
     <Compile Include="WorkoutManager.cs" />
     <Compile Include="EWishlistCategories.cs" />
     <Compile Include="FormAppSettings.cs">
