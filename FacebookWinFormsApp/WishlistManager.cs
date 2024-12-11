@@ -195,7 +195,7 @@ Shopping:{getCategoryItemsAsString(shoppingListBox)}");
         }
         private PictureBox createItemPictureBox(ListObject item)
         {
-            PictureBox pictureBox = new PictureBox
+            PictureBox pictureBoxItem = new PictureBox
             {
                 Size = new Size(60, 60),
                 Location = new Point(5, 30),
@@ -204,14 +204,14 @@ Shopping:{getCategoryItemsAsString(shoppingListBox)}");
 
             if (!string.IsNullOrEmpty(item.PhotoUrl) && File.Exists(item.PhotoUrl))
             {
-                pictureBox.Image = Image.FromFile(item.PhotoUrl);
+                pictureBoxItem.Image = Image.FromFile(item.PhotoUrl);
             }
             else
             {
-                pictureBox.Image = null;
+                pictureBoxItem.Image = null;
             }
 
-            return pictureBox;
+            return pictureBoxItem;
         }
         private Label createEmptyMessageLabel()
         {
@@ -232,7 +232,6 @@ Shopping:{getCategoryItemsAsString(shoppingListBox)}");
                 {
                     pictureBox.Image = Image.FromFile(listObject.PhotoUrl);
                     pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-
                 }
                 catch (Exception ex)
                 {
@@ -247,6 +246,7 @@ Shopping:{getCategoryItemsAsString(shoppingListBox)}");
         public void DeleteWishFromListBox(CheckedListBox checkedListBox, EWishlistCategories category)
         {
             ListObject selectedItem = (ListObject)checkedListBox.Items[checkedListBox.SelectedIndex];
+
             checkedListBox.Items.RemoveAt(checkedListBox.SelectedIndex);
             RemoveWishFromWishlistValues(category.ToString(), selectedItem);
         }
@@ -269,19 +269,15 @@ Shopping:{getCategoryItemsAsString(shoppingListBox)}");
                     case nameof(EWishlistCategories.food):
                         foodList.Items.Add(item);
                         break;
-
                     case nameof(EWishlistCategories.shopping):
                         shoppingList.Items.Add(item);
                         break;
-
                     case nameof(EWishlistCategories.activities):
                         activitiesList.Items.Add(item);
                         break;
-
                     case nameof(EWishlistCategories.pets):
                         petsList.Items.Add(item);
                         break;
-
                     default:
                         MessageBox.Show("Invalid category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;

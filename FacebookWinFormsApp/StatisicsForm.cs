@@ -99,7 +99,6 @@ namespace BasicFacebookFeatures
                 {
                     caloriesChart.Series["Calories"].Points.AddXY(monthName, caloriesForMonth);
                 }
-
                 if (workoutCountForMonth > 0)
                 {
                     timeChart.Series["Amount"].Points.AddXY(monthName, workoutCountForMonth);
