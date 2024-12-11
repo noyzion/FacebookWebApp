@@ -346,24 +346,24 @@ namespace BasicFacebookFeatures
                 MessageBox.Show($"Failed to load the profile picture: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private WishListItem findListObjectByName(EWishlistCategories i_Category, string i_ItemName)
+        private WishListItem findWishListItemByName(EWishlistCategories i_Category, string i_ItemName)
         {
-            WishListItem foundedListObject = null;
+            WishListItem foundedWishListItem = null;
 
             foreach (KeyValuePairWrapper kvp in r_WishlistManager.WishlistValues)
             {
                 if (kvp.Key.Equals(i_Category.ToString()))
                 {
-                    foreach (WishListItem listObject in kvp.Value)
+                    foreach (WishListItem WishListItem in kvp.Value)
                     {
-                        if (listObject.Text == i_ItemName)
+                        if (WishListItem.Text == i_ItemName)
                         {
-                            foundedListObject = listObject;
+                            foundedWishListItem = WishListItem;
                         }
                     }
                 }
             }
-            return foundedListObject;
+            return foundedWishListItem;
         }
         private void buttonSettings_Click(object sender, EventArgs e)
         {
@@ -465,46 +465,46 @@ namespace BasicFacebookFeatures
         private void checkedListBox_ItemCheck(CheckedListBox i_List, EWishlistCategories i_Category)
         {
             string itemName = i_List.Text;
-            WishListItem listObjectOfItemChecked = findListObjectByName(i_Category, itemName);
+            WishListItem wishListItemChecked = findWishListItemByName(i_Category, itemName);
 
-            if (listObjectOfItemChecked != null)
+            if (wishListItemChecked != null)
             {
-                if (listObjectOfItemChecked.Checked)
+                if (wishListItemChecked.Checked)
                 {
-                    listObjectOfItemChecked.Checked = false;
+                    wishListItemChecked.Checked = false;
                 }
                 else
                 {
-                    listObjectOfItemChecked.Checked = true;
+                    wishListItemChecked.Checked = true;
                 }
             }
         }
         private void checkedListBoxFood_SelectedIndexChanged(object sender, EventArgs e)
         {
-            WishListItem listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Food, checkedListBoxFood.Text);
+            WishListItem wishListItemOfSelectedItem = findWishListItemByName(EWishlistCategories.Food, checkedListBoxFood.Text);
 
-            r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxFood);
+            r_WishlistManager.LoadImageForPictureBoxInList(wishListItemOfSelectedItem, pictureBoxFood);
             buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxShopping_SelectedIndexChanged(object sender, EventArgs e)
         {
-            WishListItem listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Shopping, checkedListBoxActivities.Text);
+            WishListItem wishListItemOfSelectedItem = findWishListItemByName(EWishlistCategories.Shopping, checkedListBoxActivities.Text);
 
-            r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxShopping);
+            r_WishlistManager.LoadImageForPictureBoxInList(wishListItemOfSelectedItem, pictureBoxShopping);
             buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxPets_SelectedIndexChanged(object sender, EventArgs e)
         {
-            WishListItem listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Pets, checkedListBoxPets.Text);
+            WishListItem wishListItemOfSelectedItem = findWishListItemByName(EWishlistCategories.Pets, checkedListBoxPets.Text);
 
-            r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxPets);
+            r_WishlistManager.LoadImageForPictureBoxInList(wishListItemOfSelectedItem, pictureBoxPets);
             buttonDeleteItem.Enabled = true;
         }
         private void checkedListBoxActivities_SelectedIndexChanged(object sender, EventArgs e)
         {
-            WishListItem listObjectOfSelectedItem = findListObjectByName(EWishlistCategories.Activities, checkedListBoxActivities.Text);
+            WishListItem wishListItemOfSelectedItem = findWishListItemByName(EWishlistCategories.Activities, checkedListBoxActivities.Text);
 
-            r_WishlistManager.LoadImageForPictureBoxInList(listObjectOfSelectedItem, pictureBoxActivities);
+            r_WishlistManager.LoadImageForPictureBoxInList(wishListItemOfSelectedItem, pictureBoxActivities);
             buttonDeleteItem.Enabled = true;
         }
         private void buttonPost_Click(object sender, EventArgs e)
